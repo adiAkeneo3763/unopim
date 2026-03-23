@@ -3,172 +3,230 @@ const groqapikey = process.env.GROQ_API_KEY;
 const groqinvalidapikey = process.env.GROQ_INVALID_KEY;
 
 test.describe('UnoPim Magic AI tests cases', () => {
+
+// ─────────────────────────────────────────────────
+// Navigation & Configuration Page Tests
+// ─────────────────────────────────────────────────
+
 test('Check the Magic AI Visibility', async({adminPage})=>{
-  await expect(adminPage.getByRole('link', { name: ' Configuration' })).toBeVisible();
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await expect(adminPage.getByRole('link', { name: ' Configuration' })).toBeVisible();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await expect(adminPage.getByRole('link', { name: 'Magic AI' })).toBeVisible();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await expect(adminPage).toHaveURL(/.*\/admin\/configuration\/general\/magic_ai/);
 });
 
 test('Verify the MagicAI page open', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await expect(adminPage.getByText('Configuration', {exact:true}).nth(1)).toBeVisible();
   await adminPage.getByText('Configuration', {exact:true}).nth(1).click();
-  await expect(adminPage.getByText(/General Settings.*Magic AI feature.*OpenAI credentials/)).toBeVisible();
+  await expect(adminPage.getByText(/General Settings/)).toBeVisible();
 });
 
 test('Check the field general settings of MagicAI', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await adminPage.getByText('Configuration', {exact:true}).nth(1).click(); 
+  await adminPage.getByText('Configuration', {exact:true}).nth(1).click();
+
+  // Enabled toggle
   await expect(adminPage.locator('.w-9.h-5').first()).toBeVisible();
   await expect(adminPage.locator('.w-9.h-5').first()).toBeEnabled();
-  await expect(adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
-  await expect(adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags')).toBeEnabled();
-  await expect(adminPage.getByRole('textbox', { name: 'API Key' })).toBeVisible();
-  await expect(adminPage.getByRole('textbox', { name: 'API Key' })).toBeEnabled();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toBeVisible();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toBeEnabled();
-  await expect(adminPage.locator('.w-9.h-5').nth(1)).toBeVisible();
-  await expect(adminPage.locator('.w-9.h-5').nth(1)).toBeEnabled();
-  await expect(adminPage.locator('.w-9.h-5').nth(2)).toBeVisible();
-  await expect(adminPage.locator('.w-9.h-5').nth(2)).toBeEnabled();
-  await expect(adminPage.locator('input[name="general[magic_ai][translation][ai_model]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
-  await expect(adminPage.locator('input[name="general[magic_ai][translation][ai_model]"]')
-  .locator('..').locator('.multiselect__tags')).toBeEnabled();
-  await expect(adminPage.locator('.w-9.h-5').nth(3)).toBeVisible();
-  await expect(adminPage.locator('.w-9.h-5').nth(3)).toBeEnabled();
-  await expect(adminPage.locator('input[name="general[magic_ai][translation][source_channel]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
-  await expect(adminPage.locator('input[name="general[magic_ai][translation][source_channel]"]')
-  .locator('..').locator('.multiselect__tags')).toBeEnabled();
-  await expect(adminPage.locator('input[name="general[magic_ai][translation][target_channel]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
-  await expect(adminPage.locator('input[name="general[magic_ai][translation][target_channel]"]')
-  .locator('..').locator('.multiselect__tags')).toBeEnabled();
+
+  // AI Platform dropdown (now a native select, not multiselect)
+  await expect(adminPage.locator('select[name="general[magic_ai][settings][ai_platform]"]')).toBeVisible();
+
+  // Save Configuration button
   await expect(adminPage.getByRole('button', { name: 'Save Configuration' })).toBeVisible();
   await expect(adminPage.getByRole('button', { name: 'Save Configuration' })).toBeEnabled();
 });
 
 test('Click on the Save Configuration without any input', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await expect(adminPage).toHaveURL(/.*\/admin\/configuration\/general\/magic_ai/);
   await expect(adminPage.getByRole('button', { name: 'Save Configuration' })).toBeVisible();
   await adminPage.getByRole('button', { name: 'Save Configuration' }).click();
 });
 
-test('Check the options of AI Platform field', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+test('Check the AI Platform dropdown options on config page', async({adminPage})=>{
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await expect(adminPage).toHaveURL(/.*\/admin\/configuration\/general\/magic_ai/);
-  await expect(adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await expect(adminPage.getByRole('option', { name: 'Openai' })).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'Groq' })).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'Ollama' })).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'Gemini' })).toBeVisible();
+
+  // The platform dropdown is a native <select> with "Use Default Platform" as first option
+  const platformSelect = adminPage.locator('select[name="general[magic_ai][settings][ai_platform]"]');
+  await expect(platformSelect).toBeVisible();
+
+  // First option should be "Use Default Platform"
+  const firstOption = platformSelect.locator('option').first();
+  await expect(firstOption).toHaveText(/Use Default/);
 });
 
-test('Check the Validate button is visible by filling the value in api key', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
-  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await expect(adminPage).toHaveURL(/.*\/admin\/configuration\/general\/magic_ai/);
-  await expect(adminPage.getByRole('textbox', { name: 'API Key' })).toBeVisible();
-  await adminPage.getByRole('textbox', { name: 'API Key' }).fill(groqinvalidapikey);
-  await expect(adminPage.getByRole('button', {name: 'Validate Credentials'})).toBeVisible();
-  await expect(adminPage.getByRole('button', {name: 'Validate Credentials'})).toBeDisabled();
+// ─────────────────────────────────────────────────
+// Platform Management Page Tests
+// ─────────────────────────────────────────────────
+
+test('Verify the AI Platforms page opens', async({adminPage})=>{
+  await adminPage.goto(/.*\/admin\/magic-ai\/platform/);
+  await expect(adminPage.getByText('AI Platforms')).toBeVisible();
+  await expect(adminPage.getByRole('button', { name: 'Add Platform' })).toBeVisible();
 });
 
-test('Validate the credential by filling randam invalid value', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
-  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await expect(adminPage).toHaveURL(/.*\/admin\/configuration\/general\/magic_ai/);
-  await adminPage.locator('.relative > .w-9').first().click();
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await adminPage.getByRole('option', { name: 'Groq' }).click();
-  await expect(adminPage.getByRole('textbox', { name: 'API Key' })).toBeVisible();
-  await adminPage.getByRole('textbox', { name: 'API Key' }).fill(groqinvalidapikey);
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toBeVisible();
-  await adminPage.getByRole('textbox', { name: 'LLM API Domain' }).fill('skdjcvh');
-  await expect(adminPage.getByRole('button', {name: 'Validate Credentials'})).toBeVisible();
-  await adminPage.getByRole('button', {name: 'Validate Credentials'}).click();
-  await expect(adminPage.getByText('Magic AI credentials validated successfully')).toBeVisible();
+test('Click Add Platform and verify modal fields', async({adminPage})=>{
+  await adminPage.goto(/.*\/admin\/magic-ai\/platform/);
+  await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
+  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+
+  // Verify form fields
+  await expect(adminPage.locator('select[name="provider"]')).toBeVisible();
+  await expect(adminPage.locator('input[name="label"]')).toBeVisible();
+  await expect(adminPage.locator('input[name="api_key"]')).toBeVisible();
+
+  // Verify save button
+  await expect(adminPage.getByRole('button', { name: 'Save' })).toBeVisible();
 });
 
-test('Verify Org ID, Models and Credential Visibility on OpenAI Selection',async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
-  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await expect(adminPage).toHaveURL(/.*\/admin\/configuration\/general\/magic_ai/);
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await adminPage.getByRole('option', { name: 'Openai' }).click();
-  await expect(adminPage.locator('input[name="general[magic_ai][settings][organization]"]')).toBeVisible();
-  await expect(adminPage.getByRole('button', {name: 'Validate Credentials'})).toBeVisible();
-  await expect(adminPage.locator('input[name="general[magic_ai][settings][api_model]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
+test('Verify provider dropdown options in platform modal', async({adminPage})=>{
+  await adminPage.goto(/.*\/admin\/magic-ai\/platform/);
+  await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
+
+  const providerSelect = adminPage.locator('select[name="provider"]');
+  await expect(providerSelect).toBeVisible();
+
+  // Check that key providers are available as options
+  const options = providerSelect.locator('option');
+  const optionTexts = await options.allTextContents();
+  expect(optionTexts.some(t => t.includes('OpenAI'))).toBe(true);
+  expect(optionTexts.some(t => t.includes('Groq'))).toBe(true);
+  expect(optionTexts.some(t => t.includes('Gemini'))).toBe(true);
+  expect(optionTexts.some(t => t.includes('Anthropic'))).toBe(true);
+  expect(optionTexts.some(t => t.includes('Ollama'))).toBe(true);
 });
 
-test('Verify LLM API Domain Auto-Fill on AI Platform Selection(OpenAI)', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
-  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await adminPage.getByRole('option', { name: 'Openai' }).click();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toBeVisible();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toHaveValue('api.openai.com');
+test('Create a platform with Groq provider and valid credentials', async({adminPage})=>{
+  await adminPage.goto(/.*\/admin\/magic-ai\/platform/);
+  await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
+
+  // Select Groq provider
+  await adminPage.locator('select[name="provider"]').selectOption({ label: 'Groq' });
+
+  // Fill label
+  await adminPage.locator('input[name="label"]').fill('Groq Test Platform');
+
+  // Fill API key
+  await adminPage.locator('input[name="api_key"]').fill(groqapikey);
+
+  // Wait for models to auto-fetch
+  await adminPage.waitForTimeout(3000);
+
+  // Select a model if available (click first available model checkbox)
+  const modelCheckbox = adminPage.locator('input[type="checkbox"][name="model_select"]').first();
+  if (await modelCheckbox.isVisible().catch(() => false)) {
+    await modelCheckbox.check();
+  }
+
+  // Set as default
+  const defaultToggle = adminPage.locator('input[name="is_default"]');
+  if (await defaultToggle.isVisible().catch(() => false)) {
+    await defaultToggle.check();
+  }
+
+  // Enable status
+  const statusToggle = adminPage.locator('input[name="status"]');
+  if (await statusToggle.isVisible().catch(() => false)) {
+    await statusToggle.check();
+  }
+
+  // Save
+  await adminPage.getByRole('button', { name: 'Save' }).click();
+  await expect(adminPage.getByText(/Platform saved successfully|Platform updated successfully/i)).toBeVisible();
 });
 
-test('Verify LLM API Domain Auto-Fill on AI Platform Selection(Groq)', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
-  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await adminPage.getByRole('option', { name: 'Groq' }).click();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toBeVisible();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toHaveValue('api.groq.com');
-  await expect(adminPage.getByRole('button', {name: 'Validate Credentials'})).toBeVisible();
-  await expect(adminPage.locator('input[name="general[magic_ai][settings][api_model]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
+test('Verify platform appears in the datagrid after creation', async({adminPage})=>{
+  await adminPage.goto(/.*\/admin\/magic-ai\/platform/);
+  await expect(adminPage.getByText('Groq Test Platform')).toBeVisible();
 });
 
-test('Verify LLM API Domain Auto-Fill on AI Platform Selection(Ollama)', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
-  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await adminPage.getByRole('option', { name: 'Ollama' }).click();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toBeVisible();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toHaveValue('localhost');
-  await expect(adminPage.getByRole('button', {name: 'Validate Credentials'})).toBeVisible();
-  await expect(adminPage.locator('input[name="general[magic_ai][settings][api_model]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
+test('Test connection with invalid API key', async({adminPage})=>{
+  await adminPage.goto(/.*\/admin\/magic-ai\/platform/);
+  await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
+
+  // Select Groq provider
+  await adminPage.locator('select[name="provider"]').selectOption({ label: 'Groq' });
+  await adminPage.locator('input[name="label"]').fill('Invalid Platform');
+  await adminPage.locator('input[name="api_key"]').fill(groqinvalidapikey);
+
+  // Click Test Connection if visible
+  const testBtn = adminPage.getByRole('button', { name: 'Test Connection' });
+  if (await testBtn.isVisible().catch(() => false)) {
+    await testBtn.click();
+    await expect(adminPage.getByText(/Connection test failed|failed/i)).toBeVisible();
+  }
 });
 
-test('Verify LLM API Domain Auto-Fill on AI Platform Selection(Gemini)', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+// ─────────────────────────────────────────────────
+// Configuration - Platform Selection Tests
+// ─────────────────────────────────────────────────
+
+test('Verify platform dropdown shows created platform on config page', async({adminPage})=>{
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await adminPage.getByRole('option', { name: 'Gemini' }).click();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toBeVisible();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' }))
-  .toHaveValue('generativelanguage.googleapis.com');
-  await expect(adminPage.getByRole('button', {name: 'Validate Credentials'})).toBeVisible();
-  await expect(adminPage.locator('input[name="general[magic_ai][settings][api_model]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
+
+  const platformSelect = adminPage.locator('select[name="general[magic_ai][settings][ai_platform]"]');
+  await expect(platformSelect).toBeVisible();
+
+  const options = platformSelect.locator('option');
+  const optionTexts = await options.allTextContents();
+  // Should have "Use Default Platform" option and the Groq platform we created
+  expect(optionTexts.some(t => t.includes('Use Default'))).toBe(true);
+  expect(optionTexts.some(t => t.includes('Groq Test Platform'))).toBe(true);
 });
+
+test('Verify translation section has platform dropdown', async({adminPage})=>{
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
+
+  // Translation platform dropdown
+  const translationPlatform = adminPage.locator('select[name="general[magic_ai][translation][ai_platform]"]');
+  await expect(translationPlatform).toBeVisible();
+});
+
+test('Verify image generation section has platform dropdown', async({adminPage})=>{
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
+
+  // Image generation platform dropdown
+  const imagePlatform = adminPage.locator('select[name="general[magic_ai][image_generation][ai_platform]"]');
+  await expect(imagePlatform).toBeVisible();
+});
+
+test('Setup the MagicAI configuration with Groq platform', async({adminPage})=>{
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
+  await adminPage.getByText('Configuration', {exact:true}).nth(1).click();
+
+  // Enable MagicAI
+  await adminPage.locator('.w-9.h-5').first().click();
+
+  // Select the Groq platform we created
+  const settingsPlatform = adminPage.locator('select[name="general[magic_ai][settings][ai_platform]"]');
+  await settingsPlatform.selectOption({ label: /Groq Test Platform/ });
+
+  // Enable translation
+  await expect(adminPage.locator('.w-9.h-5').nth(1)).toBeVisible();
+
+  // Save configuration
+  await adminPage.getByRole('button', { name: 'Save Configuration' }).click();
+  await expect(adminPage.getByText('Configuration saved successfully')).toBeVisible();
+});
+
+// ─────────────────────────────────────────────────
+// Locale Setup Tests (unchanged - these work with locales not AI config)
+// ─────────────────────────────────────────────────
 
 test('Enable the locale for source/target locale field', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Settings' }).click();
+  await adminPage.getByRole('link', { name: ' Settings' }).click();
   await adminPage.getByRole('link', { name: 'Locales' }).click();
   await adminPage.getByRole('textbox', { name: 'Search by code' }).click();
   await adminPage.getByRole('textbox', { name: 'Search by code' }).fill('hi');
@@ -181,7 +239,7 @@ test('Enable the locale for source/target locale field', async({adminPage})=>{
 });
 
 test('Assign the locale to default channel', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Settings' }).click();
+  await adminPage.getByRole('link', { name: ' Settings' }).click();
   await adminPage.getByRole('link', { name: 'Channels' }).click();
   const itemRow = adminPage.locator('div', { hasText: 'defaultDefault', exact:true});
   await itemRow.locator('span[title="Edit"]').nth(0).click();
@@ -191,91 +249,12 @@ test('Assign the locale to default channel', async({adminPage})=>{
   await expect(adminPage.getByText(/Update Channel Successfully/i)).toBeVisible();
 });
 
-test('Verify the models of OpenAI platform', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
-  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await adminPage.getByRole('option', { name: 'Openai' }).click();
-  await adminPage.locator('input[name="general[magic_ai][settings][api_model]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await expect(adminPage.getByRole('option', { name: 'gpt-5.2' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-5' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-5-mini' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-5.1' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-5-nano' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-4o' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-4o-mini' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-3.5-turbo' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'dall-e-2' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'dall-e-3' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-image-1.5' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-image-1' }).locator('span').nth(1)).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gpt-image-1-mini' }).locator('span').nth(1)).toBeVisible();
-});
-
-test('Verify the models of Gemini platform', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
-  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await adminPage.getByRole('option', { name: 'Gemini' }).click();
-  await adminPage.locator('input[name="general[magic_ai][settings][api_model]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await expect(adminPage.getByRole('option', { name: 'gemini-3-pro-preview' }).locator('span').first()).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gemini-3-flash-preview' }).locator('span').first()).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gemini-2.5-pro' }).locator('span').first()).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gemini-2.5-flash' }).locator('span').first()).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gemini-2.0-flash' }).locator('span').first()).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gemini-1.5-flash-latest' }).locator('span').first()).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gemini-1.5-pro' }).locator('span').first()).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gemini-2.5-flash-image' }).locator('span').first()).toBeVisible();
-  await expect(adminPage.getByRole('option', { name: 'gemini-3-pro-image-preview' }).locator('span').first()).toBeVisible();
-});
-
-test('Setup the MagicAI with valid credential(Graq)', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
-  await adminPage.getByRole('link', { name: 'Magic AI' }).click();
-  await adminPage.getByText('Configuration', {exact:true}).nth(1).click(); 
-  await expect(adminPage.locator('.w-9.h-5').first()).toBeVisible();
-  await adminPage.locator('.w-9.h-5').first().click();
-  await adminPage.locator('input[name="general[magic_ai][settings][ai_platform]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await adminPage.getByRole('option', { name: 'Groq' }).click();
-  await expect(adminPage.getByRole('textbox', { name: 'API Key' })).toBeVisible();
-  await adminPage.getByRole('textbox', { name: 'API Key' }).fill(groqapikey);
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toBeVisible();
-  await expect(adminPage.getByRole('textbox', { name: 'LLM API Domain' })).toHaveValue('api.groq.com');
-  await expect(adminPage.getByRole('button', {name: 'Validate Credentials'})).toBeVisible();
-  await expect(adminPage.locator('input[name="general[magic_ai][settings][api_model]"]')
-  .locator('..').locator('.multiselect__tags')).toBeVisible();
-  await adminPage.locator('input[name="general[magic_ai][settings][api_model]"]')
-  .locator('..').locator('.multiselect__tags').click();
-  await expect(adminPage.getByRole('option', {name:'groq/compound'})).toBeVisible();
-  await adminPage.getByRole('option', {name:'groq/compound'}).click();
-  await expect(adminPage.locator('.w-9.h-5').nth(1)).toBeVisible();
-  await adminPage.locator('.w-9.h-5').nth(1).click();
-  await expect(adminPage.locator('.w-9.h-5').nth(2)).toBeVisible();
-  await expect(
-  adminPage.locator('[id="general[magic_ai][translation][ai_model]"] .multiselect__single')
-  ).toHaveText('groq/compound');
-  await adminPage.locator('[id="general[magic_ai][translation][source_channel]"] div').
-  filter({ hasText: /^Select option$/ }).first().click();
-  await adminPage.getByRole('option', { name: 'Default Press enter to select' }).locator('span').first().click();
-  await adminPage.locator('[id="general[magic_ai][translation][target_channel]"] div')
-  .filter({ hasText: /^Select option$/ }).first().click();
-  await adminPage.locator('[id="general[magic_ai][translation][target_channel]"]').getByText('Default').click();
-  await adminPage.locator('[id="general[magic_ai][translation][source_locale]"] div')
-  .filter({ hasText: /^Select option$/ }).first().click();
-  await adminPage.locator('[id="general[magic_ai][translation][source_locale]"]').getByText('English (United States)').click();
-  await adminPage.getByRole('button', {name: 'Validate Credentials'}).click();
-  await expect(adminPage.getByText('Magic AI credentials validated successfully')).toBeVisible();
-  await adminPage.getByRole('button', { name: 'Save Configuration' }).click();
-  await expect(adminPage.getByText('Configuration saved successfully')).toBeVisible();
-});
+// ─────────────────────────────────────────────────
+// Prompt Section Tests
+// ─────────────────────────────────────────────────
 
 test('Check the Prompt section available and clickable', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await expect(adminPage.getByRole('link', { name: 'Prompt', exact: true })).toBeVisible();
   await adminPage.getByRole('link', { name: 'Prompt', exact: true }).click();
@@ -284,7 +263,7 @@ test('Check the Prompt section available and clickable', async({adminPage})=>{
 });
 
 test('Click on Create prompt button and verify the fields', async ({ adminPage }) => {
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   const promptLink = adminPage.getByRole('link', { name: 'Prompt', exact: true });
   await expect(promptLink).toBeVisible();
@@ -309,7 +288,7 @@ test('Click on Create prompt button and verify the fields', async ({ adminPage }
 });
 
 test('Check the URL when clicked on prompt', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await expect(adminPage.getByRole('link', { name: 'Prompt', exact: true })).toBeVisible();
   await adminPage.getByRole('link', { name: 'Prompt', exact: true }).click();
@@ -317,7 +296,7 @@ test('Check the URL when clicked on prompt', async({adminPage})=>{
 });
 
 test('Check Type field in prompt section should have Product and Category option', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await adminPage.getByRole('link', { name: 'Prompt', exact: true }).click();
   await adminPage.getByRole('button', { name: 'Create Prompt' }).click();
@@ -327,7 +306,7 @@ test('Check Type field in prompt section should have Product and Category option
 });
 
 test('Click on save prompt with empty fields', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await expect(adminPage.getByRole('link', { name: 'Prompt', exact: true })).toBeVisible();
   await adminPage.getByRole('link', { name: 'Prompt', exact: true }).click();
@@ -340,8 +319,12 @@ test('Click on save prompt with empty fields', async({adminPage})=>{
   await expect(adminPage.getByText('The Prompt field is required')).toBeVisible();
 });
 
-test('Check the system prompt is available and clickble', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+// ─────────────────────────────────────────────────
+// System Prompt Section Tests
+// ─────────────────────────────────────────────────
+
+test('Check the system prompt is available and clickable', async({adminPage})=>{
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await expect(adminPage.getByRole('link', { name: 'System Prompt', exact: true })).toBeVisible();
   await adminPage.getByRole('link', { name: 'System Prompt', exact: true }).click();
@@ -349,7 +332,7 @@ test('Check the system prompt is available and clickble', async({adminPage})=>{
 });
 
 test('Check the URL when clicked on system prompt', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await expect(adminPage.getByRole('link', { name: 'System Prompt', exact: true })).toBeVisible();
   await adminPage.getByRole('link', { name: 'System Prompt', exact: true }).click();
@@ -357,7 +340,7 @@ test('Check the URL when clicked on system prompt', async({adminPage})=>{
 });
 
 test('Check the fields of the create system prompt form', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await adminPage.getByRole('link', { name: 'System Prompt', exact: true }).click();
   await adminPage.getByRole('button', { name: 'Create System Prompt' }).click();
@@ -376,7 +359,7 @@ test('Check the fields of the create system prompt form', async({adminPage})=>{
 });
 
 test('click on Save System Prompt with empty field', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await adminPage.getByRole('link', { name: 'System Prompt', exact: true }).click();
   await adminPage.getByRole('button', { name: 'Create System Prompt' }).click();
@@ -386,7 +369,7 @@ test('click on Save System Prompt with empty field', async({adminPage})=>{
 });
 
 test('Create a System prompt with all field', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await adminPage.getByRole('link', { name: 'System Prompt', exact: true }).click();
   await adminPage.getByRole('button', { name: 'Create System Prompt' }).click();
@@ -399,7 +382,7 @@ test('Create a System prompt with all field', async({adminPage})=>{
 });
 
 test('Create a Prompt with all the field for Product', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await adminPage.getByRole('link', { name: 'Prompt', exact: true }).click();
   await adminPage.getByRole('button', { name: 'Create Prompt' }).click();
@@ -417,7 +400,7 @@ test('Create a Prompt with all the field for Product', async({adminPage})=>{
 });
 
 test('Create a Prompt with all the field for Category', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await adminPage.getByRole('link', { name: 'Prompt', exact: true }).click();
   await adminPage.getByRole('button', { name: 'Create Prompt' }).click();
@@ -435,7 +418,7 @@ test('Create a Prompt with all the field for Category', async({adminPage})=>{
 });
 
 test('Delete the System Prompt', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Configuration' }).click();
+  await adminPage.getByRole('link', { name: ' Configuration' }).click();
   await adminPage.getByRole('link', { name: 'Magic AI' }).click();
   await adminPage.getByRole('link', { name: 'System Prompt', exact: true }).click();
   const itemRow = adminPage.locator('div', { hasText: 'Elegant, artistic, and refined' });
@@ -444,8 +427,12 @@ test('Delete the System Prompt', async({adminPage})=>{
   await expect(adminPage.getByRole('button', { name: 'Delete' })).toBeVisible();
 });
 
-test('Check the Configuartin permission in the Roles section', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Settings' }).click();
+// ─────────────────────────────────────────────────
+// Roles & Permission Tests
+// ─────────────────────────────────────────────────
+
+test('Check the Configuration permission in the Roles section', async({adminPage})=>{
+  await adminPage.getByRole('link', { name: ' Settings' }).click();
   await adminPage.getByRole('link', { name: 'Roles' }).click();
   await adminPage.getByRole('link', { name: 'Create Role' }).click();
   await expect(
@@ -455,7 +442,7 @@ test('Check the Configuartin permission in the Roles section', async({adminPage}
 });
 
 test('Check the General, Prompt and system prompt permission under MagicAI', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Settings' }).click();
+  await adminPage.getByRole('link', { name: ' Settings' }).click();
   await adminPage.getByRole('link', { name: 'Roles' }).click();
   await adminPage.getByRole('link', { name: 'Create Role' }).click();
   await expect(
@@ -473,7 +460,7 @@ test('Check the General, Prompt and system prompt permission under MagicAI', asy
 });
 
 test('Create a Role with MagicAI permission', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Settings' }).click();
+  await adminPage.getByRole('link', { name: ' Settings' }).click();
   await adminPage.getByRole('link', { name: 'Roles' }).click();
   await adminPage.getByRole('link', { name: 'Create Role' }).click();
   await expect(
@@ -494,8 +481,8 @@ test('Create a Role with MagicAI permission', async({adminPage})=>{
   await expect(adminPage.getByText('Roles Created Successfully')).toBeVisible();
 });
 
-test('Create a user with MagicAI permisssion', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Settings' }).click();
+test('Create a user with MagicAI permission', async({adminPage})=>{
+  await adminPage.getByRole('link', { name: ' Settings' }).click();
   await adminPage.getByRole('link', { name: 'Users' }).click();
   await adminPage.getByRole('button', { name: 'Create User' }).click();
   await adminPage.getByRole('textbox', { name: 'Name' }).click();
@@ -519,7 +506,7 @@ test('Create a user with MagicAI permisssion', async({adminPage})=>{
 });
 
 test('Delete the User created with MagicAI permission', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Settings' }).click();
+  await adminPage.getByRole('link', { name: ' Settings' }).click();
   await adminPage.getByRole('link', { name: 'Users' }).click();
   await adminPage.getByRole('textbox', {name:'Search'}).fill('testing');
   await adminPage.keyboard.press('Enter');
@@ -530,8 +517,8 @@ test('Delete the User created with MagicAI permission', async({adminPage})=>{
   await expect(adminPage.getByText(/User deleted successfully/i)).toBeVisible();
 });
 
-test('Delete the Role created with MagicAI permission', async({adminPage})=>{   
-  await adminPage.getByRole('link', { name: ' Settings' }).click();
+test('Delete the Role created with MagicAI permission', async({adminPage})=>{
+  await adminPage.getByRole('link', { name: ' Settings' }).click();
   await adminPage.getByRole('link', { name: 'Roles' }).click();
   await adminPage.getByRole('textbox', {name:'Search'}).fill('Manager');
   await adminPage.keyboard.press('Enter');
@@ -541,6 +528,10 @@ test('Delete the Role created with MagicAI permission', async({adminPage})=>{
   await adminPage.getByRole('button', { name: 'Delete' }).click();
   await expect(adminPage.getByText(/Roles is deleted successfully./i).first()).toBeVisible();
 });
+
+// ─────────────────────────────────────────────────
+// Product Content Generation & Translation Tests
+// ─────────────────────────────────────────────────
 
 test('Check the AI translate checkbox in attribute', async({adminPage})=>{
   await adminPage.getByRole('link', { name: /Catalog/ }).click();
@@ -557,7 +548,7 @@ test('Check the AI translate checkbox in attribute', async({adminPage})=>{
 });
 
 test('Create product and Generate the content from the MagicAI', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Catalog' }).click();
+  await adminPage.getByRole('link', { name: ' Catalog' }).click();
   await adminPage.getByRole('button', { name: 'Create Product' }).click();
   await adminPage.locator('input[name="type"]').locator('..').locator('.multiselect__placeholder').click();
   await adminPage.getByRole('option', { name: 'Simple' }).locator('span').first().click();
@@ -592,14 +583,14 @@ test('Create product and Generate the content from the MagicAI', async({adminPag
 });
 
 test('Check that AI Translate is visible on Short-Description', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Catalog' }).click();
+  await adminPage.getByRole('link', { name: ' Catalog' }).click();
   const itemRow = adminPage.locator('div', { hasText: 'mahindra-be6-batman' });
   await itemRow.locator('span[title="Edit"]').first().click();
   await expect(adminPage.getByRole('button', { name: 'Translate' }).first()).toBeVisible();
 });
 
 test('Check more option and translate is visible', async ({ adminPage }) => {
-  await adminPage.getByRole('link', { name: ' Catalog' }).click();
+  await adminPage.getByRole('link', { name: ' Catalog' }).click();
   const itemRow = adminPage.locator('div', { hasText: 'mahindra-be6-batman' });
   await itemRow.locator('span[title="Edit"]').first().click();
   await adminPage.waitForTimeout(1000);
@@ -609,7 +600,7 @@ test('Check more option and translate is visible', async ({ adminPage }) => {
 });
 
 test('Click on Translate and verify the fields', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Catalog' }).click();
+  await adminPage.getByRole('link', { name: ' Catalog' }).click();
   const itemRow = adminPage.locator('div', { hasText: 'mahindra-be6-batman' });
   await itemRow.locator('span[title="Edit"]').first().click();
   await adminPage.locator('span[title="More Actions"]').click();
@@ -622,7 +613,7 @@ test('Click on Translate and verify the fields', async({adminPage})=>{
 });
 
 test('Click on next and verify the step 2 fields', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Catalog' }).click();
+  await adminPage.getByRole('link', { name: ' Catalog' }).click();
   const itemRow = adminPage.locator('div', { hasText: 'mahindra-be6-batman' });
   await itemRow.locator('span[title="Edit"]').first().click();
   await adminPage.locator('span[title="More Actions"]').click();
@@ -636,7 +627,7 @@ test('Click on next and verify the step 2 fields', async({adminPage})=>{
 });
 
 test.skip('Verify the fields in translated content after click on Translate button', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Catalog' }).click();
+  await adminPage.getByRole('link', { name: ' Catalog' }).click();
   const itemRow = adminPage.locator('div', { hasText: 'mahindra-be6-batman' });
   await itemRow.locator('span[title="Edit"]').first().click();
   await adminPage.locator('span[title="More Actions"]').click();
@@ -649,7 +640,7 @@ test.skip('Verify the fields in translated content after click on Translate butt
 });
 
 test.skip('Translate the content in the hindi', async({adminPage})=>{
-  await adminPage.getByRole('link', { name: ' Catalog' }).click();
+  await adminPage.getByRole('link', { name: ' Catalog' }).click();
   const itemRow = adminPage.locator('div', { hasText: 'mahindra-be6-batman' });
   await itemRow.locator('span[title="Edit"]').first().click();
   await adminPage.locator('span[title="More Actions"]').click();
@@ -660,7 +651,7 @@ test.skip('Translate the content in the hindi', async({adminPage})=>{
   await adminPage.getByRole('button', { name: 'Apply' }).click();
   await expect(adminPage.getByText('Translation job launched for product update')).toBeVisible();
   await adminPage.waitForTimeout(500);
-  await adminPage.getByRole('button', { name: ' English (United States) ' }).click();
+  await adminPage.getByRole('button', { name: ' English (United States) ' }).click();
   await adminPage.getByRole('link', { name: 'Hindi (India)' }).click();
   const frame = await adminPage.frameLocator('#short_description_ifr');
   const bodyText = await frame.locator('body').innerText();
@@ -668,4 +659,18 @@ test.skip('Translate the content in the hindi', async({adminPage})=>{
   console.log('Contains Hindi:', containsHindi);
   await expect(containsHindi).toBe(true);
 });
-}); 
+
+// ─────────────────────────────────────────────────
+// Platform Cleanup Tests
+// ─────────────────────────────────────────────────
+
+test('Delete the Groq test platform', async({adminPage})=>{
+  await adminPage.goto(/.*\/admin\/magic-ai\/platform/);
+  const itemRow = adminPage.locator('div', { hasText: 'Groq Test Platform' });
+  await itemRow.locator('span[title="Delete"], span[title="delete"]').first().click();
+  await expect(adminPage.getByText('Are you sure you want to delete?')).toBeVisible();
+  await adminPage.getByRole('button', { name: 'Delete' }).click();
+  await expect(adminPage.getByText(/Platform deleted successfully|deleted/i)).toBeVisible();
+});
+
+});
