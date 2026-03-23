@@ -11,14 +11,8 @@ permissions:
 
 jobs:
   linting_tests:
-    runs-on: ${{ matrix.operating-systems }}
-
-    strategy:
-      matrix:
-        operating-systems: [ubuntu-latest]
-        php-versions: ['8.3']
-
-    name: PHP ${{ matrix.php-versions }} test on ${{ matrix.operating-systems }}
+    runs-on: ubuntu-latest
+    name: Laravel Pint Code Style
 
     steps:
       - name: Checkout
