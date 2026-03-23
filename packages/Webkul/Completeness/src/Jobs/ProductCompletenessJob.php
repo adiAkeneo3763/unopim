@@ -129,6 +129,7 @@ class ProductCompletenessJob implements ShouldQueue
     protected function loadStaticData(): void
     {
         $this->channels = $this->channelRepository
+            ->skipCache()
             ->with([
                 'locales' => function ($query) {
                     $query->select('locales.id', 'locales.code')->where('status', 1)->orderBy('code');
