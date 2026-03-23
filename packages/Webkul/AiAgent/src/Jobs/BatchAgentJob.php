@@ -7,9 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use Webkul\AiAgent\DTOs\AgentPayload;
 use Webkul\AiAgent\Services\AgentService;
-use Illuminate\Support\Facades\Log;
 
 /**
  * Batch job for processing multiple agent executions.
@@ -19,14 +19,8 @@ class BatchAgentJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * @var int
-     */
     public int $tries = 2;
 
-    /**
-     * @var int
-     */
     public int $timeout = 600;
 
     /**

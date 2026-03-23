@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => 'Opslaan',
                     'back-btn'            => 'Terug',
                     'mass-update-success' => 'Volledigheid succesvol bijgewerkt',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => 'Code',
                         'name'             => 'Naam',
                         'channel-required' => 'Vereist in kanalen',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => 'Wijzig voltooiingsvereiste',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => 'Volledig',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => 'Volledigheid',
                     'subtitle' => 'Gemiddelde voltooiing',
                 ],
-
                 'required-attributes' => 'ontbrekende verplichte attributen',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => 'Volledigheidsberekening voltooid',
+        'completeness-calculated'        => 'Volledigheid berekend voor :count producten.',
+        'completeness-calculated-family' => 'Volledigheid berekend voor :count producten in familie ":family".',
+        'email-subject'                  => 'Volledigheidsberekening voltooid',
+        'email-greeting'                 => 'Hallo,',
+        'email-body'                     => 'De volledigheidsberekening is voltooid voor :count producten.',
+        'email-body-family'              => 'De volledigheidsberekening is voltooid voor :count producten in attribuutfamilie ":family".',
+        'email-footer'                   => 'U kunt de volledigheidsdetails bekijken op uw dashboard.',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Berekende producten',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => 'Lage voltooiing — voeg details toe om te verbeteren.',
                     'medium'  => 'Ga door, blijf informatie toevoegen.',
                     'high'    => 'Bijna voltooid, er blijven nog een paar details over.',

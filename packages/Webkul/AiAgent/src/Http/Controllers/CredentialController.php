@@ -4,11 +4,12 @@ namespace Webkul\AiAgent\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
+use Illuminate\View\View;
 use Webkul\AiAgent\DataGrids\Credential\CredentialDataGrid;
+use Webkul\AiAgent\DTOs\CredentialConfig;
 use Webkul\AiAgent\Http\Client\AiApiClient;
 use Webkul\AiAgent\Http\Requests\CredentialForm;
 use Webkul\AiAgent\Repositories\CredentialRepository;
-use Webkul\AiAgent\DTOs\CredentialConfig;
 
 class CredentialController extends Controller
 {
@@ -20,7 +21,7 @@ class CredentialController extends Controller
     /**
      * Display a listing of credentials.
      *
-     * @return \Illuminate\View\View|\Illuminate\Http\JsonResponse
+     * @return View|JsonResponse
      */
     public function index()
     {
@@ -34,7 +35,7 @@ class CredentialController extends Controller
     /**
      * Show the form for creating a new credential.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function create()
     {
@@ -57,7 +58,7 @@ class CredentialController extends Controller
     /**
      * Show the form for editing a credential.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function edit(int $id)
     {
@@ -105,7 +106,7 @@ class CredentialController extends Controller
      */
     public function testConnection(CredentialForm $request): JsonResponse
     {
-        $data   = $request->validated();
+        $data = $request->validated();
         $config = CredentialConfig::fromModel($data);
 
         $this->apiClient->configure($config);

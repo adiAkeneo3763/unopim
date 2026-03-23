@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Webkul\AiAgent\DTOs\AgentPayload;
+use Webkul\AiAgent\Repositories\AgentExecutionRepository;
 use Webkul\AiAgent\Services\AgentService;
 
 /**
@@ -60,12 +61,12 @@ class ExecuteAgentJob implements ShouldQueue
      */
     public function failed(\Throwable $exception): void
     {
-        $payload     = AgentPayload::fromArray($this->payloadData);
+        $payload = AgentPayload::fromArray($this->payloadData);
         $executionId = $payload->metadata['executionId'] ?? null;
 
         if ($executionId) {
-            app(\Webkul\AiAgent\Repositories\AgentExecutionRepository::class)
-                ->markFailed($executionId, 'Job failed: ' . $exception->getMessage());
+            app(AgentExecutionRepository::class)
+                ->markFailed($executionId, 'Job failed: '.$exception->getMessage());
         }
     }
 }

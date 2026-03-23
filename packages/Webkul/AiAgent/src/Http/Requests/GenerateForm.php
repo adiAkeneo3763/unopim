@@ -37,9 +37,9 @@ class GenerateForm extends FormRequest
     public function messages(): array
     {
         return [
-            'images.required'    => trans('ai-agent::app.generate.validation.images-required'),
-            'images.*.image'     => trans('ai-agent::app.generate.validation.image-invalid'),
-            'images.*.max'       => trans('ai-agent::app.generate.validation.image-too-large'),
+            'images.required'        => trans('ai-agent::app.generate.validation.images-required'),
+            'images.*.image'         => trans('ai-agent::app.generate.validation.image-invalid'),
+            'images.*.max'           => trans('ai-agent::app.generate.validation.image-too-large'),
             'credential_id.required' => trans('ai-agent::app.generate.validation.credential-required'),
         ];
     }

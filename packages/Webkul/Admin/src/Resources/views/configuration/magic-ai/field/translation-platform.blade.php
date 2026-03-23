@@ -1,0 +1,23 @@
+@php
+    $platforms = app(\Webkul\MagicAI\Repository\MagicAIPlatformRepository::class)->getActivePlatformOptions();
+    $selectedPlatformId = core()->getConfigData('general.magic_ai.translation.ai_platform');
+@endphp
+
+<x-admin::form.control-group>
+    <x-admin::form.control-group.label>
+        @lang('admin::app.configuration.index.general.magic-ai.translation.ai-platform')
+    </x-admin::form.control-group.label>
+
+    <select
+        id="general_magic_ai_translation_ai_platform"
+        name="general[magic_ai][translation][ai_platform]"
+        class="w-full py-2.5 px-3 border rounded-md text-sm text-gray-600 dark:text-gray-300 transition-all hover:border-gray-400 dark:bg-cherry-800 dark:border-cherry-800 dark:hover:border-gray-400"
+    >
+        <option value="0">@lang('admin::app.configuration.platform.fields.use-default')</option>
+        @foreach($platforms as $platform)
+            <option value="{{ $platform['id'] }}" {{ $selectedPlatformId == $platform['id'] ? 'selected' : '' }}>
+                {{ $platform['label'] }}
+            </option>
+        @endforeach
+    </select>
+</x-admin::form.control-group>

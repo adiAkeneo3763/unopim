@@ -4,7 +4,6 @@ namespace Webkul\AiAgent\Examples;
 
 use Illuminate\Console\Command;
 use Webkul\AiAgent\Agents\BulkProductEnricherAgent;
-use Webkul\AiAgent\Models\Product;
 use Webkul\Product\Repositories\ProductRepository;
 
 /**
@@ -39,10 +38,10 @@ class EnrichProductsBatchCommand extends Command
         BulkProductEnricherAgent $enricher,
         ProductRepository $productRepository,
     ): int {
-        $limit        = (int) $this->option('limit');
-        $agentId      = (int) $this->option('agent-id');
+        $limit = (int) $this->option('limit');
+        $agentId = (int) $this->option('agent-id');
         $credentialId = (int) $this->option('credential-id');
-        $dryRun       = $this->option('dry-run');
+        $dryRun = $this->option('dry-run');
 
         $this->info("Fetching up to $limit products for enrichment...");
 
@@ -57,7 +56,7 @@ class EnrichProductsBatchCommand extends Command
             return self::SUCCESS;
         }
 
-        $this->info("Processing " . $products->count() . " products...");
+        $this->info('Processing '.$products->count().' products...');
 
         // Convert to array format for agent
         $productData = $products->map(fn ($p) => [
@@ -68,7 +67,7 @@ class EnrichProductsBatchCommand extends Command
         ])->toArray();
 
         // Run enrichment
-        $bar    = $this->output->createProgressBar(1);
+        $bar = $this->output->createProgressBar(1);
         $result = $enricher->enrichBatch(
             products: $productData,
             agentId: $agentId,
@@ -79,7 +78,7 @@ class EnrichProductsBatchCommand extends Command
         $this->newLine();
 
         if (! $result->success) {
-            $this->error('❌ Enrichment failed: ' . $result->error);
+            $this->error('❌ Enrichment failed: '.$result->error);
 
             return self::FAILURE;
         }
@@ -115,12 +114,12 @@ class EnrichProductsBatchCommand extends Command
                 $item['sku'] ?? '—',
                 $item['name'] ?? '—',
                 $item['category'] ?? '—',
-                ($item['qualityScore'] ?? 0) . '%',
+                ($item['qualityScore'] ?? 0).'%',
             ], array_slice($data, 0, 5)),
         );
 
         if (count($data) > 5) {
-            $this->info('... and ' . (count($data) - 5) . ' more.');
+            $this->info('... and '.(count($data) - 5).' more.');
         }
     }
 }

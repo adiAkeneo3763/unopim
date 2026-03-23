@@ -11,7 +11,6 @@ return [
             'powered-by'             => 'Pinapatakbo ng :unopim,',
             'open-source-project-by' => 'Isang open-source na proyekto ng :webkul.',
         ],
-
         'forget-password' => [
             'create' => [
                 'email'                  => 'Nai-rehistro na Email',
@@ -26,7 +25,6 @@ return [
                 'open-source-project-by' => 'Isang open-source na proyekto ng :webkul.',
             ],
         ],
-
         'reset-password' => [
             'back-link-title'        => 'Bumalik sa Mag-sign In?',
             'confirm-password'       => 'Kumpirmahin ang Password',
@@ -38,7 +36,6 @@ return [
             'open-source-project-by' => 'Isang open-source na proyekto ng :webkul.',
         ],
     ],
-
     'notifications' => [
         'description-text' => 'Listahan ng lahat ng Notifications',
         'marked-success'   => 'Notification na Marked bilang Nabasang Tagumpay',
@@ -55,7 +52,6 @@ return [
             'processing' => 'Pinoproseso',
         ],
     ],
-
     'account' => [
         'edit' => [
             'back-btn'          => 'Bumalik',
@@ -76,25 +72,75 @@ return [
             'user-timezone'     => 'Oras ng User',
         ],
     ],
-
     'dashboard' => [
         'index' => [
-            'title'            => 'Dashboard',
-            'user-info'        => 'Madaling pag-momonitor kung ano ang bilang sa iyong PIM',
-            'user-name'        => 'Hi! :user_name',
-            'catalog-details'  => 'Catalog',
-            'total-families'   => 'Mga Kabuuang Pamilya',
-            'total-attributes' => 'Mga Kabuuang Atributo',
-            'total-groups'     => 'Mga Kabuuang Grupo',
-            'total-categories' => 'Mga Kabuuang Kategorya',
-            'total-products'   => 'Mga Kabuuang Produkto',
-            'settings-details' => 'Estruktura ng Catalog',
-            'total-locales'    => 'Mga Kabuuang Lokasyon',
-            'total-currencies' => 'Mga Kabuuang Pera',
-            'total-channels'   => 'Mga Kabuuang Channels',
+            'title'                => 'Dashboard',
+            'user-info'            => 'Madaling pag-momonitor kung ano ang bilang sa iyong PIM',
+            'user-name'            => 'Hi! :user_name',
+            'catalog-details'      => 'Catalog',
+            'total-families'       => 'Mga Kabuuang Pamilya',
+            'total-attributes'     => 'Mga Kabuuang Atributo',
+            'total-groups'         => 'Mga Kabuuang Grupo',
+            'total-categories'     => 'Mga Kabuuang Kategorya',
+            'total-products'       => 'Mga Kabuuang Produkto',
+            'settings-details'     => 'Estruktura ng Catalog',
+            'total-locales'        => 'Mga Kabuuang Lokasyon',
+            'total-currencies'     => 'Mga Kabuuang Pera',
+            'total-channels'       => 'Mga Kabuuang Channels',
+            'completeness'         => 'Completeness',
+            'active'               => 'Active',
+            'inactive'             => 'Inactive',
+            'simple'               => 'Simple',
+            'configurable'         => 'Configurable',
+            'product-stats'        => 'Product Statistics',
+            'product-type-dist'    => 'Product Type Distribution',
+            'products-by-status'   => 'Products by Status',
+            'products-over-time'   => 'Product Activity (Last 7 Days)',
+            'legend-created'       => 'Created',
+            'legend-updated'       => 'Updated',
+            'recent-activity'      => 'Recent Activity',
+            'no-activity'          => 'No recent activity found.',
+            'updated'              => 'updated',
+            'created'              => 'created',
+            'deleted'              => 'deleted',
+            'ago'                  => 'ago',
+            'just-now'             => 'just now',
+            'data-transfer'        => 'Data Transfer',
+            'no-jobs'              => 'No recent import/export jobs found.',
+            'job-type-import'      => 'Import',
+            'job-type-export'      => 'Export',
+            'job-state-completed'  => 'Completed',
+            'job-state-failed'     => 'Failed',
+            'job-state-processing' => 'Processing',
+            'job-state-pending'    => 'Pending',
+            'job-state-validated'  => 'Validated',
+            'rows-processed'       => 'Rows Processed',
+            'errors'               => 'Errors',
+            'quick-links'          => 'Quick Links',
+            'create-product'       => 'Create Product',
+            'import-data'          => 'Import Data',
+            'export-data'          => 'Export Data',
+            'manage-attributes'    => 'Manage Attributes',
+            'view-all-activity'    => 'View All',
+            'view-all-jobs'        => 'View All Jobs',
+            'new-this-week'        => 'New This Week',
+            'with-variants'        => 'With Variants',
+            'avg-completeness'     => 'Avg Completeness',
+            'enriched'             => 'Enriched',
+            'analytics-section'    => 'Analytics',
+            'operations-section'   => 'Operations',
+            'needs-attention'      => 'Needs Attention',
+            'unenriched-products'  => 'Unenriched Products',
+            'failed-jobs-24h'      => 'Failed Jobs (24h)',
+            'low-completeness'     => 'Low Completeness',
+            'all-good'             => 'Everything looks good!',
+            'channel-readiness'    => 'Channel Readiness',
+            'ready-to-publish'     => 'ready to publish',
+            'of'                   => 'of',
+            'products-ready'       => 'products ready',
+            'no-readiness-data'    => 'No completeness data available yet.',
         ],
     ],
-
     'catalog' => [
         'products' => [
             'index' => [
@@ -104,8 +150,7 @@ return [
                 'magic-ai-error'            => 'Tiyakin na tama ang kredensyal ng Magic AI at ang tamang modelo ay napili.',
                 'magic-ai-validate-error'   => 'Paki-verify ang mga kredensyal ng Magic AI.',
                 'magic-ai-validate-success' => 'Matagumpay na na-validate ang mga kredensyal ng Magic AI.',
-
-                'create' => [
+                'create'                    => [
                     'back-btn'                          => 'Bumalik',
                     'configurable-attributes'           => 'Mga Atributo na Maaaring I-configure',
                     'create-btn'                        => 'Gumawa ng produkto',
@@ -118,7 +163,6 @@ return [
                     'not-config-super-attributes-error' => 'Hindi nakita ang super attribute ":super_attributes"',
                     'sku-exists-error'                  => 'Ang SKU ":sku" ay ginagamit na',
                 ],
-
                 'datagrid' => [
                     'active'                 => 'Aktibo',
                     'attribute-family'       => 'Pamilya ng attribute',
@@ -148,49 +192,43 @@ return [
                     'update-status'          => 'I-update ang status',
                     'parent'                 => 'Magulang',
                     'parent-identifier'      => 'Magulang: :sku',
+                    'created-at'             => 'Created At',
+                    'updated-at'             => 'Updated At',
                 ],
             ],
-
             'edit' => [
-                'preview'  => 'Preview',
-                'remove'   => 'Alisin',
-                'save-btn' => 'I-save ang produkto',
-                'title'    => 'I-edit ang produkto',
-
+                'preview'    => 'Preview',
+                'remove'     => 'Alisin',
+                'save-btn'   => 'I-save ang produkto',
+                'title'      => 'I-edit ang produkto',
                 'categories' => [
                     'title' => 'Mga Kategorya',
                 ],
-
                 'images' => [
                     'info'  => 'Ang mga larawan ay dapat may resolusyon na 560px X 609px',
                     'title' => 'Mga Larawan',
                 ],
-
                 'videos' => [
                     'error' => ':attribute ay hindi pwedeng lumampas sa :max kilobytes. Pumili ng mas maliit na file.',
                     'info'  => 'Ang maximum na laki ng video ay :size',
                     'title' => 'Mga Video',
                 ],
-
                 'links' => [
                     'related-products' => [
                         'empty-info' => 'Magdagdag ng mga kaugnay na produkto.',
                         'info'       => 'Bukod sa ipinapakitang produkto, ipapakita rin ang mga kaugnay na produkto.',
                         'title'      => 'Kaugnay na Produkto',
                     ],
-
                     'up-sells' => [
                         'empty-info' => 'Magdagdag ng mga produkto para sa upsell.',
                         'info'       => 'Makikita ng mga customer ang mga premium na produkto o mga produkto na may mas mataas na kalidad kaysa sa ipinakitang produkto.',
                         'title'      => 'Mga Upsell na Produkto',
                     ],
-
                     'cross-sells' => [
                         'empty-info' => 'Magdagdag ng mga produkto para sa cross-sell.',
                         'info'       => 'Makikita ng mga customer ang iba pang produkto na maaari nilang bilhin kasabay ng produkto sa kanilang cart.',
                         'title'      => 'Mga Cross-sell na Produkto',
                     ],
-
                     'add-btn'           => 'Magdagdag',
                     'delete'            => 'Tanggalin',
                     'empty-info'        => 'Magdagdag ng mga produkto :type nang sabay.',
@@ -199,7 +237,6 @@ return [
                     'sku'               => 'SKU - :sku',
                     'title'             => 'Mga Produkto',
                 ],
-
                 'types' => [
                     'configurable' => [
                         'add-btn'                            => 'Magdagdag ng variation',
@@ -213,18 +250,16 @@ return [
                         'sku'                                => 'SKU - :sku',
                         'title'                              => 'Variation',
                         'variant-exists'                     => 'Ang variation o SKU na ito ay umiiral na.',
-                        'variant-attribute-option-not-found' => 'Hindi nakita ang attribute option para sa variation',
-                        'supper-attribute-not-found'         => 'Hindi nakita ang super attribute',
-                        'variant-given-exists'               => 'Ang variation na ito ay umiiral na',
-
-                        'create' => [
+                        'variant-attribute-option-not-found' => 'Hindi nakita ang attribute option para sa variation :attributes',
+                        'supper-attribute-not-found'         => 'Hindi nakita ang super attribute :attribute',
+                        'variant-given-exists'               => 'Ang variation na ito ay umiiral na :variants',
+                        'create'                             => [
                             'description'            => 'Deskripsyon',
                             'name'                   => 'Pangalan',
                             'save-btn'               => 'Magdagdag',
                             'title'                  => 'Magdagdag ng variation',
                             'variant-already-exists' => 'Ang variation na ito ay umiiral na.',
                         ],
-
                         'edit' => [
                             'disabled'        => 'Hindi aktibo',
                             'edit-info'       => 'Para i-update ang detalyadong impormasyon ng produkto, bisitahin ang page',
@@ -240,7 +275,6 @@ return [
                             'title'           => 'Produkto',
                             'weight'          => 'Timbang',
                         ],
-
                         'mass-edit' => [
                             'add-images'          => 'Magdagdag ng mga larawan',
                             'apply-to-all-btn'    => 'I-apply sa lahat',
@@ -267,23 +301,31 @@ return [
                         ],
                     ],
                 ],
-
                 'translate' => [
-                    'translate-btn'            => 'Isalin',
-                    'title'                    => 'Pagsasalin',
-                    'source-channel'           => 'Pinagmulan ng Channel',
-                    'locale'                   => 'Wikang Pinagmulan',
-                    'translated-content'       => 'Isinaling Nilalaman',
-                    'translating'              => 'Isinasalin',
-                    'apply'                    => 'I-apply',
-                    'cancel'                   => 'Kanselahin',
-                    'target-locales'           => 'Target na Wika',
-                    'target-channel'           => 'Target na Channel',
-                    'attributes'               => 'Mga Katangian',
-                    'source-content'           => 'Nilalaman ng Pinagmulan',
-                    'tranlated-job-processed'  => 'Natapos na ang proseso ng trabaho para sa isinaling nilalaman.',
+                    'translate-btn'               => 'Isalin',
+                    'title'                       => 'Pagsasalin',
+                    'source-channel'              => 'Pinagmulan ng Channel',
+                    'locale'                      => 'Wikang Pinagmulan',
+                    'translated-content'          => 'Isinaling Nilalaman',
+                    'translating'                 => 'Isinasalin',
+                    'apply'                       => 'I-apply',
+                    'back'                        => 'Back',
+                    'cancel'                      => 'Kanselahin',
+                    'target-locales'              => 'Target na Wika',
+                    'target-channel'              => 'Target na Channel',
+                    'attributes'                  => 'Mga Katangian',
+                    'source-content'              => 'Nilalaman ng Pinagmulan',
+                    'tranlated-job-processed'     => 'Natapos na ang proseso ng trabaho para sa isinaling nilalaman.',
+                    'step'                        => 'Step',
+                    'select-source'               => 'Select Source',
+                    'select-target'               => 'Select Target',
+                    'first-step-title'            => 'Step 1: Select Source Channel, Language and Attributes',
+                    'first-step-title-attributes' => 'Step 1: Select Source Channel and Language',
+                    'second-step-title'           => 'Step 2: Select Target Channel and Languages',
+                    'target-content'              => 'Target Content',
+                    'next'                        => 'Next',
+                    'empty-translation-data'      => 'Data not available for translation on the basis of source channel and locale',
                 ],
-
                 'product-info' => [
                     'title'        => 'Impormasyon ng Produkto',
                     'status'       => 'Katayuan',
@@ -293,6 +335,7 @@ return [
                     'created-at'   => 'Petsa ng Pagkakalikha',
                     'product-type' => 'Uri ng Produkto',
                 ],
+                'more-actions' => 'More Actions',
             ],
             'bulk-edit' => [
                 'validation' => [
@@ -303,22 +346,23 @@ return [
                     'regex'                      => 'Hindi tumutugma ang halaga sa kinakailangang pattern.',
                     'invalid-pattern'            => 'Di-wastong pasadyang pattern ang ibinigay.',
                     'select-attribute-or-family' => 'Mangyaring pumili ng kahit isang attribute o isang pamilya ng attribute.',
-                    'failed'                     => 'Nabigo ang pagpapatunay.', ],
-                'modal'                      => [
+                    'failed'                     => 'Nabigo ang pagpapatunay.',
+                ],
+                'modal' => [
                     'title'            => 'Mga Attribute para sa Bulk Edit',
                     'btn-cancel'       => 'Kanselahin',
                     'btn-proceed'      => 'Magpatuloy',
                     'attribute-family' => 'Pumili ng Pamilya ng Attribute',
                 ],
                 'index' => [
-                    'no-product'    => 'Walang napiling produkto para sa bulk edit.',
+                    'no-product' => 'Walang napiling produkto para sa bulk edit.',
                 ],
                 'filter' => [
-                    'many-product'      => 'Sobra ang bilang ng mga napiling produkto.',
-                    'redirect-message'  => 'Nire-redirect sa view ng bulk edit.',
+                    'many-product'     => 'Sobra ang bilang ng mga napiling produkto.',
+                    'redirect-message' => 'Nire-redirect sa view ng bulk edit.',
                 ],
                 'handle-save' => [
-                    'edit-success'  => 'Matagumpay ang bulk edit.',
+                    'edit-success' => 'Matagumpay ang bulk edit.',
                 ],
                 'id'              => 'ID',
                 'no-changes'      => 'Walang pagbabago para i-save.',
@@ -329,9 +373,8 @@ return [
                 'img-preview'     => 'Image Preview',
                 'no-image'        => 'Walang Imahe',
                 'img-fail'        => 'Nabigo ang pag-upload ng imahe',
-                'no-opton'        => 'Walang Opsyon',
+                'no-option'       => 'No Options',
             ],
-
             'create-success'          => 'Matagumpay na nalikha ang produkto',
             'delete-failed'           => 'Nabigong tanggalin ang produkto',
             'delete-success'          => 'Matagumpay na tinanggal ang produkto',
@@ -345,30 +388,28 @@ return [
             'upload-success'          => 'Matagumpay na na-upload ang produktong file.',
             'update-failure'          => 'Hindi na-update ang produkto.',
         ],
-
         'attributes' => [
             'index' => [
                 'create-btn' => 'Gumawa ng Katangian',
                 'title'      => 'Mga Katangian',
-
-                'datagrid' => [
-                    'channel-based'       => 'Batay sa Channel',
-                    'code'                => 'Code',
-                    'created-at'          => 'Nagawa noong',
-                    'delete'              => 'Tanggalin',
-                    'edit'                => 'I-edit',
-                    'id'                  => 'ID',
-                    'locale-based'        => 'Batay sa Wika',
-                    'mass-delete-success' => 'Ang mga napiling katangian ay matagumpay na natanggal',
-                    'name'                => 'Pangalan',
-                    'required'            => 'Kinakailangan',
-                    'type'                => 'Uri',
-                    'unique'              => 'Natangi',
-                    'delete-failed'       => 'Hindi ma-delete ang katangiang ito.',
-                    'mass-delete-failed'  => 'Hindi ma-delete ang mga napiling katangian.',
+                'datagrid'   => [
+                    'channel-based'            => 'Batay sa Channel',
+                    'code'                     => 'Code',
+                    'created-at'               => 'Nagawa noong',
+                    'delete'                   => 'Tanggalin',
+                    'edit'                     => 'I-edit',
+                    'id'                       => 'ID',
+                    'locale-based'             => 'Batay sa Wika',
+                    'mass-delete-success'      => 'Ang mga napiling katangian ay matagumpay na natanggal',
+                    'name'                     => 'Pangalan',
+                    'required'                 => 'Kinakailangan',
+                    'type'                     => 'Uri',
+                    'unique'                   => 'Natangi',
+                    'delete-failed'            => 'Hindi ma-delete ang katangiang ito.',
+                    'mass-delete-failed'       => 'Hindi ma-delete ang mga napiling katangian.',
+                    'delete-attribute-failure' => 'This attribute cannot be removed because it is in use for configurable products',
                 ],
             ],
-
             'create' => [
                 'add-attribute-options' => 'Magdagdag ng mga pagpipilian ng katangian',
                 'add-option'            => 'Magdagdag ng opsyon',
@@ -391,13 +432,13 @@ return [
                 'enable-wysiwyg'        => 'Paganahin ang WYSIWYG Editor',
                 'file'                  => 'File',
                 'general'               => 'Pangkalahatan',
-                'image'                 => 'Larawan',
                 'gallery'               => 'Gallery',
+                'image'                 => 'Larawan',
                 'input-options'         => 'Mga pagpipilian sa pag-input',
                 'input-validation'      => 'Pag-validate ng input',
                 'is-comparable'         => 'Ang katangiang ito ay maaring ikumpara',
                 'is-configurable'       => 'Ginagamit upang lumikha ng mga produktong maaring i-configure',
-                'is-filterable'         => 'Maaaring gamitin sa mga filter',
+                'is-filterable'         => 'Nafifilter',
                 'is-required'           => 'Kinakailangan',
                 'is-unique'             => 'Natangi',
                 'is-visible-on-front'   => 'Nakikita sa front-end ng detalye ng produkto',
@@ -425,10 +466,9 @@ return [
                 'yes'                   => 'Oo',
                 'same-code-error'       => 'Ang code ng opsyon ay dapat na natangi.',
                 'usable-in-grid'        => 'Magagamit sa grid',
-                'is-filterable'         => 'Nafifilter',
                 'ai-translate'          => 'AI Pagsasalin',
-
-                'option' => [
+                'invalid-swatch-type'   => 'The :attribute is not allowed for attribute type :type with swatch type :swatch_type.',
+                'option'                => [
                     'color'    => 'Color Swatch',
                     'dropdown' => 'Dropdown',
                     'image'    => 'Image Swatch',
@@ -436,7 +476,6 @@ return [
                     'text'     => 'Text Swatch',
                 ],
             ],
-
             'edit' => [
                 'add-attribute-options' => 'Magdagdag ng mga pagpipilian ng katangian',
                 'add-option'            => 'Magdagdag ng opsyon',
@@ -460,12 +499,11 @@ return [
                 'file'                  => 'File',
                 'general'               => 'Pangkalahatan',
                 'image'                 => 'Larawan',
-                'gallery'               => 'Gallery',
                 'input-options'         => 'Mga pagpipilian sa pag-input',
                 'input-validation'      => 'Pag-validate ng input',
                 'is-comparable'         => 'Ang katangiang ito ay maaring ikumpara',
                 'is-configurable'       => 'Ginagamit upang lumikha ng mga produktong maaring i-configure',
-                'is-filterable'         => 'Maaaring gamitin sa mga filter',
+                'is-filterable'         => 'Nafifilter',
                 'is-required'           => 'Kinakailangan',
                 'is-unique'             => 'Natangi',
                 'is-visible-on-front'   => 'Nakikita sa front-end ng detalye ng produkto',
@@ -493,24 +531,20 @@ return [
                 'yes'                   => 'Oo',
                 'same-code-error'       => 'Ang code ng opsyon ay dapat na natangi.',
                 'usable-in-grid'        => 'Magagamit sa grid',
-                'is-filterable'         => 'Nafifilter',
                 'ai-translate'          => 'AI Pagsasalin',
-                'invalid-swatch-type'   => 'Ang :attribute ay hindi pinapayagan para sa attribute type :type na may swatch type :swatch_type.',
-
-                'option' => [
-                    'create-success'      => 'Matagumpay na nalikha ang Opsyon ng Katangian',
-                    'delete-success'      => 'Matagumpay na natanggal ang Opsyon ng Katangian',
+                'option'                => [
                     'save-btn'            => 'I-save ang Opsyon',
-                    'sort-update-failure' => 'Nabigong i-update ang pagkakasunod-sunod',
-                    'sort-update-success' => 'Matagumpay na na-update ang pagkakasunod-sunod',
+                    'create-success'      => 'Matagumpay na nalikha ang Opsyon ng Katangian',
                     'update-success'      => 'Matagumpay na na-update ang Opsyon ng Katangian',
+                    'sort-update-success' => 'Matagumpay na na-update ang pagkakasunod-sunod',
+                    'sort-update-failure' => 'Nabigong i-update ang pagkakasunod-sunod',
+                    'delete-success'      => 'Matagumpay na natanggal ang Opsyon ng Katangian',
                     'color'               => 'Color Swatch',
                     'dropdown'            => 'Dropdown',
                     'image'               => 'Image Swatch',
                     'text'                => 'Text Swatch',
                 ],
             ],
-
             'create-success'    => 'Katangian na nilikha',
             'delete-failed'     => 'Nabigo ang pagtanggal ng katangian',
             'delete-success'    => 'Katangian natanggal',
@@ -518,19 +552,16 @@ return [
             'user-define-error' => 'Hindi ma-delete ang system attribute',
             'not-found'         => 'Ang katangian na may code ":code" ay hindi natagpuan',
         ],
-
         'attribute-options' => [
             'create-success'       => 'Matag taglay na opsyon ng attribute ay matagumpay na nalikha',
             'update-success'       => 'Matagumpay na na-update ang opsyon ng attribute',
             'usable-in-grid-error' => 'Apat lamang na attribute ang maaaring ituring na magagamit sa grid.',
         ],
-
         'attribute-groups' => [
             'index' => [
                 'create-btn' => 'Lumikha ng grupo ng attribute',
                 'title'      => 'Mga grupo ng attribute',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'code'                => 'Kode',
                     'delete'              => 'Tanggalin',
                     'mass-delete-success' => 'Ang mga napiling grupo ng attribute ay natanggal',
@@ -542,7 +573,6 @@ return [
                     'update-status'       => 'I-update ang status',
                 ],
             ],
-
             'create' => [
                 'title'    => 'Magdagdag ng grupo ng attribute',
                 'save-btn' => 'I-save ang grupo ng attribute',
@@ -551,7 +581,6 @@ return [
                 'code'     => 'Kode',
                 'label'    => 'Label',
             ],
-
             'edit' => [
                 'title'    => 'I-edit ang grupo ng attribute',
                 'back-btn' => 'Bumalik',
@@ -560,7 +589,6 @@ return [
                 'code'     => 'Kode',
                 'label'    => 'Label',
             ],
-
             'create-success'        => 'Matagumpay na nalikha ang grupo ng attribute',
             'delete-failed'         => 'Nabigong tanggalin ang grupo ng attribute',
             'delete-success'        => 'Matagumpay na natanggal ang grupo ng attribute',
@@ -569,29 +597,26 @@ return [
             'attribute-group-error' => 'Ginagamit ang grupo sa mga pamilya.',
             'not-found'             => 'Ang grupo ng attribute na may kode ":code" ay hindi natagpuan',
         ],
-
         'categories' => [
             'index' => [
-                'add-btn' => 'Lumikha ng kategorya',
-                'title'   => 'Mga kategorya',
-
+                'add-btn'  => 'Lumikha ng kategorya',
+                'title'    => 'Mga kategorya',
                 'datagrid' => [
                     'active'         => 'Aktibo',
                     'code'           => 'Kode',
                     'delete'         => 'Tanggalin',
-                    'delete-success' => 'Ang mga napiling resources ay natanggal',
+                    'delete-success' => 'Ang mga napiling resources ay natanggal :resource',
                     'edit'           => 'I-edit',
                     'id'             => 'ID',
                     'inactive'       => 'Hindi aktibo',
                     'name'           => 'Pangalan ng ipapakita',
+                    'category-name'  => 'Pangalan',
                     'no-of-products' => 'Bilang ng mga produkto',
                     'position'       => 'Posisyon',
-                    'category-name'  => 'Pangalan',
                     'status'         => 'Makikita sa menu',
                     'update-status'  => 'I-update ang status',
                 ],
             ],
-
             'create' => [
                 'back-btn'            => 'Bumalik',
                 'code'                => 'Kode',
@@ -612,7 +637,6 @@ return [
                 'right-section'       => 'Seksyon ng setting',
                 'left-section'        => 'Seksyon ng pangkalahatan',
             ],
-
             'edit' => [
                 'back-btn'               => 'Bumalik',
                 'code'                   => 'Kode',
@@ -631,7 +655,6 @@ return [
                 'right-section'          => 'Seksyon ng setting',
                 'left-section'           => 'Seksyon ng pangkalahatan',
             ],
-
             'category'             => 'Kategorya',
             'create-success'       => 'Matagumpay na nalikha ang kategorya.',
             'delete-category-root' => 'Hindi mo maaaring tanggalin ang root category na naka-link sa isang channel.',
@@ -646,14 +669,12 @@ return [
             'create-failure'       => 'Hindi nagawa ang kategorya.',
             'update-failure'       => 'Hindi na-update ang kategorya.',
         ],
-
         'category_fields' => [
             'index' => [
                 'create-btn' => 'Lumikha ng Field ng Kategorya',
                 'add-btn'    => 'Magdagdag ng Field ng Kategorya',
                 'title'      => 'Mga Field ng Kategorya',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'       => 'Batay sa Channel',
                     'code'                => 'Code',
                     'created-at'          => 'Nilikha noong',
@@ -678,7 +699,6 @@ return [
                     'mass-delete-failed'  => 'Ang mga napiling field ng kategorya ay hindi maaaring tanggalin.',
                 ],
             ],
-
             'create' => [
                 'add-field-options'   => 'Magdagdag ng mga opsyon para sa field ng kategorya',
                 'add-option'          => 'Magdagdag ng opsyon',
@@ -733,8 +753,7 @@ return [
                 'set-section-right'   => 'Seksyon ng Configuration',
                 'settings'            => 'Mga Setting',
                 'same-code-error'     => 'Ang code ng opsyon ay dapat natatangi.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Dropdown List',
                     'save-btn' => 'I-save ang opsyon',
                     'color'    => 'Sample na kulay',
@@ -742,7 +761,6 @@ return [
                     'text'     => 'Sample ng teksto',
                 ],
             ],
-
             'edit' => [
                 'add-field-options'   => 'Magdagdag ng mga opsyon para sa field ng kategorya',
                 'add-option'          => 'Magdagdag ng opsyon',
@@ -798,8 +816,7 @@ return [
                 'set-section-right'   => 'Seksyon ng Configuration',
                 'settings'            => 'Mga Setting',
                 'same-code-error'     => 'Ang code ng opsyon ay dapat natatangi.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Dropdown List',
                     'save-btn' => 'I-save ang opsyon',
                     'color'    => 'Sample na kulay',
@@ -807,7 +824,6 @@ return [
                     'text'     => 'Sample ng teksto',
                 ],
             ],
-
             'create-success'    => 'Matagumpay na nalikha ang field ng kategorya',
             'delete-failed'     => 'Nabigong tanggalin ang field ng kategorya',
             'delete-success'    => 'Matagumpay na natanggal ang field ng kategorya',
@@ -815,17 +831,14 @@ return [
             'user-define-error' => 'Hindi maaaring tanggalin ang field ng kategorya ng sistema',
             'not-found'         => 'Hindi natagpuan ang field ng kategorya na may code ":code"',
         ],
-
         'category-fields-options' => [
             'create-success' => 'Nagtagumpay ang paglikha ng opsyon ng kategorya',
             'update-success' => 'Na-update ang opsyon ng kategorya',
         ],
-
         'families' => [
             'index' => [
-                'add'   => 'Lumikha ng pamilya ng mga katangian',
-                'title' => 'Mga Pamilya',
-
+                'add'      => 'Lumikha ng pamilya ng mga katangian',
+                'title'    => 'Mga Pamilya',
                 'datagrid' => [
                     'code'           => 'Kodigo',
                     'delete'         => 'Tanggalin',
@@ -840,7 +853,6 @@ return [
                     'update-success' => 'Ang napiling :resource ay na-update',
                 ],
             ],
-
             'create' => [
                 'assign-group-btn'                 => 'Mag-assign ng grupo ng mga katangian',
                 'assign-group-title'               => 'Mag-assign ng grupo ng mga katangian',
@@ -871,7 +883,6 @@ return [
                 'unassigned-attribute-groups'      => 'Mga hindi in-assign na grupo ng mga katangian',
                 'assign-first-attribute-group'     => 'Mag-assign ng grupo sa pamilya.',
             ],
-
             'edit' => [
                 'assign-group-btn'                 => 'Mag-assign ng grupo ng mga katangian',
                 'assign-group-title'               => 'Mag-assign ng grupo ng mga katangian',
@@ -905,7 +916,6 @@ return [
                 'variant-options-label'            => 'Mga Opsyon ng Pag-configure',
                 'select-variant'                   => 'Pumili ng mga katangian',
             ],
-
             'attribute-family'               => 'Pamilya ng mga Katangian',
             'attribute-product-error'        => 'Ang pamilya ay ginagamit sa mga produkto.',
             'create-success'                 => 'Matagumpay na nalikha ang pamilya.',
@@ -918,7 +928,6 @@ return [
             'not-found'                      => 'Hindi natagpuan ang pamilya ng mga katangian na may kodigo ":code".',
             'can-not-update-variant-options' => 'Hindi ma-update ang mga opsyon ng configuration dahil mayroon nang mga produkto ng variant sa pamilya.',
         ],
-
         'history' => [
             'index' => [
                 'datagrid' => [
@@ -929,7 +938,6 @@ return [
             ],
         ],
     ],
-
     'settings' => [
         'locales' => [
             'index' => [
@@ -938,8 +946,7 @@ return [
                 'title'                 => 'Mga Wika',
                 'can-not-delete-error'  => 'Hindi mo maaaring tanggalin ang isang wika na nakakabit sa isang channel o user',
                 'can-not-disable-error' => 'Hindi mo maaaring i-disable ang isang wika na nakakabit sa isang channel o user',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'     => 'Mga Aksyon',
                     'code'        => 'Code',
                     'delete'      => 'Tanggalin',
@@ -950,14 +957,12 @@ return [
                     'name'        => 'Display Name',
                     'rtl'         => 'RTL',
                     'mass-update' => 'I-update ang Status',
-
-                    'status' => [
+                    'status'      => [
                         'title'    => 'Status',
                         'active'   => 'I-enable',
                         'inactive' => 'I-disable',
                     ],
                 ],
-
                 'create' => [
                     'code'             => 'Code',
                     'direction'        => 'Direksyon',
@@ -968,11 +973,9 @@ return [
                     'title'            => 'Lumikha ng Wika',
                     'status'           => 'Status',
                 ],
-
                 'edit' => [
                     'title' => 'I-edit ang Wika',
                 ],
-
                 'create-success'    => 'Wika na malikha ng matagumpay.',
                 'delete-failed'     => 'Ang pagtanggal ng wika ay nabigo.',
                 'delete-success'    => 'Wika na tinanggal ng matagumpay.',
@@ -981,7 +984,6 @@ return [
                 'update-success'    => 'Wika na na-update ng matagumpay.',
             ],
         ],
-
         'currencies' => [
             'index' => [
                 'create-btn'            => 'Lumikha ng Pera',
@@ -989,8 +991,7 @@ return [
                 'title'                 => 'Mga Pera',
                 'can-not-delete-error'  => 'Hindi mo maaaring tanggalin ang isang pera na nakakabit sa isang channel',
                 'can-not-disable-error' => 'Hindi mo maaaring i-disable ang isang pera na nakakabit sa isang channel',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'        => 'Mga Aksyon',
                     'code'           => 'Code',
                     'delete'         => 'Tanggalin',
@@ -1002,14 +1003,12 @@ return [
                     'partial-action' => 'Ang ilang mga aksyon ay hindi naipatupad dahil sa mga limitasyon ng sistema sa :resource',
                     'update-success' => 'Ang mga napiling :resource ay matagumpay na na-update.',
                     'mass-update'    => 'I-update ang Status',
-
-                    'status' => [
+                    'status'         => [
                         'title'    => 'Status',
                         'active'   => 'I-enable',
                         'inactive' => 'I-disable',
                     ],
                 ],
-
                 'create' => [
                     'code'           => 'Code',
                     'create-btn'     => 'Lumikha ng Pera',
@@ -1022,11 +1021,9 @@ return [
                     'title'          => 'Lumikha ng Bagong Pera',
                     'status'         => 'Status',
                 ],
-
                 'edit' => [
                     'title' => 'I-edit ang Pera',
                 ],
-
                 'create-success'    => 'Pera na malikha ng matagumpay.',
                 'delete-failed'     => 'Ang pagtanggal ng pera ay nabigo.',
                 'delete-success'    => 'Pera na tinanggal ng matagumpay.',
@@ -1035,7 +1032,6 @@ return [
                 'cannot-delete'     => 'Ang pera ay hindi maaaring tanggalin.',
             ],
         ],
-
         'data-transfer' => [
             'tracker' => [
                 'index' => [
@@ -1053,28 +1049,28 @@ return [
                         'user'                 => 'Gumagamit',
                         'created_at'           => 'Nagawa Sa',
                         'updated_at'           => 'Na-update Sa',
-
-                        'pending'    => 'Naghihintay',
-                        'validated'  => 'Napatunayan',
-                        'processing' => 'Pinoproseso',
-                        'processed'  => 'Naproseso',
-                        'linking'    => 'Nagli-link',
-                        'linked'     => 'Naka-link',
-
-                        'indexing'  => 'Nag-iindex',
-                        'indexed'   => 'Naindex',
-                        'completed' => 'Natapos',
-                        'failed'    => 'Nabigo',
+                        'pending'              => 'Naghihintay',
+                        'validating'           => 'Validating',
+                        'validated'            => 'Napatunayan',
+                        'processing'           => 'Pinoproseso',
+                        'processed'            => 'Naproseso',
+                        'linking'              => 'Nagli-link',
+                        'linked'               => 'Naka-link',
+                        'indexing'             => 'Nag-iindex',
+                        'indexed'              => 'Naindex',
+                        'completed'            => 'Natapos',
+                        'paused'               => 'Paused',
+                        'cancelled'            => 'Cancelled',
+                        'failed'               => 'Nabigo',
                     ],
                 ],
-
                 'import' => [
                     'back-btn'                => 'Bumalik',
                     'completed-batches'       => 'Kabuuang Natapos na Mga Batch:',
                     'download-error-report'   => 'I-download ang Buong Ulat',
                     'edit-btn'                => 'I-edit',
                     'imported-info'           => 'Tagumpay! Matagumpay ang iyong pag-import.',
-                    'importing-info'          => 'Pag-export sa Progreso',
+                    'exporting-info'          => 'Export In Process',
                     'indexing-info'           => 'Nag-iindex ng Mga Mapagkukunan (Presyo, Elasticsearch) Sa Progreso',
                     'linking-info'            => 'Nagli-link ng Mga Mapagkukunan Sa Progreso',
                     'progress'                => 'Pag-usad:',
@@ -1092,7 +1088,6 @@ return [
                     'validation-failed-info'  => 'Ang iyong pag-import ay di-wasto. Pakitama ang mga sumusunod na error at subukang muli.',
                     'validation-success-info' => 'Ang iyong pag-import ay wasto. I-click ang "I-export" upang simulan ang proseso ng pag-import.',
                 ],
-
                 'summary' => [
                     'total-batches' => 'Kabuuang Mga Batch:',
                     'created'       => 'Kabuuang Nabuong Mga Rekord:',
@@ -1103,150 +1098,191 @@ return [
                     'updated'       => 'Kabuuang Mga Na-update na Rekord:',
                     'skipped'       => 'Kabuuang Mga Nilaktawan na Rekord:',
                 ],
-
-                'info'              => 'Tagumpay! Matagumpay na naisagawa ang iyong trabaho.',
-                'create-success'    => 'Matagumpay na nagawa ang pag-export.',
-                'delete-failed'     => 'Nabigo ang pagtanggal ng pag-export.',
-                'delete-success'    => 'Matagumpay na natanggal ang pag-export.',
-                'not-valid'         => 'Hindi wasto ang pag-export',
-                'nothing-to-import' => 'Walang mapagkukunan upang i-import.',
-                'setup-queue-error' => 'Pakibago ang iyong driver ng pila sa "database" o "redis" upang simulan ang proseso ng pag-import.',
-                'update-success'    => 'Matagumpay na na-update ang pag-export.',
-                'failed-info'       => 'Nabigo ang trabaho. Pakitama ang mga sumusunod na error at subukang muli.',
-                'download-log-file' => 'I-download ang Log File',
+                'info'                  => 'Tagumpay! Matagumpay na naisagawa ang iyong trabaho.',
+                'running-time'          => 'Running time',
+                'estimated-remaining'   => 'Est. remaining',
+                'total-duration'        => 'Total Duration',
+                'status'                => 'Status',
+                'waiting'               => 'Waiting',
+                'total-records'         => 'Total records',
+                'job-id'                => 'Job ID',
+                'records-created'       => 'Records Created',
+                'records-updated'       => 'Records Updated',
+                'records-deleted'       => 'Records deleted',
+                'run-again'             => 'Run Again',
+                'completed-success'     => 'job completed successfully',
+                'completed-info-sub'    => 'All records have been processed and indexed. Your catalog is up to date.',
+                'create-success'        => 'Matagumpay na nagawa ang pag-export.',
+                'delete-failed'         => 'Nabigo ang pagtanggal ng pag-export.',
+                'delete-success'        => 'Matagumpay na natanggal ang pag-export.',
+                'not-valid'             => 'Hindi wasto ang pag-export',
+                'nothing-to-import'     => 'Walang mapagkukunan upang i-import.',
+                'setup-queue-error'     => 'Pakibago ang iyong driver ng pila sa "database" o "redis" upang simulan ang proseso ng pag-import.',
+                'update-success'        => 'Matagumpay na na-update ang pag-export.',
+                'failed-info'           => 'Nabigo ang trabaho. Pakitama ang mga sumusunod na error at subukang muli.',
+                'download-log-file'     => 'I-download ang Log File',
+                'pause'                 => 'Pause',
+                'resume'                => 'Resume',
+                'cancel'                => 'Cancel',
+                'paused'                => 'Import has been paused.',
+                'resumed'               => 'Import has been resumed.',
+                'cancelled'             => 'Import has been cancelled.',
+                'paused-info'           => 'Import is paused. Remaining batches are on hold.',
+                'paused-info-export'    => 'Export is paused. Remaining batches are on hold.',
+                'cancelled-info'        => 'Import was cancelled. Partial results are shown below.',
+                'cancelled-info-export' => 'Export was cancelled. Partial results are shown below.',
+                'cancel-confirm'        => 'Are you sure you want to cancel this job? This action cannot be undone.',
+                'live'                  => 'Live',
+                'import-progress'       => 'Import progress',
+                'export-progress'       => 'Export progress',
+                'linking-progress'      => 'Linking progress',
+                'indexing-progress'     => 'Indexing progress',
+                'job-label'             => 'Job',
             ],
-
-            'import' => [
+            'imports' => [
                 'create' => [
-                    'code'                => 'Kodigo',
-                    'action'              => 'Aksyon',
-                    'allowed-errors'      => 'Pinapayagang mga error',
-                    'allowed-file-types'  => 'Pinapayagang mga uri ng file (CSV, XLSX, XLS)',
-                    'back-btn'            => 'Bumalik',
-                    'create-update'       => 'Lumikha/Update',
-                    'delete'              => 'Tanggalin',
-                    'media'               => 'File / Mga Imahe',
-                    'images'              => 'Mga Imahe',
-                    'download-sample'     => 'I-download ang sample na :resource CSV',
-                    'field-separator'     => 'Separator ng Field',
-                    'separator-info'      => 'Gamitin lamang para sa mga CSV file',
-                    'file-info-example'   => 'Ilagay ang mga imahe sa storage/app/public/. Kung ang mga imahe ay nasa storage/app/public/import-images, idagdag ang import-images/ sa path at gamitin lamang ang pangalan ng file sa import file.',
-                    'file-info'           => 'Gamitin ang relative na path sa /project-root/storage/app/import, halimbawa product-images, import-images.',
+                    'code'                => 'Code',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'media'               => 'File / Images',
+                    'images'              => 'Images',
+                    'download-sample'     => 'Download :resource Sample CSV',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
                     'file'                => 'File',
-                    'general'             => 'Pangkalahatan',
-                    'upload_images'       => 'I-upload ang mga imahe para itakda ang path',
-                    'download-sample-zip' => 'I-download ang mga sample file bilang ZIP',
-                    'zip-drop-hint'       => 'Mag-click o i-drag at i-drop ang isang ZIP file dito',
+                    'general'             => 'General',
+                    'upload_images'       => 'Upload Images to set Path',
+                    'download-sample-zip' => 'Download Sample Images ZIP',
+                    'zip-uploading'       => 'Uploading and extracting ZIP...',
+                    'zip-upload-success'  => 'ZIP uploaded and extracted successfully.',
+                    'zip-upload-error'    => 'Failed to upload ZIP. Please try again.',
+                    'invalid-zip'         => 'The uploaded file is not a valid ZIP archive.',
+                    'zip-upload-or'       => 'or upload a ZIP of images',
+                    'zip-click-upload'    => 'Click to upload a ZIP of images',
+                    'zip-files-extracted' => 'files extracted',
+                    'zip-drop-hint'       => 'Click or drag & drop a ZIP file here',
                     'images-directory'    => 'Path',
-                    'process-in-queue'    => 'Nasa proseso sa queue',
-                    'results'             => 'Mga Resulta',
-                    'save-btn'            => 'I-save ang import',
-                    'settings'            => 'Mga Setting',
-                    'skip-errors'         => 'Laktawan ang mga error',
-                    'stop-on-errors'      => 'Itigil sa mga error',
-                    'title'               => 'Lumikha ng Import',
-                    'type'                => 'Uri',
-                    'validation-strategy' => 'Istratehiya ng Validasyon',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Create Import',
+                    'type'                => 'Type',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'edit' => [
-                    'images'              => 'Mga Imahe',
-                    'action'              => 'Aksyon',
-                    'allowed-errors'      => 'Pinapayagang mga error',
-                    'allowed-file-types'  => 'Pinapayagang mga uri ng file (CSV, XLSX, XLS)',
-                    'back-btn'            => 'Bumalik',
-                    'create-update'       => 'Lumikha/Update',
-                    'delete'              => 'Tanggalin',
-                    'download-sample'     => 'I-download ang sample',
-                    'field-separator'     => 'Separator ng Field',
-                    'separator-info'      => 'Gamitin lamang para sa mga CSV file',
-                    'file-info-example'   => 'Ilagay ang mga imahe sa storage/app/public/. Kung ang mga imahe ay nasa storage/app/public/import-images, idagdag ang import-images/ sa path at gamitin lamang ang pangalan ng file sa import file.',
-                    'file-info'           => 'Gamitin ang relative na path sa /project-root/storage/app/import, halimbawa product-images, import-images.',
+                    'images'              => 'Images',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'download-sample'     => 'Download Sample',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
                     'file'                => 'File',
-                    'general'             => 'Pangkalahatan',
+                    'general'             => 'General',
                     'images-directory'    => 'Path',
-                    'process-in-queue'    => 'Nasa proseso sa queue',
-                    'results'             => 'Mga Resulta',
-                    'save-btn'            => 'I-save ang import',
-                    'settings'            => 'Mga Setting',
-                    'skip-errors'         => 'Laktawan ang mga error',
-                    'stop-on-errors'      => 'Itigil sa mga error',
-                    'title'               => 'I-edit ang Import',
-                    'type'                => 'Uri',
-                    'validation-strategy' => 'Istratehiya ng Validasyon',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Edit Import',
+                    'type'                => 'Type',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'batch' => [
-                    'title' => 'Import na naidagdag sa queue',
+                    'title' => 'Import added in the queue',
                 ],
-
                 'index' => [
-                    'button-title' => 'Lumikha ng Import',
-                    'title'        => 'Mga Import',
-
-                    'datagrid' => [
-                        'actions'               => 'Mga Aksyon',
-                        'completed-at'          => 'Natapos noong',
-                        'created'               => 'Nilikha',
-                        'delete'                => 'Tanggalin',
-                        'deleted'               => 'Tinanggal',
-                        'edit'                  => 'I-edit',
-                        'error-file'            => 'File ng Error',
+                    'button-title' => 'Create Import',
+                    'title'        => 'Imports',
+                    'datagrid'     => [
+                        'actions'               => 'Actions',
+                        'completed-at'          => 'Completed At',
+                        'created'               => 'Created',
+                        'delete'                => 'Delete',
+                        'deleted'               => 'Deleted',
+                        'edit'                  => 'Edit',
+                        'error-file'            => 'Error File',
                         'id'                    => 'ID',
-                        'code'                  => 'Kodigo',
-                        'type'                  => 'Uri',
-                        'action'                => 'Aksyon',
-                        'started-at'            => 'Nagsimula noong',
-                        'state'                 => 'Estado',
-                        'summary'               => 'Buod',
-                        'updated'               => 'Na-update',
-                        'uploaded-file'         => 'Ipinadalang file',
-                        'images_directory_path' => 'Path ng mga Imahe',
+                        'code'                  => 'Code',
+                        'type'                  => 'Type',
+                        'action'                => 'Action',
+                        'started-at'            => 'Started At',
+                        'state'                 => 'State',
+                        'summary'               => 'Summary',
+                        'updated'               => 'Updated',
+                        'uploaded-file'         => 'Uploaded File',
+                        'images_directory_path' => 'Images File',
                         'import'                => 'Import',
                     ],
                 ],
-
                 'import' => [
-                    'back-btn'                => 'Bumalik',
-                    'completed-batches'       => 'Kumpletong mga batch:',
-                    'download-error-report'   => 'I-download ang kumpletong ulat',
-                    'edit-btn'                => 'I-edit',
-                    'imported-info'           => 'Binabati kita! Ang iyong import ay matagumpay na natapos.',
-                    'importing-info'          => 'Ang import ay isinasagawa',
-                    'exporting-info'          => 'Ang export ay isinasagawa',
-                    'indexing-info'           => 'Ang indexing ng mga resources (mga presyo, Elastic Search) ay isinasagawa',
-                    'linking-info'            => 'Ang linking ng mga resources ay isinasagawa',
-                    'progress'                => 'Pag-unlad:',
-                    'pending-info'            => 'Naghihintay para sa pagproseso sa queue',
-                    'pending-step-export'     => 'Ini-export',
+                    'action'                  => 'Action Mode',
+                    'back-btn'                => 'Back',
+                    'completed-batches'       => 'Total Batches Completed:',
+                    'download-error-report'   => 'Download Full Report',
+                    'edit-btn'                => 'Edit',
+                    'exporting-info'          => 'Export In Process',
+                    'exporting-info-sub'      => 'Generating export file and writing records. Please wait.',
+                    'file_path'               => 'File Path',
+                    'imported-info'           => 'Congratulations! Your import was successful.',
+                    'import-now'              => 'Import Now',
+                    'importing-info'          => 'Import In Process',
+                    'importing-info-sub'      => 'Processing batches and writing records to the database.',
+                    'indexing-info'           => 'Resources Indexing (Price, Elastic Search) In Progress',
+                    'indexing-info-sub'       => 'Rebuilding search indices and price caches after import. This step runs automatically.',
+                    'indexing-type'           => 'Price + ES',
+                    'linking-info'            => 'Resources Linking In Progress',
+                    'linking-info-sub'        => 'Linking related resources and associations between records.',
+                    'pending-info'            => 'Job queued — waiting for worker to start...',
+                    'pending-info-sub'        => 'Your job has been added to the processing queue. A worker will pick it up shortly.',
+                    'pending-step-complete'   => 'Complete',
+                    'pending-step-export'     => 'Exporting',
+                    'pending-step-import'     => 'Importing',
+                    'pending-step-queue'      => 'Queued',
+                    'pending-step-validate'   => 'Validating',
+                    'profile'                 => 'Import Profile',
+                    'progress'                => 'Progress:',
                     'title'                   => 'Import',
-                    'total-batches'           => 'Kabuuang mga batch:',
-                    'total-created'           => 'Kabuuang mga record na nalikha:',
-                    'total-deleted'           => 'Kabuuang mga record na tinanggal:',
-                    'total-errors'            => 'Kabuuang mga error:',
-                    'total-invalid-rows'      => 'Kabuuang mga hindi wastong hilera:',
-                    'total-rows-processed'    => 'Kabuuang mga hilera na na-proseso:',
-                    'total-updated'           => 'Kabuuang mga record na na-update:',
-                    'validate-info'           => 'I-click upang i-validate ang data at suriin ang import.',
-                    'validate'                => 'I-validate',
-                    'file_path'               => 'Path ng file',
-                    'import-now'              => 'I-import ngayon',
-                    'action'                  => 'Pamamaraan ng Aksyon',
-                    'profile'                 => 'Import profile',
-                    'validating-info'         => 'Ang data ay nagsisimulang basahin at i-validate',
-                    'validation-failed-info'  => 'Ang iyong import ay hindi wasto. Mangyaring itama ang mga error at subukang muli.',
-                    'validation-success-info' => 'Ang iyong pag-import ay wasto. Awtomatikong nagsisimula ng pag-import...',
+                    'total-batches'           => 'Total Batches:',
+                    'total-created'           => 'Total Records Created:',
+                    'total-deleted'           => 'Total Records Deleted:',
+                    'total-errors'            => 'Total Errors:',
+                    'total-invalid-rows'      => 'Total Invalid Rows:',
+                    'total-rows-processed'    => 'Total Rows Processed:',
+                    'total-updated'           => 'Total Records Updated:',
+                    'validate'                => 'Validate',
+                    'validate-info'           => 'Click on Validate Data to check your import.',
+                    'validating-info'         => 'Reading file and validating data...',
+                    'validating-info-sub'     => 'Checking schema integrity, field mappings, and data types before the import begins.',
+                    'validation-failed-info'  => 'Your import is invalid. Please fix the following errors and try again.',
+                    'validation-success-info' => 'Your import is valid. Starting import automatically...',
                 ],
-
-                'create-success'    => 'Import ay matagumpay na nilikha.',
-                'delete-failed'     => 'Ang pagtanggal ng import ay nabigo.',
-                'delete-success'    => 'Import ay matagumpay na tinanggal.',
-                'not-valid'         => 'Hindi wastong import',
-                'nothing-to-import' => 'Walang mga resource na i-import.',
-                'setup-queue-error' => 'Mangyaring baguhin ang queue driver sa „database” o „redis” upang simulan ang proseso ng import.',
-                'update-success'    => 'Import ay matagumpay na na-update.',
+                'create-success'     => 'Import created successfully.',
+                'delete-failed'      => 'Import deletion failed unexpectedly.',
+                'delete-success'     => 'Import deleted successfully.',
+                'invalid-zip'        => 'The uploaded file is not a valid ZIP archive.',
+                'not-valid'          => 'Import is invalid',
+                'nothing-to-import'  => 'There are no resources to import.',
+                'setup-queue-error'  => 'Please change your queue driver to "database" or "redis" to start the import process.',
+                'update-success'     => 'Import updated successfully.',
+                'zip-upload-success' => 'ZIP uploaded and extracted successfully.',
             ],
-
             'exports' => [
                 'create' => [
                     'code'                => 'Code',
@@ -1277,7 +1313,6 @@ return [
                     'type'                => 'Uri',
                     'validation-strategy' => 'Diskarte sa Pag-validate',
                 ],
-
                 'edit' => [
                     'action'              => 'Aksyon',
                     'allowed-errors'      => 'Pinapayagang Error',
@@ -1301,16 +1336,13 @@ return [
                     'type'                => 'Uri',
                     'validation-strategy' => 'Diskarte sa Pag-validate',
                 ],
-
                 'batch' => [
                     'title' => 'Export na idinagdag sa queue',
                 ],
-
                 'index' => [
                     'button-title' => 'Gumawa ng Export',
                     'title'        => 'Mga Export',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => 'Mga Aksyon',
                         'completed-at'          => 'Natapos sa',
                         'created'               => 'Ginawa',
@@ -1331,7 +1363,6 @@ return [
                         'export'                => 'Export',
                     ],
                 ],
-
                 'export' => [
                     'back-btn'                => 'Balik',
                     'completed-batches'       => 'Kabuuang Batch na Natapos:',
@@ -1361,7 +1392,6 @@ return [
                     'file-format'             => 'Format ng File',
                     'with-media'              => 'Kasama ang Media',
                 ],
-
                 'create-success'    => 'Matagumpay na nagawa ang export.',
                 'delete-failed'     => 'Nabigo ang pagbura ng export.',
                 'delete-success'    => 'Matagumpay na nabura ang export.',
@@ -1371,7 +1401,6 @@ return [
                 'update-success'    => 'Matagumpay na na-update ang export.',
             ],
         ],
-
         'channels' => [
             'index' => [
                 'create-btn'           => 'Lumikha ng Channel',
@@ -1390,7 +1419,6 @@ return [
                     'root-category' => 'Root Category',
                 ],
             ],
-
             'create' => [
                 'allowed-ips'            => 'Pinapayagang IPs',
                 'cancel'                 => 'Bumalik',
@@ -1425,7 +1453,6 @@ return [
                 'theme'                  => 'Tema',
                 'title'                  => 'Lumikha ng Channel',
             ],
-
             'edit' => [
                 'allowed-ips'            => 'Pinapayagang IPs',
                 'back-btn'               => 'Bumalik',
@@ -1463,13 +1490,11 @@ return [
                 'update-success'         => 'Matagumpay na na-update ang Channel',
             ],
         ],
-
         'users' => [
             'index' => [
-                'admin' => 'Administrator',
-                'title' => 'Mga Gumagamit',
-                'user'  => 'Gumagamit',
-
+                'admin'  => 'Administrator',
+                'title'  => 'Mga Gumagamit',
+                'user'   => 'Gumagamit',
                 'create' => [
                     'confirm-password'  => 'Kumpirmahin ang Password',
                     'email'             => 'Email',
@@ -1483,7 +1508,6 @@ return [
                     'user-timezone'     => 'Time Zone',
                     'select'            => 'Piliin',
                 ],
-
                 'datagrid' => [
                     'actions'  => 'Mga Aksyon',
                     'active'   => 'Aktibo',
@@ -1497,12 +1521,10 @@ return [
                     'status'   => 'Status',
                     'image'    => 'Larawan',
                 ],
-
                 'edit' => [
                     'title' => 'I-edit ang Gumagamit',
                 ],
             ],
-
             'edit' => [
                 'back-btn'         => 'Bumalik',
                 'confirm-password' => 'Kumpirmahin ang Password',
@@ -1515,7 +1537,6 @@ return [
                 'status'           => 'Status',
                 'title'            => 'I-edit ang Gumagamit',
             ],
-
             'activate-warning'          => 'Ang iyong account ay hindi pa na-activate, mangyaring makipag-ugnayan sa administrator.',
             'cannot-change'             => 'Ang gumagamit ay hindi maaaring baguhin',
             'create-success'            => 'Gumagamit na nalikha ng matagumpay.',
@@ -1528,13 +1549,11 @@ return [
             'update-success'            => 'Gumagamit ay matagumpay na na-update.',
             'current-user-delete-error' => 'Hindi maaaring tanggalin ang kasalukuyang naka-login na gumagamit.',
         ],
-
         'roles' => [
             'index' => [
                 'create-btn' => 'Lumikha ng Tungkulin',
                 'title'      => 'Mga Tungkulin',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => 'Tanggalin',
                     'edit'            => 'I-edit',
                     'id'              => 'ID',
@@ -1542,7 +1561,6 @@ return [
                     'permission-type' => 'Uri ng Pahintulot',
                 ],
             ],
-
             'create' => [
                 'access-control' => 'Kontrol ng Pag-access',
                 'all'            => 'Lahat',
@@ -1555,7 +1573,6 @@ return [
                 'save-btn'       => 'I-save ang Tungkulin',
                 'title'          => 'Lumikha ng Tungkulin',
             ],
-
             'edit' => [
                 'access-control' => 'Kontrol ng Pag-access',
                 'all'            => 'Lahat',
@@ -1568,7 +1585,6 @@ return [
                 'save-btn'       => 'I-save ang Tungkulin',
                 'title'          => 'I-edit ang Tungkulin',
             ],
-
             'being-used'        => 'Ang Tungkulin ay ginagamit na ng isang Administrator',
             'being-used-by'     => 'Ang Tungkulin ay ginagamit na ni :name',
             'create-success'    => 'Tungkulin na nalikha ng matagumpay',
@@ -1578,160 +1594,6 @@ return [
             'update-success'    => 'Tungkulin na na-update ng matagumpay',
         ],
     ],
-
-    'acl' => [
-        'addresses'                => 'Mga Address',
-        'attribute-families'       => 'Mga Pamilya ng Katangian',
-        'attribute-groups'         => 'Mga Grupo ng Katangian',
-        'attributes'               => 'Mga Katangian',
-        'cancel'                   => 'Kanselahin',
-        'catalog'                  => 'Katalogo',
-        'categories'               => 'Mga Kategorya',
-        'channels'                 => 'Mga Channel',
-        'configure'                => 'Pag-configure',
-        'configuration'            => 'Pag-configure',
-        'copy'                     => 'Kopyahin',
-        'create'                   => 'Lumikha',
-        'currencies'               => 'Mga Pera',
-        'dashboard'                => 'Dashboard',
-        'data-transfer'            => 'Paglipat ng Data',
-        'delete'                   => 'Burahin',
-        'edit'                     => 'I-edit',
-        'email-templates'          => 'Mga Template ng Email',
-        'events'                   => 'Mga Kaganapan',
-        'groups'                   => 'Mga Grupo',
-        'import'                   => 'Mag-import',
-        'imports'                  => 'Mga Pag-import',
-        'invoices'                 => 'Mga Invoice',
-        'locales'                  => 'Mga Lokasyon',
-        'magic-ai'                 => 'Magic AI',
-        'marketing'                => 'Marketing',
-        'newsletter-subscriptions' => 'Mga Subscription sa Newsletter',
-        'note'                     => 'Nota',
-        'orders'                   => 'Mga Order',
-        'products'                 => 'Mga Produkto',
-        'promotions'               => 'Mga Promo',
-        'refunds'                  => 'Mga Refund',
-        'reporting'                => 'Pag-uulat',
-        'reviews'                  => 'Mga Pagsusuri',
-        'roles'                    => 'Mga Papel',
-        'sales'                    => 'Mga Benta',
-        'search-seo'               => 'Paghahanap & SEO',
-        'search-synonyms'          => 'Mga Sinonim ng Paghahanap',
-        'search-terms'             => 'Mga Termino sa Paghahanap',
-        'settings'                 => 'Mga Setting',
-        'shipments'                => 'Mga Pagpapadala',
-        'sitemaps'                 => 'Mga Sitemap',
-        'subscribers'              => 'Mga Subscriber',
-        'tax-categories'           => 'Mga Kategorya ng Buwis',
-        'tax-rates'                => 'Mga Rate ng Buwis',
-        'taxes'                    => 'Mga Buwis',
-        'themes'                   => 'Mga Tema',
-        'integration'              => 'Integrasyon',
-        'url-rewrites'             => 'Mga Rewritten na URL',
-        'users'                    => 'Mga Gumagamit',
-        'category_fields'          => 'Mga Field ng Kategorya',
-        'view'                     => 'Tingnan',
-        'execute'                  => 'Isagawa',
-        'history'                  => 'Kasaysayan',
-        'restore'                  => 'Ibalik',
-        'integrations'             => 'Mga Integrasyon',
-        'api'                      => 'API',
-        'tracker'                  => 'Tagasunod ng Trabaho',
-        'imports'                  => 'Mga Pag-import',
-        'exports'                  => 'Mga Pag-export',
-        'mass-update'              => 'Maramihang pag-update',
-        'mass-delete'              => 'Maramihang pagtanggal',
-    ],
-
-    'errors' => [
-        'dashboard' => 'Dashboard',
-        'go-back'   => 'Bumalik',
-        'support'   => 'Kung ang problema ay nagpapatuloy, makipag-ugnayan sa amin sa <a href=":link" class=":class">:email</a> para sa tulong.',
-
-        '404' => [
-            'description' => 'Oops! Ang pahinang hinahanap mo ay nasa bakasyon. Mukhang hindi namin mahanap ang hinahanap mo.',
-            'title'       => '404 Pahina ng Hindi Natagpuan',
-        ],
-
-        '401' => [
-            'description' => 'Oops! Mukhang wala kang permiso na ma-access ang pahinang ito. Mukhang kulang ka ng mga kredensyal na kailangan.',
-            'title'       => '401 Hindi Pinahintulutan',
-            'message'     => 'Nabigo ang pag-a-authenticate dahil sa maling mga kredensyal o expired na token.',
-        ],
-
-        '403' => [
-            'description' => 'Oops! Hindi ma-access ang pahinang ito. Mukhang wala kang mga permiso para makita ang nilalaman na ito.',
-            'title'       => '403 Ipinagbabawal',
-        ],
-
-        '413' => [
-            'description' => 'Oops! Mukhang sinusubukan mong mag-upload ng isang napakalaking file. Kung gusto mong i-upload ito, i-update ang configuration ng PHP.',
-            'title'       => '413 Napakalaking Nilalaman',
-        ],
-
-        '419' => [
-            'description' => 'Oops! Nag-expire ang iyong session. Mangyaring i-refresh ang pahina at mag-login muli para magpatuloy.',
-            'title'       => '419 Nag-expire na Sesyon',
-        ],
-
-        '500' => [
-            'description' => 'Oops! May nangyaring mali. Mukhang may problema kami sa pag-load ng pahinang hinahanap mo.',
-            'title'       => '500 Error ng Server',
-        ],
-
-        '503' => [
-            'description' => 'Oops! Mukhang pansamantalang sarado tayo para sa maintenance. Mag-check ulit mamaya.',
-            'title'       => '503 Hindi Magagamit na Serbisyo',
-        ],
-    ],
-
-    'export' => [
-        'csv'                  => 'CSV',
-        'download'             => 'I-download',
-        'export'               => 'Quick Export',
-        'no-records'           => 'Walang data na i-export',
-        'xls'                  => 'XLS',
-        'xlsx'                 => 'XLSX',
-        'with-media'           => 'May media',
-        'export-success'       => 'Matagumpay ang pag-export!',
-        'error'                => 'May nangyaring mali!',
-        'product-not-selected' => 'Walang produktong napili para sa mabilisang export',
-    ],
-
-    'validations' => [
-        'slug-being-used' => 'Ang slug na ito ay ginagamit sa mga kategorya o produkto.',
-        'slug-reserved'   => 'Ang slug na ito ay na-reserba.',
-        'invalid-locale'  => 'Invalid na mga lokasyon :locales',
-    ],
-
-    'footer' => [
-        'copy-right' => 'Pinapagana ng <a href="https://unopim.com/" target="_blank">UnoPim</a>, Isang Komunidad na Proyekto mula sa <a href="https://webkul.com/" target="_blank">Webkul</a>',
-    ],
-
-    'emails' => [
-        'dear'   => 'Dear :admin_name',
-        'thanks' => 'If you need any kind of help please contact us at <a href=":link" style=":style">:email</a>.<br/>Thanks!',
-
-        'admin' => [
-            'forgot-password' => [
-                'description'    => 'You are receiving this email because we received a password reset request for your account.',
-                'greeting'       => 'Forgot Password!',
-                'reset-password' => 'Reset Password',
-                'subject'        => 'Reset Password Email',
-            ],
-        ],
-    ],
-
-    'common' => [
-        'yes'     => 'Oo',
-        'no'      => 'Hindi',
-        'true'    => 'Totoo',
-        'false'   => 'Hindi Totoo',
-        'enable'  => 'Pinagana',
-        'disable' => 'Walang Bisa',
-    ],
-
     'configuration' => [
         'index' => [
             'delete'          => 'Tanggalin',
@@ -1740,50 +1602,51 @@ return [
             'save-message'    => 'Nai-save na ang Configuration',
             'search'          => 'Maghanap',
             'title'           => 'Configurations',
-
-            'general' => [
-                'info'  => '',
-                'title' => 'Pangkalahatan',
-
+            'general'         => [
+                'info'    => '',
+                'title'   => 'Pangkalahatan',
                 'general' => [
                     'info'  => '',
                     'title' => 'Pangkalahatan',
                 ],
-
                 'magic-ai' => [
-                    'info'  => 'Itakda ang mga opsyon ng Magic AI.',
-                    'title' => 'Magic AI',
-
+                    'info'     => 'Itakda ang mga opsyon ng Magic AI.',
+                    'title'    => 'Magic AI',
                     'settings' => [
-                        'api-key'        => 'API Key',
-                        'enabled'        => 'Pinagana',
-                        'llm-api-domain' => 'Domain ng API ng LLM',
-                        'organization'   => 'ID ng Organisasyon',
-                        'title'          => 'Mga Pangunahing Setting',
-                        'title-info'     => 'Palakihin ang iyong karanasan sa Magic AI sa pamamagitan ng pagpasok ng iyong eksklusibong API Key at pag-indicate ng kaukulang Organisasyon para sa walang putol na pagsasama. Kunin ang kontrol sa iyong mga kredensyal ng OpenAI at i-customize ang mga setting ayon sa iyong mga partikular na pangangailangan.',
+                        'enabled'     => 'Pinagana',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Mga Pangunahing Setting',
+                        'title-info'  => 'Palakihin ang iyong karanasan sa Magic AI sa pamamagitan ng pagpasok ng iyong eksklusibong API Key at pag-indicate ng kaukulang Organisasyon para sa walang putol na pagsasama. Kunin ang kontrol sa iyong mga kredensyal ng OpenAI at i-customize ang mga setting ayon sa iyong mga partikular na pangangailangan.',
                     ],
-
-                    'translation'   => [
-                        'title'                  => 'Pagsasalin',
-                        'enabled'                => 'Pinagana',
-                        'title-info'             => 'Pinapagana ng tampok na ito ang Magic AI para magsalin ng teksto, na nagbibigay-daan sa iyo na madaling i-convert ang teksto mula sa isang wika patungo sa isa pa.',
-                        'global-source-channel'  => 'Pinagmulan na Channel',
-                        'global-source-locale'   => 'Pinagmulan na Wika',
-                        'translation-model'      => 'Modelo ng Pagsasalin',
-                        'replace-existing-value' => 'Palitan ang Umiiral na Halaga',
-                        'target-channel'         => 'Target na Channel',
-                        'target-locales'         => 'Target na Mga Wika',
+                    'image-generation' => [
+                        'enabled'     => 'Enabled',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Image Generation',
+                        'title-info'  => 'Configure the default AI platform and model for generating product images. Only platforms that support image generation (OpenAI, Gemini, xAI) are listed.',
+                    ],
+                    'translation' => [
+                        'title'                       => 'Pagsasalin',
+                        'enabled'                     => 'Pinagana',
+                        'title-info'                  => 'Pinapagana ng tampok na ito ang Magic AI para magsalin ng teksto, na nagbibigay-daan sa iyo na madaling i-convert ang teksto mula sa isang wika patungo sa isa pa.',
+                        'ai-platform'                 => 'Default Platform',
+                        'global-source-channel'       => 'Pinagmulan na Channel',
+                        'global-source-locale'        => 'Pinagmulan na Wika',
+                        'translation-model'           => 'Modelo ng Pagsasalin',
+                        'replace-existing-value'      => 'Palitan ang Umiiral na Halaga',
+                        'target-channel'              => 'Target na Channel',
+                        'target-locales'              => 'Target na Mga Wika',
+                        'replace-existing-value-info' => 'Replace the existing value if it already exists.',
                     ],
                 ],
             ],
         ],
-
         'integrations' => [
             'index' => [
                 'create-btn' => 'Lumikha',
                 'title'      => 'Mga Integrasyon',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => 'Tanggalin',
                     'edit'            => 'I-edit',
                     'id'              => 'ID',
@@ -1793,7 +1656,6 @@ return [
                     'permission-type' => 'Uri ng Pagpapahintulot',
                 ],
             ],
-
             'create' => [
                 'access-control' => 'Kontrol sa Pag-access',
                 'all'            => 'Lahat',
@@ -1806,7 +1668,6 @@ return [
                 'save-btn'       => 'I-save',
                 'title'          => 'Bagong Integrasyon',
             ],
-
             'edit' => [
                 'access-control' => 'Kontrol sa Pag-access',
                 'all'            => 'Lahat',
@@ -1824,7 +1685,6 @@ return [
                 'save-btn'       => 'I-save',
                 'title'          => 'I-edit ang Integrasyon',
             ],
-
             'being-used'                     => 'Ang API Integration ay ginagamit na ng Admin User',
             'create-success'                 => 'Ang API Integration ay matagumpay na nilikha',
             'delete-failed'                  => 'Ang API Integration ay hindi matagumpay na natanggal',
@@ -1835,40 +1695,143 @@ return [
             're-generate-secret-key-success' => 'Ang API secret key ay matagumpay na na-regenerate',
             'client-not-found'               => 'Ang client ay hindi natagpuan',
         ],
-
         'prompt' => [
             'datagrid' => [
-                'id'            => 'ID',
-                'title'         => 'Pamagat',
-                'prompt'        => 'Prompt',
-                'type'          => 'Uri',
-                'created-at'    => 'Nilikha noong',
-                'updated-at'    => 'In-update noong',
-                'actions'       => 'Mga Aksyon',
-                'edit'          => 'I-edit',
-                'delete'        => 'Burahin',
-                'product'       => 'Produkto',
-                'category'      => 'Kategorya',
+                'id'               => 'ID',
+                'title'            => 'Pamagat',
+                'prompt'           => 'Prompt',
+                'type'             => 'Uri',
+                'purpose'          => 'Purpose',
+                'text-generation'  => 'Text Generation',
+                'image-generation' => 'Image Generation',
+                'translation'      => 'Translation',
+                'created-at'       => 'Nilikha noong',
+                'updated-at'       => 'In-update noong',
+                'actions'          => 'Mga Aksyon',
+                'edit'             => 'I-edit',
+                'delete'           => 'Burahin',
+                'product'          => 'Produkto',
+                'category'         => 'Kategorya',
             ],
             'create' => [
-                'title'         => 'Prompt',
-                'create-btn'    => 'Lumikha ng Prompt',
-                'edit-title'    => 'I-edit ang Prompt',
-                'create-title'  => 'Lumikha ng Bagong Prompt',
-                'label-title'   => 'Pamagat',
-                'type'          => 'Uri',
-                'prompt'        => 'Prompt',
-                'save-btn'      => 'I-save ang Prompt',
+                'title'        => 'Prompt',
+                'create-btn'   => 'Lumikha ng Prompt',
+                'edit-title'   => 'I-edit ang Prompt',
+                'create-title' => 'Lumikha ng Bagong Prompt',
+                'label-title'  => 'Pamagat',
+                'purpose'      => 'Purpose',
+                'type'         => 'Uri',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'I-save ang Prompt',
             ],
             'message' => [
-                'save-success'      => 'Matagumpay na na-save ang prompt.',
-                'update-success'    => 'Matagumpay na na-update ang prompt.',
-                'delete-success'    => 'Matagumpay na nabura ang prompt.',
-                'delete-fail'       => 'Nabigo sa pagbura ng prompt.',
+                'save-success'   => 'Matagumpay na na-save ang prompt.',
+                'update-success' => 'Matagumpay na na-update ang prompt.',
+                'delete-success' => 'Matagumpay na nabura ang prompt.',
+                'delete-fail'    => 'Nabigo sa pagbura ng prompt.',
+            ],
+        ],
+        'system-prompt' => [
+            'datagrid' => [
+                'id'          => 'ID',
+                'title'       => 'Title',
+                'tone'        => 'Tone',
+                'max-tokens'  => 'Max Tokens',
+                'temperature' => 'Temperature',
+                'status'      => 'Status',
+                'created-at'  => 'Created At',
+                'updated-at'  => 'Updated At',
+                'actions'     => 'Actions',
+                'save'        => 'Save',
+                'edit'        => 'Edit',
+                'delete'      => 'delete',
+            ],
+            'create' => [
+                'title'        => 'System Prompt',
+                'create-btn'   => 'Create System Prompt',
+                'edit-title'   => 'Edit System Prompt',
+                'create-title' => 'Create New System Prompt',
+                'label-title'  => 'Title',
+                'max-tokens'   => 'Max Output Tokens',
+                'temperature'  => 'Temperature',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Save Prompt',
+                'prompt-tone'  => 'Prompt Tone',
+            ],
+            'message' => [
+                'save-success'   => 'System Prompt saved successfully.',
+                'update-success' => 'System Prompt updated successfully.',
+                'delete-success' => 'System Prompt deleted successfully.',
+                'delete-fail'    => 'System Prompt deletion failed.',
+            ],
+        ],
+        'platform' => [
+            'title'           => 'AI Platforms',
+            'create-btn'      => 'Add Platform',
+            'create-title'    => 'Add AI Platform',
+            'edit-title'      => 'Edit AI Platform',
+            'save-btn'        => 'Save',
+            'saving'          => 'Saving',
+            'test-connection' => 'Test Connection',
+            'setup'           => [
+                'title'              => 'Get Started with Magic AI',
+                'description'        => 'Connect your AI provider to unlock content generation, image creation, and translation powered by AI. Add your first platform to begin.',
+                'step-1'             => 'Choose a provider',
+                'step-2'             => 'Enter your API key',
+                'step-3'             => 'Select models & save',
+                'add-first'          => 'Add Your First Platform',
+                'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
+                'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+            ],
+            'testing'         => 'Testing',
+            'fetch-models'    => 'Fetch Models',
+            'fetching-models' => 'Fetching',
+            'set-default'     => 'Set as Default',
+            'datagrid'        => [
+                'label'      => 'Label',
+                'provider'   => 'Provider',
+                'models'     => 'Models',
+                'default'    => 'Default',
+                'status'     => 'Status',
+                'created-at' => 'Created At',
+                'edit'       => 'Edit',
+                'delete'     => 'Delete',
+            ],
+            'fields' => [
+                'label'                    => 'Label',
+                'provider'                 => 'Provider',
+                'select-provider'          => '-- Select Provider --',
+                'api-url'                  => 'API URL',
+                'api-url-hint'             => 'Pre-filled with the default endpoint. Edit only if using a proxy or custom deployment.',
+                'api-key'                  => 'API Key',
+                'models'                   => 'Models',
+                'custom-model-placeholder' => 'Type custom model ID...',
+                'add'                      => 'Add',
+                'enter-key-to-fetch'       => 'Enter your API key above to automatically fetch available models.',
+                'search-models'            => 'Search models...',
+                'no-models-match'          => 'No models match your search.',
+                'azure-deployment'         => 'Deployment Name',
+                'azure-api-version'        => 'API Version',
+                'is-default'               => 'Set as Default',
+                'status'                   => 'Status',
+                'use-default'              => '-- Use Default Platform --',
+                'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
+                'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
+                'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+            ],
+            'message' => [
+                'save-success'          => 'Platform saved successfully.',
+                'update-success'        => 'Platform updated successfully.',
+                'delete-success'        => 'Platform deleted successfully.',
+                'delete-fail'           => 'Platform deletion failed.',
+                'cannot-delete-default' => 'Cannot delete the only default platform.',
+                'set-default-success'   => 'Platform set as default successfully.',
+                'test-success'          => 'Connection verified successfully!',
+                'test-fail'             => 'Connection test failed',
             ],
         ],
     ],
-
     'components' => [
         'layouts' => [
             'header' => [
@@ -1879,7 +1842,6 @@ return [
                 'notifications' => 'Notifications',
                 'visit-shop'    => 'Visit Shop',
             ],
-
             'sidebar' => [
                 'attribute-families' => 'Attribute Families',
                 'attribute-groups'   => 'Attribute Groups',
@@ -1913,45 +1875,37 @@ return [
                 'general-tab'        => 'Konpigurasyon',
             ],
         ],
-
         'datagrid' => [
             'index' => [
                 'no-records-selected'              => 'No records have been selected.',
                 'must-select-a-mass-action-option' => 'You must select a mass action\'s option.',
                 'must-select-a-mass-action'        => 'You must select a mass action.',
             ],
-
             'toolbar' => [
-                'length-of' => ':length of',
-                'of'        => 'of',
-                'per-page'  => 'Per Page',
-                'results'   => ':total Results',
-                'selected'  => ':total Selected',
-
+                'length-of'    => ':length of',
+                'of'           => 'of',
+                'per-page'     => 'Per Page',
+                'results'      => ':total Results',
+                'selected'     => ':total Selected',
                 'mass-actions' => [
                     'submit'        => 'Submit',
                     'select-option' => 'Select Option',
                     'select-action' => 'Select Action',
                 ],
-
                 'filter' => [
                     'title' => 'Filter',
                 ],
-
                 'search_by' => [
                     'code'       => 'Search by code',
                     'code_or_id' => 'Search by code or id',
                 ],
-
                 'search' => [
                     'title' => 'Search',
                 ],
-
                 'manage-columns' => [
                     'title' => 'Columns',
                 ],
             ],
-
             'filters' => [
                 'select'   => 'Select',
                 'title'    => 'Apply Filters',
@@ -1962,17 +1916,14 @@ return [
                         'no-results'        => 'No result found...',
                     ],
                 ],
-
                 'custom-filters' => [
                     'clear-all' => 'Clear All',
                     'title'     => 'Custom Filters',
                 ],
-
                 'boolean-options' => [
                     'false' => 'False',
                     'true'  => 'True',
                 ],
-
                 'date-options' => [
                     'last-month'        => 'Last Month',
                     'last-six-months'   => 'Last 6 Months',
@@ -1984,12 +1935,10 @@ return [
                     'yesterday'         => 'Yesterday',
                 ],
             ],
-
             'table' => [
                 'actions'              => 'Actions',
                 'no-records-available' => 'No Records Available.',
             ],
-
             'manage-columns' => [
                 'title'             => 'Manage columns',
                 'available-columns' => 'Available Columns',
@@ -1997,7 +1946,6 @@ return [
                 'apply-btn'         => 'Apply',
             ],
         ],
-
         'modal' => [
             'confirm' => [
                 'agree-btn'    => 'Agree',
@@ -2005,14 +1953,12 @@ return [
                 'message'      => 'Are you sure you want to perform this action?',
                 'title'        => 'Are you sure?',
             ],
-
             'delete' => [
                 'agree-btn'    => 'Delete',
                 'disagree-btn' => 'Cancel',
                 'message'      => 'Are you sure you want to delete?',
                 'title'        => 'Confirm Deletion',
             ],
-
             'history' => [
                 'title'           => 'History Preview',
                 'subtitle'        => 'Quickly review your updates and changes.',
@@ -2026,7 +1972,6 @@ return [
                 'no-history'      => 'No history Found',
             ],
         ],
-
         'products' => [
             'search' => [
                 'add-btn'       => 'Add Selected Product',
@@ -2038,7 +1983,6 @@ return [
                 'title'         => 'Select Products',
             ],
         ],
-
         'media' => [
             'images' => [
                 'add-image-btn'      => 'Add Image',
@@ -2050,8 +1994,7 @@ return [
                 'allowed-types'      => 'png, jpeg, jpg',
                 'not-allowed-error'  => 'Only images files (.jpeg, .jpg, .png, ..) are allowed.',
                 'upload-media-btn'   => 'Mag-upload ng media',
-
-                'ai-generation' => [
+                'ai-generation'      => [
                     '1024x1024'        => '1024x1024',
                     '1024x1792'        => '1024x1792',
                     '1792x1024'        => '1792x1024',
@@ -2071,7 +2014,6 @@ return [
                     'standard'         => 'Standard',
                     'title'            => 'AI Image Generation',
                 ],
-
                 'placeholders' => [
                     'front'     => 'Front',
                     'next'      => 'Next',
@@ -2080,23 +2022,22 @@ return [
                     'zoom'      => 'Zoom',
                 ],
             ],
-
+            'gallery' => [
+                'not-allowed-error' => 'Only image and video files are allowed. (.mp4, .jpg ..)',
+            ],
             'videos' => [
                 'add-video-btn'     => 'Add Video',
                 'allowed-types'     => 'mp4, webm, mkv',
                 'not-allowed-error' => 'Only videos files (.mp4, .mov, .ogg ..) are allowed.',
             ],
-
             'files' => [
                 'add-file-btn'      => 'Add File',
                 'allowed-types'     => 'pdf',
                 'not-allowed-error' => 'Only pdf files are allowed',
             ],
         ],
-
         'tinymce' => [
-            'ai-btn-tile' => 'Magic AI',
-
+            'ai-btn-tile'   => 'Magic AI',
             'ai-generation' => [
                 'apply'                  => 'Apply',
                 'generate'               => 'Generate',
@@ -2105,7 +2046,14 @@ return [
                 'generating'             => 'Generating...',
                 'prompt'                 => 'Prompt',
                 'title'                  => 'AI Assistance',
+                'platform'               => 'Platform',
                 'model'                  => 'Model',
+                'rich-preview'           => 'Rich Preview',
+                'system-prompt'          => 'System Prompt',
+                'select-system-prompt'   => 'Select System Prompt',
+                'tone-instructions'      => 'Tone / Instructions',
+                'max-tokens'             => 'Max Tokens',
+                'temperature'            => 'Temperature',
                 'gpt-3-5-turbo'          => 'OpenAI gpt-3.5-turbo',
                 'llama2'                 => 'Llama 2',
                 'mistral'                => 'Mistral',
@@ -2122,7 +2070,147 @@ return [
             ],
         ],
     ],
-
+    'acl' => [
+        'addresses'                => 'Mga Address',
+        'attribute-families'       => 'Mga Pamilya ng Katangian',
+        'attribute-groups'         => 'Mga Grupo ng Katangian',
+        'attributes'               => 'Mga Katangian',
+        'cancel'                   => 'Kanselahin',
+        'catalog'                  => 'Katalogo',
+        'categories'               => 'Mga Kategorya',
+        'channels'                 => 'Mga Channel',
+        'configure'                => 'Pag-configure',
+        'configuration'            => 'Pag-configure',
+        'copy'                     => 'Kopyahin',
+        'create'                   => 'Lumikha',
+        'currencies'               => 'Mga Pera',
+        'dashboard'                => 'Dashboard',
+        'data-transfer'            => 'Paglipat ng Data',
+        'delete'                   => 'Burahin',
+        'edit'                     => 'I-edit',
+        'email-templates'          => 'Mga Template ng Email',
+        'events'                   => 'Mga Kaganapan',
+        'groups'                   => 'Mga Grupo',
+        'import'                   => 'Mag-import',
+        'imports'                  => 'Mga Pag-import',
+        'invoices'                 => 'Mga Invoice',
+        'locales'                  => 'Mga Lokasyon',
+        'magic-ai'                 => 'Magic AI',
+        'magic-ai-general'         => 'Pangkalahatan',
+        'magic-ai-prompt'          => 'Prompt',
+        'magic-ai-system-prompt'   => 'Prompt ng Sistema',
+        'marketing'                => 'Marketing',
+        'newsletter-subscriptions' => 'Mga Subscription sa Newsletter',
+        'note'                     => 'Nota',
+        'orders'                   => 'Mga Order',
+        'products'                 => 'Mga Produkto',
+        'promotions'               => 'Mga Promo',
+        'refunds'                  => 'Mga Refund',
+        'reporting'                => 'Pag-uulat',
+        'reviews'                  => 'Mga Pagsusuri',
+        'roles'                    => 'Mga Papel',
+        'sales'                    => 'Mga Benta',
+        'search-seo'               => 'Paghahanap & SEO',
+        'search-synonyms'          => 'Mga Sinonim ng Paghahanap',
+        'search-terms'             => 'Mga Termino sa Paghahanap',
+        'settings'                 => 'Mga Setting',
+        'shipments'                => 'Mga Pagpapadala',
+        'sitemaps'                 => 'Mga Sitemap',
+        'subscribers'              => 'Mga Subscriber',
+        'tax-categories'           => 'Mga Kategorya ng Buwis',
+        'tax-rates'                => 'Mga Rate ng Buwis',
+        'taxes'                    => 'Mga Buwis',
+        'themes'                   => 'Mga Tema',
+        'integration'              => 'Integrasyon',
+        'url-rewrites'             => 'Mga Rewritten na URL',
+        'users'                    => 'Mga Gumagamit',
+        'category_fields'          => 'Mga Field ng Kategorya',
+        'view'                     => 'Tingnan',
+        'execute'                  => 'Isagawa',
+        'history'                  => 'Kasaysayan',
+        'restore'                  => 'Ibalik',
+        'integrations'             => 'Mga Integrasyon',
+        'api'                      => 'API',
+        'tracker'                  => 'Tagasunod ng Trabaho',
+        'exports'                  => 'Mga Pag-export',
+        'mass-update'              => 'Maramihang pag-update',
+        'mass-delete'              => 'Maramihang pagtanggal',
+    ],
+    'errors' => [
+        'dashboard' => 'Dashboard',
+        'go-back'   => 'Bumalik',
+        'support'   => 'Kung ang problema ay nagpapatuloy, makipag-ugnayan sa amin sa <a href=":link" class=":class">:email</a> para sa tulong.',
+        '404'       => [
+            'description' => 'Oops! Ang pahinang hinahanap mo ay nasa bakasyon. Mukhang hindi namin mahanap ang hinahanap mo.',
+            'title'       => '404 Pahina ng Hindi Natagpuan',
+        ],
+        '401' => [
+            'description' => 'Oops! Mukhang wala kang permiso na ma-access ang pahinang ito. Mukhang kulang ka ng mga kredensyal na kailangan.',
+            'title'       => '401 Hindi Pinahintulutan',
+            'message'     => 'Nabigo ang pag-a-authenticate dahil sa maling mga kredensyal o expired na token.',
+        ],
+        '403' => [
+            'description' => 'Oops! Hindi ma-access ang pahinang ito. Mukhang wala kang mga permiso para makita ang nilalaman na ito.',
+            'title'       => '403 Ipinagbabawal',
+        ],
+        '413' => [
+            'description' => 'Oops! Mukhang sinusubukan mong mag-upload ng isang napakalaking file. Kung gusto mong i-upload ito, i-update ang configuration ng PHP.',
+            'title'       => '413 Napakalaking Nilalaman',
+        ],
+        '419' => [
+            'description' => 'Oops! Nag-expire ang iyong session. Mangyaring i-refresh ang pahina at mag-login muli para magpatuloy.',
+            'title'       => '419 Nag-expire na Sesyon',
+        ],
+        '500' => [
+            'description' => 'Oops! May nangyaring mali. Mukhang may problema kami sa pag-load ng pahinang hinahanap mo.',
+            'title'       => '500 Error ng Server',
+        ],
+        '503' => [
+            'description' => 'Oops! Mukhang pansamantalang sarado tayo para sa maintenance. Mag-check ulit mamaya.',
+            'title'       => '503 Hindi Magagamit na Serbisyo',
+        ],
+    ],
+    'export' => [
+        'csv'                  => 'CSV',
+        'download'             => 'I-download',
+        'export'               => 'Quick Export',
+        'no-records'           => 'Walang data na i-export',
+        'xls'                  => 'XLS',
+        'xlsx'                 => 'XLSX',
+        'with-media'           => 'May media',
+        'export-success'       => 'Matagumpay ang pag-export!',
+        'error'                => 'May nangyaring mali!',
+        'product-not-selected' => 'Walang produktong napili para sa mabilisang export',
+    ],
+    'validations' => [
+        'slug-being-used' => 'Ang slug na ito ay ginagamit sa mga kategorya o produkto.',
+        'slug-reserved'   => 'Ang slug na ito ay na-reserba.',
+        'invalid-locale'  => 'Invalid na mga lokasyon :locales',
+    ],
+    'footer' => [
+        'copy-right' => 'Pinapagana ng <a href="https://unopim.com/" target="_blank">UnoPim</a>, Isang Komunidad na Proyekto mula sa <a href="https://webkul.com/" target="_blank">Webkul</a>',
+    ],
+    'emails' => [
+        'dear'   => 'Dear :admin_name',
+        'thanks' => 'If you need any kind of help please contact us at <a href=":link" style=":style">:email</a>.<br/>Thanks!',
+        'admin'  => [
+            'forgot-password' => [
+                'description'    => 'You are receiving this email because we received a password reset request for your account.',
+                'greeting'       => 'Forgot Password!',
+                'reset-password' => 'Reset Password',
+                'subject'        => 'Reset Password Email',
+            ],
+        ],
+    ],
+    'common' => [
+        'yes'            => 'Oo',
+        'no'             => 'Hindi',
+        'true'           => 'Totoo',
+        'false'          => 'Hindi Totoo',
+        'enable'         => 'Pinagana',
+        'disable'        => 'Walang Bisa',
+        'no-match-found' => 'Walang nahanap na tugma!',
+    ],
     'default-prompt' => [
         'detailed' => [
             'title'  => 'Detalyadong Paglalarawan ng Produkto',

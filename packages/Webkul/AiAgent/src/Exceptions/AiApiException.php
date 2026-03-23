@@ -10,8 +10,8 @@ use RuntimeException;
 class AiApiException extends RuntimeException
 {
     /**
-     * @param  int                    $statusCode  HTTP status code from the provider
-     * @param  array<string, mixed>   $response    Decoded response body
+     * @param  int  $statusCode  HTTP status code from the provider
+     * @param  array<string, mixed>  $response  Decoded response body
      */
     public function __construct(
         string $message,

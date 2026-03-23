@@ -4,6 +4,7 @@ namespace Webkul\AiAgent\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
+use Illuminate\View\View;
 use Webkul\AiAgent\Http\Requests\GenerateForm;
 use Webkul\AiAgent\Repositories\CredentialRepository;
 use Webkul\AiAgent\Services\ImageToProductService;
@@ -18,7 +19,7 @@ class GenerateController extends Controller
     /**
      * Show the Generate page.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index()
     {
@@ -33,7 +34,7 @@ class GenerateController extends Controller
     public function process(GenerateForm $request): JsonResponse
     {
         $validated = $request->validated();
-        $images    = $validated['images'];
+        $images = $validated['images'];
         $firstImage = $images[0];
 
         try {

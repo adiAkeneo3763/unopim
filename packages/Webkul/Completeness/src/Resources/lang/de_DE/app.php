@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => 'Save',
                     'back-btn'            => 'Back',
                     'mass-update-success' => 'Compeleteness updated successfully',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => 'Code',
                         'name'             => 'Name',
                         'channel-required' => 'Required in Channels',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => 'Change Completeness Requirement',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => 'Vollständig',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => 'Completeness',
                     'subtitle' => 'Average completeness',
                 ],
-
                 'required-attributes' => 'missing required attributes',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => 'Vollständigkeitsberechnung abgeschlossen',
+        'completeness-calculated'        => 'Vollständigkeit für :count Produkte berechnet.',
+        'completeness-calculated-family' => 'Vollständigkeit für :count Produkte in der Familie ":family" berechnet.',
+        'email-subject'                  => 'Vollständigkeitsberechnung abgeschlossen',
+        'email-greeting'                 => 'Hallo,',
+        'email-body'                     => 'Die Vollständigkeitsberechnung wurde für :count Produkte abgeschlossen.',
+        'email-body-family'              => 'Die Vollständigkeitsberechnung wurde für :count Produkte in der Attributfamilie ":family" abgeschlossen.',
+        'email-footer'                   => 'Sie können die Vollständigkeitsdetails auf Ihrem Dashboard einsehen.',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Calculated products',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => 'Low completeness, add details to improve.',
                     'medium'  => 'Keep going, continue adding information.',
                     'high'    => 'Almost complete, just a few details left.',

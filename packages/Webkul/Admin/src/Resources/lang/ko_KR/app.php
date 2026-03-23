@@ -11,7 +11,6 @@ return [
             'powered-by'             => ':unopim 제공,',
             'open-source-project-by' => ':webkul의 오픈 소스 프로젝트입니다.',
         ],
-
         'forget-password' => [
             'create' => [
                 'email'                  => '등록된 이메일',
@@ -26,7 +25,6 @@ return [
                 'open-source-project-by' => ':webkul의 오픈 소스 프로젝트입니다.',
             ],
         ],
-
         'reset-password' => [
             'back-link-title'        => '로그인 화면으로 돌아가기?',
             'confirm-password'       => '비밀번호 확인',
@@ -38,7 +36,6 @@ return [
             'open-source-project-by' => ':webkul의 오픈 소스 프로젝트입니다.',
         ],
     ],
-
     'notifications' => [
         'description-text' => '모든 알림 목록',
         'marked-success'   => '알림이 성공적으로 표시되었습니다',
@@ -55,7 +52,6 @@ return [
             'processing' => '처리 중',
         ],
     ],
-
     'account' => [
         'edit' => [
             'back-btn'          => '뒤로',
@@ -76,25 +72,75 @@ return [
             'user-timezone'     => '시간대',
         ],
     ],
-
     'dashboard' => [
         'index' => [
-            'title'            => '대시보드',
-            'user-info'        => 'PIM의 중요 항목 모니터링',
-            'user-name'        => '안녕하세요! :user_name',
-            'catalog-details'  => '카탈로그',
-            'total-families'   => '전체 가족 수',
-            'total-attributes' => '전체 속성',
-            'total-groups'     => '전체 그룹',
-            'total-categories' => '전체 카테고리',
-            'total-products'   => '전체 제품 수',
-            'settings-details' => '카탈로그 구조',
-            'total-locales'    => '전체 로캘',
-            'total-currencies' => '전체 통화',
-            'total-channels'   => '전체 채널',
+            'title'                => '대시보드',
+            'user-info'            => 'PIM의 중요 항목 모니터링',
+            'user-name'            => '안녕하세요! :user_name',
+            'catalog-details'      => '카탈로그',
+            'total-families'       => '전체 가족 수',
+            'total-attributes'     => '전체 속성',
+            'total-groups'         => '전체 그룹',
+            'total-categories'     => '전체 카테고리',
+            'total-products'       => '전체 제품 수',
+            'settings-details'     => '카탈로그 구조',
+            'total-locales'        => '전체 로캘',
+            'total-currencies'     => '전체 통화',
+            'total-channels'       => '전체 채널',
+            'completeness'         => '완전성',
+            'active'               => '활성',
+            'inactive'             => '비활성',
+            'simple'               => '심플',
+            'configurable'         => '구성 가능',
+            'product-stats'        => '제품 통계',
+            'product-type-dist'    => '제품 유형 분포',
+            'products-by-status'   => '상태별 제품',
+            'products-over-time'   => '제품 활동 (최근 7일)',
+            'legend-created'       => '생성됨',
+            'legend-updated'       => '업데이트됨',
+            'recent-activity'      => '최근 활동',
+            'no-activity'          => '최근 활동이 없습니다.',
+            'updated'              => '업데이트됨',
+            'created'              => '생성됨',
+            'deleted'              => '삭제됨',
+            'ago'                  => '전',
+            'just-now'             => '방금',
+            'data-transfer'        => '데이터 전송',
+            'no-jobs'              => '최근 가져오기/내보내기 작업이 없습니다.',
+            'job-type-import'      => '가져오기',
+            'job-type-export'      => '내보내기',
+            'job-state-completed'  => '완료',
+            'job-state-failed'     => '실패',
+            'job-state-processing' => '처리 중',
+            'job-state-pending'    => '대기 중',
+            'job-state-validated'  => '검증됨',
+            'rows-processed'       => '처리된 행',
+            'errors'               => '오류',
+            'quick-links'          => '빠른 링크',
+            'create-product'       => '제품 생성',
+            'import-data'          => '데이터 가져오기',
+            'export-data'          => '데이터 내보내기',
+            'manage-attributes'    => '속성 관리',
+            'view-all-activity'    => '모두 보기',
+            'view-all-jobs'        => '모든 작업 보기',
+            'new-this-week'        => '이번 주 신규',
+            'with-variants'        => '변형 포함',
+            'avg-completeness'     => '평균 완전성',
+            'enriched'             => '보강됨',
+            'analytics-section'    => '분석',
+            'operations-section'   => '운영',
+            'needs-attention'      => '주의 필요',
+            'unenriched-products'  => '미보강 제품',
+            'failed-jobs-24h'      => '실패 작업 (24h)',
+            'low-completeness'     => '낮은 완전성',
+            'all-good'             => '모두 정상입니다!',
+            'channel-readiness'    => '채널 준비 상태',
+            'ready-to-publish'     => '게시 준비 완료',
+            'of'                   => '/',
+            'products-ready'       => '제품 준비 완료',
+            'no-readiness-data'    => '아직 완전성 데이터가 없습니다.',
         ],
     ],
-
     'catalog' => [
         'products' => [
             'index' => [
@@ -104,8 +150,7 @@ return [
                 'magic-ai-error'            => 'Magic AI 자격 증명이 올바른지 확인하고 올바른 모델이 선택되었는지 확인하세요.',
                 'magic-ai-validate-error'   => 'Magic AI 자격 증명을 확인하세요.',
                 'magic-ai-validate-success' => 'Magic AI 자격 증명이 성공적으로 확인되었습니다.',
-
-                'create' => [
+                'create'                    => [
                     'back-btn'                          => '뒤로',
                     'configurable-attributes'           => '구성 가능한 속성',
                     'create-btn'                        => '제품 만들기',
@@ -118,7 +163,6 @@ return [
                     'not-config-super-attributes-error' => '이 슈퍼 속성 ":super_attributes"을(를) 찾을 수 없습니다',
                     'sku-exists-error'                  => 'SKU 값 ":sku"은(는) 이미 사용 중입니다',
                 ],
-
                 'datagrid' => [
                     'active'                 => '활성화',
                     'attribute-family'       => '속성 가족',
@@ -148,49 +192,43 @@ return [
                     'update-status'          => '상태 업데이트',
                     'parent'                 => '부모',
                     'parent-identifier'      => '부모: :sku',
+                    'created-at'             => 'Created At',
+                    'updated-at'             => 'Updated At',
                 ],
             ],
-
             'edit' => [
-                'preview'  => '미리 보기',
-                'remove'   => '제거',
-                'save-btn' => '제품 저장',
-                'title'    => '제품 편집',
-
+                'preview'    => '미리 보기',
+                'remove'     => '제거',
+                'save-btn'   => '제품 저장',
+                'title'      => '제품 편집',
                 'categories' => [
                     'title' => '카테고리',
                 ],
-
                 'images' => [
                     'info'  => '이미지 해상도는 560px X 609px이어야 합니다',
                     'title' => '이미지',
                 ],
-
                 'videos' => [
                     'error' => ':attribute는 :max 킬로바이트를 초과할 수 없습니다. 더 작은 파일을 선택하십시오.',
                     'info'  => '최대 비디오 크기는 :size입니다.',
                     'title' => '비디오',
                 ],
-
                 'links' => [
                     'related-products' => [
                         'empty-info' => '관련 제품을 추가하십시오.',
                         'info'       => '현재 제품과 관련된 제품도 표시됩니다.',
                         'title'      => '관련 제품',
                     ],
-
                     'up-sells' => [
                         'empty-info' => '업셀 제품을 추가하십시오.',
                         'info'       => '고객은 더 높은 품질의 제품이나 고급 대체 제품을 볼 수 있습니다.',
                         'title'      => '업셀 제품',
                     ],
-
                     'cross-sells' => [
                         'empty-info' => '크로스셀 제품을 추가하십시오.',
                         'info'       => '고객은 장바구니에 담은 제품 외에 추가로 구매할 제품을 볼 수 있습니다.',
                         'title'      => '크로스셀 제품',
                     ],
-
                     'add-btn'           => '추가',
                     'delete'            => '삭제',
                     'empty-info'        => ':type 제품을 한 번에 추가하십시오.',
@@ -199,7 +237,6 @@ return [
                     'sku'               => 'SKU - :sku',
                     'title'             => '제품',
                 ],
-
                 'types' => [
                     'configurable' => [
                         'add-btn'                            => '변형 추가',
@@ -213,18 +250,16 @@ return [
                         'sku'                                => 'SKU - :sku',
                         'title'                              => '변형',
                         'variant-exists'                     => '이 변형 또는 SKU는 이미 존재합니다.',
-                        'variant-attribute-option-not-found' => '변형 속성 또는 옵션을 찾을 수 없습니다.',
-                        'supper-attribute-not-found'         => '슈퍼 속성을 찾을 수 없습니다.',
-                        'variant-given-exists'               => '이 변형은 이미 존재합니다',
-
-                        'create' => [
+                        'variant-attribute-option-not-found' => '변형 속성 또는 옵션을 찾을 수 없습니다. :attributes',
+                        'supper-attribute-not-found'         => '슈퍼 속성을 찾을 수 없습니다. :attribute',
+                        'variant-given-exists'               => '이 변형은 이미 존재합니다 :variants',
+                        'create'                             => [
                             'description'            => '설명',
                             'name'                   => '이름',
                             'save-btn'               => '추가',
                             'title'                  => '변형 추가',
                             'variant-already-exists' => '이 변형은 이미 존재합니다.',
                         ],
-
                         'edit' => [
                             'disabled'        => '비활성화됨',
                             'edit-info'       => '상세 제품 정보를 업데이트하려면 다음 링크로 이동하세요.',
@@ -240,7 +275,6 @@ return [
                             'title'           => '제품',
                             'weight'          => '무게',
                         ],
-
                         'mass-edit' => [
                             'add-images'          => '이미지 추가',
                             'apply-to-all-btn'    => '모두에게 적용',
@@ -267,23 +301,31 @@ return [
                         ],
                     ],
                 ],
-
                 'translate' => [
-                    'translate-btn'            => '번역',
-                    'title'                    => '번역',
-                    'source-channel'           => '소스 채널',
-                    'locale'                   => '소스 로케일',
-                    'translated-content'       => '번역된 콘텐츠',
-                    'translating'              => '번역 중',
-                    'apply'                    => '적용',
-                    'cancel'                   => '취소',
-                    'target-locales'           => '대상 로케일',
-                    'target-channel'           => '대상 채널',
-                    'attributes'               => '속성',
-                    'source-content'           => '소스 콘텐츠',
-                    'tranlated-job-processed'  => '번역된 콘텐츠 저장 작업이 처리되었습니다.',
+                    'translate-btn'               => '번역',
+                    'title'                       => '번역',
+                    'source-channel'              => '소스 채널',
+                    'locale'                      => '소스 로케일',
+                    'translated-content'          => '번역된 콘텐츠',
+                    'translating'                 => '번역 중',
+                    'apply'                       => '적용',
+                    'back'                        => 'Back',
+                    'cancel'                      => '취소',
+                    'target-locales'              => '대상 로케일',
+                    'target-channel'              => '대상 채널',
+                    'attributes'                  => '속성',
+                    'source-content'              => '소스 콘텐츠',
+                    'tranlated-job-processed'     => '번역된 콘텐츠 저장 작업이 처리되었습니다.',
+                    'step'                        => 'Step',
+                    'select-source'               => 'Select Source',
+                    'select-target'               => 'Select Target',
+                    'first-step-title'            => 'Step 1: Select Source Channel, Language and Attributes',
+                    'first-step-title-attributes' => 'Step 1: Select Source Channel and Language',
+                    'second-step-title'           => 'Step 2: Select Target Channel and Languages',
+                    'target-content'              => 'Target Content',
+                    'next'                        => 'Next',
+                    'empty-translation-data'      => 'Data not available for translation on the basis of source channel and locale',
                 ],
-
                 'product-info' => [
                     'title'        => '제품 정보',
                     'status'       => '상태',
@@ -293,6 +335,7 @@ return [
                     'created-at'   => '생성일',
                     'product-type' => '제품 유형',
                 ],
+                'more-actions' => 'More Actions',
             ],
             'bulk-edit' => [
                 'validation' => [
@@ -305,27 +348,22 @@ return [
                     'select-attribute-or-family' => '하나 이상의 속성 또는 속성 패밀리를 선택하세요.',
                     'failed'                     => '유효성 검사 실패.',
                 ],
-
-                'modal'                      => [
+                'modal' => [
                     'title'            => '일괄 편집용 속성',
                     'btn-cancel'       => '취소',
                     'btn-proceed'      => '진행',
                     'attribute-family' => '속성 패밀리 선택',
                 ],
-
                 'index' => [
-                    'no-product'    => '일괄 편집할 제품이 선택되지 않았습니다.',
+                    'no-product' => '일괄 편집할 제품이 선택되지 않았습니다.',
                 ],
-
                 'filter' => [
-                    'many-product'      => '선택된 제품이 너무 많습니다.',
-                    'redirect-message'  => '일괄 편집 화면으로 리디렉션 중입니다.',
+                    'many-product'     => '선택된 제품이 너무 많습니다.',
+                    'redirect-message' => '일괄 편집 화면으로 리디렉션 중입니다.',
                 ],
-
                 'handle-save' => [
-                    'edit-success'  => '일괄 편집이 성공적으로 완료되었습니다.',
+                    'edit-success' => '일괄 편집이 성공적으로 완료되었습니다.',
                 ],
-
                 'id'              => 'ID',
                 'no-changes'      => '저장할 변경 사항이 없습니다.',
                 'success'         => '작업이 성공적으로 실행되었습니다.',
@@ -335,9 +373,8 @@ return [
                 'img-preview'     => '이미지 미리보기',
                 'no-image'        => '이미지 없음',
                 'img-fail'        => '이미지 업로드 실패',
-                'no-opton'        => '옵션 없음',
+                'no-option'       => 'No Options',
             ],
-
             'create-success'          => '제품이 성공적으로 생성되었습니다',
             'delete-failed'           => '제품 삭제 실패',
             'delete-success'          => '제품이 성공적으로 삭제되었습니다',
@@ -351,30 +388,28 @@ return [
             'upload-success'          => '제품 파일이 성공적으로 업로드되었습니다.',
             'update-failure'          => '제품을 업데이트할 수 없습니다.',
         ],
-
         'attributes' => [
             'index' => [
                 'create-btn' => '속성 만들기',
                 'title'      => '속성',
-
-                'datagrid' => [
-                    'channel-based'       => '채널 기반',
-                    'code'                => '코드',
-                    'created-at'          => '생성일',
-                    'delete'              => '삭제',
-                    'edit'                => '편집',
-                    'id'                  => 'ID',
-                    'locale-based'        => '로케일 기반',
-                    'mass-delete-success' => '선택한 속성이 성공적으로 삭제되었습니다.',
-                    'name'                => '이름',
-                    'required'            => '필수',
-                    'type'                => '유형',
-                    'unique'              => '고유',
-                    'delete-failed'       => '이 속성을 삭제할 수 없습니다.',
-                    'mass-delete-failed'  => '선택한 속성을 삭제할 수 없습니다.',
+                'datagrid'   => [
+                    'channel-based'            => '채널 기반',
+                    'code'                     => '코드',
+                    'created-at'               => '생성일',
+                    'delete'                   => '삭제',
+                    'edit'                     => '편집',
+                    'id'                       => 'ID',
+                    'locale-based'             => '로케일 기반',
+                    'mass-delete-success'      => '선택한 속성이 성공적으로 삭제되었습니다.',
+                    'name'                     => '이름',
+                    'required'                 => '필수',
+                    'type'                     => '유형',
+                    'unique'                   => '고유',
+                    'delete-failed'            => '이 속성을 삭제할 수 없습니다.',
+                    'mass-delete-failed'       => '선택한 속성을 삭제할 수 없습니다.',
+                    'delete-attribute-failure' => 'This attribute cannot be removed because it is in use for configurable products',
                 ],
             ],
-
             'create' => [
                 'add-attribute-options' => '속성 옵션 추가',
                 'add-option'            => '옵션 추가',
@@ -397,13 +432,13 @@ return [
                 'enable-wysiwyg'        => 'WYSIWYG 편집기 사용',
                 'file'                  => '파일',
                 'general'               => '일반',
-                'image'                 => '이미지',
                 'gallery'               => '갤러리',
+                'image'                 => '이미지',
                 'input-options'         => '입력 옵션',
                 'input-validation'      => '입력 유효성 검사',
                 'is-comparable'         => '속성 비교 가능',
                 'is-configurable'       => '구성 가능한 제품 만들기',
-                'is-filterable'         => '필터에서 사용 가능',
+                'is-filterable'         => '필터링 가능',
                 'is-required'           => '필수',
                 'is-unique'             => '고유',
                 'is-visible-on-front'   => '상품 상세 페이지에 표시(프론트엔드)',
@@ -431,10 +466,9 @@ return [
                 'yes'                   => '예',
                 'same-code-error'       => '옵션 코드는 고유해야 합니다.',
                 'usable-in-grid'        => '그리드에서 사용 가능',
-                'is-filterable'         => '필터링 가능',
                 'ai-translate'          => 'AI 번역',
-
-                'option' => [
+                'invalid-swatch-type'   => 'The :attribute is not allowed for attribute type :type with swatch type :swatch_type.',
+                'option'                => [
                     'color'    => '샘플 색상',
                     'dropdown' => '드롭다운',
                     'image'    => '샘플 이미지',
@@ -442,7 +476,6 @@ return [
                     'text'     => '텍스트 샘플',
                 ],
             ],
-
             'edit' => [
                 'add-attribute-options' => '속성 옵션 추가',
                 'add-option'            => '옵션 추가',
@@ -466,12 +499,11 @@ return [
                 'file'                  => '파일',
                 'general'               => '일반',
                 'image'                 => '이미지',
-                'gallery'               => '갤러리',
                 'input-options'         => '입력 옵션',
                 'input-validation'      => '입력 유효성 검사',
                 'is-comparable'         => '속성 비교 가능',
                 'is-configurable'       => '구성 가능한 제품 만들기',
-                'is-filterable'         => '필터에서 사용 가능',
+                'is-filterable'         => '필터링 가능',
                 'is-required'           => '필수',
                 'is-unique'             => '고유',
                 'is-visible-on-front'   => '상품 상세 페이지에 표시(프론트엔드)',
@@ -499,24 +531,20 @@ return [
                 'yes'                   => '예',
                 'same-code-error'       => '옵션 코드는 고유해야 합니다.',
                 'usable-in-grid'        => '그리드에서 사용 가능',
-                'is-filterable'         => '필터링 가능',
                 'ai-translate'          => 'AI 번역',
-                'invalid-swatch-type'   => ':attribute 은(는) 속성 타입 :type에서 스와치 타입 :swatch_type와 함께 허용되지 않습니다.',
-
-                'option' => [
-                    'create-success'      => '속성 옵션이 성공적으로 생성되었습니다.',
-                    'delete-success'      => '속성 옵션이 성공적으로 삭제되었습니다.',
+                'option'                => [
                     'save-btn'            => '옵션 저장',
-                    'sort-update-failure' => '정렬 순서를 업데이트하지 못했습니다.',
-                    'sort-update-success' => '정렬 순서가 성공적으로 업데이트되었습니다.',
+                    'create-success'      => '속성 옵션이 성공적으로 생성되었습니다.',
                     'update-success'      => '속성 옵션이 성공적으로 업데이트되었습니다.',
+                    'sort-update-success' => '정렬 순서가 성공적으로 업데이트되었습니다.',
+                    'sort-update-failure' => '정렬 순서를 업데이트하지 못했습니다.',
+                    'delete-success'      => '속성 옵션이 성공적으로 삭제되었습니다.',
                     'color'               => '샘플 색상',
                     'dropdown'            => '드롭다운',
                     'image'               => '샘플 이미지',
                     'text'                => '텍스트 샘플',
                 ],
             ],
-
             'create-success'    => '속성 생성 성공',
             'delete-failed'     => '속성 삭제 실패',
             'delete-success'    => '속성 삭제 성공',
@@ -524,19 +552,16 @@ return [
             'user-define-error' => '시스템 속성은 삭제할 수 없습니다',
             'not-found'         => '코드 ":code"에 해당하는 속성을 찾을 수 없습니다',
         ],
-
         'attribute-options' => [
             'create-success'       => '속성 옵션이 성공적으로 생성되었습니다.',
             'update-success'       => '속성 옵션이 성공적으로 업데이트되었습니다.',
             'usable-in-grid-error' => '그리드에서 사용할 수 있는 속성은 4개만 설정할 수 있습니다.',
         ],
-
         'attribute-groups' => [
             'index' => [
                 'create-btn' => '속성 그룹 만들기',
                 'title'      => '속성 그룹',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'code'                => '코드',
                     'delete'              => '삭제',
                     'mass-delete-success' => '선택한 속성 그룹이 성공적으로 삭제되었습니다.',
@@ -548,7 +573,6 @@ return [
                     'update-status'       => '상태 업데이트',
                 ],
             ],
-
             'create' => [
                 'title'    => '속성 그룹 추가',
                 'save-btn' => '속성 그룹 저장',
@@ -557,7 +581,6 @@ return [
                 'code'     => '코드',
                 'label'    => '레이블',
             ],
-
             'edit' => [
                 'title'    => '속성 그룹 편집',
                 'back-btn' => '뒤로',
@@ -566,7 +589,6 @@ return [
                 'code'     => '코드',
                 'label'    => '레이블',
             ],
-
             'create-success'        => '속성 그룹이 성공적으로 생성되었습니다.',
             'delete-failed'         => '속성 그룹 삭제에 실패했습니다.',
             'delete-success'        => '속성 그룹이 성공적으로 삭제되었습니다.',
@@ -575,12 +597,10 @@ return [
             'attribute-group-error' => '그룹이 패밀리에서 사용되고 있습니다.',
             'not-found'             => '"코드":code" 속성 그룹을 찾을 수 없습니다.',
         ],
-
         'categories' => [
             'index' => [
-                'add-btn' => '카테고리 만들기',
-                'title'   => '카테고리',
-
+                'add-btn'  => '카테고리 만들기',
+                'title'    => '카테고리',
                 'datagrid' => [
                     'active'         => '활성',
                     'code'           => '코드',
@@ -590,14 +610,13 @@ return [
                     'id'             => 'ID',
                     'inactive'       => '비활성',
                     'name'           => '표시 이름',
+                    'category-name'  => '이름',
                     'no-of-products' => '제품 수',
                     'position'       => '위치',
-                    'category-name'  => '이름',
                     'status'         => '메뉴에 표시',
                     'update-status'  => '상태 업데이트',
                 ],
             ],
-
             'create' => [
                 'back-btn'            => '뒤로',
                 'code'                => '코드',
@@ -618,7 +637,6 @@ return [
                 'right-section'       => '구성 섹션',
                 'left-section'        => '일반 섹션',
             ],
-
             'edit' => [
                 'back-btn'               => '뒤로',
                 'code'                   => '코드',
@@ -637,7 +655,6 @@ return [
                 'right-section'          => '구성 섹션',
                 'left-section'           => '일반 섹션',
             ],
-
             'category'             => '카테고리',
             'create-success'       => '카테고리가 성공적으로 생성되었습니다.',
             'delete-category-root' => '채널과 연결된 루트 카테고리는 삭제할 수 없습니다.',
@@ -652,14 +669,12 @@ return [
             'create-failure'       => '카테고리를 만들 수 없습니다.',
             'update-failure'       => '카테고리를 업데이트할 수 없습니다.',
         ],
-
         'category_fields' => [
             'index' => [
                 'create-btn' => '카테고리 필드 만들기',
                 'add-btn'    => '카테고리 필드 추가',
                 'title'      => '카테고리 필드',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'       => '채널 기반',
                     'code'                => '코드',
                     'created-at'          => '생성일',
@@ -684,7 +699,6 @@ return [
                     'mass-delete-failed'  => '선택한 카테고리 필드를 삭제할 수 없습니다.',
                 ],
             ],
-
             'create' => [
                 'add-field-options'   => '카테고리 필드 옵션 추가',
                 'add-option'          => '옵션 추가',
@@ -739,8 +753,7 @@ return [
                 'set-section-right'   => '구성 섹션',
                 'settings'            => '설정',
                 'same-code-error'     => '옵션 코드가 고유해야 합니다.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => '드롭다운',
                     'save-btn' => '옵션 저장',
                     'color'    => '색상 샘플',
@@ -748,7 +761,6 @@ return [
                     'text'     => '텍스트 샘플',
                 ],
             ],
-
             'edit' => [
                 'add-field-options'   => '카테고리 필드 옵션 추가',
                 'add-option'          => '옵션 추가',
@@ -804,8 +816,7 @@ return [
                 'set-section-right'   => '구성 섹션',
                 'settings'            => '설정',
                 'same-code-error'     => '옵션 코드가 고유해야 합니다.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => '드롭다운',
                     'save-btn' => '옵션 저장',
                     'color'    => '색상 샘플',
@@ -813,7 +824,6 @@ return [
                     'text'     => '텍스트 샘플',
                 ],
             ],
-
             'create-success'    => '카테고리 필드가 성공적으로 생성되었습니다.',
             'delete-failed'     => '카테고리 필드 삭제 실패',
             'delete-success'    => '카테고리 필드 삭제 성공',
@@ -821,17 +831,14 @@ return [
             'user-define-error' => '시스템 카테고리 필드는 삭제할 수 없습니다.',
             'not-found'         => '코드 ":code"의 카테고리 필드를 찾을 수 없습니다.',
         ],
-
         'category-fields-options' => [
             'create-success' => '카테고리 필드 옵션이 성공적으로 생성되었습니다.',
             'update-success' => '카테고리 필드 옵션이 성공적으로 업데이트되었습니다.',
         ],
-
         'families' => [
             'index' => [
-                'add'   => '속성 그룹 만들기',
-                'title' => '속성 그룹',
-
+                'add'      => '속성 그룹 만들기',
+                'title'    => '속성 그룹',
                 'datagrid' => [
                     'code'           => '코드',
                     'delete'         => '삭제',
@@ -846,7 +853,6 @@ return [
                     'update-success' => '선택한 :resource가 성공적으로 업데이트되었습니다.',
                 ],
             ],
-
             'create' => [
                 'assign-group-btn'                 => '속성 그룹 지정',
                 'assign-group-title'               => '속성 그룹 지정',
@@ -877,7 +883,6 @@ return [
                 'unassigned-attribute-groups'      => '할당되지 않은 속성 그룹',
                 'assign-first-attribute-group'     => '가족에 그룹을 할당하세요.',
             ],
-
             'edit' => [
                 'assign-group-btn'                 => '속성 그룹 지정',
                 'assign-group-title'               => '속성 그룹 지정',
@@ -911,7 +916,6 @@ return [
                 'variant-options-label'            => '구성 옵션',
                 'select-variant'                   => '속성 선택',
             ],
-
             'attribute-family'               => '속성 그룹',
             'attribute-product-error'        => '이 가족은 제품에서 사용되고 있습니다.',
             'create-success'                 => '가족이 성공적으로 생성되었습니다.',
@@ -924,7 +928,6 @@ return [
             'not-found'                      => '코드 ":code"에 해당하는 속성 그룹을 찾을 수 없습니다.',
             'can-not-update-variant-options' => '이 가족에는 이미 제품 변형이 있어 구성 옵션을 업데이트할 수 없습니다.',
         ],
-
         'history' => [
             'index' => [
                 'datagrid' => [
@@ -935,7 +938,6 @@ return [
             ],
         ],
     ],
-
     'settings' => [
         'locales' => [
             'index' => [
@@ -944,8 +946,7 @@ return [
                 'title'                 => '로케일',
                 'can-not-delete-error'  => '채널 또는 사용자와 연결된 로케일은 삭제할 수 없습니다',
                 'can-not-disable-error' => '채널 또는 사용자와 연결된 로케일은 비활성화할 수 없습니다',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'     => '작업',
                     'code'        => '코드',
                     'delete'      => '삭제',
@@ -956,14 +957,12 @@ return [
                     'name'        => '표시 이름',
                     'rtl'         => 'RTL',
                     'mass-update' => '상태 업데이트',
-
-                    'status' => [
+                    'status'      => [
                         'title'    => '상태',
                         'active'   => '활성화',
                         'inactive' => '비활성화',
                     ],
                 ],
-
                 'create' => [
                     'code'             => '코드',
                     'direction'        => '방향',
@@ -974,11 +973,9 @@ return [
                     'title'            => '로케일 생성',
                     'status'           => '상태',
                 ],
-
                 'edit' => [
                     'title' => '로케일 편집',
                 ],
-
                 'create-success'    => '로케일이 성공적으로 생성되었습니다.',
                 'delete-failed'     => '로케일 삭제 실패',
                 'delete-success'    => '로케일이 성공적으로 삭제되었습니다.',
@@ -987,7 +984,6 @@ return [
                 'update-success'    => '로케일이 성공적으로 업데이트되었습니다.',
             ],
         ],
-
         'currencies' => [
             'index' => [
                 'create-btn'            => '통화 생성',
@@ -995,8 +991,7 @@ return [
                 'title'                 => '통화',
                 'can-not-delete-error'  => '채널과 연결된 통화는 삭제할 수 없습니다',
                 'can-not-disable-error' => '채널과 연결된 통화는 비활성화할 수 없습니다',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'        => '작업',
                     'code'           => '코드',
                     'delete'         => '삭제',
@@ -1008,14 +1003,12 @@ return [
                     'partial-action' => ':resource에 대한 시스템 제약으로 인해 일부 작업이 수행되지 않았습니다.',
                     'update-success' => '선택한 :resource가 성공적으로 업데이트되었습니다.',
                     'mass-update'    => '상태 업데이트',
-
-                    'status' => [
+                    'status'         => [
                         'title'    => '상태',
                         'active'   => '활성화',
                         'inactive' => '비활성화',
                     ],
                 ],
-
                 'create' => [
                     'code'           => '코드',
                     'create-btn'     => '통화 생성',
@@ -1028,11 +1021,9 @@ return [
                     'title'          => '새 통화 생성',
                     'status'         => '상태',
                 ],
-
                 'edit' => [
                     'title' => '통화 편집',
                 ],
-
                 'create-success'    => '통화가 성공적으로 생성되었습니다.',
                 'delete-failed'     => '통화 삭제 실패',
                 'delete-success'    => '통화가 성공적으로 삭제되었습니다.',
@@ -1041,7 +1032,6 @@ return [
                 'cannot-delete'     => '통화를 삭제할 수 없습니다.',
             ],
         ],
-
         'data-transfer' => [
             'tracker' => [
                 'index' => [
@@ -1059,28 +1049,28 @@ return [
                         'user'                 => '사용자',
                         'created_at'           => '생성 시간',
                         'updated_at'           => '업데이트 시간',
-
-                        'pending'    => '대기 중',
-                        'validated'  => '검증됨',
-                        'processing' => '처리 중',
-                        'processed'  => '처리 완료',
-                        'linking'    => '링크 중',
-                        'linked'     => '링크 완료',
-
-                        'indexing'  => '색인화 중',
-                        'indexed'   => '색인 완료',
-                        'completed' => '완료',
-                        'failed'    => '실패',
+                        'pending'              => '대기 중',
+                        'validating'           => 'Validating',
+                        'validated'            => '검증됨',
+                        'processing'           => '처리 중',
+                        'processed'            => '처리 완료',
+                        'linking'              => '링크 중',
+                        'linked'               => '링크 완료',
+                        'indexing'             => '색인화 중',
+                        'indexed'              => '색인 완료',
+                        'completed'            => '완료',
+                        'paused'               => 'Paused',
+                        'cancelled'            => 'Cancelled',
+                        'failed'               => '실패',
                     ],
                 ],
-
                 'import' => [
                     'back-btn'                => '뒤로',
                     'completed-batches'       => '완료된 배치 수:',
                     'download-error-report'   => '전체 보고서 다운로드',
                     'edit-btn'                => '편집',
                     'imported-info'           => '축하합니다! 가져오기가 성공적으로 완료되었습니다.',
-                    'importing-info'          => '내보내기 진행 중',
+                    'exporting-info'          => 'Export In Process',
                     'indexing-info'           => '리소스 색인화(가격, Elasticsearch) 진행 중',
                     'linking-info'            => '리소스 연결 진행 중',
                     'progress'                => '진행 상황:',
@@ -1098,7 +1088,6 @@ return [
                     'validation-failed-info'  => '가져오기가 유효하지 않습니다. 아래 오류를 수정한 후 다시 시도하세요.',
                     'validation-success-info' => '가져오기가 유효합니다. 내보내기를 클릭하여 가져오기 프로세스를 시작하세요.',
                 ],
-
                 'summary' => [
                     'total-batches' => '총 배치 수:',
                     'created'       => '생성된 레코드 수:',
@@ -1109,150 +1098,191 @@ return [
                     'updated'       => '업데이트된 레코드 수:',
                     'skipped'       => '건너뛴 레코드 수:',
                 ],
-
-                'info'              => '축하합니다! 작업이 성공적으로 실행되었습니다.',
-                'create-success'    => '내보내기가 성공적으로 생성되었습니다.',
-                'delete-failed'     => '내보내기 삭제에 실패했습니다.',
-                'delete-success'    => '내보내기가 성공적으로 삭제되었습니다.',
-                'not-valid'         => '내보내기가 유효하지 않습니다',
-                'nothing-to-import' => '가져올 리소스가 없습니다.',
-                'setup-queue-error' => '"database" 또는 "redis"로 큐 드라이버를 변경하여 가져오기 프로세스를 시작하세요.',
-                'update-success'    => '내보내기가 성공적으로 업데이트되었습니다.',
-                'failed-info'       => '작업에 실패했습니다. 아래 오류를 수정한 후 다시 시도하세요.',
-                'download-log-file' => '로그 다운로드',
+                'info'                  => '축하합니다! 작업이 성공적으로 실행되었습니다.',
+                'running-time'          => 'Running time',
+                'estimated-remaining'   => 'Est. remaining',
+                'total-duration'        => 'Total Duration',
+                'status'                => 'Status',
+                'waiting'               => 'Waiting',
+                'total-records'         => 'Total records',
+                'job-id'                => 'Job ID',
+                'records-created'       => 'Records Created',
+                'records-updated'       => 'Records Updated',
+                'records-deleted'       => 'Records deleted',
+                'run-again'             => 'Run Again',
+                'completed-success'     => 'job completed successfully',
+                'completed-info-sub'    => 'All records have been processed and indexed. Your catalog is up to date.',
+                'create-success'        => '내보내기가 성공적으로 생성되었습니다.',
+                'delete-failed'         => '내보내기 삭제에 실패했습니다.',
+                'delete-success'        => '내보내기가 성공적으로 삭제되었습니다.',
+                'not-valid'             => '내보내기가 유효하지 않습니다',
+                'nothing-to-import'     => '가져올 리소스가 없습니다.',
+                'setup-queue-error'     => '"database" 또는 "redis"로 큐 드라이버를 변경하여 가져오기 프로세스를 시작하세요.',
+                'update-success'        => '내보내기가 성공적으로 업데이트되었습니다.',
+                'failed-info'           => '작업에 실패했습니다. 아래 오류를 수정한 후 다시 시도하세요.',
+                'download-log-file'     => '로그 다운로드',
+                'pause'                 => 'Pause',
+                'resume'                => 'Resume',
+                'cancel'                => 'Cancel',
+                'paused'                => 'Import has been paused.',
+                'resumed'               => 'Import has been resumed.',
+                'cancelled'             => 'Import has been cancelled.',
+                'paused-info'           => 'Import is paused. Remaining batches are on hold.',
+                'paused-info-export'    => 'Export is paused. Remaining batches are on hold.',
+                'cancelled-info'        => 'Import was cancelled. Partial results are shown below.',
+                'cancelled-info-export' => 'Export was cancelled. Partial results are shown below.',
+                'cancel-confirm'        => 'Are you sure you want to cancel this job? This action cannot be undone.',
+                'live'                  => 'Live',
+                'import-progress'       => 'Import progress',
+                'export-progress'       => 'Export progress',
+                'linking-progress'      => 'Linking progress',
+                'indexing-progress'     => 'Indexing progress',
+                'job-label'             => 'Job',
             ],
-
-            'import' => [
+            'imports' => [
                 'create' => [
-                    'code'                => '코드',
-                    'action'              => '액션',
-                    'allowed-errors'      => '허용된 오류',
-                    'allowed-file-types'  => '허용된 파일 형식(CSV, XLSX, XLS)',
-                    'back-btn'            => '뒤로가기',
-                    'create-update'       => '생성/업데이트',
-                    'delete'              => '삭제',
-                    'media'               => '파일 / 이미지',
-                    'images'              => '이미지',
-                    'download-sample'     => ':resource CSV 샘플 파일 다운로드',
-                    'field-separator'     => '필드 구분자',
-                    'separator-info'      => 'CSV 파일에서만 사용',
-                    'file-info-example'   => '이미지는 storage/app/public/ 폴더에 저장하세요. 이미지가 storage/app/public/import-images 폴더에 있을 경우 import-images/ 경로를 포함하고 파일 이름만 사용하세요.',
-                    'file-info'           => '/project-root/storage/app/import의 상대 경로를 사용하세요. 예: product-images, import-images.',
-                    'file'                => '파일',
-                    'general'             => '일반',
-                    'upload_images'       => '이미지 업로드하여 경로 설정',
-                    'download-sample-zip' => '이미지 샘플을 ZIP 형식으로 다운로드',
-                    'zip-drop-hint'       => '클릭하거나 ZIP 파일을 여기에 드래그 앤 드롭하세요',
-                    'images-directory'    => '경로',
-                    'process-in-queue'    => '큐에서 처리 중',
-                    'results'             => '결과',
-                    'save-btn'            => '수입 저장',
-                    'settings'            => '설정',
-                    'skip-errors'         => '오류 무시',
-                    'stop-on-errors'      => '오류 발생 시 중지',
-                    'title'               => '수입 생성',
-                    'type'                => '유형',
-                    'validation-strategy' => '유효성 검사 전략',
+                    'code'                => 'Code',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'media'               => 'File / Images',
+                    'images'              => 'Images',
+                    'download-sample'     => 'Download :resource Sample CSV',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
+                    'file'                => 'File',
+                    'general'             => 'General',
+                    'upload_images'       => 'Upload Images to set Path',
+                    'download-sample-zip' => 'Download Sample Images ZIP',
+                    'zip-uploading'       => 'Uploading and extracting ZIP...',
+                    'zip-upload-success'  => 'ZIP uploaded and extracted successfully.',
+                    'zip-upload-error'    => 'Failed to upload ZIP. Please try again.',
+                    'invalid-zip'         => 'The uploaded file is not a valid ZIP archive.',
+                    'zip-upload-or'       => 'or upload a ZIP of images',
+                    'zip-click-upload'    => 'Click to upload a ZIP of images',
+                    'zip-files-extracted' => 'files extracted',
+                    'zip-drop-hint'       => 'Click or drag & drop a ZIP file here',
+                    'images-directory'    => 'Path',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Create Import',
+                    'type'                => 'Type',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'edit' => [
-                    'images'              => '이미지',
-                    'action'              => '액션',
-                    'allowed-errors'      => '허용된 오류',
-                    'allowed-file-types'  => '허용된 파일 형식(CSV, XLSX, XLS)',
-                    'back-btn'            => '뒤로가기',
-                    'create-update'       => '생성/업데이트',
-                    'delete'              => '삭제',
-                    'download-sample'     => '샘플 다운로드',
-                    'field-separator'     => '필드 구분자',
-                    'separator-info'      => 'CSV 파일에서만 사용',
-                    'file-info-example'   => '이미지는 storage/app/public/ 폴더에 저장하세요. 이미지가 storage/app/public/import-images 폴더에 있을 경우 import-images/ 경로를 포함하고 파일 이름만 사용하세요.',
-                    'file-info'           => '/project-root/storage/app/import의 상대 경로를 사용하세요. 예: product-images, import-images.',
-                    'file'                => '파일',
-                    'general'             => '일반',
-                    'images-directory'    => '경로',
-                    'process-in-queue'    => '큐에서 처리 중',
-                    'results'             => '결과',
-                    'save-btn'            => '수입 저장',
-                    'settings'            => '설정',
-                    'skip-errors'         => '오류 무시',
-                    'stop-on-errors'      => '오류 발생 시 중지',
-                    'title'               => '수입 편집',
-                    'type'                => '유형',
-                    'validation-strategy' => '유효성 검사 전략',
+                    'images'              => 'Images',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'download-sample'     => 'Download Sample',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
+                    'file'                => 'File',
+                    'general'             => 'General',
+                    'images-directory'    => 'Path',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Edit Import',
+                    'type'                => 'Type',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'batch' => [
-                    'title' => '수입이 큐에 추가됨',
+                    'title' => 'Import added in the queue',
                 ],
-
                 'index' => [
-                    'button-title' => '수입 생성',
-                    'title'        => '수입',
-
-                    'datagrid' => [
-                        'actions'               => '액션',
-                        'completed-at'          => '완료됨',
-                        'created'               => '생성됨',
-                        'delete'                => '삭제',
-                        'deleted'               => '삭제됨',
-                        'edit'                  => '편집',
-                        'error-file'            => '오류 파일',
+                    'button-title' => 'Create Import',
+                    'title'        => 'Imports',
+                    'datagrid'     => [
+                        'actions'               => 'Actions',
+                        'completed-at'          => 'Completed At',
+                        'created'               => 'Created',
+                        'delete'                => 'Delete',
+                        'deleted'               => 'Deleted',
+                        'edit'                  => 'Edit',
+                        'error-file'            => 'Error File',
                         'id'                    => 'ID',
-                        'code'                  => '코드',
-                        'type'                  => '유형',
-                        'action'                => '액션',
-                        'started-at'            => '시작됨',
-                        'state'                 => '상태',
-                        'summary'               => '요약',
-                        'updated'               => '업데이트됨',
-                        'uploaded-file'         => '업로드된 파일',
-                        'images_directory_path' => '이미지 경로',
-                        'import'                => '수입',
+                        'code'                  => 'Code',
+                        'type'                  => 'Type',
+                        'action'                => 'Action',
+                        'started-at'            => 'Started At',
+                        'state'                 => 'State',
+                        'summary'               => 'Summary',
+                        'updated'               => 'Updated',
+                        'uploaded-file'         => 'Uploaded File',
+                        'images_directory_path' => 'Images File',
+                        'import'                => 'Import',
                     ],
                 ],
-
                 'import' => [
-                    'back-btn'                => '뒤로가기',
-                    'completed-batches'       => '완료된 배치 수:',
-                    'download-error-report'   => '오류 보고서 다운로드',
-                    'edit-btn'                => '편집',
-                    'imported-info'           => '축하합니다! 수입이 성공적으로 완료되었습니다.',
-                    'importing-info'          => '수입 중',
-                    'exporting-info'          => '수출 중',
-                    'indexing-info'           => '리소스 인덱싱 중 (가격, Elastic Search)',
-                    'linking-info'            => '리소스 링크 중',
-                    'progress'                => '진행 상황:',
-                    'pending-info'            => '큐에서 대기 중',
-                    'pending-step-export'     => '내보내는 중',
-                    'title'                   => '수입',
-                    'total-batches'           => '총 배치 수:',
-                    'total-created'           => '총 생성된 레코드 수:',
-                    'total-deleted'           => '총 삭제된 레코드 수:',
-                    'total-errors'            => '총 오류 수:',
-                    'total-invalid-rows'      => '총 유효하지 않은 행 수:',
-                    'total-rows-processed'    => '총 처리된 행 수:',
-                    'total-updated'           => '총 업데이트된 레코드 수:',
-                    'validate-info'           => '"데이터 확인"을 클릭하여 수입을 확인하세요.',
-                    'validate'                => '확인',
-                    'file_path'               => '파일 경로',
-                    'import-now'              => '지금 수입',
-                    'action'                  => '액션 유형',
-                    'profile'                 => '수입 프로파일',
-                    'validating-info'         => '데이터 읽기 및 유효성 검사 중',
-                    'validation-failed-info'  => '수입이 유효하지 않습니다. 오류를 수정한 후 다시 시도하십시오.',
-                    'validation-success-info' => '가져오기가 유효합니다. 자동으로 가져오기를 시작하는 중...',
+                    'action'                  => 'Action Mode',
+                    'back-btn'                => 'Back',
+                    'completed-batches'       => 'Total Batches Completed:',
+                    'download-error-report'   => 'Download Full Report',
+                    'edit-btn'                => 'Edit',
+                    'exporting-info'          => 'Export In Process',
+                    'exporting-info-sub'      => 'Generating export file and writing records. Please wait.',
+                    'file_path'               => 'File Path',
+                    'imported-info'           => 'Congratulations! Your import was successful.',
+                    'import-now'              => 'Import Now',
+                    'importing-info'          => 'Import In Process',
+                    'importing-info-sub'      => 'Processing batches and writing records to the database.',
+                    'indexing-info'           => 'Resources Indexing (Price, Elastic Search) In Progress',
+                    'indexing-info-sub'       => 'Rebuilding search indices and price caches after import. This step runs automatically.',
+                    'indexing-type'           => 'Price + ES',
+                    'linking-info'            => 'Resources Linking In Progress',
+                    'linking-info-sub'        => 'Linking related resources and associations between records.',
+                    'pending-info'            => 'Job queued — waiting for worker to start...',
+                    'pending-info-sub'        => 'Your job has been added to the processing queue. A worker will pick it up shortly.',
+                    'pending-step-complete'   => 'Complete',
+                    'pending-step-export'     => 'Exporting',
+                    'pending-step-import'     => 'Importing',
+                    'pending-step-queue'      => 'Queued',
+                    'pending-step-validate'   => 'Validating',
+                    'profile'                 => 'Import Profile',
+                    'progress'                => 'Progress:',
+                    'title'                   => 'Import',
+                    'total-batches'           => 'Total Batches:',
+                    'total-created'           => 'Total Records Created:',
+                    'total-deleted'           => 'Total Records Deleted:',
+                    'total-errors'            => 'Total Errors:',
+                    'total-invalid-rows'      => 'Total Invalid Rows:',
+                    'total-rows-processed'    => 'Total Rows Processed:',
+                    'total-updated'           => 'Total Records Updated:',
+                    'validate'                => 'Validate',
+                    'validate-info'           => 'Click on Validate Data to check your import.',
+                    'validating-info'         => 'Reading file and validating data...',
+                    'validating-info-sub'     => 'Checking schema integrity, field mappings, and data types before the import begins.',
+                    'validation-failed-info'  => 'Your import is invalid. Please fix the following errors and try again.',
+                    'validation-success-info' => 'Your import is valid. Starting import automatically...',
                 ],
-
-                'create-success'    => '수입이 성공적으로 생성되었습니다.',
-                'delete-failed'     => '예기치 않은 오류로 수입 삭제 실패.',
-                'delete-success'    => '수입이 성공적으로 삭제되었습니다.',
-                'not-valid'         => '수입이 유효하지 않습니다.',
-                'nothing-to-import' => '수입할 리소스가 없습니다.',
-                'setup-queue-error' => '수입 과정을 시작하려면 큐 드라이버를 "데이터베이스" 또는 "레디스"로 설정하십시오.',
-                'update-success'    => '수입이 성공적으로 업데이트되었습니다.',
+                'create-success'     => 'Import created successfully.',
+                'delete-failed'      => 'Import deletion failed unexpectedly.',
+                'delete-success'     => 'Import deleted successfully.',
+                'invalid-zip'        => 'The uploaded file is not a valid ZIP archive.',
+                'not-valid'          => 'Import is invalid',
+                'nothing-to-import'  => 'There are no resources to import.',
+                'setup-queue-error'  => 'Please change your queue driver to "database" or "redis" to start the import process.',
+                'update-success'     => 'Import updated successfully.',
+                'zip-upload-success' => 'ZIP uploaded and extracted successfully.',
             ],
-
             'exports' => [
                 'create' => [
                     'code'                => '코드',
@@ -1283,7 +1313,6 @@ return [
                     'type'                => '유형',
                     'validation-strategy' => '검증 전략',
                 ],
-
                 'edit' => [
                     'action'              => '동작',
                     'allowed-errors'      => '허용된 오류',
@@ -1307,16 +1336,13 @@ return [
                     'type'                => '유형',
                     'validation-strategy' => '검증 전략',
                 ],
-
                 'batch' => [
                     'title' => '대기열에 추가된 내보내기',
                 ],
-
                 'index' => [
                     'button-title' => '내보내기 생성',
                     'title'        => '내보내기',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => '동작',
                         'completed-at'          => '완료된 시간',
                         'created'               => '생성된 시간',
@@ -1337,7 +1363,6 @@ return [
                         'export'                => '내보내기',
                     ],
                 ],
-
                 'export' => [
                     'back-btn'                => '뒤로',
                     'completed-batches'       => '완료된 배치 총계:',
@@ -1367,7 +1392,6 @@ return [
                     'file-format'             => '파일 형식',
                     'with-media'              => '미디어 포함',
                 ],
-
                 'create-success'    => '내보내기 성공적으로 생성됨.',
                 'delete-failed'     => '내보내기 삭제 실패.',
                 'delete-success'    => '내보내기 성공적으로 삭제됨.',
@@ -1377,7 +1401,6 @@ return [
                 'update-success'    => '내보내기 성공적으로 업데이트됨.',
             ],
         ],
-
         'channels' => [
             'index' => [
                 'create-btn'           => '채널 만들기',
@@ -1396,7 +1419,6 @@ return [
                     'root-category' => '루트 카테고리',
                 ],
             ],
-
             'create' => [
                 'allowed-ips'            => '허용된 IP 주소',
                 'cancel'                 => '뒤로',
@@ -1431,7 +1453,6 @@ return [
                 'theme'                  => '테마',
                 'title'                  => '채널 만들기',
             ],
-
             'edit' => [
                 'allowed-ips'            => '허용된 IP 주소',
                 'back-btn'               => '뒤로',
@@ -1469,13 +1490,11 @@ return [
                 'update-success'         => '채널 업데이트 성공',
             ],
         ],
-
         'users' => [
             'index' => [
-                'admin' => '관리자',
-                'title' => '사용자',
-                'user'  => '사용자',
-
+                'admin'  => '관리자',
+                'title'  => '사용자',
+                'user'   => '사용자',
                 'create' => [
                     'confirm-password'  => '비밀번호 확인',
                     'email'             => '이메일',
@@ -1489,7 +1508,6 @@ return [
                     'user-timezone'     => '시간대',
                     'select'            => '선택',
                 ],
-
                 'datagrid' => [
                     'actions'  => '작업',
                     'active'   => '활성화됨',
@@ -1503,12 +1521,10 @@ return [
                     'status'   => '상태',
                     'image'    => '이미지',
                 ],
-
                 'edit' => [
                     'title' => '사용자 편집',
                 ],
             ],
-
             'edit' => [
                 'back-btn'         => '뒤로',
                 'confirm-password' => '비밀번호 확인',
@@ -1521,7 +1537,6 @@ return [
                 'status'           => '상태',
                 'title'            => '사용자 편집',
             ],
-
             'activate-warning'          => '귀하의 계정은 아직 활성화되지 않았습니다. 관리자에게 문의하십시오.',
             'cannot-change'             => '사용자는 변경할 수 없습니다.',
             'create-success'            => '사용자가 성공적으로 생성되었습니다.',
@@ -1534,13 +1549,11 @@ return [
             'update-success'            => '사용자가 성공적으로 업데이트되었습니다.',
             'current-user-delete-error' => '로그인한 사용자는 삭제할 수 없습니다.',
         ],
-
         'roles' => [
             'index' => [
                 'create-btn' => '역할 생성',
                 'title'      => '역할',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => '삭제',
                     'edit'            => '편집',
                     'id'              => 'ID',
@@ -1548,7 +1561,6 @@ return [
                     'permission-type' => '권한 유형',
                 ],
             ],
-
             'create' => [
                 'access-control' => '액세스 제어',
                 'all'            => '모두',
@@ -1561,7 +1573,6 @@ return [
                 'save-btn'       => '역할 저장',
                 'title'          => '역할 생성',
             ],
-
             'edit' => [
                 'access-control' => '액세스 제어',
                 'all'            => '모두',
@@ -1574,7 +1585,6 @@ return [
                 'save-btn'       => '역할 저장',
                 'title'          => '역할 편집',
             ],
-
             'being-used'        => '이 역할은 관리자 사용자에서 이미 사용 중입니다.',
             'being-used-by'     => '이 역할은 :name 사용자가 이미 사용 중입니다.',
             'create-success'    => '역할이 성공적으로 생성되었습니다.',
@@ -1584,160 +1594,6 @@ return [
             'update-success'    => '역할이 성공적으로 업데이트되었습니다.',
         ],
     ],
-
-    'acl' => [
-        'addresses'                => '주소',
-        'attribute-families'       => '속성 가족',
-        'attribute-groups'         => '속성 그룹',
-        'attributes'               => '속성',
-        'cancel'                   => '취소',
-        'catalog'                  => '카탈로그',
-        'categories'               => '카테고리',
-        'channels'                 => '채널',
-        'configure'                => '구성',
-        'configuration'            => '구성',
-        'copy'                     => '복사',
-        'create'                   => '생성',
-        'currencies'               => '통화',
-        'dashboard'                => '대시보드',
-        'data-transfer'            => '데이터 전송',
-        'delete'                   => '삭제',
-        'edit'                     => '편집',
-        'email-templates'          => '이메일 템플릿',
-        'events'                   => '이벤트',
-        'groups'                   => '그룹',
-        'import'                   => '임포트',
-        'imports'                  => '임포트',
-        'invoices'                 => '송장',
-        'locales'                  => '로캘',
-        'magic-ai'                 => '마법 AI',
-        'marketing'                => '마케팅',
-        'newsletter-subscriptions' => '뉴스레터 구독',
-        'note'                     => '메모',
-        'orders'                   => '주문',
-        'products'                 => '제품',
-        'promotions'               => '프로모션',
-        'refunds'                  => '환불',
-        'reporting'                => '보고',
-        'reviews'                  => '리뷰',
-        'roles'                    => '역할',
-        'sales'                    => '판매',
-        'search-seo'               => '검색 및 SEO',
-        'search-synonyms'          => '검색 동의어',
-        'search-terms'             => '검색어',
-        'settings'                 => '설정',
-        'shipments'                => '배송',
-        'sitemaps'                 => '사이트 맵',
-        'subscribers'              => '뉴스레터 구독자',
-        'tax-categories'           => '세금 카테고리',
-        'tax-rates'                => '세금률',
-        'taxes'                    => '세금',
-        'themes'                   => '테마',
-        'integration'              => '통합',
-        'url-rewrites'             => 'URL 리라이트',
-        'users'                    => '사용자',
-        'category_fields'          => '카테고리 필드',
-        'view'                     => '보기',
-        'execute'                  => '실행',
-        'history'                  => '기록',
-        'restore'                  => '복원',
-        'integrations'             => '통합',
-        'api'                      => 'API',
-        'tracker'                  => '추적기',
-        'imports'                  => '임포트',
-        'exports'                  => '임포트',
-        'mass-update'              => '대량 업데이트',
-        'mass-delete'              => '대량 삭제',
-    ],
-
-    'errors' => [
-        'dashboard' => '대시보드',
-        'go-back'   => '뒤로 가기',
-        'support'   => '문제가 해결되지 않으면, <a href=":link" class=":class">:email</a>으로 문의하십시오.',
-
-        '404' => [
-            'description' => '앗! 찾고 있는 페이지를 찾을 수 없습니다. 찾고 있는 것을 찾지 못했습니다.',
-            'title'       => '404 페이지를 찾을 수 없음',
-        ],
-
-        '401' => [
-            'description' => '앗! 이 페이지에 접근할 권한이 없습니다. 필요한 자격 증명이 부족합니다.',
-            'title'       => '401 접근 권한 없음',
-            'message'     => '인증에 실패했습니다. 자격 증명이 잘못되었거나 토큰이 만료되었습니다.',
-        ],
-
-        '403' => [
-            'description' => '앗! 이 페이지는 접근할 수 없습니다. 보려면 권한이 필요합니다.',
-            'title'       => '403 접근 금지',
-        ],
-
-        '413' => [
-            'description' => '앗! 업로드하려는 파일이 너무 큽니다. 파일을 업로드하려면 PHP 구성 내용을 업데이트하십시오.',
-            'title'       => '413 콘텐츠 너무 큼',
-        ],
-
-        '419' => [
-            'description' => '앗! 세션이 만료되었습니다. 페이지를 새로고침하고 다시 로그인하여 계속하십시오.',
-            'title'       => '419 세션 만료',
-        ],
-
-        '500' => [
-            'description' => '앗! 무언가 잘못되었습니다. 찾고 있는 페이지를 로드하는 데 문제가 발생했습니다.',
-            'title'       => '500 내부 서버 오류',
-        ],
-
-        '503' => [
-            'description' => '앗! 현재 서비스가 임시로 사용 불가능합니다. 나중에 다시 시도하십시오.',
-            'title'       => '503 서비스 사용 불가',
-        ],
-    ],
-
-    'export' => [
-        'csv'                  => 'CSV',
-        'download'             => '다운로드',
-        'export'               => '빠른 내보내기',
-        'no-records'           => '내보낼 기록 없음',
-        'xls'                  => 'XLS',
-        'xlsx'                 => 'XLSX',
-        'with-media'           => '미디어 포함',
-        'export-success'       => '내보내기가 성공했습니다!',
-        'error'                => '문제가 발생했습니다!',
-        'product-not-selected' => '빠른 내보내기를 위한 상품이 선택되지 않았습니다',
-    ],
-
-    'validations' => [
-        'slug-being-used' => '이 슬러그는 카테고리 또는 제품에서 사용 중입니다.',
-        'slug-reserved'   => '이 슬러그는 예약되었습니다.',
-        'invalid-locale'  => '잘못된 로컬 :locales',
-    ],
-
-    'footer' => [
-        'copy-right' => '<a href="https://unopim.com/" target="_blank">UnoPim</a>에 의해 구동됨, <a href="https://webkul.com/" target="_blank">Webkul</a>의 커뮤니티 프로젝트',
-    ],
-
-    'emails' => [
-        'dear'   => 'Dear :admin_name',
-        'thanks' => 'If you need any kind of help please contact us at <a href=":link" style=":style">:email</a>.<br/>Thanks!',
-
-        'admin' => [
-            'forgot-password' => [
-                'description'    => 'You are receiving this email because we received a password reset request for your account.',
-                'greeting'       => 'Forgot Password!',
-                'reset-password' => 'Reset Password',
-                'subject'        => 'Reset Password Email',
-            ],
-        ],
-    ],
-
-    'common' => [
-        'yes'     => '예',
-        'no'      => '아니요',
-        'true'    => '참',
-        'false'   => '거짓',
-        'enable'  => '사용',
-        'disable' => '사용 안함',
-    ],
-
     'configuration' => [
         'index' => [
             'delete'          => '삭제',
@@ -1746,50 +1602,51 @@ return [
             'save-message'    => '구성 성공적으로 저장됨',
             'search'          => '검색',
             'title'           => '구성',
-
-            'general' => [
-                'info'  => '',
-                'title' => '일반',
-
+            'general'         => [
+                'info'    => '',
+                'title'   => '일반',
                 'general' => [
                     'info'  => '',
                     'title' => '일반',
                 ],
-
                 'magic-ai' => [
-                    'info'  => 'Magic AI 옵션을 설정합니다.',
-                    'title' => 'Magic AI',
-
+                    'info'     => 'Magic AI 옵션을 설정합니다.',
+                    'title'    => 'Magic AI',
                     'settings' => [
-                        'api-key'        => 'API 키',
-                        'enabled'        => '사용 가능',
-                        'llm-api-domain' => 'LLM API 도메인',
-                        'organization'   => '조직 ID',
-                        'title'          => '일반 설정',
-                        'title-info'     => 'Magic AI 경험을 향상시키려면 자신의 API 키를 입력하고 관련 조직을 지정하여 통합을 원활하게 하세요. OpenAI 자격 증명 제어 및 필요에 맞게 설정을 사용자 정의할 수 있습니다.',
+                        'enabled'     => '사용 가능',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => '일반 설정',
+                        'title-info'  => 'Magic AI 경험을 향상시키려면 자신의 API 키를 입력하고 관련 조직을 지정하여 통합을 원활하게 하세요. OpenAI 자격 증명 제어 및 필요에 맞게 설정을 사용자 정의할 수 있습니다.',
                     ],
-
-                    'translation'   => [
-                        'title'                  => '번역',
-                        'enabled'                => '활성화됨',
-                        'title-info'             => '이 기능은 Magic AI를 활성화하여 텍스트를 번역하고 한 언어에서 다른 언어로 원활하게 변환할 수 있도록 합니다.',
-                        'global-source-channel'  => '소스 채널',
-                        'global-source-locale'   => '소스 로케일',
-                        'translation-model'      => '번역 모델',
-                        'replace-existing-value' => '기존 값 대체',
-                        'target-channel'         => '대상 채널',
-                        'target-locales'         => '대상 로케일',
+                    'image-generation' => [
+                        'enabled'     => 'Enabled',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Image Generation',
+                        'title-info'  => 'Configure the default AI platform and model for generating product images. Only platforms that support image generation (OpenAI, Gemini, xAI) are listed.',
+                    ],
+                    'translation' => [
+                        'title'                       => '번역',
+                        'enabled'                     => '활성화됨',
+                        'title-info'                  => '이 기능은 Magic AI를 활성화하여 텍스트를 번역하고 한 언어에서 다른 언어로 원활하게 변환할 수 있도록 합니다.',
+                        'ai-platform'                 => 'Default Platform',
+                        'global-source-channel'       => '소스 채널',
+                        'global-source-locale'        => '소스 로케일',
+                        'translation-model'           => '번역 모델',
+                        'replace-existing-value'      => '기존 값 대체',
+                        'target-channel'              => '대상 채널',
+                        'target-locales'              => '대상 로케일',
+                        'replace-existing-value-info' => 'Replace the existing value if it already exists.',
                     ],
                 ],
             ],
         ],
-
         'integrations' => [
             'index' => [
                 'create-btn' => '생성',
                 'title'      => '통합',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => '삭제',
                     'edit'            => '수정',
                     'id'              => 'ID',
@@ -1799,7 +1656,6 @@ return [
                     'permission-type' => '권한 유형',
                 ],
             ],
-
             'create' => [
                 'access-control' => '접근 제어',
                 'all'            => '모두',
@@ -1812,7 +1668,6 @@ return [
                 'save-btn'       => '저장',
                 'title'          => '새 통합',
             ],
-
             'edit' => [
                 'access-control' => '접근 제어',
                 'all'            => '모두',
@@ -1830,7 +1685,6 @@ return [
                 'save-btn'       => '저장',
                 'title'          => '통합 수정',
             ],
-
             'being-used'                     => 'API 통합은 이미 Admin 사용자에서 사용 중입니다',
             'create-success'                 => 'API 통합이 성공적으로 생성되었습니다',
             'delete-failed'                  => 'API 통합 삭제 실패',
@@ -1841,40 +1695,143 @@ return [
             're-generate-secret-key-success' => 'API 비밀 키가 성공적으로 재생성되었습니다',
             'client-not-found'               => '클라이언트를 찾을 수 없습니다',
         ],
-
         'prompt' => [
             'datagrid' => [
-                'id'            => 'ID',
-                'title'         => '제목',
-                'prompt'        => '프롬프트',
-                'type'          => '유형',
-                'created-at'    => '생성일',
-                'updated-at'    => '업데이트일',
-                'actions'       => '작업',
-                'edit'          => '편집',
-                'delete'        => '삭제',
-                'product'       => '제품',
-                'category'      => '카테고리',
+                'id'               => 'ID',
+                'title'            => '제목',
+                'prompt'           => '프롬프트',
+                'type'             => '유형',
+                'purpose'          => 'Purpose',
+                'text-generation'  => 'Text Generation',
+                'image-generation' => 'Image Generation',
+                'translation'      => 'Translation',
+                'created-at'       => '생성일',
+                'updated-at'       => '업데이트일',
+                'actions'          => '작업',
+                'edit'             => '편집',
+                'delete'           => '삭제',
+                'product'          => '제품',
+                'category'         => '카테고리',
             ],
             'create' => [
-                'title'         => '프롬프트',
-                'create-btn'    => '프롬프트 생성',
-                'edit-title'    => '프롬프트 편집',
-                'create-title'  => '새 프롬프트 생성',
-                'label-title'   => '제목',
-                'type'          => '유형',
-                'prompt'        => '프롬프트',
-                'save-btn'      => '프롬프트 저장',
+                'title'        => '프롬프트',
+                'create-btn'   => '프롬프트 생성',
+                'edit-title'   => '프롬프트 편집',
+                'create-title' => '새 프롬프트 생성',
+                'label-title'  => '제목',
+                'purpose'      => 'Purpose',
+                'type'         => '유형',
+                'prompt'       => '프롬프트',
+                'save-btn'     => '프롬프트 저장',
             ],
             'message' => [
-                'save-success'      => '프롬프트가 성공적으로 저장되었습니다.',
-                'update-success'    => '프롬프트가 성공적으로 업데이트되었습니다.',
-                'delete-success'    => '프롬프트가 성공적으로 삭제되었습니다.',
-                'delete-fail'       => '프롬프트 삭제에 실패했습니다.',
+                'save-success'   => '프롬프트가 성공적으로 저장되었습니다.',
+                'update-success' => '프롬프트가 성공적으로 업데이트되었습니다.',
+                'delete-success' => '프롬프트가 성공적으로 삭제되었습니다.',
+                'delete-fail'    => '프롬프트 삭제에 실패했습니다.',
+            ],
+        ],
+        'system-prompt' => [
+            'datagrid' => [
+                'id'          => 'ID',
+                'title'       => 'Title',
+                'tone'        => 'Tone',
+                'max-tokens'  => 'Max Tokens',
+                'temperature' => 'Temperature',
+                'status'      => 'Status',
+                'created-at'  => 'Created At',
+                'updated-at'  => 'Updated At',
+                'actions'     => 'Actions',
+                'save'        => 'Save',
+                'edit'        => 'Edit',
+                'delete'      => 'delete',
+            ],
+            'create' => [
+                'title'        => 'System Prompt',
+                'create-btn'   => 'Create System Prompt',
+                'edit-title'   => 'Edit System Prompt',
+                'create-title' => 'Create New System Prompt',
+                'label-title'  => 'Title',
+                'max-tokens'   => 'Max Output Tokens',
+                'temperature'  => 'Temperature',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Save Prompt',
+                'prompt-tone'  => 'Prompt Tone',
+            ],
+            'message' => [
+                'save-success'   => 'System Prompt saved successfully.',
+                'update-success' => 'System Prompt updated successfully.',
+                'delete-success' => 'System Prompt deleted successfully.',
+                'delete-fail'    => 'System Prompt deletion failed.',
+            ],
+        ],
+        'platform' => [
+            'title'           => 'AI Platforms',
+            'create-btn'      => 'Add Platform',
+            'create-title'    => 'Add AI Platform',
+            'edit-title'      => 'Edit AI Platform',
+            'save-btn'        => 'Save',
+            'saving'          => 'Saving',
+            'test-connection' => 'Test Connection',
+            'setup'           => [
+                'title'              => 'Get Started with Magic AI',
+                'description'        => 'Connect your AI provider to unlock content generation, image creation, and translation powered by AI. Add your first platform to begin.',
+                'step-1'             => 'Choose a provider',
+                'step-2'             => 'Enter your API key',
+                'step-3'             => 'Select models & save',
+                'add-first'          => 'Add Your First Platform',
+                'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
+                'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+            ],
+            'testing'         => 'Testing',
+            'fetch-models'    => 'Fetch Models',
+            'fetching-models' => 'Fetching',
+            'set-default'     => 'Set as Default',
+            'datagrid'        => [
+                'label'      => 'Label',
+                'provider'   => 'Provider',
+                'models'     => 'Models',
+                'default'    => 'Default',
+                'status'     => 'Status',
+                'created-at' => 'Created At',
+                'edit'       => 'Edit',
+                'delete'     => 'Delete',
+            ],
+            'fields' => [
+                'label'                    => 'Label',
+                'provider'                 => 'Provider',
+                'select-provider'          => '-- Select Provider --',
+                'api-url'                  => 'API URL',
+                'api-url-hint'             => 'Pre-filled with the default endpoint. Edit only if using a proxy or custom deployment.',
+                'api-key'                  => 'API Key',
+                'models'                   => 'Models',
+                'custom-model-placeholder' => 'Type custom model ID...',
+                'add'                      => 'Add',
+                'enter-key-to-fetch'       => 'Enter your API key above to automatically fetch available models.',
+                'search-models'            => 'Search models...',
+                'no-models-match'          => 'No models match your search.',
+                'azure-deployment'         => 'Deployment Name',
+                'azure-api-version'        => 'API Version',
+                'is-default'               => 'Set as Default',
+                'status'                   => 'Status',
+                'use-default'              => '-- Use Default Platform --',
+                'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
+                'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
+                'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+            ],
+            'message' => [
+                'save-success'          => 'Platform saved successfully.',
+                'update-success'        => 'Platform updated successfully.',
+                'delete-success'        => 'Platform deleted successfully.',
+                'delete-fail'           => 'Platform deletion failed.',
+                'cannot-delete-default' => 'Cannot delete the only default platform.',
+                'set-default-success'   => 'Platform set as default successfully.',
+                'test-success'          => 'Connection verified successfully!',
+                'test-fail'             => 'Connection test failed',
             ],
         ],
     ],
-
     'components' => [
         'layouts' => [
             'header' => [
@@ -1885,7 +1842,6 @@ return [
                 'notifications' => '알림',
                 'visit-shop'    => '매장 방문',
             ],
-
             'sidebar' => [
                 'attribute-families' => '속성 그룹',
                 'attribute-groups'   => '속성 그룹',
@@ -1919,45 +1875,37 @@ return [
                 'general-tab'        => '구성',
             ],
         ],
-
         'datagrid' => [
             'index' => [
                 'no-records-selected'              => '선택된 기록이 없습니다.',
                 'must-select-a-mass-action-option' => '대량 작업 옵션을 선택해야 합니다.',
                 'must-select-a-mass-action'        => '대량 작업을 선택해야 합니다.',
             ],
-
             'toolbar' => [
-                'length-of' => ':length',
-                'of'        => '중',
-                'per-page'  => '페이지 당',
-                'results'   => ':total 결과',
-                'selected'  => ':total 선택됨',
-
+                'length-of'    => ':length',
+                'of'           => '중',
+                'per-page'     => '페이지 당',
+                'results'      => ':total 결과',
+                'selected'     => ':total 선택됨',
                 'mass-actions' => [
                     'submit'        => '제출',
                     'select-option' => '옵션 선택',
                     'select-action' => '작업 선택',
                 ],
-
                 'filter' => [
                     'title' => '필터',
                 ],
-
                 'search_by' => [
                     'code'       => '코드로 검색',
                     'code_or_id' => '코드 또는 ID로 검색',
                 ],
-
                 'search' => [
                     'title' => '검색',
                 ],
-
                 'manage-columns' => [
                     'title' => '열',
                 ],
             ],
-
             'filters' => [
                 'select'   => '선택',
                 'title'    => '필터 적용',
@@ -1968,17 +1916,14 @@ return [
                         'no-results'        => '결과 없음...',
                     ],
                 ],
-
                 'custom-filters' => [
                     'clear-all' => '모두 지우기',
                     'title'     => '사용자 정의 필터',
                 ],
-
                 'boolean-options' => [
                     'false' => '거짓',
                     'true'  => '참',
                 ],
-
                 'date-options' => [
                     'last-month'        => '지난 달',
                     'last-six-months'   => '지난 6개월',
@@ -1990,12 +1935,10 @@ return [
                     'yesterday'         => '어제',
                 ],
             ],
-
             'table' => [
                 'actions'              => '작업',
                 'no-records-available' => '사용 가능한 기록이 없습니다.',
             ],
-
             'manage-columns' => [
                 'title'             => '열 관리',
                 'available-columns' => '사용 가능한 열',
@@ -2003,7 +1946,6 @@ return [
                 'apply-btn'         => '적용',
             ],
         ],
-
         'modal' => [
             'confirm' => [
                 'agree-btn'    => '동의',
@@ -2011,14 +1953,12 @@ return [
                 'message'      => '이 작업을 수행하시겠습니까?',
                 'title'        => '정말로?',
             ],
-
             'delete' => [
                 'agree-btn'    => '삭제',
                 'disagree-btn' => '취소',
                 'message'      => '정말 삭제하시겠습니까?',
                 'title'        => '삭제 확인',
             ],
-
             'history' => [
                 'title'           => '이력 미리보기',
                 'subtitle'        => '빠르게 업데이트와 변경 사항을 검토하세요.',
@@ -2032,7 +1972,6 @@ return [
                 'no-history'      => '이력 없음',
             ],
         ],
-
         'products' => [
             'search' => [
                 'add-btn'       => '선택한 제품 추가',
@@ -2044,7 +1983,6 @@ return [
                 'title'         => '제품 선택',
             ],
         ],
-
         'media' => [
             'images' => [
                 'add-image-btn'      => '이미지 추가',
@@ -2056,8 +1994,7 @@ return [
                 'allowed-types'      => 'png, jpeg, jpg',
                 'not-allowed-error'  => '이미지 파일만 허용됩니다 (.jpeg, .jpg, .png, ..).',
                 'upload-media-btn'   => '미디어 업로드',
-
-                'ai-generation' => [
+                'ai-generation'      => [
                     '1024x1024'        => '1024x1024',
                     '1024x1792'        => '1024x1792',
                     '1792x1024'        => '1792x1024',
@@ -2077,7 +2014,6 @@ return [
                     'standard'         => '표준',
                     'title'            => 'AI 이미지 생성',
                 ],
-
                 'placeholders' => [
                     'front'     => '전면',
                     'next'      => '다음',
@@ -2086,23 +2022,22 @@ return [
                     'zoom'      => '줌',
                 ],
             ],
-
+            'gallery' => [
+                'not-allowed-error' => 'Only image and video files are allowed. (.mp4, .jpg ..)',
+            ],
             'videos' => [
                 'add-video-btn'     => '비디오 추가',
                 'allowed-types'     => 'mp4, webm, mkv',
                 'not-allowed-error' => '비디오 파일만 허용됩니다 (.mp4, .mov, .ogg ..).',
             ],
-
             'files' => [
                 'add-file-btn'      => '파일 추가',
                 'allowed-types'     => 'pdf',
                 'not-allowed-error' => 'PDF 파일만 허용됩니다',
             ],
         ],
-
         'tinymce' => [
-            'ai-btn-tile' => '마법 AI',
-
+            'ai-btn-tile'   => '마법 AI',
             'ai-generation' => [
                 'apply'                  => '적용',
                 'generate'               => '생성',
@@ -2111,7 +2046,14 @@ return [
                 'generating'             => '생성 중...',
                 'prompt'                 => '프롬프트',
                 'title'                  => 'AI 지원',
+                'platform'               => 'Platform',
                 'model'                  => '모델',
+                'rich-preview'           => 'Rich Preview',
+                'system-prompt'          => 'System Prompt',
+                'select-system-prompt'   => 'Select System Prompt',
+                'tone-instructions'      => 'Tone / Instructions',
+                'max-tokens'             => 'Max Tokens',
+                'temperature'            => 'Temperature',
                 'gpt-3-5-turbo'          => 'OpenAI gpt-3.5-turbo',
                 'llama2'                 => 'Llama 2',
                 'mistral'                => 'Mistral',
@@ -2128,7 +2070,147 @@ return [
             ],
         ],
     ],
-
+    'acl' => [
+        'addresses'                => '주소',
+        'attribute-families'       => '속성 가족',
+        'attribute-groups'         => '속성 그룹',
+        'attributes'               => '속성',
+        'cancel'                   => '취소',
+        'catalog'                  => '카탈로그',
+        'categories'               => '카테고리',
+        'channels'                 => '채널',
+        'configure'                => '구성',
+        'configuration'            => '구성',
+        'copy'                     => '복사',
+        'create'                   => '생성',
+        'currencies'               => '통화',
+        'dashboard'                => '대시보드',
+        'data-transfer'            => '데이터 전송',
+        'delete'                   => '삭제',
+        'edit'                     => '편집',
+        'email-templates'          => '이메일 템플릿',
+        'events'                   => '이벤트',
+        'groups'                   => '그룹',
+        'import'                   => '임포트',
+        'imports'                  => '임포트',
+        'invoices'                 => '송장',
+        'locales'                  => '로캘',
+        'magic-ai'                 => '마법 AI',
+        'magic-ai-general'         => '일반',
+        'magic-ai-prompt'          => '프롬프트',
+        'magic-ai-system-prompt'   => '시스템 프롬프트',
+        'marketing'                => '마케팅',
+        'newsletter-subscriptions' => '뉴스레터 구독',
+        'note'                     => '메모',
+        'orders'                   => '주문',
+        'products'                 => '제품',
+        'promotions'               => '프로모션',
+        'refunds'                  => '환불',
+        'reporting'                => '보고',
+        'reviews'                  => '리뷰',
+        'roles'                    => '역할',
+        'sales'                    => '판매',
+        'search-seo'               => '검색 및 SEO',
+        'search-synonyms'          => '검색 동의어',
+        'search-terms'             => '검색어',
+        'settings'                 => '설정',
+        'shipments'                => '배송',
+        'sitemaps'                 => '사이트 맵',
+        'subscribers'              => '뉴스레터 구독자',
+        'tax-categories'           => '세금 카테고리',
+        'tax-rates'                => '세금률',
+        'taxes'                    => '세금',
+        'themes'                   => '테마',
+        'integration'              => '통합',
+        'url-rewrites'             => 'URL 리라이트',
+        'users'                    => '사용자',
+        'category_fields'          => '카테고리 필드',
+        'view'                     => '보기',
+        'execute'                  => '실행',
+        'history'                  => '기록',
+        'restore'                  => '복원',
+        'integrations'             => '통합',
+        'api'                      => 'API',
+        'tracker'                  => '추적기',
+        'exports'                  => '임포트',
+        'mass-update'              => '대량 업데이트',
+        'mass-delete'              => '대량 삭제',
+    ],
+    'errors' => [
+        'dashboard' => '대시보드',
+        'go-back'   => '뒤로 가기',
+        'support'   => '문제가 해결되지 않으면, <a href=":link" class=":class">:email</a>으로 문의하십시오.',
+        '404'       => [
+            'description' => '앗! 찾고 있는 페이지를 찾을 수 없습니다. 찾고 있는 것을 찾지 못했습니다.',
+            'title'       => '404 페이지를 찾을 수 없음',
+        ],
+        '401' => [
+            'description' => '앗! 이 페이지에 접근할 권한이 없습니다. 필요한 자격 증명이 부족합니다.',
+            'title'       => '401 접근 권한 없음',
+            'message'     => '인증에 실패했습니다. 자격 증명이 잘못되었거나 토큰이 만료되었습니다.',
+        ],
+        '403' => [
+            'description' => '앗! 이 페이지는 접근할 수 없습니다. 보려면 권한이 필요합니다.',
+            'title'       => '403 접근 금지',
+        ],
+        '413' => [
+            'description' => '앗! 업로드하려는 파일이 너무 큽니다. 파일을 업로드하려면 PHP 구성 내용을 업데이트하십시오.',
+            'title'       => '413 콘텐츠 너무 큼',
+        ],
+        '419' => [
+            'description' => '앗! 세션이 만료되었습니다. 페이지를 새로고침하고 다시 로그인하여 계속하십시오.',
+            'title'       => '419 세션 만료',
+        ],
+        '500' => [
+            'description' => '앗! 무언가 잘못되었습니다. 찾고 있는 페이지를 로드하는 데 문제가 발생했습니다.',
+            'title'       => '500 내부 서버 오류',
+        ],
+        '503' => [
+            'description' => '앗! 현재 서비스가 임시로 사용 불가능합니다. 나중에 다시 시도하십시오.',
+            'title'       => '503 서비스 사용 불가',
+        ],
+    ],
+    'export' => [
+        'csv'                  => 'CSV',
+        'download'             => '다운로드',
+        'export'               => '빠른 내보내기',
+        'no-records'           => '내보낼 기록 없음',
+        'xls'                  => 'XLS',
+        'xlsx'                 => 'XLSX',
+        'with-media'           => '미디어 포함',
+        'export-success'       => '내보내기가 성공했습니다!',
+        'error'                => '문제가 발생했습니다!',
+        'product-not-selected' => '빠른 내보내기를 위한 상품이 선택되지 않았습니다',
+    ],
+    'validations' => [
+        'slug-being-used' => '이 슬러그는 카테고리 또는 제품에서 사용 중입니다.',
+        'slug-reserved'   => '이 슬러그는 예약되었습니다.',
+        'invalid-locale'  => '잘못된 로컬 :locales',
+    ],
+    'footer' => [
+        'copy-right' => '<a href="https://unopim.com/" target="_blank">UnoPim</a>에 의해 구동됨, <a href="https://webkul.com/" target="_blank">Webkul</a>의 커뮤니티 프로젝트',
+    ],
+    'emails' => [
+        'dear'   => 'Dear :admin_name',
+        'thanks' => 'If you need any kind of help please contact us at <a href=":link" style=":style">:email</a>.<br/>Thanks!',
+        'admin'  => [
+            'forgot-password' => [
+                'description'    => 'You are receiving this email because we received a password reset request for your account.',
+                'greeting'       => 'Forgot Password!',
+                'reset-password' => 'Reset Password',
+                'subject'        => 'Reset Password Email',
+            ],
+        ],
+    ],
+    'common' => [
+        'yes'            => '예',
+        'no'             => '아니요',
+        'true'           => '참',
+        'false'          => '거짓',
+        'enable'         => '사용',
+        'disable'        => '사용 안함',
+        'no-match-found' => '일치하는 항목을 찾을 수 없습니다!',
+    ],
     'default-prompt' => [
         'detailed' => [
             'title'  => '제품 상세 설명',

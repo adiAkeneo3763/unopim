@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => 'Сохранить',
                     'back-btn'            => 'Назад',
                     'mass-update-success' => 'Полнота успешно обновлена',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => 'Код',
                         'name'             => 'Название',
                         'channel-required' => 'Требуется в каналах',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => 'Изменить требование полноты',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => 'Завершено',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => 'Полнота',
                     'subtitle' => 'Средняя полнота',
                 ],
-
                 'required-attributes' => 'отсутствуют обязательные атрибуты',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => 'Расчёт полноты завершён',
+        'completeness-calculated'        => 'Полнота рассчитана для :count товаров.',
+        'completeness-calculated-family' => 'Полнота рассчитана для :count товаров в семействе ":family".',
+        'email-subject'                  => 'Расчёт полноты завершён',
+        'email-greeting'                 => 'Здравствуйте,',
+        'email-body'                     => 'Расчёт полноты завершён для :count товаров.',
+        'email-body-family'              => 'Расчёт полноты завершён для :count товаров в семействе атрибутов ":family".',
+        'email-footer'                   => 'Вы можете просмотреть подробности полноты на панели управления.',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Рассчитанные продукты',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => 'Низкая полнота — добавьте детали для улучшения.',
                     'medium'  => 'Продолжайте, продолжайте добавлять информацию.',
                     'high'    => 'Почти готово, осталось всего несколько деталей.',

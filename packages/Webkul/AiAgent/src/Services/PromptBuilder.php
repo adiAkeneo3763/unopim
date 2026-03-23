@@ -34,7 +34,7 @@ class PromptBuilder implements PromptBuilderContract
 
             $messages[] = [
                 'role'    => 'system',
-                'content' => "Context data:\n" . $contextJson,
+                'content' => "Context data:\n".$contextJson,
             ];
         }
 

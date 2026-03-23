@@ -2,6 +2,9 @@
 
 namespace Webkul\AiAgent\Providers;
 
+use Webkul\AiAgent\Models\Agent;
+use Webkul\AiAgent\Models\AgentExecution;
+use Webkul\AiAgent\Models\Credential;
 use Webkul\Core\Providers\CoreModuleServiceProvider;
 
 class ModuleServiceProvider extends CoreModuleServiceProvider
@@ -12,8 +15,8 @@ class ModuleServiceProvider extends CoreModuleServiceProvider
      * @var array
      */
     protected $models = [
-        \Webkul\AiAgent\Models\Credential::class,
-        \Webkul\AiAgent\Models\Agent::class,
-        \Webkul\AiAgent\Models\AgentExecution::class,
+        Credential::class,
+        Agent::class,
+        AgentExecution::class,
     ];
 }

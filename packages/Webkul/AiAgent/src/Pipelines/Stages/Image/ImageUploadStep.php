@@ -75,7 +75,7 @@ class ImageUploadStep implements PipelineStageContract
     /**
      * Detect image type and return a normalised representation.
      *
-     * @return array{string, string, string, int}  [type, content, mimeType, byteSize]
+     * @return array{string, string, string, int} [type, content, mimeType, byteSize]
      *
      * @throws PipelineException
      */
@@ -128,8 +128,8 @@ class ImageUploadStep implements PipelineStageContract
 
         $this->assertAllowedMime($mimeType);
 
-        $raw     = file_get_contents($path);
-        $content = 'data:' . $mimeType . ';base64,' . base64_encode($raw);
+        $raw = file_get_contents($path);
+        $content = 'data:'.$mimeType.';base64,'.base64_encode($raw);
 
         return ['file', $content, $mimeType, $size];
     }
@@ -153,7 +153,7 @@ class ImageUploadStep implements PipelineStageContract
     {
         if (! in_array($mimeType, self::ALLOWED_MIMES, true)) {
             throw new PipelineException(
-                "ImageUploadStep: unsupported MIME type '$mimeType'. Allowed: " . implode(', ', self::ALLOWED_MIMES),
+                "ImageUploadStep: unsupported MIME type '$mimeType'. Allowed: ".implode(', ', self::ALLOWED_MIMES),
                 self::class,
             );
         }

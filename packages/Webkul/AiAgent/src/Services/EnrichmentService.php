@@ -4,6 +4,7 @@ namespace Webkul\AiAgent\Services;
 
 use Webkul\AiAgent\DTOs\CredentialConfig;
 use Webkul\AiAgent\DTOs\ImageProductContext;
+use Webkul\AiAgent\Exceptions\ApiException;
 use Webkul\AiAgent\Http\Client\AiApiClient;
 use Webkul\AiAgent\Repositories\CredentialRepository;
 
@@ -25,6 +26,7 @@ class EnrichmentService
         'meta_title',
         'meta_description',
         'meta_keywords',
+        'product_number',
     ];
 
     public function __construct(
@@ -37,9 +39,9 @@ class EnrichmentService
      *
      * @param  array<string, mixed>  $options
      *
-     * @throws \Webkul\AiAgent\Exceptions\ApiException
+     * @throws ApiException
      */
-    public function enrich(ImageProductContext $ctx, int $credentialId, array $options = []): ImageProductContext
+    public function enrich(ImageProductContext $ctx, int $credentialId = 0, ?AiApiClient $apiClient = null, array $options = []): ImageProductContext
     {
         $existing = array_merge($ctx->enrichment, $ctx->attributes);
 
@@ -52,21 +54,24 @@ class EnrichmentService
             return $ctx;
         }
 
-        if ($credentialId > 0) {
+        // Use pre-configured client if provided
+        if ($apiClient) {
+            $this->apiClient = $apiClient;
+        } elseif ($credentialId > 0) {
             $credential = $this->credentialRepository->findOrFail($credentialId);
-            $config     = CredentialConfig::fromModel($credential);
+            $config = CredentialConfig::fromModel($credential);
+            $this->apiClient->configure($config);
         } else {
             $config = $this->buildMagicAiConfig();
+            $this->apiClient->configure($config);
         }
 
-        $this->apiClient->configure($config);
-
-        $locale      = $options['locale'] ?? 'en';
+        $locale = $options['locale'] ?? 'en';
         $instruction = $options['instruction'] ?? '';
 
         $messages = $this->buildMessages($existing, array_values($missing), $locale, $instruction, $ctx);
 
-        $response  = $this->apiClient->chat(messages: $messages, maxTokens: 2048, temperature: 0.6);
+        $response = $this->apiClient->chat(messages: $messages, maxTokens: 2048, temperature: 0.6);
         $generated = $this->parseResponse($response['content'] ?? '');
 
         // Score: AI-generated fields get medium confidence
@@ -91,8 +96,7 @@ class EnrichmentService
      * Build the AI messages for enrichment.
      *
      * @param  array<string, mixed>  $existing
-     * @param  array<string>         $missing
-     *
+     * @param  array<string>  $missing
      * @return array<int, array{role: string, content: string}>
      */
     protected function buildMessages(
@@ -103,7 +107,7 @@ class EnrichmentService
         ImageProductContext $ctx,
     ): array {
         $existingJson = json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        $targetKeys   = json_encode($missing);
+        $targetKeys = json_encode($missing);
 
         $extra = '';
         if (! empty($instruction)) {
@@ -153,8 +157,8 @@ class EnrichmentService
      */
     protected function parseResponse(string $raw): array
     {
-        $clean   = preg_replace('/^```(?:json)?\s*/m', '', $raw);
-        $clean   = preg_replace('/\s*```\s*$/m', '', $clean ?? $raw);
+        $clean = preg_replace('/^```(?:json)?\s*/m', '', $raw);
+        $clean = preg_replace('/\s*```\s*$/m', '', $clean ?? $raw);
         $decoded = json_decode(trim($clean ?? ''), true);
 
         return (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) ? $decoded : [];
@@ -167,10 +171,10 @@ class EnrichmentService
     protected function buildMagicAiConfig(): CredentialConfig
     {
         $platform = (string) (core()->getConfigData('general.magic_ai.settings.ai_platform') ?? 'openai');
-        $apiKey   = (string) (core()->getConfigData('general.magic_ai.settings.api_key') ?? '');
-        $models   = (string) (core()->getConfigData('general.magic_ai.settings.api_model') ?? 'gpt-4o');
-        $domain   = (string) (core()->getConfigData('general.magic_ai.settings.api_domain') ?? '');
-        $model    = trim(explode(',', $models)[0]);
+        $apiKey = (string) (core()->getConfigData('general.magic_ai.settings.api_key') ?? '');
+        $models = (string) (core()->getConfigData('general.magic_ai.settings.api_model') ?? 'gpt-4o');
+        $domain = (string) (core()->getConfigData('general.magic_ai.settings.api_domain') ?? '');
+        $model = trim(explode(',', $models)[0]);
 
         if (! $domain) {
             $domain = match ($platform) {
@@ -181,7 +185,7 @@ class EnrichmentService
                 default  => 'https://api.openai.com/v1',
             };
         } elseif (! preg_match('#^https?://#i', $domain)) {
-            $domain = 'https://' . $domain;
+            $domain = 'https://'.$domain;
         }
 
         return new CredentialConfig(

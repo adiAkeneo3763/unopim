@@ -11,7 +11,6 @@ return [
             'powered-by'             => 'Desarrollado por :unopim,',
             'open-source-project-by' => 'Un proyecto de código abierto de :webkul.',
         ],
-
         'forget-password' => [
             'create' => [
                 'email'                  => 'Correo registrado',
@@ -26,7 +25,6 @@ return [
                 'open-source-project-by' => 'Un proyecto de código abierto de :webkul.',
             ],
         ],
-
         'reset-password' => [
             'back-link-title'        => '¿Volver a Iniciar sesión?',
             'confirm-password'       => 'Confirmar contraseña',
@@ -38,7 +36,6 @@ return [
             'open-source-project-by' => 'Un proyecto de código abierto de :webkul.',
         ],
     ],
-
     'notifications' => [
         'description-text' => 'Lista de todas las notificaciones',
         'marked-success'   => 'Notificación marcada con éxito',
@@ -55,7 +52,6 @@ return [
             'processing' => 'En proceso',
         ],
     ],
-
     'account' => [
         'edit' => [
             'back-btn'          => 'Atrás',
@@ -76,25 +72,75 @@ return [
             'user-timezone'     => 'Zona horaria del usuario',
         ],
     ],
-
     'dashboard' => [
         'index' => [
-            'title'            => 'Tablero',
-            'user-info'        => 'Monitoreo rápido, qué se cuenta en tu PIM',
-            'user-name'        => '¡Hola! :user_name',
-            'catalog-details'  => 'Catálogo',
-            'total-families'   => 'Total de familias',
-            'total-attributes' => 'Total de atributos',
-            'total-groups'     => 'Total de grupos',
-            'total-categories' => 'Total de categorías',
-            'total-products'   => 'Total de productos',
-            'settings-details' => 'Estructura del catálogo',
-            'total-locales'    => 'Total de locales',
-            'total-currencies' => 'Total de monedas',
-            'total-channels'   => 'Total de canales',
+            'title'                => 'Tablero',
+            'user-info'            => 'Monitoreo rápido, qué se cuenta en tu PIM',
+            'user-name'            => '¡Hola! :user_name',
+            'catalog-details'      => 'Catálogo',
+            'total-families'       => 'Total de familias',
+            'total-attributes'     => 'Total de atributos',
+            'total-groups'         => 'Total de grupos',
+            'total-categories'     => 'Total de categorías',
+            'total-products'       => 'Total de productos',
+            'settings-details'     => 'Estructura del catálogo',
+            'total-locales'        => 'Total de locales',
+            'total-currencies'     => 'Total de monedas',
+            'total-channels'       => 'Total de canales',
+            'completeness'         => 'Completeness',
+            'active'               => 'Active',
+            'inactive'             => 'Inactive',
+            'simple'               => 'Simple',
+            'configurable'         => 'Configurable',
+            'product-stats'        => 'Product Statistics',
+            'product-type-dist'    => 'Product Type Distribution',
+            'products-by-status'   => 'Products by Status',
+            'products-over-time'   => 'Product Activity (Last 7 Days)',
+            'legend-created'       => 'Created',
+            'legend-updated'       => 'Updated',
+            'recent-activity'      => 'Recent Activity',
+            'no-activity'          => 'No recent activity found.',
+            'updated'              => 'updated',
+            'created'              => 'created',
+            'deleted'              => 'deleted',
+            'ago'                  => 'ago',
+            'just-now'             => 'just now',
+            'data-transfer'        => 'Data Transfer',
+            'no-jobs'              => 'No recent import/export jobs found.',
+            'job-type-import'      => 'Import',
+            'job-type-export'      => 'Export',
+            'job-state-completed'  => 'Completed',
+            'job-state-failed'     => 'Failed',
+            'job-state-processing' => 'Processing',
+            'job-state-pending'    => 'Pending',
+            'job-state-validated'  => 'Validated',
+            'rows-processed'       => 'Rows Processed',
+            'errors'               => 'Errors',
+            'quick-links'          => 'Quick Links',
+            'create-product'       => 'Create Product',
+            'import-data'          => 'Import Data',
+            'export-data'          => 'Export Data',
+            'manage-attributes'    => 'Manage Attributes',
+            'view-all-activity'    => 'View All',
+            'view-all-jobs'        => 'View All Jobs',
+            'new-this-week'        => 'New This Week',
+            'with-variants'        => 'With Variants',
+            'avg-completeness'     => 'Avg Completeness',
+            'enriched'             => 'Enriched',
+            'analytics-section'    => 'Analytics',
+            'operations-section'   => 'Operations',
+            'needs-attention'      => 'Needs Attention',
+            'unenriched-products'  => 'Unenriched Products',
+            'failed-jobs-24h'      => 'Failed Jobs (24h)',
+            'low-completeness'     => 'Low Completeness',
+            'all-good'             => 'Everything looks good!',
+            'channel-readiness'    => 'Channel Readiness',
+            'ready-to-publish'     => 'ready to publish',
+            'of'                   => 'of',
+            'products-ready'       => 'products ready',
+            'no-readiness-data'    => 'No completeness data available yet.',
         ],
     ],
-
     'catalog' => [
         'products' => [
             'index' => [
@@ -104,8 +150,7 @@ return [
                 'magic-ai-error'            => 'Verifica tus credenciales de Magic AI y asegúrate de que se haya seleccionado el modelo correcto.',
                 'magic-ai-validate-error'   => 'Verifique las credenciales de Magic AI.',
                 'magic-ai-validate-success' => 'Credenciales de Magic AI validadas con éxito',
-
-                'create' => [
+                'create'                    => [
                     'back-btn'                          => 'Volver',
                     'configurable-attributes'           => 'Atributos configurables',
                     'create-btn'                        => 'Crear producto',
@@ -118,7 +163,6 @@ return [
                     'not-config-super-attributes-error' => 'No se encontraron super atributos ":super_attributes"',
                     'sku-exists-error'                  => 'El SKU ":sku" ya está en uso',
                 ],
-
                 'datagrid' => [
                     'active'                 => 'Activo',
                     'attribute-family'       => 'Familia de atributos',
@@ -148,49 +192,43 @@ return [
                     'update-status'          => 'Actualizar estado',
                     'parent'                 => 'Producto principal',
                     'parent-identifier'      => 'Principal: :sku',
+                    'created-at'             => 'Created At',
+                    'updated-at'             => 'Updated At',
                 ],
             ],
-
             'edit' => [
-                'preview'  => 'Vista previa',
-                'remove'   => 'Eliminar',
-                'save-btn' => 'Guardar producto',
-                'title'    => 'Editar producto',
-
+                'preview'    => 'Vista previa',
+                'remove'     => 'Eliminar',
+                'save-btn'   => 'Guardar producto',
+                'title'      => 'Editar producto',
                 'categories' => [
                     'title' => 'Categorías',
                 ],
-
                 'images' => [
                     'info'  => 'La imagen debe tener una resolución de 560px X 609px',
                     'title' => 'Imágenes',
                 ],
-
                 'videos' => [
                     'error' => ':attribute no puede ser mayor a :max kilobytes. Selecciona un archivo más pequeño.',
                     'info'  => 'El tamaño máximo del video es :size',
                     'title' => 'Video',
                 ],
-
                 'links' => [
                     'related-products' => [
                         'empty-info' => 'Agrega productos relacionados.',
                         'info'       => 'Además del producto que se muestra, los clientes verán productos relacionados.',
                         'title'      => 'Productos relacionados',
                     ],
-
                     'up-sells' => [
                         'empty-info' => 'Agrega productos de up-sell.',
                         'info'       => 'Los clientes verán productos de mayor precio o mejor calidad.',
                         'title'      => 'Productos de up-sell',
                     ],
-
                     'cross-sells' => [
                         'empty-info' => 'Agrega productos de cross-sell.',
                         'info'       => 'Los clientes verán productos que pueden comprar junto con los productos en su carrito.',
                         'title'      => 'Productos de cross-sell',
                     ],
-
                     'add-btn'           => 'Agregar',
                     'delete'            => 'Eliminar',
                     'empty-info'        => 'Agrega productos de tipo :type.',
@@ -199,7 +237,6 @@ return [
                     'sku'               => 'SKU - :sku',
                     'title'             => 'Producto',
                 ],
-
                 'types' => [
                     'configurable' => [
                         'add-btn'                            => 'Agregar variación',
@@ -213,18 +250,16 @@ return [
                         'sku'                                => 'SKU - :sku',
                         'title'                              => 'Variación',
                         'variant-exists'                     => 'Esta variación o SKU ya existe.',
-                        'variant-attribute-option-not-found' => 'No se encontraron opciones de atributo para esta variación',
-                        'supper-attribute-not-found'         => 'No se encontraron super atributos',
-                        'variant-given-exists'               => 'Esta variación ya existe',
-
-                        'create' => [
+                        'variant-attribute-option-not-found' => 'No se encontraron opciones de atributo para esta variación :attributes',
+                        'supper-attribute-not-found'         => 'No se encontraron super atributos :attribute',
+                        'variant-given-exists'               => 'Esta variación ya existe :variants',
+                        'create'                             => [
                             'description'            => 'Descripción',
                             'name'                   => 'Nombre',
                             'save-btn'               => 'Agregar',
                             'title'                  => 'Agregar variación',
                             'variant-already-exists' => 'Esta variación ya existe.',
                         ],
-
                         'edit' => [
                             'disabled'        => 'Deshabilitar',
                             'edit-info'       => 'Para actualizar la información del producto, visita la página del producto',
@@ -240,7 +275,6 @@ return [
                             'title'           => 'Producto',
                             'weight'          => 'Peso',
                         ],
-
                         'mass-edit' => [
                             'add-images'          => 'Agregar imágenes',
                             'apply-to-all-btn'    => 'Aplicar a todos',
@@ -267,23 +301,31 @@ return [
                         ],
                     ],
                 ],
-
                 'translate' => [
-                    'translate-btn'            => 'Traducir',
-                    'title'                    => 'Traducir',
-                    'source-channel'           => 'Canal de origen',
-                    'locale'                   => 'Configuración regional de origen',
-                    'translated-content'       => 'Contenido traducido',
-                    'translating'              => 'Traduciendo',
-                    'apply'                    => 'Aplicar',
-                    'cancel'                   => 'Cancelar',
-                    'target-locales'           => 'Configuraciones regionales de destino',
-                    'target-channel'           => 'Canal de destino',
-                    'attributes'               => 'Atributos',
-                    'source-content'           => 'Contenido original',
-                    'tranlated-job-processed'  => 'El trabajo de almacenamiento del contenido traducido fue procesado.',
+                    'translate-btn'               => 'Traducir',
+                    'title'                       => 'Traducir',
+                    'source-channel'              => 'Canal de origen',
+                    'locale'                      => 'Configuración regional de origen',
+                    'translated-content'          => 'Contenido traducido',
+                    'translating'                 => 'Traduciendo',
+                    'apply'                       => 'Aplicar',
+                    'back'                        => 'Back',
+                    'cancel'                      => 'Cancelar',
+                    'target-locales'              => 'Configuraciones regionales de destino',
+                    'target-channel'              => 'Canal de destino',
+                    'attributes'                  => 'Atributos',
+                    'source-content'              => 'Contenido original',
+                    'tranlated-job-processed'     => 'El trabajo de almacenamiento del contenido traducido fue procesado.',
+                    'step'                        => 'Step',
+                    'select-source'               => 'Select Source',
+                    'select-target'               => 'Select Target',
+                    'first-step-title'            => 'Step 1: Select Source Channel, Language and Attributes',
+                    'first-step-title-attributes' => 'Step 1: Select Source Channel and Language',
+                    'second-step-title'           => 'Step 2: Select Target Channel and Languages',
+                    'target-content'              => 'Target Content',
+                    'next'                        => 'Next',
+                    'empty-translation-data'      => 'Data not available for translation on the basis of source channel and locale',
                 ],
-
                 'product-info' => [
                     'title'        => 'Información del producto',
                     'status'       => 'Estado',
@@ -293,6 +335,7 @@ return [
                     'created-at'   => 'Fecha de creación',
                     'product-type' => 'Tipo de producto',
                 ],
+                'more-actions' => 'More Actions',
             ],
             'bulk-edit' => [
                 'validation' => [
@@ -305,27 +348,22 @@ return [
                     'select-attribute-or-family' => 'Por favor seleccione al menos un atributo o una familia de atributos.',
                     'failed'                     => 'La validación falló.',
                 ],
-
-                'modal'                      => [
+                'modal' => [
                     'title'            => 'Atributos para edición masiva',
                     'btn-cancel'       => 'Cancelar',
                     'btn-proceed'      => 'Proceder',
                     'attribute-family' => 'Seleccionar familia de atributos',
                 ],
-
                 'index' => [
-                    'no-product'    => 'No se seleccionaron productos para la edición masiva.',
+                    'no-product' => 'No se seleccionaron productos para la edición masiva.',
                 ],
-
                 'filter' => [
-                    'many-product'      => 'Se seleccionaron demasiados productos.',
-                    'redirect-message'  => 'Redirigiendo a la vista de edición masiva.',
+                    'many-product'     => 'Se seleccionaron demasiados productos.',
+                    'redirect-message' => 'Redirigiendo a la vista de edición masiva.',
                 ],
-
                 'handle-save' => [
-                    'edit-success'  => 'Edición masiva completada exitosamente.',
+                    'edit-success' => 'Edición masiva completada exitosamente.',
                 ],
-
                 'id'              => 'ID',
                 'no-changes'      => 'No hay cambios para guardar.',
                 'success'         => 'Operación realizada con éxito.',
@@ -335,9 +373,8 @@ return [
                 'img-preview'     => 'Vista previa de imagen',
                 'no-image'        => 'Sin imagen',
                 'img-fail'        => 'Fallo al subir la imagen.',
-                'no-opton'        => 'No Options',
+                'no-option'       => 'No Options',
             ],
-
             'create-success'          => 'Producto creado con éxito',
             'delete-failed'           => 'Hubo un error al eliminar el producto',
             'delete-success'          => 'Producto eliminado con éxito',
@@ -351,30 +388,28 @@ return [
             'upload-success'          => 'Archivo de producto subido con éxito.',
             'update-failure'          => 'El producto no se pudo actualizar.',
         ],
-
         'attributes' => [
             'index' => [
                 'create-btn' => 'Crear Atributo',
                 'title'      => 'Atributos',
-
-                'datagrid' => [
-                    'channel-based'       => 'Basado en Canal',
-                    'code'                => 'Código',
-                    'created-at'          => 'Creado en',
-                    'delete'              => 'Eliminar',
-                    'edit'                => 'Editar',
-                    'id'                  => 'ID',
-                    'locale-based'        => 'Basado en Localización',
-                    'mass-delete-success' => 'Atributo(s) seleccionados eliminados con éxito',
-                    'name'                => 'Nombre',
-                    'required'            => 'Requerido',
-                    'type'                => 'Tipo',
-                    'unique'              => 'Único',
-                    'delete-failed'       => 'No se puede eliminar este atributo.',
-                    'mass-delete-failed'  => 'No se pueden eliminar los atributos seleccionados.',
+                'datagrid'   => [
+                    'channel-based'            => 'Basado en Canal',
+                    'code'                     => 'Código',
+                    'created-at'               => 'Creado en',
+                    'delete'                   => 'Eliminar',
+                    'edit'                     => 'Editar',
+                    'id'                       => 'ID',
+                    'locale-based'             => 'Basado en Localización',
+                    'mass-delete-success'      => 'Atributo(s) seleccionados eliminados con éxito',
+                    'name'                     => 'Nombre',
+                    'required'                 => 'Requerido',
+                    'type'                     => 'Tipo',
+                    'unique'                   => 'Único',
+                    'delete-failed'            => 'No se puede eliminar este atributo.',
+                    'mass-delete-failed'       => 'No se pueden eliminar los atributos seleccionados.',
+                    'delete-attribute-failure' => 'This attribute cannot be removed because it is in use for configurable products',
                 ],
             ],
-
             'create' => [
                 'add-attribute-options' => 'Agregar Opciones de Atributo',
                 'add-option'            => 'Agregar Opción',
@@ -397,13 +432,13 @@ return [
                 'enable-wysiwyg'        => 'Habilitar editor WYSIWYG',
                 'file'                  => 'Archivo',
                 'general'               => 'General',
-                'image'                 => 'Imagen',
                 'gallery'               => 'Galería',
+                'image'                 => 'Imagen',
                 'input-options'         => 'Opciones de entrada',
                 'input-validation'      => 'Validación de entrada',
                 'is-comparable'         => 'Este atributo es comparable',
                 'is-configurable'       => 'Usar para crear producto configurable',
-                'is-filterable'         => 'Usar en navegación filtrada',
+                'is-filterable'         => 'Es filtrable',
                 'is-required'           => 'Es requerido',
                 'is-unique'             => 'Es único',
                 'is-visible-on-front'   => 'Visible en la página de producto en el frontend',
@@ -431,10 +466,9 @@ return [
                 'yes'                   => 'Sí',
                 'same-code-error'       => 'El código de opción debe ser único.',
                 'usable-in-grid'        => 'Utilizable en cuadrícula',
-                'is-filterable'         => 'Es filtrable',
                 'ai-translate'          => 'Traducción IA',
-
-                'option' => [
+                'invalid-swatch-type'   => 'The :attribute is not allowed for attribute type :type with swatch type :swatch_type.',
+                'option'                => [
                     'color'    => 'Muestra de color',
                     'dropdown' => 'Desplegable',
                     'image'    => 'Muestra de imagen',
@@ -442,7 +476,6 @@ return [
                     'text'     => 'Muestra de texto',
                 ],
             ],
-
             'edit' => [
                 'add-attribute-options' => 'Agregar Opciones de Atributo',
                 'add-option'            => 'Agregar Opción',
@@ -466,12 +499,11 @@ return [
                 'file'                  => 'Archivo',
                 'general'               => 'General',
                 'image'                 => 'Imagen',
-                'gallery'               => 'Galería',
                 'input-options'         => 'Opciones de entrada',
                 'input-validation'      => 'Validación de entrada',
                 'is-comparable'         => 'Este atributo es comparable',
                 'is-configurable'       => 'Usar para crear producto configurable',
-                'is-filterable'         => 'Usar en navegación filtrada',
+                'is-filterable'         => 'Es filtrable',
                 'is-required'           => 'Es requerido',
                 'is-unique'             => 'Es único',
                 'is-visible-on-front'   => 'Visible en la página de producto en el frontend',
@@ -499,24 +531,20 @@ return [
                 'yes'                   => 'Sí',
                 'same-code-error'       => 'El código de opción debe ser único.',
                 'usable-in-grid'        => 'Utilizable en cuadrícula',
-                'is-filterable'         => 'Es filtrable',
                 'ai-translate'          => 'Traducción IA',
-                'invalid-swatch-type'   => ':attribute no está permitido para el tipo de atributo :type con tipo de swatch :swatch_type.',
-
-                'option' => [
-                    'create-success'      => 'Attribute Option Created Successfully',
-                    'delete-success'      => 'Attribute Option Deleted Successfully',
+                'option'                => [
                     'save-btn'            => 'Save Option',
-                    'sort-update-failure' => 'Failed to Update Sort Order',
-                    'sort-update-success' => 'Sort Order Updated Successfully',
+                    'create-success'      => 'Attribute Option Created Successfully',
                     'update-success'      => 'Attribute Option Updated Successfully',
+                    'sort-update-success' => 'Sort Order Updated Successfully',
+                    'sort-update-failure' => 'Failed to Update Sort Order',
+                    'delete-success'      => 'Attribute Option Deleted Successfully',
                     'color'               => 'Muestra de color',
                     'dropdown'            => 'Desplegable',
                     'image'               => 'Muestra de imagen',
                     'text'                => 'Muestra de texto',
                 ],
             ],
-
             'create-success'    => 'Atributo creado con éxito',
             'delete-failed'     => 'No se pudo eliminar el atributo',
             'delete-success'    => 'Atributo eliminado con éxito',
@@ -524,19 +552,16 @@ return [
             'user-define-error' => 'No se puede eliminar un atributo del sistema',
             'not-found'         => 'No se encontró el atributo con código ":code"',
         ],
-
         'attribute-options' => [
             'create-success'       => 'La opción de atributo ha sido creada con éxito',
             'update-success'       => 'La opción de atributo ha sido actualizada con éxito',
             'usable-in-grid-error' => 'Solo 4 atributos pueden marcarse como utilizables en la cuadrícula.',
         ],
-
         'attribute-groups' => [
             'index' => [
                 'create-btn' => 'Crear grupo de atributos',
                 'title'      => 'Grupos de atributos',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'code'                => 'Código',
                     'delete'              => 'Eliminar',
                     'mass-delete-success' => 'Los grupos de atributos seleccionados han sido eliminados',
@@ -548,7 +573,6 @@ return [
                     'update-status'       => 'Actualizar estado',
                 ],
             ],
-
             'create' => [
                 'title'    => 'Crear nuevo grupo de atributos',
                 'save-btn' => 'Guardar grupo de atributos',
@@ -557,7 +581,6 @@ return [
                 'code'     => 'Código',
                 'label'    => 'Etiqueta',
             ],
-
             'edit' => [
                 'title'    => 'Editar grupo de atributos',
                 'back-btn' => 'Atrás',
@@ -566,7 +589,6 @@ return [
                 'code'     => 'Código',
                 'label'    => 'Etiqueta',
             ],
-
             'create-success'        => 'Grupo de atributos creado con éxito',
             'delete-failed'         => 'No se pudo eliminar el grupo de atributos',
             'delete-success'        => 'Grupo de atributos eliminado con éxito',
@@ -575,29 +597,26 @@ return [
             'attribute-group-error' => 'Este grupo se está utilizando en familias.',
             'not-found'             => 'No se encontró el grupo de atributos con código ":code"',
         ],
-
         'categories' => [
             'index' => [
-                'add-btn' => 'Crear categoría',
-                'title'   => 'Categorías',
-
+                'add-btn'  => 'Crear categoría',
+                'title'    => 'Categorías',
                 'datagrid' => [
                     'active'         => 'Activo',
                     'code'           => 'Código',
                     'delete'         => 'Eliminar',
-                    'delete-success' => 'Los recursos seleccionados han sido eliminados',
+                    'delete-success' => 'Los recursos seleccionados han sido eliminados :resource',
                     'edit'           => 'Editar',
                     'id'             => 'ID',
                     'inactive'       => 'Inactivo',
                     'name'           => 'Nombre para mostrar',
+                    'category-name'  => 'Nombre',
                     'no-of-products' => 'Cantidad de productos',
                     'position'       => 'Posición',
-                    'category-name'  => 'Nombre',
                     'status'         => 'Mostrar en el menú',
                     'update-status'  => 'Actualizar estado',
                 ],
             ],
-
             'create' => [
                 'back-btn'            => 'Atrás',
                 'code'                => 'Código',
@@ -618,7 +637,6 @@ return [
                 'right-section'       => 'Configuración',
                 'left-section'        => 'General',
             ],
-
             'edit' => [
                 'back-btn'               => 'Atrás',
                 'code'                   => 'Código',
@@ -637,7 +655,6 @@ return [
                 'right-section'          => 'Configuración',
                 'left-section'           => 'General',
             ],
-
             'category'             => 'Categoría',
             'create-success'       => 'Categoría creada con éxito',
             'delete-category-root' => 'No se puede eliminar la categoría raíz vinculada al canal',
@@ -652,14 +669,12 @@ return [
             'create-failure'       => 'No se pudo crear la categoría.',
             'update-failure'       => 'No se pudo actualizar la categoría.',
         ],
-
         'category_fields' => [
             'index' => [
                 'create-btn' => 'Crear Campo de Categoría',
                 'add-btn'    => 'Crear Campo de Categoría',
                 'title'      => 'Campos de Categoría',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'       => 'Basado en Canal',
                     'code'                => 'Código',
                     'created-at'          => 'Creado en',
@@ -684,7 +699,6 @@ return [
                     'mass-delete-failed'  => 'No se pueden eliminar los campos de categoría seleccionados.',
                 ],
             ],
-
             'create' => [
                 'add-field-options'   => 'Agregar Opciones de Campo de Categoría',
                 'add-option'          => 'Agregar Opción',
@@ -739,8 +753,7 @@ return [
                 'set-section-right'   => 'Sección de Configuración',
                 'settings'            => 'Configuraciones',
                 'same-code-error'     => 'El código de opción debe ser único.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Lista Desplegable',
                     'save-btn' => 'Guardar Opción',
                     'color'    => 'Muestra de Color',
@@ -748,7 +761,6 @@ return [
                     'text'     => 'Muestra de Texto',
                 ],
             ],
-
             'edit' => [
                 'add-field-options'   => 'Agregar Opciones de Campo de Categoría',
                 'add-option'          => 'Agregar Opción',
@@ -804,8 +816,7 @@ return [
                 'set-section-right'   => 'Sección de Configuración',
                 'settings'            => 'Configuraciones',
                 'same-code-error'     => 'El código de opción debe ser único.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Lista Desplegable',
                     'save-btn' => 'Guardar Opción',
                     'color'    => 'Muestra de Color',
@@ -813,7 +824,6 @@ return [
                     'text'     => 'Muestra de Texto',
                 ],
             ],
-
             'create-success'    => 'Campo de Categoría Creado Exitosamente',
             'delete-failed'     => 'Error al Eliminar el Campo de Categoría',
             'delete-success'    => 'Campo de Categoría Eliminado Exitosamente',
@@ -821,17 +831,14 @@ return [
             'user-define-error' => 'No se puede eliminar un Campo de Categoría del sistema',
             'not-found'         => 'No se encuentra el Campo de Categoría con el código ":code"',
         ],
-
         'category-fields-options' => [
             'create-success' => 'Opción de campo de categoría creada con éxito',
             'update-success' => 'Opción de campo de categoría actualizada con éxito',
         ],
-
         'families' => [
             'index' => [
-                'add'   => 'Crear grupo de atributos',
-                'title' => 'Familias',
-
+                'add'      => 'Crear grupo de atributos',
+                'title'    => 'Familias',
                 'datagrid' => [
                     'code'           => 'Código',
                     'delete'         => 'Eliminar',
@@ -846,7 +853,6 @@ return [
                     'update-success' => 'El recurso seleccionado :resource se actualizó con éxito',
                 ],
             ],
-
             'create' => [
                 'assign-group-btn'                 => 'Asignar grupo de atributos',
                 'assign-group-title'               => 'Asignar grupo de atributos',
@@ -877,7 +883,6 @@ return [
                 'unassigned-attribute-groups'      => 'Grupos de atributos no asignados',
                 'assign-first-attribute-group'     => 'Asigne un grupo a la familia.',
             ],
-
             'edit' => [
                 'assign-group-btn'                 => 'Asignar grupo de atributos',
                 'assign-group-title'               => 'Asignar grupo de atributos',
@@ -911,7 +916,6 @@ return [
                 'variant-options-label'            => 'Opciones de configuración',
                 'select-variant'                   => 'Seleccionar atributos',
             ],
-
             'attribute-family'               => 'Familia de atributos',
             'attribute-product-error'        => 'Esta familia se está utilizando en productos.',
             'create-success'                 => 'Familia creada con éxito.',
@@ -924,7 +928,6 @@ return [
             'not-found'                      => 'No se encontró la familia de atributos con el código ":code".',
             'can-not-update-variant-options' => 'No se pueden actualizar las opciones de configuración porque esta familia ya tiene variantes de productos.',
         ],
-
         'history' => [
             'index' => [
                 'datagrid' => [
@@ -935,7 +938,6 @@ return [
             ],
         ],
     ],
-
     'settings' => [
         'locales' => [
             'index' => [
@@ -944,8 +946,7 @@ return [
                 'title'                 => 'Idiomas',
                 'can-not-delete-error'  => 'No puedes eliminar un idioma vinculado a un canal o usuario',
                 'can-not-disable-error' => 'No puedes desactivar un idioma vinculado a un canal o usuario',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'     => 'Acciones',
                     'code'        => 'Código',
                     'delete'      => 'Eliminar',
@@ -956,14 +957,12 @@ return [
                     'name'        => 'Nombre para mostrar',
                     'rtl'         => 'RTL',
                     'mass-update' => 'Actualizar estado',
-
-                    'status' => [
+                    'status'      => [
                         'title'    => 'Estado',
                         'active'   => 'Activar',
                         'inactive' => 'Desactivar',
                     ],
                 ],
-
                 'create' => [
                     'code'             => 'Código',
                     'direction'        => 'Dirección',
@@ -974,11 +973,9 @@ return [
                     'title'            => 'Crear idioma',
                     'status'           => 'Estado',
                 ],
-
                 'edit' => [
                     'title' => 'Editar idioma',
                 ],
-
                 'create-success'    => 'Idioma creado con éxito.',
                 'delete-failed'     => 'Error al eliminar el idioma.',
                 'delete-success'    => 'Idioma eliminado con éxito.',
@@ -987,7 +984,6 @@ return [
                 'update-success'    => 'Idioma actualizado con éxito.',
             ],
         ],
-
         'currencies' => [
             'index' => [
                 'create-btn'            => 'Crear moneda',
@@ -995,8 +991,7 @@ return [
                 'title'                 => 'Monedas',
                 'can-not-delete-error'  => 'No puedes eliminar una moneda vinculada a un canal',
                 'can-not-disable-error' => 'No puedes desactivar una moneda vinculada a un canal',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'        => 'Acciones',
                     'code'           => 'Código',
                     'delete'         => 'Eliminar',
@@ -1008,14 +1003,12 @@ return [
                     'partial-action' => 'Algunas acciones no se realizaron debido a restricciones del sistema en :resource',
                     'update-success' => 'Los :resource seleccionados fueron actualizados correctamente.',
                     'mass-update'    => 'Actualizar estado',
-
-                    'status' => [
+                    'status'         => [
                         'title'    => 'Estado',
                         'active'   => 'Activar',
                         'inactive' => 'Desactivar',
                     ],
                 ],
-
                 'create' => [
                     'code'           => 'Código',
                     'create-btn'     => 'Crear moneda',
@@ -1028,11 +1021,9 @@ return [
                     'title'          => 'Crear nueva moneda',
                     'status'         => 'Estado',
                 ],
-
                 'edit' => [
                     'title' => 'Editar moneda',
                 ],
-
                 'create-success'    => 'Moneda creada con éxito.',
                 'delete-failed'     => 'Error al eliminar la moneda.',
                 'delete-success'    => 'Moneda eliminada con éxito.',
@@ -1041,7 +1032,6 @@ return [
                 'cannot-delete'     => 'No se puede eliminar la moneda.',
             ],
         ],
-
         'data-transfer' => [
             'tracker' => [
                 'index' => [
@@ -1059,28 +1049,28 @@ return [
                         'user'                 => 'Usuario',
                         'created_at'           => 'Creado en',
                         'updated_at'           => 'Actualizado en',
-
-                        'pending'    => 'Pendiente',
-                        'validated'  => 'Validado',
-                        'processing' => 'Procesando',
-                        'processed'  => 'Procesado',
-                        'linking'    => 'Vinculando',
-                        'linked'     => 'Vinculado',
-
-                        'indexing'  => 'Indexando',
-                        'indexed'   => 'Indexado',
-                        'completed' => 'Completado',
-                        'failed'    => 'Fallido',
+                        'pending'              => 'Pendiente',
+                        'validating'           => 'Validating',
+                        'validated'            => 'Validado',
+                        'processing'           => 'Procesando',
+                        'processed'            => 'Procesado',
+                        'linking'              => 'Vinculando',
+                        'linked'               => 'Vinculado',
+                        'indexing'             => 'Indexando',
+                        'indexed'              => 'Indexado',
+                        'completed'            => 'Completado',
+                        'paused'               => 'Paused',
+                        'cancelled'            => 'Cancelled',
+                        'failed'               => 'Fallido',
                     ],
                 ],
-
                 'import' => [
                     'back-btn'                => 'Volver',
                     'completed-batches'       => 'Lotes Completados:',
                     'download-error-report'   => 'Descargar Informe Completo',
                     'edit-btn'                => 'Editar',
                     'imported-info'           => '¡Felicidades! Tu importación fue exitosa.',
-                    'importing-info'          => 'Exportación en Proceso',
+                    'exporting-info'          => 'Export In Process',
                     'indexing-info'           => 'Indexación de Recursos en Progreso (Precio, Elastic Search)',
                     'linking-info'            => 'Vinculación de Recursos en Progreso',
                     'progress'                => 'Progreso:',
@@ -1098,7 +1088,6 @@ return [
                     'validation-failed-info'  => 'Tu importación es inválida. Por favor corrige los errores y vuelve a intentarlo.',
                     'validation-success-info' => 'Tu importación es válida. Haz clic en Exportar para iniciar el proceso de importación.',
                 ],
-
                 'summary' => [
                     'total-batches' => 'Total de Lotes:',
                     'created'       => 'Registros Creados:',
@@ -1109,150 +1098,191 @@ return [
                     'updated'       => 'Registros Actualizados:',
                     'skipped'       => 'Registros Omitidos:',
                 ],
-
-                'info'              => '¡Felicidades! Tu trabajo se ejecutó exitosamente.',
-                'create-success'    => 'Exportación creada exitosamente.',
-                'delete-failed'     => 'Falló la eliminación de la exportación.',
-                'delete-success'    => 'Exportación eliminada exitosamente.',
-                'not-valid'         => 'La exportación no es válida',
-                'nothing-to-import' => 'No hay recursos para importar.',
-                'setup-queue-error' => 'Por favor cambia tu controlador de colas a "database" o "redis" para iniciar el proceso de importación.',
-                'update-success'    => 'Exportación actualizada exitosamente.',
-                'failed-info'       => 'El trabajo falló. Por favor corrige los errores e inténtalo nuevamente.',
-                'download-log-file' => 'Descargar registro',
+                'info'                  => '¡Felicidades! Tu trabajo se ejecutó exitosamente.',
+                'running-time'          => 'Running time',
+                'estimated-remaining'   => 'Est. remaining',
+                'total-duration'        => 'Total Duration',
+                'status'                => 'Status',
+                'waiting'               => 'Waiting',
+                'total-records'         => 'Total records',
+                'job-id'                => 'Job ID',
+                'records-created'       => 'Records Created',
+                'records-updated'       => 'Records Updated',
+                'records-deleted'       => 'Records deleted',
+                'run-again'             => 'Run Again',
+                'completed-success'     => 'job completed successfully',
+                'completed-info-sub'    => 'All records have been processed and indexed. Your catalog is up to date.',
+                'create-success'        => 'Exportación creada exitosamente.',
+                'delete-failed'         => 'Falló la eliminación de la exportación.',
+                'delete-success'        => 'Exportación eliminada exitosamente.',
+                'not-valid'             => 'La exportación no es válida',
+                'nothing-to-import'     => 'No hay recursos para importar.',
+                'setup-queue-error'     => 'Por favor cambia tu controlador de colas a "database" o "redis" para iniciar el proceso de importación.',
+                'update-success'        => 'Exportación actualizada exitosamente.',
+                'failed-info'           => 'El trabajo falló. Por favor corrige los errores e inténtalo nuevamente.',
+                'download-log-file'     => 'Descargar registro',
+                'pause'                 => 'Pause',
+                'resume'                => 'Resume',
+                'cancel'                => 'Cancel',
+                'paused'                => 'Import has been paused.',
+                'resumed'               => 'Import has been resumed.',
+                'cancelled'             => 'Import has been cancelled.',
+                'paused-info'           => 'Import is paused. Remaining batches are on hold.',
+                'paused-info-export'    => 'Export is paused. Remaining batches are on hold.',
+                'cancelled-info'        => 'Import was cancelled. Partial results are shown below.',
+                'cancelled-info-export' => 'Export was cancelled. Partial results are shown below.',
+                'cancel-confirm'        => 'Are you sure you want to cancel this job? This action cannot be undone.',
+                'live'                  => 'Live',
+                'import-progress'       => 'Import progress',
+                'export-progress'       => 'Export progress',
+                'linking-progress'      => 'Linking progress',
+                'indexing-progress'     => 'Indexing progress',
+                'job-label'             => 'Job',
             ],
-
-            'import' => [
+            'imports' => [
                 'create' => [
-                    'code'                => 'Código',
-                    'action'              => 'Acción',
-                    'allowed-errors'      => 'Errores Permitidos',
-                    'allowed-file-types'  => 'Tipos de archivo permitidos (CSV, XLSX, XLS)',
-                    'back-btn'            => 'Volver',
-                    'create-update'       => 'Crear/Actualizar',
-                    'delete'              => 'Eliminar',
-                    'media'               => 'Archivo / Imágenes',
-                    'images'              => 'Imágenes',
-                    'download-sample'     => 'Descargar muestra CSV de :resource',
-                    'field-separator'     => 'Separador de campos',
-                    'separator-info'      => 'Úselo solo para archivos CSV',
-                    'file-info-example'   => 'Coloque las imágenes en storage/app/public/. Para imágenes en storage/app/public/import-images, incluya import-images/ en la ruta y utilice solo el nombre del archivo en el archivo de importación.',
-                    'file-info'           => 'Use ruta relativa a /project-root/storage/app/import, por ejemplo product-images, import-images.',
-                    'file'                => 'Archivo',
+                    'code'                => 'Code',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'media'               => 'File / Images',
+                    'images'              => 'Images',
+                    'download-sample'     => 'Download :resource Sample CSV',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
+                    'file'                => 'File',
                     'general'             => 'General',
-                    'upload_images'       => 'Subir Imágenes para establecer la Ruta',
-                    'download-sample-zip' => 'Descargar ZIP de Muestra de Imágenes',
-                    'zip-drop-hint'       => 'Haga clic o arrastre y suelte un archivo ZIP aquí',
-                    'images-directory'    => 'Ruta',
-                    'process-in-queue'    => 'Procesar en Cola',
-                    'results'             => 'Resultados',
-                    'save-btn'            => 'Guardar Importación',
-                    'settings'            => 'Configuraciones',
-                    'skip-errors'         => 'Saltar Errores',
-                    'stop-on-errors'      => 'Detener en Errores',
-                    'title'               => 'Crear Importación',
-                    'type'                => 'Tipo',
-                    'validation-strategy' => 'Estrategia de Validación',
+                    'upload_images'       => 'Upload Images to set Path',
+                    'download-sample-zip' => 'Download Sample Images ZIP',
+                    'zip-uploading'       => 'Uploading and extracting ZIP...',
+                    'zip-upload-success'  => 'ZIP uploaded and extracted successfully.',
+                    'zip-upload-error'    => 'Failed to upload ZIP. Please try again.',
+                    'invalid-zip'         => 'The uploaded file is not a valid ZIP archive.',
+                    'zip-upload-or'       => 'or upload a ZIP of images',
+                    'zip-click-upload'    => 'Click to upload a ZIP of images',
+                    'zip-files-extracted' => 'files extracted',
+                    'zip-drop-hint'       => 'Click or drag & drop a ZIP file here',
+                    'images-directory'    => 'Path',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Create Import',
+                    'type'                => 'Type',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'edit' => [
-                    'images'              => 'Imágenes',
-                    'action'              => 'Acción',
-                    'allowed-errors'      => 'Errores Permitidos',
-                    'allowed-file-types'  => 'Tipos de archivo permitidos (CSV, XLSX, XLS)',
-                    'back-btn'            => 'Volver',
-                    'create-update'       => 'Crear/Actualizar',
-                    'delete'              => 'Eliminar',
-                    'download-sample'     => 'Descargar Muestra',
-                    'field-separator'     => 'Separador de campos',
-                    'separator-info'      => 'Úselo solo para archivos CSV',
-                    'file-info-example'   => 'Coloque las imágenes en storage/app/public/. Para imágenes en storage/app/public/import-images, incluya import-images/ en la ruta y utilice solo el nombre del archivo en el archivo de importación.',
-                    'file-info'           => 'Use ruta relativa a /project-root/storage/app/import, por ejemplo product-images, import-images.',
-                    'file'                => 'Archivo',
+                    'images'              => 'Images',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'download-sample'     => 'Download Sample',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
+                    'file'                => 'File',
                     'general'             => 'General',
-                    'images-directory'    => 'Ruta',
-                    'process-in-queue'    => 'Procesar en Cola',
-                    'results'             => 'Resultados',
-                    'save-btn'            => 'Guardar Importación',
-                    'settings'            => 'Configuraciones',
-                    'skip-errors'         => 'Saltar Errores',
-                    'stop-on-errors'      => 'Detener en Errores',
-                    'title'               => 'Editar Importación',
-                    'type'                => 'Tipo',
-                    'validation-strategy' => 'Estrategia de Validación',
+                    'images-directory'    => 'Path',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Edit Import',
+                    'type'                => 'Type',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'batch' => [
-                    'title' => 'Importación añadida en la cola',
+                    'title' => 'Import added in the queue',
                 ],
-
                 'index' => [
-                    'button-title' => 'Crear Importación',
-                    'title'        => 'Importaciones',
-
-                    'datagrid' => [
-                        'actions'               => 'Acciones',
-                        'completed-at'          => 'Completado en',
-                        'created'               => 'Creado',
-                        'delete'                => 'Eliminar',
-                        'deleted'               => 'Eliminado',
-                        'edit'                  => 'Editar',
-                        'error-file'            => 'Archivo de Error',
+                    'button-title' => 'Create Import',
+                    'title'        => 'Imports',
+                    'datagrid'     => [
+                        'actions'               => 'Actions',
+                        'completed-at'          => 'Completed At',
+                        'created'               => 'Created',
+                        'delete'                => 'Delete',
+                        'deleted'               => 'Deleted',
+                        'edit'                  => 'Edit',
+                        'error-file'            => 'Error File',
                         'id'                    => 'ID',
-                        'code'                  => 'Código',
-                        'type'                  => 'Tipo',
-                        'action'                => 'Acción',
-                        'started-at'            => 'Iniciado en',
-                        'state'                 => 'Estado',
-                        'summary'               => 'Resumen',
-                        'updated'               => 'Actualizado',
-                        'uploaded-file'         => 'Archivo Cargado',
-                        'images_directory_path' => 'Ruta de Imágenes',
-                        'import'                => 'Importar',
+                        'code'                  => 'Code',
+                        'type'                  => 'Type',
+                        'action'                => 'Action',
+                        'started-at'            => 'Started At',
+                        'state'                 => 'State',
+                        'summary'               => 'Summary',
+                        'updated'               => 'Updated',
+                        'uploaded-file'         => 'Uploaded File',
+                        'images_directory_path' => 'Images File',
+                        'import'                => 'Import',
                     ],
                 ],
-
                 'import' => [
-                    'back-btn'                => 'Volver',
-                    'completed-batches'       => 'Total de Lotes Completados:',
-                    'download-error-report'   => 'Descargar Informe Completo',
-                    'edit-btn'                => 'Editar',
-                    'imported-info'           => '¡Felicidades! Su importación fue exitosa.',
-                    'importing-info'          => 'Importando en Proceso',
-                    'exporting-info'          => 'Exportando en Proceso',
-                    'indexing-info'           => 'Indexando Recursos (Precio, Elastic Search) en Proceso',
-                    'linking-info'            => 'Enlace de Recursos en Proceso',
-                    'progress'                => 'Progreso:',
-                    'pending-info'            => 'Esperando el procesamiento del trabajo en la cola',
-                    'pending-step-export'     => 'Exportando',
-                    'title'                   => 'Importar',
-                    'total-batches'           => 'Total de Lotes:',
-                    'total-created'           => 'Total de Registros Creados:',
-                    'total-deleted'           => 'Total de Registros Eliminados:',
-                    'total-errors'            => 'Total de Errores:',
-                    'total-invalid-rows'      => 'Total de Filas Inválidas:',
-                    'total-rows-processed'    => 'Total de Filas Procesadas:',
-                    'total-updated'           => 'Total de Registros Actualizados:',
-                    'validate-info'           => 'Haga clic en Validar Datos para verificar su importación.',
-                    'validate'                => 'Validar',
-                    'file_path'               => 'Ruta del Archivo',
-                    'import-now'              => 'Importar Ahora',
-                    'action'                  => 'Modo de Acción',
-                    'profile'                 => 'Perfil de Importación',
-                    'validating-info'         => 'Los datos comenzaron a leer y validar',
-                    'validation-failed-info'  => 'Su importación es inválida. Por favor, corrija los siguientes errores y vuelva a intentarlo.',
-                    'validation-success-info' => 'Su importación es válida. Iniciando la importación automáticamente...',
+                    'action'                  => 'Action Mode',
+                    'back-btn'                => 'Back',
+                    'completed-batches'       => 'Total Batches Completed:',
+                    'download-error-report'   => 'Download Full Report',
+                    'edit-btn'                => 'Edit',
+                    'exporting-info'          => 'Export In Process',
+                    'exporting-info-sub'      => 'Generating export file and writing records. Please wait.',
+                    'file_path'               => 'File Path',
+                    'imported-info'           => 'Congratulations! Your import was successful.',
+                    'import-now'              => 'Import Now',
+                    'importing-info'          => 'Import In Process',
+                    'importing-info-sub'      => 'Processing batches and writing records to the database.',
+                    'indexing-info'           => 'Resources Indexing (Price, Elastic Search) In Progress',
+                    'indexing-info-sub'       => 'Rebuilding search indices and price caches after import. This step runs automatically.',
+                    'indexing-type'           => 'Price + ES',
+                    'linking-info'            => 'Resources Linking In Progress',
+                    'linking-info-sub'        => 'Linking related resources and associations between records.',
+                    'pending-info'            => 'Job queued — waiting for worker to start...',
+                    'pending-info-sub'        => 'Your job has been added to the processing queue. A worker will pick it up shortly.',
+                    'pending-step-complete'   => 'Complete',
+                    'pending-step-export'     => 'Exporting',
+                    'pending-step-import'     => 'Importing',
+                    'pending-step-queue'      => 'Queued',
+                    'pending-step-validate'   => 'Validating',
+                    'profile'                 => 'Import Profile',
+                    'progress'                => 'Progress:',
+                    'title'                   => 'Import',
+                    'total-batches'           => 'Total Batches:',
+                    'total-created'           => 'Total Records Created:',
+                    'total-deleted'           => 'Total Records Deleted:',
+                    'total-errors'            => 'Total Errors:',
+                    'total-invalid-rows'      => 'Total Invalid Rows:',
+                    'total-rows-processed'    => 'Total Rows Processed:',
+                    'total-updated'           => 'Total Records Updated:',
+                    'validate'                => 'Validate',
+                    'validate-info'           => 'Click on Validate Data to check your import.',
+                    'validating-info'         => 'Reading file and validating data...',
+                    'validating-info-sub'     => 'Checking schema integrity, field mappings, and data types before the import begins.',
+                    'validation-failed-info'  => 'Your import is invalid. Please fix the following errors and try again.',
+                    'validation-success-info' => 'Your import is valid. Starting import automatically...',
                 ],
-
-                'create-success'    => 'Importación creada con éxito.',
-                'delete-failed'     => 'La eliminación de la importación falló inesperadamente.',
-                'delete-success'    => 'Importación eliminada con éxito.',
-                'not-valid'         => 'Importación inválida',
-                'nothing-to-import' => 'No hay recursos para importar.',
-                'setup-queue-error' => 'Por favor, cambie su controlador de cola a "base de datos" o "redis" para comenzar el proceso de importación.',
-                'update-success'    => 'Importación actualizada con éxito.',
+                'create-success'     => 'Import created successfully.',
+                'delete-failed'      => 'Import deletion failed unexpectedly.',
+                'delete-success'     => 'Import deleted successfully.',
+                'invalid-zip'        => 'The uploaded file is not a valid ZIP archive.',
+                'not-valid'          => 'Import is invalid',
+                'nothing-to-import'  => 'There are no resources to import.',
+                'setup-queue-error'  => 'Please change your queue driver to "database" or "redis" to start the import process.',
+                'update-success'     => 'Import updated successfully.',
+                'zip-upload-success' => 'ZIP uploaded and extracted successfully.',
             ],
-
             'exports' => [
                 'create' => [
                     'code'                => 'Código',
@@ -1283,7 +1313,6 @@ return [
                     'type'                => 'Tipo',
                     'validation-strategy' => 'Estrategia de Validación',
                 ],
-
                 'edit' => [
                     'action'              => 'Acción',
                     'allowed-errors'      => 'Errores Permitidos',
@@ -1307,16 +1336,13 @@ return [
                     'type'                => 'Tipo',
                     'validation-strategy' => 'Estrategia de Validación',
                 ],
-
                 'batch' => [
                     'title' => 'Exportación añadida a la cola',
                 ],
-
                 'index' => [
                     'button-title' => 'Crear Exportación',
                     'title'        => 'Exportaciones',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => 'Acciones',
                         'completed-at'          => 'Completado en',
                         'created'               => 'Creado en',
@@ -1337,7 +1363,6 @@ return [
                         'export'                => 'Exportar',
                     ],
                 ],
-
                 'export' => [
                     'back-btn'                => 'Volver',
                     'completed-batches'       => 'Total de Lotes Completados:',
@@ -1367,7 +1392,6 @@ return [
                     'file-format'             => 'Formato de Archivo',
                     'with-media'              => 'Con Medios',
                 ],
-
                 'create-success'    => 'Exportación creada exitosamente.',
                 'delete-failed'     => 'Error inesperado al eliminar la exportación.',
                 'delete-success'    => 'Exportación eliminada exitosamente.',
@@ -1377,7 +1401,6 @@ return [
                 'update-success'    => 'Exportación actualizada exitosamente.',
             ],
         ],
-
         'channels' => [
             'index' => [
                 'create-btn'           => 'Crear Canal',
@@ -1396,7 +1419,6 @@ return [
                     'root-category' => 'Categoría Raíz',
                 ],
             ],
-
             'create' => [
                 'allowed-ips'            => 'IPs Permitidos',
                 'cancel'                 => 'Volver',
@@ -1431,7 +1453,6 @@ return [
                 'theme'                  => 'Tema',
                 'title'                  => 'Crear Canal',
             ],
-
             'edit' => [
                 'allowed-ips'            => 'IPs Permitidos',
                 'back-btn'               => 'Volver',
@@ -1469,13 +1490,11 @@ return [
                 'update-success'         => 'Canal Actualizado Exitosamente',
             ],
         ],
-
         'users' => [
             'index' => [
-                'admin' => 'Administrador',
-                'title' => 'Usuarios',
-                'user'  => 'Usuario',
-
+                'admin'  => 'Administrador',
+                'title'  => 'Usuarios',
+                'user'   => 'Usuario',
                 'create' => [
                     'confirm-password'  => 'Confirmar Contraseña',
                     'email'             => 'Correo Electrónico',
@@ -1489,7 +1508,6 @@ return [
                     'user-timezone'     => 'Zona Horaria',
                     'select'            => 'Seleccionar',
                 ],
-
                 'datagrid' => [
                     'actions'  => 'Acciones',
                     'active'   => 'Activo',
@@ -1503,12 +1521,10 @@ return [
                     'status'   => 'Estado',
                     'image'    => 'Imagen',
                 ],
-
                 'edit' => [
                     'title' => 'Editar Usuario',
                 ],
             ],
-
             'edit' => [
                 'back-btn'         => 'Volver',
                 'confirm-password' => 'Confirmar Contraseña',
@@ -1521,7 +1537,6 @@ return [
                 'status'           => 'Estado',
                 'title'            => 'Editar Usuario',
             ],
-
             'activate-warning'          => 'Tu cuenta aún no está activada, por favor contacta al administrador.',
             'cannot-change'             => 'No se puede cambiar el usuario',
             'create-success'            => 'Usuario creado exitosamente.',
@@ -1534,13 +1549,11 @@ return [
             'update-success'            => 'Usuario actualizado exitosamente.',
             'current-user-delete-error' => 'No se puede eliminar al usuario actual.',
         ],
-
         'roles' => [
             'index' => [
                 'create-btn' => 'Crear Rol',
                 'title'      => 'Roles',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => 'Eliminar',
                     'edit'            => 'Editar',
                     'id'              => 'ID',
@@ -1548,7 +1561,6 @@ return [
                     'permission-type' => 'Tipo de Permiso',
                 ],
             ],
-
             'create' => [
                 'access-control' => 'Control de Acceso',
                 'all'            => 'Todos',
@@ -1561,7 +1573,6 @@ return [
                 'save-btn'       => 'Guardar Rol',
                 'title'          => 'Crear Rol',
             ],
-
             'edit' => [
                 'access-control' => 'Control de Acceso',
                 'all'            => 'Todos',
@@ -1574,7 +1585,6 @@ return [
                 'save-btn'       => 'Guardar Rol',
                 'title'          => 'Editar Rol',
             ],
-
             'being-used'        => 'El rol ya está siendo utilizado por un usuario administrador',
             'being-used-by'     => 'El rol ya está siendo utilizado por el usuario :name',
             'create-success'    => 'Rol creado exitosamente',
@@ -1584,160 +1594,6 @@ return [
             'update-success'    => 'Rol actualizado exitosamente',
         ],
     ],
-
-    'acl' => [
-        'addresses'                => 'Direcciones',
-        'attribute-families'       => 'Familias de atributos',
-        'attribute-groups'         => 'Grupos de atributos',
-        'attributes'               => 'Atributos',
-        'cancel'                   => 'Cancelar',
-        'catalog'                  => 'Catálogo',
-        'categories'               => 'Categorías',
-        'channels'                 => 'Canales',
-        'configure'                => 'Configurar',
-        'configuration'            => 'Configuración',
-        'copy'                     => 'Copiar',
-        'create'                   => 'Crear',
-        'currencies'               => 'Monedas',
-        'dashboard'                => 'Panel de control',
-        'data-transfer'            => 'Transferencia de datos',
-        'delete'                   => 'Eliminar',
-        'edit'                     => 'Editar',
-        'email-templates'          => 'Plantillas de correo electrónico',
-        'events'                   => 'Eventos',
-        'groups'                   => 'Grupos',
-        'import'                   => 'Importar',
-        'imports'                  => 'Importaciones',
-        'invoices'                 => 'Facturas',
-        'locales'                  => 'Localidades',
-        'magic-ai'                 => 'Magic AI',
-        'marketing'                => 'Marketing',
-        'newsletter-subscriptions' => 'Suscripciones a boletines',
-        'note'                     => 'Nota',
-        'orders'                   => 'Pedidos',
-        'products'                 => 'Productos',
-        'promotions'               => 'Promociones',
-        'refunds'                  => 'Reembolsos',
-        'reporting'                => 'Informes',
-        'reviews'                  => 'Revisiones',
-        'roles'                    => 'Roles',
-        'sales'                    => 'Ventas',
-        'search-seo'               => 'Búsqueda y SEO',
-        'search-synonyms'          => 'Sinónimos de búsqueda',
-        'search-terms'             => 'Términos de búsqueda',
-        'settings'                 => 'Configuraciones',
-        'shipments'                => 'Envíos',
-        'sitemaps'                 => 'Mapas del sitio',
-        'subscribers'              => 'Suscriptores',
-        'tax-categories'           => 'Categorías fiscales',
-        'tax-rates'                => 'Tasas de impuestos',
-        'taxes'                    => 'Impuestos',
-        'themes'                   => 'Temas',
-        'integration'              => 'Integración',
-        'url-rewrites'             => 'Reescrituras de URL',
-        'users'                    => 'Usuarios',
-        'category_fields'          => 'Campos de categoría',
-        'view'                     => 'Ver',
-        'execute'                  => 'Ejecutar',
-        'history'                  => 'Historial',
-        'restore'                  => 'Restaurar',
-        'integrations'             => 'Integraciones',
-        'api'                      => 'API',
-        'tracker'                  => 'Rastreador de trabajos',
-        'imports'                  => 'Importaciones',
-        'exports'                  => 'Exportaciones',
-        'mass-update'              => 'Actualización masiva',
-        'mass-delete'              => 'Eliminación en masa',
-    ],
-
-    'errors' => [
-        'dashboard' => 'Panel de control',
-        'go-back'   => 'Regresar',
-        'support'   => 'Si el problema persiste, contáctenos en <a href=":link" class=":class">:email</a> para asistencia.',
-
-        '404' => [
-            'description' => '¡Ups! La página que buscas está de vacaciones. No pudimos encontrar lo que estás buscando.',
-            'title'       => '404 Página no encontrada',
-        ],
-
-        '401' => [
-            'description' => '¡Ups! Parece que no tienes acceso a esta página. Parece que te faltan los permisos necesarios.',
-            'title'       => '401 No autorizado',
-            'message'     => 'Error de autenticación debido a credenciales no válidas o token expirado.',
-        ],
-
-        '403' => [
-            'description' => '¡Ups! Esta página está restringida. Parece que no tienes permiso para ver este contenido.',
-            'title'       => '403 Prohibido',
-        ],
-
-        '413' => [
-            'description' => '¡Ups! Parece que estás intentando cargar un archivo que es demasiado grande. Si deseas cargarlo, actualiza la configuración de PHP.',
-            'title'       => '413 Contenido demasiado grande',
-        ],
-
-        '419' => [
-            'description' => '¡Ups! Tu sesión ha expirado. Por favor, refresca la página e inicia sesión nuevamente para continuar.',
-            'title'       => '419 Sesión ha expirado',
-        ],
-
-        '500' => [
-            'description' => '¡Ups! Algo salió mal. Parece que tenemos problemas para cargar la página que estás buscando.',
-            'title'       => '500 Error del servidor interno',
-        ],
-
-        '503' => [
-            'description' => '¡Ups! Parece que estamos temporalmente fuera de servicio para mantenimiento. Por favor, vuelve más tarde.',
-            'title'       => '503 Servicio no disponible',
-        ],
-    ],
-
-    'export' => [
-        'csv'                  => 'CSV',
-        'download'             => 'Descargar',
-        'export'               => 'Exportación Rápida',
-        'no-records'           => 'Nada para exportar',
-        'xls'                  => 'XLS',
-        'xlsx'                 => 'XLSX',
-        'with-media'           => 'Con medios',
-        'export-success'       => '¡Exportación exitosa!',
-        'error'                => '¡Algo salió mal!',
-        'product-not-selected' => 'No se seleccionaron productos para exportación rápida',
-    ],
-
-    'validations' => [
-        'slug-being-used' => 'Este slug está siendo utilizado en categorías o productos.',
-        'slug-reserved'   => 'Este slug está reservado.',
-        'invalid-locale'  => 'Locales inválidos: :locales',
-    ],
-
-    'footer' => [
-        'copy-right' => 'Desarrollado por <a href="https://unopim.com/" target="_blank">UnoPim</a>, Proyecto de Comunidad de <a href="https://webkul.com/" target="_blank">Webkul</a>',
-    ],
-
-    'emails' => [
-        'dear'   => 'Estimado :admin_name',
-        'thanks' => 'Si necesitas cualquier tipo de ayuda, contáctanos en <a href=":link" style=":style">:email</a>.<br/>¡Gracias!',
-
-        'admin' => [
-            'forgot-password' => [
-                'description'    => 'Recibes este correo porque hemos recibido una solicitud de restablecimiento de contraseña para tu cuenta.',
-                'greeting'       => '¡Olvidaste tu contraseña!',
-                'reset-password' => 'Restablecer contraseña',
-                'subject'        => 'Correo electrónico de restablecimiento de contraseña',
-            ],
-        ],
-    ],
-
-    'common' => [
-        'yes'     => 'Sí',
-        'no'      => 'No',
-        'true'    => 'Verdadero',
-        'false'   => 'Falso',
-        'enable'  => 'Habilitado',
-        'disable' => 'Deshabilitado',
-    ],
-
     'configuration' => [
         'index' => [
             'delete'          => 'Eliminar',
@@ -1746,50 +1602,51 @@ return [
             'save-message'    => 'Configuración guardada exitosamente',
             'search'          => 'Buscar',
             'title'           => 'Configuración',
-
-            'general' => [
-                'info'  => '',
-                'title' => 'General',
-
+            'general'         => [
+                'info'    => '',
+                'title'   => 'General',
                 'general' => [
                     'info'  => '',
                     'title' => 'General',
                 ],
-
                 'magic-ai' => [
-                    'info'  => 'Configurar opciones de Magic AI.',
-                    'title' => 'Magic AI',
-
+                    'info'     => 'Configurar opciones de Magic AI.',
+                    'title'    => 'Magic AI',
                     'settings' => [
-                        'api-key'        => 'Clave API',
-                        'enabled'        => 'Habilitado',
-                        'llm-api-domain' => 'Dominio del API LLM',
-                        'organization'   => 'ID de la Organización',
-                        'title'          => 'Configuraciones Generales',
-                        'title-info'     => 'Mejora tu experiencia con Magic AI ingresando tu clave API exclusiva e indicando la Organización pertinente para una integración sin problemas. Controla tus credenciales de OpenAI y personaliza las configuraciones según tus necesidades específicas.',
+                        'enabled'     => 'Habilitado',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Configuraciones Generales',
+                        'title-info'  => 'Mejora tu experiencia con Magic AI ingresando tu clave API exclusiva e indicando la Organización pertinente para una integración sin problemas. Controla tus credenciales de OpenAI y personaliza las configuraciones según tus necesidades específicas.',
                     ],
-
-                    'translation'   => [
-                        'title'                  => 'Traducción',
-                        'enabled'                => 'Habilitado',
-                        'title-info'             => 'Esta función activará Magic AI para traducir texto, permitiéndote convertir texto de un idioma a otro de manera fluida.',
-                        'global-source-channel'  => 'Canal de origen',
-                        'global-source-locale'   => 'Idioma de origen',
-                        'translation-model'      => 'Modelo de traducción',
-                        'replace-existing-value' => 'Reemplazar el valor existente',
-                        'target-channel'         => 'Canal de destino',
-                        'target-locales'         => 'Idiomas de destino',
+                    'image-generation' => [
+                        'enabled'     => 'Enabled',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Image Generation',
+                        'title-info'  => 'Configure the default AI platform and model for generating product images. Only platforms that support image generation (OpenAI, Gemini, xAI) are listed.',
+                    ],
+                    'translation' => [
+                        'title'                       => 'Traducción',
+                        'enabled'                     => 'Habilitado',
+                        'title-info'                  => 'Esta función activará Magic AI para traducir texto, permitiéndote convertir texto de un idioma a otro de manera fluida.',
+                        'ai-platform'                 => 'Default Platform',
+                        'global-source-channel'       => 'Canal de origen',
+                        'global-source-locale'        => 'Idioma de origen',
+                        'translation-model'           => 'Modelo de traducción',
+                        'replace-existing-value'      => 'Reemplazar el valor existente',
+                        'target-channel'              => 'Canal de destino',
+                        'target-locales'              => 'Idiomas de destino',
+                        'replace-existing-value-info' => 'Replace the existing value if it already exists.',
                     ],
                 ],
             ],
         ],
-
         'integrations' => [
             'index' => [
                 'create-btn' => 'Crear',
                 'title'      => 'Integraciones',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => 'Eliminar',
                     'edit'            => 'Editar',
                     'id'              => 'ID',
@@ -1799,7 +1656,6 @@ return [
                     'permission-type' => 'Tipo de Permiso',
                 ],
             ],
-
             'create' => [
                 'access-control' => 'Control de Acceso',
                 'all'            => 'Todo',
@@ -1812,7 +1668,6 @@ return [
                 'save-btn'       => 'Guardar',
                 'title'          => 'Nueva Integración',
             ],
-
             'edit' => [
                 'access-control' => 'Control de Acceso',
                 'all'            => 'Todo',
@@ -1830,7 +1685,6 @@ return [
                 'save-btn'       => 'Guardar',
                 'title'          => 'Editar Integración',
             ],
-
             'being-used'                     => 'Integración API ya está siendo utilizada por un Usuario Administrador',
             'create-success'                 => 'Integración API creada exitosamente',
             'delete-failed'                  => 'No se pudo eliminar la Integración API',
@@ -1841,40 +1695,143 @@ return [
             're-generate-secret-key-success' => 'Clave secreta de API re-generada exitosamente',
             'client-not-found'               => 'Cliente no encontrado',
         ],
-
         'prompt' => [
             'datagrid' => [
-                'id'            => 'ID',
-                'title'         => 'Título',
-                'prompt'        => 'Solicitud',
-                'type'          => 'Tipo',
-                'created-at'    => 'Creado el',
-                'updated-at'    => 'Actualizado el',
-                'actions'       => 'Acciones',
-                'edit'          => 'Editar',
-                'delete'        => 'Eliminar',
-                'product'       => 'Producto',
-                'category'      => 'Categoría',
+                'id'               => 'ID',
+                'title'            => 'Título',
+                'prompt'           => 'Solicitud',
+                'type'             => 'Tipo',
+                'purpose'          => 'Purpose',
+                'text-generation'  => 'Text Generation',
+                'image-generation' => 'Image Generation',
+                'translation'      => 'Translation',
+                'created-at'       => 'Creado el',
+                'updated-at'       => 'Actualizado el',
+                'actions'          => 'Acciones',
+                'edit'             => 'Editar',
+                'delete'           => 'Eliminar',
+                'product'          => 'Producto',
+                'category'         => 'Categoría',
             ],
             'create' => [
-                'title'         => 'Solicitud',
-                'create-btn'    => 'Crear Solicitud',
-                'edit-title'    => 'Editar Solicitud',
-                'create-title'  => 'Crear Nueva Solicitud',
-                'label-title'   => 'Título',
-                'type'          => 'Tipo',
-                'prompt'        => 'Solicitud',
-                'save-btn'      => 'Guardar Solicitud',
+                'title'        => 'Solicitud',
+                'create-btn'   => 'Crear Solicitud',
+                'edit-title'   => 'Editar Solicitud',
+                'create-title' => 'Crear Nueva Solicitud',
+                'label-title'  => 'Título',
+                'purpose'      => 'Purpose',
+                'type'         => 'Tipo',
+                'prompt'       => 'Solicitud',
+                'save-btn'     => 'Guardar Solicitud',
             ],
             'message' => [
-                'save-success'      => 'Solicitud guardada exitosamente.',
-                'update-success'    => 'Solicitud actualizada exitosamente.',
-                'delete-success'    => 'Solicitud eliminada exitosamente.',
-                'delete-fail'       => 'No se pudo eliminar la solicitud.',
+                'save-success'   => 'Solicitud guardada exitosamente.',
+                'update-success' => 'Solicitud actualizada exitosamente.',
+                'delete-success' => 'Solicitud eliminada exitosamente.',
+                'delete-fail'    => 'No se pudo eliminar la solicitud.',
+            ],
+        ],
+        'system-prompt' => [
+            'datagrid' => [
+                'id'          => 'ID',
+                'title'       => 'Title',
+                'tone'        => 'Tone',
+                'max-tokens'  => 'Max Tokens',
+                'temperature' => 'Temperature',
+                'status'      => 'Status',
+                'created-at'  => 'Created At',
+                'updated-at'  => 'Updated At',
+                'actions'     => 'Actions',
+                'save'        => 'Save',
+                'edit'        => 'Edit',
+                'delete'      => 'delete',
+            ],
+            'create' => [
+                'title'        => 'System Prompt',
+                'create-btn'   => 'Create System Prompt',
+                'edit-title'   => 'Edit System Prompt',
+                'create-title' => 'Create New System Prompt',
+                'label-title'  => 'Title',
+                'max-tokens'   => 'Max Output Tokens',
+                'temperature'  => 'Temperature',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Save Prompt',
+                'prompt-tone'  => 'Prompt Tone',
+            ],
+            'message' => [
+                'save-success'   => 'System Prompt saved successfully.',
+                'update-success' => 'System Prompt updated successfully.',
+                'delete-success' => 'System Prompt deleted successfully.',
+                'delete-fail'    => 'System Prompt deletion failed.',
+            ],
+        ],
+        'platform' => [
+            'title'           => 'AI Platforms',
+            'create-btn'      => 'Add Platform',
+            'create-title'    => 'Add AI Platform',
+            'edit-title'      => 'Edit AI Platform',
+            'save-btn'        => 'Save',
+            'saving'          => 'Saving',
+            'test-connection' => 'Test Connection',
+            'setup'           => [
+                'title'              => 'Get Started with Magic AI',
+                'description'        => 'Connect your AI provider to unlock content generation, image creation, and translation powered by AI. Add your first platform to begin.',
+                'step-1'             => 'Choose a provider',
+                'step-2'             => 'Enter your API key',
+                'step-3'             => 'Select models & save',
+                'add-first'          => 'Add Your First Platform',
+                'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
+                'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+            ],
+            'testing'         => 'Testing',
+            'fetch-models'    => 'Fetch Models',
+            'fetching-models' => 'Fetching',
+            'set-default'     => 'Set as Default',
+            'datagrid'        => [
+                'label'      => 'Label',
+                'provider'   => 'Provider',
+                'models'     => 'Models',
+                'default'    => 'Default',
+                'status'     => 'Status',
+                'created-at' => 'Created At',
+                'edit'       => 'Edit',
+                'delete'     => 'Delete',
+            ],
+            'fields' => [
+                'label'                    => 'Label',
+                'provider'                 => 'Provider',
+                'select-provider'          => '-- Select Provider --',
+                'api-url'                  => 'API URL',
+                'api-url-hint'             => 'Pre-filled with the default endpoint. Edit only if using a proxy or custom deployment.',
+                'api-key'                  => 'API Key',
+                'models'                   => 'Models',
+                'custom-model-placeholder' => 'Type custom model ID...',
+                'add'                      => 'Add',
+                'enter-key-to-fetch'       => 'Enter your API key above to automatically fetch available models.',
+                'search-models'            => 'Search models...',
+                'no-models-match'          => 'No models match your search.',
+                'azure-deployment'         => 'Deployment Name',
+                'azure-api-version'        => 'API Version',
+                'is-default'               => 'Set as Default',
+                'status'                   => 'Status',
+                'use-default'              => '-- Use Default Platform --',
+                'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
+                'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
+                'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+            ],
+            'message' => [
+                'save-success'          => 'Platform saved successfully.',
+                'update-success'        => 'Platform updated successfully.',
+                'delete-success'        => 'Platform deleted successfully.',
+                'delete-fail'           => 'Platform deletion failed.',
+                'cannot-delete-default' => 'Cannot delete the only default platform.',
+                'set-default-success'   => 'Platform set as default successfully.',
+                'test-success'          => 'Connection verified successfully!',
+                'test-fail'             => 'Connection test failed',
             ],
         ],
     ],
-
     'components' => [
         'layouts' => [
             'header' => [
@@ -1885,7 +1842,6 @@ return [
                 'notifications' => 'Notificaciones',
                 'visit-shop'    => 'Visitar tienda',
             ],
-
             'sidebar' => [
                 'attribute-families' => 'Familias de atributos',
                 'attribute-groups'   => 'Grupos de atributos',
@@ -1919,45 +1875,37 @@ return [
                 'general-tab'        => 'Configuración',
             ],
         ],
-
         'datagrid' => [
             'index' => [
                 'no-records-selected'              => 'No se han seleccionado registros.',
                 'must-select-a-mass-action-option' => 'Debe seleccionar una opción de acción masiva.',
                 'must-select-a-mass-action'        => 'Debe seleccionar una acción masiva.',
             ],
-
             'toolbar' => [
-                'length-of' => ':length de',
-                'of'        => 'de',
-                'per-page'  => 'Por página',
-                'results'   => ':total Resultados',
-                'selected'  => ':total seleccionados',
-
+                'length-of'    => ':length de',
+                'of'           => 'de',
+                'per-page'     => 'Por página',
+                'results'      => ':total Resultados',
+                'selected'     => ':total seleccionados',
                 'mass-actions' => [
                     'submit'        => 'Enviar',
                     'select-option' => 'Seleccionar opción',
                     'select-action' => 'Seleccionar acción',
                 ],
-
                 'filter' => [
                     'title' => 'Filtrar',
                 ],
-
                 'search_by' => [
                     'code'       => 'Buscar por código',
                     'code_or_id' => 'Buscar por código o ID',
                 ],
-
                 'search' => [
                     'title' => 'Buscar',
                 ],
-
                 'manage-columns' => [
                     'title' => 'Columnas',
                 ],
             ],
-
             'filters' => [
                 'select'   => 'Seleccionar',
                 'title'    => 'Aplicar filtros',
@@ -1968,17 +1916,14 @@ return [
                         'no-results'        => 'No se encontraron resultados...',
                     ],
                 ],
-
                 'custom-filters' => [
                     'clear-all' => 'Limpiar todo',
                     'title'     => 'Filtros personalizados',
                 ],
-
                 'boolean-options' => [
                     'false' => 'Falso',
                     'true'  => 'Verdadero',
                 ],
-
                 'date-options' => [
                     'last-month'        => 'Último mes',
                     'last-six-months'   => 'Últimos 6 meses',
@@ -1990,12 +1935,10 @@ return [
                     'yesterday'         => 'Ayer',
                 ],
             ],
-
             'table' => [
                 'actions'              => 'Acciones',
                 'no-records-available' => 'No hay registros disponibles.',
             ],
-
             'manage-columns' => [
                 'title'             => 'Administrar columnas',
                 'available-columns' => 'Columnas disponibles',
@@ -2003,7 +1946,6 @@ return [
                 'apply-btn'         => 'Aplicar',
             ],
         ],
-
         'modal' => [
             'confirm' => [
                 'agree-btn'    => 'Aceptar',
@@ -2011,14 +1953,12 @@ return [
                 'message'      => '¿Estás seguro de que deseas realizar esta acción?',
                 'title'        => '¿Estás seguro?',
             ],
-
             'delete' => [
                 'agree-btn'    => 'Eliminar',
                 'disagree-btn' => 'Cancelar',
                 'message'      => '¿Estás seguro de que deseas eliminar?',
                 'title'        => 'Confirmar eliminación',
             ],
-
             'history' => [
                 'title'           => 'Vista previa del historial',
                 'subtitle'        => 'Revisa rápidamente tus actualizaciones y cambios.',
@@ -2032,7 +1972,6 @@ return [
                 'no-history'      => 'No se encontró historial',
             ],
         ],
-
         'products' => [
             'search' => [
                 'add-btn'       => 'Agregar producto seleccionado',
@@ -2044,7 +1983,6 @@ return [
                 'title'         => 'Seleccionar productos',
             ],
         ],
-
         'media' => [
             'images' => [
                 'add-image-btn'      => 'Agregar imagen',
@@ -2056,8 +1994,7 @@ return [
                 'allowed-types'      => 'png, jpeg, jpg',
                 'not-allowed-error'  => 'Solo se permiten archivos de imagen (.jpeg, .jpg, .png, ..).',
                 'upload-media-btn'   => 'Subir medios',
-
-                'ai-generation' => [
+                'ai-generation'      => [
                     '1024x1024'        => '1024x1024',
                     '1024x1792'        => '1024x1792',
                     '1792x1024'        => '1792x1024',
@@ -2077,7 +2014,6 @@ return [
                     'standard'         => 'Estándar',
                     'title'            => 'Generación de imagen AI',
                 ],
-
                 'placeholders' => [
                     'front'     => 'Frontal',
                     'next'      => 'Siguiente',
@@ -2086,23 +2022,22 @@ return [
                     'zoom'      => 'Zoom',
                 ],
             ],
-
+            'gallery' => [
+                'not-allowed-error' => 'Only image and video files are allowed. (.mp4, .jpg ..)',
+            ],
             'videos' => [
                 'add-video-btn'     => 'Agregar video',
                 'allowed-types'     => 'mp4, webm, mkv',
                 'not-allowed-error' => 'Solo se permiten archivos de video (.mp4, .mov, .ogg ..).',
             ],
-
             'files' => [
                 'add-file-btn'      => 'Agregar archivo',
                 'allowed-types'     => 'pdf',
                 'not-allowed-error' => 'Solo se permiten archivos PDF',
             ],
         ],
-
         'tinymce' => [
-            'ai-btn-tile' => 'Inteligencia AI',
-
+            'ai-btn-tile'   => 'Inteligencia AI',
             'ai-generation' => [
                 'apply'                  => 'Aplicar',
                 'generate'               => 'Generar',
@@ -2111,7 +2046,14 @@ return [
                 'generating'             => 'Generando...',
                 'prompt'                 => 'Sugerencia',
                 'title'                  => 'Asistencia AI',
+                'platform'               => 'Platform',
                 'model'                  => 'Modelo',
+                'rich-preview'           => 'Rich Preview',
+                'system-prompt'          => 'System Prompt',
+                'select-system-prompt'   => 'Select System Prompt',
+                'tone-instructions'      => 'Tone / Instructions',
+                'max-tokens'             => 'Max Tokens',
+                'temperature'            => 'Temperature',
                 'gpt-3-5-turbo'          => 'OpenAI gpt-3.5-turbo',
                 'llama2'                 => 'Llama 2',
                 'mistral'                => 'Mistral',
@@ -2128,7 +2070,147 @@ return [
             ],
         ],
     ],
-
+    'acl' => [
+        'addresses'                => 'Direcciones',
+        'attribute-families'       => 'Familias de atributos',
+        'attribute-groups'         => 'Grupos de atributos',
+        'attributes'               => 'Atributos',
+        'cancel'                   => 'Cancelar',
+        'catalog'                  => 'Catálogo',
+        'categories'               => 'Categorías',
+        'channels'                 => 'Canales',
+        'configure'                => 'Configurar',
+        'configuration'            => 'Configuración',
+        'copy'                     => 'Copiar',
+        'create'                   => 'Crear',
+        'currencies'               => 'Monedas',
+        'dashboard'                => 'Panel de control',
+        'data-transfer'            => 'Transferencia de datos',
+        'delete'                   => 'Eliminar',
+        'edit'                     => 'Editar',
+        'email-templates'          => 'Plantillas de correo electrónico',
+        'events'                   => 'Eventos',
+        'groups'                   => 'Grupos',
+        'import'                   => 'Importar',
+        'imports'                  => 'Importaciones',
+        'invoices'                 => 'Facturas',
+        'locales'                  => 'Localidades',
+        'magic-ai'                 => 'Magic AI',
+        'magic-ai-general'         => 'General',
+        'magic-ai-prompt'          => 'Prompt',
+        'magic-ai-system-prompt'   => 'Prompt del sistema',
+        'marketing'                => 'Marketing',
+        'newsletter-subscriptions' => 'Suscripciones a boletines',
+        'note'                     => 'Nota',
+        'orders'                   => 'Pedidos',
+        'products'                 => 'Productos',
+        'promotions'               => 'Promociones',
+        'refunds'                  => 'Reembolsos',
+        'reporting'                => 'Informes',
+        'reviews'                  => 'Revisiones',
+        'roles'                    => 'Roles',
+        'sales'                    => 'Ventas',
+        'search-seo'               => 'Búsqueda y SEO',
+        'search-synonyms'          => 'Sinónimos de búsqueda',
+        'search-terms'             => 'Términos de búsqueda',
+        'settings'                 => 'Configuraciones',
+        'shipments'                => 'Envíos',
+        'sitemaps'                 => 'Mapas del sitio',
+        'subscribers'              => 'Suscriptores',
+        'tax-categories'           => 'Categorías fiscales',
+        'tax-rates'                => 'Tasas de impuestos',
+        'taxes'                    => 'Impuestos',
+        'themes'                   => 'Temas',
+        'integration'              => 'Integración',
+        'url-rewrites'             => 'Reescrituras de URL',
+        'users'                    => 'Usuarios',
+        'category_fields'          => 'Campos de categoría',
+        'view'                     => 'Ver',
+        'execute'                  => 'Ejecutar',
+        'history'                  => 'Historial',
+        'restore'                  => 'Restaurar',
+        'integrations'             => 'Integraciones',
+        'api'                      => 'API',
+        'tracker'                  => 'Rastreador de trabajos',
+        'exports'                  => 'Exportaciones',
+        'mass-update'              => 'Actualización masiva',
+        'mass-delete'              => 'Eliminación en masa',
+    ],
+    'errors' => [
+        'dashboard' => 'Panel de control',
+        'go-back'   => 'Regresar',
+        'support'   => 'Si el problema persiste, contáctenos en <a href=":link" class=":class">:email</a> para asistencia.',
+        '404'       => [
+            'description' => '¡Ups! La página que buscas está de vacaciones. No pudimos encontrar lo que estás buscando.',
+            'title'       => '404 Página no encontrada',
+        ],
+        '401' => [
+            'description' => '¡Ups! Parece que no tienes acceso a esta página. Parece que te faltan los permisos necesarios.',
+            'title'       => '401 No autorizado',
+            'message'     => 'Error de autenticación debido a credenciales no válidas o token expirado.',
+        ],
+        '403' => [
+            'description' => '¡Ups! Esta página está restringida. Parece que no tienes permiso para ver este contenido.',
+            'title'       => '403 Prohibido',
+        ],
+        '413' => [
+            'description' => '¡Ups! Parece que estás intentando cargar un archivo que es demasiado grande. Si deseas cargarlo, actualiza la configuración de PHP.',
+            'title'       => '413 Contenido demasiado grande',
+        ],
+        '419' => [
+            'description' => '¡Ups! Tu sesión ha expirado. Por favor, refresca la página e inicia sesión nuevamente para continuar.',
+            'title'       => '419 Sesión ha expirado',
+        ],
+        '500' => [
+            'description' => '¡Ups! Algo salió mal. Parece que tenemos problemas para cargar la página que estás buscando.',
+            'title'       => '500 Error del servidor interno',
+        ],
+        '503' => [
+            'description' => '¡Ups! Parece que estamos temporalmente fuera de servicio para mantenimiento. Por favor, vuelve más tarde.',
+            'title'       => '503 Servicio no disponible',
+        ],
+    ],
+    'export' => [
+        'csv'                  => 'CSV',
+        'download'             => 'Descargar',
+        'export'               => 'Exportación Rápida',
+        'no-records'           => 'Nada para exportar',
+        'xls'                  => 'XLS',
+        'xlsx'                 => 'XLSX',
+        'with-media'           => 'Con medios',
+        'export-success'       => '¡Exportación exitosa!',
+        'error'                => '¡Algo salió mal!',
+        'product-not-selected' => 'No se seleccionaron productos para exportación rápida',
+    ],
+    'validations' => [
+        'slug-being-used' => 'Este slug está siendo utilizado en categorías o productos.',
+        'slug-reserved'   => 'Este slug está reservado.',
+        'invalid-locale'  => 'Locales inválidos: :locales',
+    ],
+    'footer' => [
+        'copy-right' => 'Desarrollado por <a href="https://unopim.com/" target="_blank">UnoPim</a>, Proyecto de Comunidad de <a href="https://webkul.com/" target="_blank">Webkul</a>',
+    ],
+    'emails' => [
+        'dear'   => 'Estimado :admin_name',
+        'thanks' => 'Si necesitas cualquier tipo de ayuda, contáctanos en <a href=":link" style=":style">:email</a>.<br/>¡Gracias!',
+        'admin'  => [
+            'forgot-password' => [
+                'description'    => 'Recibes este correo porque hemos recibido una solicitud de restablecimiento de contraseña para tu cuenta.',
+                'greeting'       => '¡Olvidaste tu contraseña!',
+                'reset-password' => 'Restablecer contraseña',
+                'subject'        => 'Correo electrónico de restablecimiento de contraseña',
+            ],
+        ],
+    ],
+    'common' => [
+        'yes'            => 'Sí',
+        'no'             => 'No',
+        'true'           => 'Verdadero',
+        'false'          => 'Falso',
+        'enable'         => 'Habilitado',
+        'disable'        => 'Deshabilitado',
+        'no-match-found' => '¡No se encontraron coincidencias!',
+    ],
     'default-prompt' => [
         'detailed' => [
             'title'  => 'Descripción Detallada del Producto',

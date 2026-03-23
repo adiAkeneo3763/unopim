@@ -10,7 +10,7 @@ return [
                     'invalid-attribute-family'                 => 'Invalid value for attribute family column (attribute family doesn\'t exist?)',
                     'invalid-type'                             => 'Product type is invalid or not supported',
                     'sku-not-found'                            => 'Product with specified SKU not found',
-                    'super-attribute-not-found'                => 'Configurable attribute with code: \'%s\' not found or does not belong to the attribute family: \'%s\'',
+                    'super-attribute-not-found'                => 'Configurable attribute with code: \'%s\' not found or does not belong to the attribute family: \'%s\' :code :familyCode',
                     'configurable-attributes-not-found'        => 'Configurable attributes are required for creating product model',
                     'configurable-attributes-wrong-type'       => 'Only select type attributes which are not locale or channel based are allowed to be configurable attributes for a configurable product',
                     'variant-configurable-attribute-not-found' => 'Variant configurable attribute: :code is required for creating',

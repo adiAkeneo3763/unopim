@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => 'Gem',
                     'back-btn'            => 'Tilbage',
                     'mass-update-success' => 'Fuldførelse opdateret korrekt',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => 'Kode',
                         'name'             => 'Navn',
                         'channel-required' => 'Påkrævet i kanaler',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => 'Skift fuldførelseskrav',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => 'Fuldført',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => 'Fuldførelse',
                     'subtitle' => 'Gennemsnitlig fuldførelse',
                 ],
-
                 'required-attributes' => 'Manglende påkrævede attributter',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => 'Fuldstændighedsberegning afsluttet',
+        'completeness-calculated'        => 'Fuldstændighed beregnet for :count produkter.',
+        'completeness-calculated-family' => 'Fuldstændighed beregnet for :count produkter i familien ":family".',
+        'email-subject'                  => 'Fuldstændighedsberegning afsluttet',
+        'email-greeting'                 => 'Hej,',
+        'email-body'                     => 'Fuldstændighedsberegningen er afsluttet for :count produkter.',
+        'email-body-family'              => 'Fuldstændighedsberegningen er afsluttet for :count produkter i attributfamilien ":family".',
+        'email-footer'                   => 'Du kan se fuldstændighedsdetaljer på dit dashboard.',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Beregnet produkter',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => 'Lav fuldførelse — tilføj flere oplysninger for at forbedre.',
                     'medium'  => 'Fortsæt, tilføj flere oplysninger.',
                     'high'    => 'Næsten færdig — kun få detaljer mangler.',

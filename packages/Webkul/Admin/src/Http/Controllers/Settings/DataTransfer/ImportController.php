@@ -3,8 +3,10 @@
 namespace Webkul\Admin\Http\Controllers\Settings\DataTransfer;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 use Webkul\Admin\DataGrids\Settings\DataTransfer\ImportDataGrid;
 use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\DataTransfer\Contracts\Validator\JobInstances\JobValidator;
@@ -35,7 +37,7 @@ class ImportController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index()
     {
@@ -49,7 +51,7 @@ class ImportController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function create()
     {
@@ -61,7 +63,7 @@ class ImportController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store()
     {
@@ -127,7 +129,7 @@ class ImportController extends Controller
     /**
      * Show the form for editing a new resource.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function edit(int $id)
     {
@@ -141,7 +143,7 @@ class ImportController extends Controller
     /**
      * Update a resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(int $id)
     {
@@ -212,7 +214,7 @@ class ImportController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function destroy($id)
     {
@@ -239,7 +241,7 @@ class ImportController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function importView(int $id)
     {
@@ -259,6 +261,8 @@ class ImportController extends Controller
      */
     public function importNow(int $id)
     {
+        $jobTrackInstance = null;
+
         try {
             // Retrieve the import instance or fail with a 404
             $import = $this->jobInstancesRepository->findOrFail($id);
@@ -291,11 +295,13 @@ class ImportController extends Controller
 
             // Redirect to the tracker view
             return redirect()->route('admin.settings.data_transfer.tracker.view', $jobTrackInstance->id);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             // Log the error and redirect with an error message
             \Log::error('Import failed for job instance '.$id.': '.$e->getMessage());
 
-            return redirect()->route('admin.settings.data_transfer.tracker.view', ['id' => $id])
+            $batchId = $jobTrackInstance?->id ?? $id;
+
+            return redirect()->route('admin.settings.data_transfer.tracker.view', ['batch_id' => $batchId])
                 ->with('error', 'Failed to start the import process. Please try again.');
         }
     }

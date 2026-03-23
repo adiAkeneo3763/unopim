@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 use Webkul\AiAgent\Contracts\Credential as CredentialContract;
+use Webkul\AiAgent\Presenters\CredentialPresenter;
 use Webkul\HistoryControl\Interfaces\PresentableHistoryInterface;
 use Webkul\HistoryControl\Traits\HistoryTrait;
 
@@ -80,7 +81,7 @@ class Credential extends Model implements AuditableContract, CredentialContract,
     public static function getPresenters(): array
     {
         return [
-            'common' => \Webkul\AiAgent\Presenters\CredentialPresenter::class,
+            'common' => CredentialPresenter::class,
         ];
     }
 }

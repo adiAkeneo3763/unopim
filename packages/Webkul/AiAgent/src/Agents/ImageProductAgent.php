@@ -50,7 +50,6 @@ class ImageProductAgent
      * @param  int  $agentId  Agent configuration ID
      * @param  int  $credentialId  AI provider credential ID
      * @param  array<string, mixed>  $additionalContext  Extra context to pass to the agent
-     * @return AgentResult
      */
     public function analyze(
         string $imageSource,
@@ -78,11 +77,7 @@ class ImageProductAgent
     /**
      * Analyze a product image asynchronously (queued).
      *
-     * @param  string  $imageSource
-     * @param  int  $agentId
-     * @param  int  $credentialId
      * @param  array<string, mixed>  $additionalContext
-     * @return void
      */
     public function analyzeAsync(
         string $imageSource,
@@ -119,7 +114,7 @@ class ImageProductAgent
         // If it's a URL, validate and return as-is
         if ($this->isUrl($imageSource)) {
             if (! $this->isValidUrl($imageSource)) {
-                throw new \InvalidArgumentException('Invalid image URL: ' . $imageSource);
+                throw new \InvalidArgumentException('Invalid image URL: '.$imageSource);
             }
 
             return $imageSource;
@@ -128,11 +123,11 @@ class ImageProductAgent
         // If it's a file path, read and encode as base64
         if ($this->isFilePath($imageSource)) {
             if (! file_exists($imageSource)) {
-                throw new \InvalidArgumentException('Image file not found: ' . $imageSource);
+                throw new \InvalidArgumentException('Image file not found: '.$imageSource);
             }
 
             if (! $this->isAllowedImageMime($imageSource)) {
-                throw new \InvalidArgumentException('Unsupported image format: ' . $imageSource);
+                throw new \InvalidArgumentException('Unsupported image format: '.$imageSource);
             }
 
             return $this->encodeImageToBase64($imageSource);
@@ -205,7 +200,7 @@ class ImageProductAgent
             return false;
         }
 
-        return (strlen($source) % 4 === 0);
+        return strlen($source) % 4 === 0;
     }
 
     /**
@@ -222,7 +217,7 @@ class ImageProductAgent
     protected function isAllowedImageMime(string $filePath): bool
     {
         $allowedMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-        $mimeType     = mime_content_type($filePath);
+        $mimeType = mime_content_type($filePath);
 
         return in_array($mimeType, $allowedMimes, true);
     }
@@ -235,11 +230,11 @@ class ImageProductAgent
         $imageData = file_get_contents($filePath);
 
         if ($imageData === false) {
-            throw new \RuntimeException('Failed to read image file: ' . $filePath);
+            throw new \RuntimeException('Failed to read image file: '.$filePath);
         }
 
         $mimeType = mime_content_type($filePath);
 
-        return 'data:' . $mimeType . ';base64,' . base64_encode($imageData);
+        return 'data:'.$mimeType.';base64,'.base64_encode($imageData);
     }
 }

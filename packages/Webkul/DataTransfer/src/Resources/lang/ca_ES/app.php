@@ -11,7 +11,7 @@ return [
                     'invalid-attribute-family'                 => 'Valor incorrecte per a la família d\'atributs (la família d\'atributs no existeix?).',
                     'invalid-type'                             => 'Tipus de producte no vàlid o no compatible',
                     'sku-not-found'                            => 'Producte amb l\'SKU especificat no trobat',
-                    'super-attribute-not-found'                => 'L\'atribut configurable amb codi: \'%s\' no trobat o no pertany a la família d\'atributs: \'%s\'',
+                    'super-attribute-not-found'                => 'L\'atribut configurable amb codi: \'%s\' no trobat o no pertany a la família d\'atributs: \'%s\' :code :familyCode',
                     'configurable-attributes-not-found'        => 'Són necessaris els atributs configurables per crear el model de producte',
                     'configurable-attributes-wrong-type'       => 'Només els atributs del tipus seleccionat que no siguin basats en la localització o el canal són permetuts com a atributs configurables per a un producte configurable',
                     'variant-configurable-attribute-not-found' => 'L\'atribut configurable variant: :code és necessari per crear',

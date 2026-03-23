@@ -1,0 +1,79 @@
+name: Locale Integrity Audit
+
+on:
+  push:
+    paths:
+      - 'packages/**/Resources/lang/**'
+      - 'packages/Webkul/Core/src/Console/Commands/TranslationsChecker.php'
+      - 'packages/Webkul/Core/src/Console/TranslationAudit/**'
+      - '.github/workflows/translation_tests.yml'
+  pull_request:
+    paths:
+      - 'packages/**/Resources/lang/**'
+      - 'packages/Webkul/Core/src/Console/Commands/TranslationsChecker.php'
+      - 'packages/Webkul/Core/src/Console/TranslationAudit/**'
+      - '.github/workflows/translation_tests.yml'
+
+concurrency:
+  group: locale-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  audit-translations:
+    name: Verify locale parity (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        php: ['8.3']
+
+    steps:
+      - name: Pull source
+        uses: actions/checkout@v4
+
+      - name: Bootstrap PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: curl, fileinfo, gd, intl, mbstring, openssl, pdo, pdo_mysql, tokenizer, zip
+          ini-values: error_reporting=E_ALL
+          tools: composer:v2
+          coverage: none
+
+      - name: Resolve Composer cache path
+        id: cache-dir
+        run: echo "path=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore Composer cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.cache-dir.outputs.path }}
+          key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Prepare environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Run locale integrity audit
+        run: php artisan unopim:translations:check
+
+      - name: Generate full quality report (JSON artifact)
+        if: always()
+        run: php artisan unopim:translations:check --coverage --json > translation-audit.json || true
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-audit-report
+          path: translation-audit.json
+          retention-days: 30

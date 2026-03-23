@@ -11,7 +11,6 @@ return [
             'powered-by'             => '由 :unopim 提供,',
             'open-source-project-by' => '由 :webkul 開源專案提供。',
         ],
-
         'forget-password' => [
             'create' => [
                 'email'                  => '已註冊的電子郵件',
@@ -26,7 +25,6 @@ return [
                 'open-source-project-by' => '由 :webkul 開源專案提供。',
             ],
         ],
-
         'reset-password' => [
             'back-link-title'        => '返回登入？',
             'confirm-password'       => '確認密碼',
@@ -38,7 +36,6 @@ return [
             'open-source-project-by' => '由 :webkul 開源專案提供。',
         ],
     ],
-
     'notifications' => [
         'description-text' => '列出所有通知',
         'marked-success'   => '通知成功標記',
@@ -55,7 +52,6 @@ return [
             'processing' => '處理中',
         ],
     ],
-
     'account' => [
         'edit' => [
             'back-btn'          => '返回',
@@ -76,25 +72,75 @@ return [
             'user-timezone'     => '用戶時區',
         ],
     ],
-
     'dashboard' => [
         'index' => [
-            'title'            => '儀表板',
-            'user-info'        => '快速監控，PIM 中的計數',
-            'user-name'        => '你好！ :user_name',
-            'catalog-details'  => '目錄',
-            'total-families'   => '總家庭',
-            'total-attributes' => '總屬性',
-            'total-groups'     => '總組',
-            'total-categories' => '總類別',
-            'total-products'   => '總產品',
-            'settings-details' => '目錄結構',
-            'total-locales'    => '總地區',
-            'total-currencies' => '總貨幣',
-            'total-channels'   => '總頻道',
+            'title'                => '儀表板',
+            'user-info'            => '快速監控，PIM 中的計數',
+            'user-name'            => '你好！ :user_name',
+            'catalog-details'      => '目錄',
+            'total-families'       => '總家庭',
+            'total-attributes'     => '總屬性',
+            'total-groups'         => '總組',
+            'total-categories'     => '總類別',
+            'total-products'       => '總產品',
+            'settings-details'     => '目錄結構',
+            'total-locales'        => '總地區',
+            'total-currencies'     => '總貨幣',
+            'total-channels'       => '總頻道',
+            'completeness'         => 'Completeness',
+            'active'               => 'Active',
+            'inactive'             => 'Inactive',
+            'simple'               => 'Simple',
+            'configurable'         => 'Configurable',
+            'product-stats'        => 'Product Statistics',
+            'product-type-dist'    => 'Product Type Distribution',
+            'products-by-status'   => 'Products by Status',
+            'products-over-time'   => 'Product Activity (Last 7 Days)',
+            'legend-created'       => 'Created',
+            'legend-updated'       => 'Updated',
+            'recent-activity'      => 'Recent Activity',
+            'no-activity'          => 'No recent activity found.',
+            'updated'              => 'updated',
+            'created'              => 'created',
+            'deleted'              => 'deleted',
+            'ago'                  => 'ago',
+            'just-now'             => 'just now',
+            'data-transfer'        => 'Data Transfer',
+            'no-jobs'              => 'No recent import/export jobs found.',
+            'job-type-import'      => 'Import',
+            'job-type-export'      => 'Export',
+            'job-state-completed'  => 'Completed',
+            'job-state-failed'     => 'Failed',
+            'job-state-processing' => 'Processing',
+            'job-state-pending'    => 'Pending',
+            'job-state-validated'  => 'Validated',
+            'rows-processed'       => 'Rows Processed',
+            'errors'               => 'Errors',
+            'quick-links'          => 'Quick Links',
+            'create-product'       => 'Create Product',
+            'import-data'          => 'Import Data',
+            'export-data'          => 'Export Data',
+            'manage-attributes'    => 'Manage Attributes',
+            'view-all-activity'    => 'View All',
+            'view-all-jobs'        => 'View All Jobs',
+            'new-this-week'        => 'New This Week',
+            'with-variants'        => 'With Variants',
+            'avg-completeness'     => 'Avg Completeness',
+            'enriched'             => 'Enriched',
+            'analytics-section'    => 'Analytics',
+            'operations-section'   => 'Operations',
+            'needs-attention'      => 'Needs Attention',
+            'unenriched-products'  => 'Unenriched Products',
+            'failed-jobs-24h'      => 'Failed Jobs (24h)',
+            'low-completeness'     => 'Low Completeness',
+            'all-good'             => 'Everything looks good!',
+            'channel-readiness'    => 'Channel Readiness',
+            'ready-to-publish'     => 'ready to publish',
+            'of'                   => 'of',
+            'products-ready'       => 'products ready',
+            'no-readiness-data'    => 'No completeness data available yet.',
         ],
     ],
-
     'catalog' => [
         'products' => [
             'index' => [
@@ -104,8 +150,7 @@ return [
                 'magic-ai-error'            => '檢查您的 Magic AI 賬戶，並確保已選擇正確的模型。',
                 'magic-ai-validate-error'   => '請驗證 Magic AI 憑證。',
                 'magic-ai-validate-success' => 'Magic AI 憑證驗證成功。',
-
-                'create' => [
+                'create'                    => [
                     'back-btn'                          => '返回',
                     'configurable-attributes'           => '可配置屬性',
                     'create-btn'                        => '創建產品',
@@ -118,7 +163,6 @@ return [
                     'not-config-super-attributes-error' => '未找到超屬性 ":super_attributes"',
                     'sku-exists-error'                  => 'SKU ":sku" 已經被使用',
                 ],
-
                 'datagrid' => [
                     'active'                 => '啟用',
                     'attribute-family'       => '屬性系列',
@@ -148,49 +192,43 @@ return [
                     'update-status'          => '更新狀態',
                     'parent'                 => '父級產品',
                     'parent-identifier'      => '父級產品: :sku',
+                    'created-at'             => 'Created At',
+                    'updated-at'             => 'Updated At',
                 ],
             ],
-
             'edit' => [
-                'preview'  => '預覽',
-                'remove'   => '刪除',
-                'save-btn' => '保存產品',
-                'title'    => '編輯產品',
-
+                'preview'    => '預覽',
+                'remove'     => '刪除',
+                'save-btn'   => '保存產品',
+                'title'      => '編輯產品',
                 'categories' => [
                     'title' => '分類',
                 ],
-
                 'images' => [
                     'info'  => '圖片尺寸應為560px X 609px',
                     'title' => '圖片',
                 ],
-
                 'videos' => [
                     'error' => ':attribute 不能超過 :max 千位元組。請選擇更小的檔案。',
                     'info'  => '視頻的最大大小：:size',
                     'title' => '視頻',
                 ],
-
                 'links' => [
                     'related-products' => [
                         'empty-info' => '請添加相關產品。',
                         'info'       => '除了顯示的產品，客戶還會看到相關產品。',
                         'title'      => '相關產品',
                     ],
-
                     'up-sells' => [
                         'empty-info' => '請添加上銷產品。',
                         'info'       => '客戶會看到更多高價或高品質的產品。',
                         'title'      => '上銷產品',
                     ],
-
                     'cross-sells' => [
                         'empty-info' => '請添加交叉銷售產品。',
                         'info'       => '客戶會看到可以與購物車中的產品一同購買的其他產品。',
                         'title'      => '交叉銷售產品',
                     ],
-
                     'add-btn'           => '添加',
                     'delete'            => '刪除',
                     'empty-info'        => '請添加 :type 類型的產品。',
@@ -199,7 +237,6 @@ return [
                     'sku'               => 'SKU - :sku',
                     'title'             => '產品',
                 ],
-
                 'types' => [
                     'configurable' => [
                         'add-btn'                            => '添加變體',
@@ -213,18 +250,16 @@ return [
                         'sku'                                => 'SKU - :sku',
                         'title'                              => '變體',
                         'variant-exists'                     => '此變體或 SKU 已經存在。',
-                        'variant-attribute-option-not-found' => '未找到此屬性的變體選項',
-                        'supper-attribute-not-found'         => '未找到超屬性',
-                        'variant-given-exists'               => '此變體已經存在',
-
-                        'create' => [
+                        'variant-attribute-option-not-found' => '未找到此屬性的變體選項 :attributes',
+                        'supper-attribute-not-found'         => '未找到超屬性 :attribute',
+                        'variant-given-exists'               => '此變體已經存在 :variants',
+                        'create'                             => [
                             'description'            => '描述',
                             'name'                   => '名稱',
                             'save-btn'               => '添加',
                             'title'                  => '添加變體',
                             'variant-already-exists' => '此變體已經存在。',
                         ],
-
                         'edit' => [
                             'disabled'        => '禁用',
                             'edit-info'       => '要更新產品詳細信息，請訪問頁面',
@@ -240,7 +275,6 @@ return [
                             'title'           => '產品',
                             'weight'          => '重量',
                         ],
-
                         'mass-edit' => [
                             'add-images'          => '添加圖片',
                             'apply-to-all-btn'    => '應用於所有',
@@ -267,23 +301,31 @@ return [
                         ],
                     ],
                 ],
-
                 'translate' => [
-                    'translate-btn'            => '翻譯',
-                    'title'                    => '翻譯',
-                    'source-channel'           => '來源頻道',
-                    'locale'                   => '來源語區',
-                    'translated-content'       => '翻譯內容',
-                    'translating'              => '正在翻譯',
-                    'apply'                    => '套用',
-                    'cancel'                   => '取消',
-                    'target-locales'           => '目標語區',
-                    'target-channel'           => '目標頻道',
-                    'attributes'               => '屬性',
-                    'source-content'           => '來源內容',
-                    'tranlated-job-processed'  => '翻譯內容的儲存任務已完成。',
+                    'translate-btn'               => '翻譯',
+                    'title'                       => '翻譯',
+                    'source-channel'              => '來源頻道',
+                    'locale'                      => '來源語區',
+                    'translated-content'          => '翻譯內容',
+                    'translating'                 => '正在翻譯',
+                    'apply'                       => '套用',
+                    'back'                        => 'Back',
+                    'cancel'                      => '取消',
+                    'target-locales'              => '目標語區',
+                    'target-channel'              => '目標頻道',
+                    'attributes'                  => '屬性',
+                    'source-content'              => '來源內容',
+                    'tranlated-job-processed'     => '翻譯內容的儲存任務已完成。',
+                    'step'                        => 'Step',
+                    'select-source'               => 'Select Source',
+                    'select-target'               => 'Select Target',
+                    'first-step-title'            => 'Step 1: Select Source Channel, Language and Attributes',
+                    'first-step-title-attributes' => 'Step 1: Select Source Channel and Language',
+                    'second-step-title'           => 'Step 2: Select Target Channel and Languages',
+                    'target-content'              => 'Target Content',
+                    'next'                        => 'Next',
+                    'empty-translation-data'      => 'Data not available for translation on the basis of source channel and locale',
                 ],
-
                 'product-info' => [
                     'title'        => '產品資訊',
                     'status'       => '狀態',
@@ -293,6 +335,7 @@ return [
                     'created-at'   => '創建日期',
                     'product-type' => '產品類型',
                 ],
+                'more-actions' => 'More Actions',
             ],
             'bulk-edit' => [
                 'validation' => [
@@ -305,27 +348,22 @@ return [
                     'select-attribute-or-family' => '請至少選擇一個屬性或屬性族。',
                     'failed'                     => '驗證失敗。',
                 ],
-
-                'modal'                      => [
+                'modal' => [
                     'title'            => '批次編輯的屬性',
                     'btn-cancel'       => '取消',
                     'btn-proceed'      => '繼續',
                     'attribute-family' => '選擇屬性族',
                 ],
-
                 'index' => [
-                    'no-product'    => '未選擇任何產品進行批次編輯。',
+                    'no-product' => '未選擇任何產品進行批次編輯。',
                 ],
-
                 'filter' => [
-                    'many-product'      => '選擇的產品過多。',
-                    'redirect-message'  => '正在重新導向至批次編輯視圖。',
+                    'many-product'     => '選擇的產品過多。',
+                    'redirect-message' => '正在重新導向至批次編輯視圖。',
                 ],
-
                 'handle-save' => [
-                    'edit-success'  => '批次編輯成功。',
+                    'edit-success' => '批次編輯成功。',
                 ],
-
                 'id'              => 'ID',
                 'no-changes'      => '沒有要儲存的變更。',
                 'success'         => '任務執行成功。',
@@ -335,9 +373,8 @@ return [
                 'img-preview'     => '圖片預覽',
                 'no-image'        => '無圖片',
                 'img-fail'        => '圖片上傳失敗',
-                'no-opton'        => '無選項',
+                'no-option'       => 'No Options',
             ],
-
             'create-success'          => '產品創建成功',
             'delete-failed'           => '刪除產品時出錯',
             'delete-success'          => '產品已成功刪除',
@@ -351,30 +388,28 @@ return [
             'upload-success'          => '產品文件已成功上傳。',
             'update-failure'          => '無法更新產品。',
         ],
-
         'attributes' => [
             'index' => [
                 'create-btn' => '創建屬性',
                 'title'      => '屬性',
-
-                'datagrid' => [
-                    'channel-based'       => '基於頻道',
-                    'code'                => '代碼',
-                    'created-at'          => '創建於',
-                    'delete'              => '刪除',
-                    'edit'                => '編輯',
-                    'id'                  => 'ID',
-                    'locale-based'        => '基於區域',
-                    'mass-delete-success' => '選中的屬性已成功刪除',
-                    'name'                => '名稱',
-                    'required'            => '必填',
-                    'type'                => '類型',
-                    'unique'              => '唯一',
-                    'delete-failed'       => '無法刪除此屬性。',
-                    'mass-delete-failed'  => '無法刪除選中的屬性。',
+                'datagrid'   => [
+                    'channel-based'            => '基於頻道',
+                    'code'                     => '代碼',
+                    'created-at'               => '創建於',
+                    'delete'                   => '刪除',
+                    'edit'                     => '編輯',
+                    'id'                       => 'ID',
+                    'locale-based'             => '基於區域',
+                    'mass-delete-success'      => '選中的屬性已成功刪除',
+                    'name'                     => '名稱',
+                    'required'                 => '必填',
+                    'type'                     => '類型',
+                    'unique'                   => '唯一',
+                    'delete-failed'            => '無法刪除此屬性。',
+                    'mass-delete-failed'       => '無法刪除選中的屬性。',
+                    'delete-attribute-failure' => 'This attribute cannot be removed because it is in use for configurable products',
                 ],
             ],
-
             'create' => [
                 'add-attribute-options' => '添加屬性選項',
                 'add-option'            => '添加選項',
@@ -397,13 +432,13 @@ return [
                 'enable-wysiwyg'        => '啟用 WYSIWYG 編輯器',
                 'file'                  => '文件',
                 'general'               => '一般',
-                'image'                 => '圖片',
                 'gallery'               => '畫廊',
+                'image'                 => '圖片',
                 'input-options'         => '輸入選項',
                 'input-validation'      => '輸入驗證',
                 'is-comparable'         => '此屬性可比較',
                 'is-configurable'       => '用於創建可配置產品',
-                'is-filterable'         => '可在分層導航中使用',
+                'is-filterable'         => '可篩選',
                 'is-required'           => '是否必填',
                 'is-unique'             => '是否唯一',
                 'is-visible-on-front'   => '在前端產品頁面上顯示',
@@ -431,10 +466,9 @@ return [
                 'yes'                   => '是',
                 'same-code-error'       => '選項代碼必須唯一。',
                 'usable-in-grid'        => '可在網格中使用',
-                'is-filterable'         => '可篩選',
                 'ai-translate'          => '人工智慧翻譯',
-
-                'option' => [
+                'invalid-swatch-type'   => 'The :attribute is not allowed for attribute type :type with swatch type :swatch_type.',
+                'option'                => [
                     'color'    => '顏色樣本',
                     'dropdown' => '下拉選單',
                     'image'    => '圖片樣本',
@@ -442,7 +476,6 @@ return [
                     'text'     => '文本樣本',
                 ],
             ],
-
             'edit' => [
                 'add-attribute-options' => '添加屬性選項',
                 'add-option'            => '添加選項',
@@ -466,12 +499,11 @@ return [
                 'file'                  => '文件',
                 'general'               => '一般',
                 'image'                 => '圖片',
-                'gallery'               => '畫廊',
                 'input-options'         => '輸入選項',
                 'input-validation'      => '輸入驗證',
                 'is-comparable'         => '此屬性可比較',
                 'is-configurable'       => '用於創建可配置產品',
-                'is-filterable'         => '可在分層導航中使用',
+                'is-filterable'         => '可篩選',
                 'is-required'           => '是否必填',
                 'is-unique'             => '是否唯一',
                 'is-visible-on-front'   => '在前端產品頁面上顯示',
@@ -499,24 +531,20 @@ return [
                 'yes'                   => '是',
                 'same-code-error'       => '選項代碼必須唯一。',
                 'usable-in-grid'        => '可在網格中使用',
-                'is-filterable'         => '可篩選',
                 'ai-translate'          => '人工智慧翻譯',
-                'invalid-swatch-type'   => ':attribute 不允許用於屬性類型 :type，Swatch 類型 :swatch_type。',
-
-                'option' => [
-                    'create-success'      => '屬性選項創建成功',
-                    'delete-success'      => '屬性選項刪除成功',
+                'option'                => [
                     'save-btn'            => '保存選項',
-                    'sort-update-failure' => '排序更新失敗',
-                    'sort-update-success' => '排序更新成功',
+                    'create-success'      => '屬性選項創建成功',
                     'update-success'      => '屬性選項更新成功',
+                    'sort-update-success' => '排序更新成功',
+                    'sort-update-failure' => '排序更新失敗',
+                    'delete-success'      => '屬性選項刪除成功',
                     'color'               => '顏色樣本',
                     'dropdown'            => '下拉選單',
                     'image'               => '圖片樣本',
                     'text'                => '文本樣本',
                 ],
             ],
-
             'create-success'    => '屬性創建成功',
             'delete-failed'     => '屬性刪除失敗',
             'delete-success'    => '屬性已成功刪除',
@@ -524,19 +552,16 @@ return [
             'user-define-error' => '無法刪除系統屬性',
             'not-found'         => '找不到代碼 ":code" 的屬性',
         ],
-
         'attribute-options' => [
             'create-success'       => '屬性選項已成功創建',
             'update-success'       => '屬性選項已成功更新',
             'usable-in-grid-error' => '最多只能有4個屬性標示為可用於網格。',
         ],
-
         'attribute-groups' => [
             'index' => [
                 'create-btn' => '創建屬性組',
                 'title'      => '屬性組',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'code'                => '代碼',
                     'delete'              => '刪除',
                     'mass-delete-success' => '選擇的屬性組已成功刪除',
@@ -548,7 +573,6 @@ return [
                     'update-status'       => '更新狀態',
                 ],
             ],
-
             'create' => [
                 'title'    => '創建新屬性組',
                 'save-btn' => '保存屬性組',
@@ -557,7 +581,6 @@ return [
                 'code'     => '代碼',
                 'label'    => '標籤',
             ],
-
             'edit' => [
                 'title'    => '編輯屬性組',
                 'back-btn' => '返回',
@@ -566,7 +589,6 @@ return [
                 'code'     => '代碼',
                 'label'    => '標籤',
             ],
-
             'create-success'        => '屬性組已成功創建',
             'delete-failed'         => '刪除屬性組失敗',
             'delete-success'        => '屬性組已成功刪除',
@@ -575,29 +597,26 @@ return [
             'attribute-group-error' => '該組在某些產品族中已被使用。',
             'not-found'             => '未找到代碼為 ":code" 的屬性組',
         ],
-
         'categories' => [
             'index' => [
-                'add-btn' => '創建類別',
-                'title'   => '類別',
-
+                'add-btn'  => '創建類別',
+                'title'    => '類別',
                 'datagrid' => [
                     'active'         => '活躍',
                     'code'           => '代碼',
                     'delete'         => '刪除',
-                    'delete-success' => '選擇的資源已成功刪除',
+                    'delete-success' => '選擇的資源已成功刪除 :resource',
                     'edit'           => '編輯',
                     'id'             => 'ID',
                     'inactive'       => '不活躍',
                     'name'           => '顯示名稱',
+                    'category-name'  => '名稱',
                     'no-of-products' => '產品數量',
                     'position'       => '位置',
-                    'category-name'  => '名稱',
                     'status'         => '顯示於菜單中',
                     'update-status'  => '更新狀態',
                 ],
             ],
-
             'create' => [
                 'back-btn'            => '返回',
                 'code'                => '代碼',
@@ -618,7 +637,6 @@ return [
                 'right-section'       => '設置',
                 'left-section'        => '一般',
             ],
-
             'edit' => [
                 'back-btn'               => '返回',
                 'code'                   => '代碼',
@@ -637,7 +655,6 @@ return [
                 'right-section'          => '設置',
                 'left-section'           => '一般',
             ],
-
             'category'             => '類別',
             'create-success'       => '類別已成功創建。',
             'delete-category-root' => '無法刪除與通道相關聯的根類別。',
@@ -652,14 +669,12 @@ return [
             'create-failure'       => '無法創建類別。',
             'update-failure'       => '無法更新類別。',
         ],
-
         'category_fields' => [
             'index' => [
                 'create-btn' => '創建類別欄位',
                 'add-btn'    => '創建類別欄位',
                 'title'      => '類別欄位',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'       => '基於頻道',
                     'code'                => '代碼',
                     'created-at'          => '創建於',
@@ -684,7 +699,6 @@ return [
                     'mass-delete-failed'  => '選定的類別欄位無法刪除。',
                 ],
             ],
-
             'create' => [
                 'add-field-options'   => '添加類別欄位選項',
                 'add-option'          => '添加選項',
@@ -739,8 +753,7 @@ return [
                 'set-section-right'   => '配置部分',
                 'settings'            => '設置',
                 'same-code-error'     => '選項代碼必須是唯一的。',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => '下拉選單',
                     'save-btn' => '保存選項',
                     'color'    => '顏色樣本',
@@ -748,7 +761,6 @@ return [
                     'text'     => '文本樣本',
                 ],
             ],
-
             'edit' => [
                 'add-field-options'   => '添加類別欄位選項',
                 'add-option'          => '添加選項',
@@ -804,8 +816,7 @@ return [
                 'set-section-right'   => '配置部分',
                 'settings'            => '設置',
                 'same-code-error'     => '選項代碼必須是唯一的。',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => '下拉選單',
                     'save-btn' => '保存選項',
                     'color'    => '顏色樣本',
@@ -813,7 +824,6 @@ return [
                     'text'     => '文本樣本',
                 ],
             ],
-
             'create-success'    => '類別欄位創建成功',
             'delete-failed'     => '刪除類別欄位失敗',
             'delete-success'    => '類別欄位刪除成功',
@@ -821,17 +831,14 @@ return [
             'user-define-error' => '無法刪除系統預設類別欄位',
             'not-found'         => '找不到代碼為 ":code" 的類別欄位',
         ],
-
         'category-fields-options' => [
             'create-success' => '類別欄位選項建立成功',
             'update-success' => '類別欄位選項更新成功',
         ],
-
         'families' => [
             'index' => [
-                'add'   => '建立屬性組',
-                'title' => '屬性家族',
-
+                'add'      => '建立屬性組',
+                'title'    => '屬性家族',
                 'datagrid' => [
                     'code'           => '代碼',
                     'delete'         => '刪除',
@@ -846,7 +853,6 @@ return [
                     'update-success' => '已成功更新選擇的 :resource',
                 ],
             ],
-
             'create' => [
                 'assign-group-btn'                 => '指派屬性組',
                 'assign-group-title'               => '指派屬性組',
@@ -877,7 +883,6 @@ return [
                 'unassigned-attribute-groups'      => '未指派的屬性組',
                 'assign-first-attribute-group'     => '請先指派屬性組給家族。',
             ],
-
             'edit' => [
                 'assign-group-btn'                 => '指派屬性組',
                 'assign-group-title'               => '指派屬性組',
@@ -911,7 +916,6 @@ return [
                 'variant-options-label'            => '配置選項',
                 'select-variant'                   => '選擇屬性',
             ],
-
             'attribute-family'               => '屬性家族',
             'attribute-product-error'        => '此家族已用於產品。',
             'create-success'                 => '家族建立成功。',
@@ -924,7 +928,6 @@ return [
             'not-found'                      => '找不到代碼 ":code" 的屬性家族。',
             'can-not-update-variant-options' => '此家族已有產品變體，因此無法更新配置選項。',
         ],
-
         'history' => [
             'index' => [
                 'datagrid' => [
@@ -935,7 +938,6 @@ return [
             ],
         ],
     ],
-
     'settings' => [
         'locales' => [
             'index' => [
@@ -944,8 +946,7 @@ return [
                 'title'                 => '語言',
                 'can-not-delete-error'  => '無法刪除與頻道或用戶關聯的語言',
                 'can-not-disable-error' => '無法禁用與頻道或用戶關聯的語言',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'     => '操作',
                     'code'        => '代碼',
                     'delete'      => '刪除',
@@ -956,14 +957,12 @@ return [
                     'name'        => '顯示名稱',
                     'rtl'         => 'RTL',
                     'mass-update' => '更新狀態',
-
-                    'status' => [
+                    'status'      => [
                         'title'    => '狀態',
                         'active'   => '啟用',
                         'inactive' => '禁用',
                     ],
                 ],
-
                 'create' => [
                     'code'             => '代碼',
                     'direction'        => '方向',
@@ -974,11 +973,9 @@ return [
                     'title'            => '創建語言',
                     'status'           => '狀態',
                 ],
-
                 'edit' => [
                     'title' => '編輯語言',
                 ],
-
                 'create-success'    => '語言創建成功。',
                 'delete-failed'     => '語言刪除失敗。',
                 'delete-success'    => '語言刪除成功。',
@@ -987,7 +984,6 @@ return [
                 'update-success'    => '語言更新成功。',
             ],
         ],
-
         'currencies' => [
             'index' => [
                 'create-btn'            => '創建貨幣',
@@ -995,8 +991,7 @@ return [
                 'title'                 => '貨幣',
                 'can-not-delete-error'  => '無法刪除與頻道關聯的貨幣',
                 'can-not-disable-error' => '無法禁用與頻道關聯的貨幣',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'        => '操作',
                     'code'           => '代碼',
                     'delete'         => '刪除',
@@ -1006,16 +1001,14 @@ return [
                     'name'           => '顯示名稱',
                     'no-resource'    => '提供的資源不足以執行此操作',
                     'partial-action' => '由於系統限制，部分操作未執行，資源：:resource',
-                    'update-success' => '選定的資源已成功更新。',
+                    'update-success' => '選定的資源已成功更新。 :resource',
                     'mass-update'    => '更新狀態',
-
-                    'status' => [
+                    'status'         => [
                         'title'    => '狀態',
                         'active'   => '啟用',
                         'inactive' => '禁用',
                     ],
                 ],
-
                 'create' => [
                     'code'           => '代碼',
                     'create-btn'     => '創建貨幣',
@@ -1028,11 +1021,9 @@ return [
                     'title'          => '創建新貨幣',
                     'status'         => '狀態',
                 ],
-
                 'edit' => [
                     'title' => '編輯貨幣',
                 ],
-
                 'create-success'    => '貨幣創建成功。',
                 'delete-failed'     => '貨幣刪除失敗。',
                 'delete-success'    => '貨幣刪除成功。',
@@ -1041,7 +1032,6 @@ return [
                 'cannot-delete'     => '無法刪除貨幣。',
             ],
         ],
-
         'data-transfer' => [
             'tracker' => [
                 'index' => [
@@ -1059,28 +1049,28 @@ return [
                         'user'                 => '用戶',
                         'created_at'           => '創建時間',
                         'updated_at'           => '更新時間',
-
-                        'pending'    => '待處理',
-                        'validated'  => '已驗證',
-                        'processing' => '處理中',
-                        'processed'  => '已處理',
-                        'linking'    => '連接中',
-                        'linked'     => '已連接',
-
-                        'indexing'  => '索引中',
-                        'indexed'   => '已索引',
-                        'completed' => '已完成',
-                        'failed'    => '失敗',
+                        'pending'              => '待處理',
+                        'validating'           => 'Validating',
+                        'validated'            => '已驗證',
+                        'processing'           => '處理中',
+                        'processed'            => '已處理',
+                        'linking'              => '連接中',
+                        'linked'               => '已連接',
+                        'indexing'             => '索引中',
+                        'indexed'              => '已索引',
+                        'completed'            => '已完成',
+                        'paused'               => 'Paused',
+                        'cancelled'            => 'Cancelled',
+                        'failed'               => '失敗',
                     ],
                 ],
-
                 'import' => [
                     'back-btn'                => '返回',
                     'completed-batches'       => '總完成批次數:',
                     'download-error-report'   => '下載完整報告',
                     'edit-btn'                => '編輯',
                     'imported-info'           => '恭喜！您的導入已成功。',
-                    'importing-info'          => '正在導出',
+                    'exporting-info'          => 'Export In Process',
                     'indexing-info'           => '資源索引中（價格，Elastic Search）',
                     'linking-info'            => '資源連接中',
                     'progress'                => '進度:',
@@ -1098,7 +1088,6 @@ return [
                     'validation-failed-info'  => '您的導入無效。請修正以下錯誤並重新嘗試。',
                     'validation-success-info' => '您的導入有效。點擊“導出”開始導入過程。',
                 ],
-
                 'summary' => [
                     'total-batches' => '總批次:',
                     'created'       => '創建的總記錄:',
@@ -1109,150 +1098,191 @@ return [
                     'updated'       => '更新的總記錄:',
                     'skipped'       => '跳過的總記錄:',
                 ],
-
-                'info'              => '恭喜！您的工作已成功執行。',
-                'create-success'    => '導出成功創建。',
-                'delete-failed'     => '導出刪除失敗。',
-                'delete-success'    => '導出已成功刪除。',
-                'not-valid'         => '導出無效',
-                'nothing-to-import' => '沒有資源可供導入。',
-                'setup-queue-error' => '請將您的隊列驅動程式更改為“數據庫”或“redis”來開始導入過程。',
-                'update-success'    => '導出已成功更新。',
-                'failed-info'       => '工作失敗。請修正以下錯誤並重新嘗試。',
-                'download-log-file' => '下載日誌文件',
+                'info'                  => '恭喜！您的工作已成功執行。',
+                'running-time'          => 'Running time',
+                'estimated-remaining'   => 'Est. remaining',
+                'total-duration'        => 'Total Duration',
+                'status'                => 'Status',
+                'waiting'               => 'Waiting',
+                'total-records'         => 'Total records',
+                'job-id'                => 'Job ID',
+                'records-created'       => 'Records Created',
+                'records-updated'       => 'Records Updated',
+                'records-deleted'       => 'Records deleted',
+                'run-again'             => 'Run Again',
+                'completed-success'     => 'job completed successfully',
+                'completed-info-sub'    => 'All records have been processed and indexed. Your catalog is up to date.',
+                'create-success'        => '導出成功創建。',
+                'delete-failed'         => '導出刪除失敗。',
+                'delete-success'        => '導出已成功刪除。',
+                'not-valid'             => '導出無效',
+                'nothing-to-import'     => '沒有資源可供導入。',
+                'setup-queue-error'     => '請將您的隊列驅動程式更改為“數據庫”或“redis”來開始導入過程。',
+                'update-success'        => '導出已成功更新。',
+                'failed-info'           => '工作失敗。請修正以下錯誤並重新嘗試。',
+                'download-log-file'     => '下載日誌文件',
+                'pause'                 => 'Pause',
+                'resume'                => 'Resume',
+                'cancel'                => 'Cancel',
+                'paused'                => 'Import has been paused.',
+                'resumed'               => 'Import has been resumed.',
+                'cancelled'             => 'Import has been cancelled.',
+                'paused-info'           => 'Import is paused. Remaining batches are on hold.',
+                'paused-info-export'    => 'Export is paused. Remaining batches are on hold.',
+                'cancelled-info'        => 'Import was cancelled. Partial results are shown below.',
+                'cancelled-info-export' => 'Export was cancelled. Partial results are shown below.',
+                'cancel-confirm'        => 'Are you sure you want to cancel this job? This action cannot be undone.',
+                'live'                  => 'Live',
+                'import-progress'       => 'Import progress',
+                'export-progress'       => 'Export progress',
+                'linking-progress'      => 'Linking progress',
+                'indexing-progress'     => 'Indexing progress',
+                'job-label'             => 'Job',
             ],
-
-            'import' => [
+            'imports' => [
                 'create' => [
-                    'code'                => '代碼',
-                    'action'              => '動作',
-                    'allowed-errors'      => '允許的錯誤',
-                    'allowed-file-types'  => '允許的檔案類型 (CSV, XLSX, XLS)',
-                    'back-btn'            => '返回',
-                    'create-update'       => '創建/更新',
-                    'delete'              => '刪除',
-                    'media'               => '檔案 / 圖片',
-                    'images'              => '圖片',
-                    'download-sample'     => '下載 :resource CSV 範本',
-                    'field-separator'     => '欄位分隔符',
-                    'separator-info'      => '僅對 CSV 檔案使用',
-                    'file-info-example'   => '將圖片放置在 storage/app/public/ 中。如果圖片位於 storage/app/public/import-images 中，請在路徑中加上 import-images/ 並且僅使用檔案名稱。',
-                    'file-info'           => '使用相對路徑到 /project-root/storage/app/import，例如 product-images, import-images。',
-                    'file'                => '檔案',
-                    'general'             => '一般',
-                    'upload_images'       => '上傳圖片以設定路徑',
-                    'download-sample-zip' => '下載 ZIP 格式的範本檔案',
-                    'zip-drop-hint'       => '點擊或將ZIP檔案拖放至此處',
-                    'images-directory'    => '路徑',
-                    'process-in-queue'    => '在隊列中處理',
-                    'results'             => '結果',
-                    'save-btn'            => '儲存導入',
-                    'settings'            => '設定',
-                    'skip-errors'         => '跳過錯誤',
-                    'stop-on-errors'      => '遇到錯誤時停止',
-                    'title'               => '創建導入',
-                    'type'                => '類型',
-                    'validation-strategy' => '驗證策略',
+                    'code'                => 'Code',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'media'               => 'File / Images',
+                    'images'              => 'Images',
+                    'download-sample'     => 'Download :resource Sample CSV',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
+                    'file'                => 'File',
+                    'general'             => 'General',
+                    'upload_images'       => 'Upload Images to set Path',
+                    'download-sample-zip' => 'Download Sample Images ZIP',
+                    'zip-uploading'       => 'Uploading and extracting ZIP...',
+                    'zip-upload-success'  => 'ZIP uploaded and extracted successfully.',
+                    'zip-upload-error'    => 'Failed to upload ZIP. Please try again.',
+                    'invalid-zip'         => 'The uploaded file is not a valid ZIP archive.',
+                    'zip-upload-or'       => 'or upload a ZIP of images',
+                    'zip-click-upload'    => 'Click to upload a ZIP of images',
+                    'zip-files-extracted' => 'files extracted',
+                    'zip-drop-hint'       => 'Click or drag & drop a ZIP file here',
+                    'images-directory'    => 'Path',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Create Import',
+                    'type'                => 'Type',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'edit' => [
-                    'images'              => '圖片',
-                    'action'              => '動作',
-                    'allowed-errors'      => '允許的錯誤',
-                    'allowed-file-types'  => '允許的檔案類型 (CSV, XLSX, XLS)',
-                    'back-btn'            => '返回',
-                    'create-update'       => '創建/更新',
-                    'delete'              => '刪除',
-                    'download-sample'     => '下載範本',
-                    'field-separator'     => '欄位分隔符',
-                    'separator-info'      => '僅對 CSV 檔案使用',
-                    'file-info-example'   => '將圖片放置在 storage/app/public/ 中。如果圖片位於 storage/app/public/import-images 中，請在路徑中加上 import-images/ 並且僅使用檔案名稱。',
-                    'file-info'           => '使用相對路徑到 /project-root/storage/app/import，例如 product-images, import-images。',
-                    'file'                => '檔案',
-                    'general'             => '一般',
-                    'images-directory'    => '路徑',
-                    'process-in-queue'    => '在隊列中處理',
-                    'results'             => '結果',
-                    'save-btn'            => '儲存導入',
-                    'settings'            => '設定',
-                    'skip-errors'         => '跳過錯誤',
-                    'stop-on-errors'      => '遇到錯誤時停止',
-                    'title'               => '編輯導入',
-                    'type'                => '類型',
-                    'validation-strategy' => '驗證策略',
+                    'images'              => 'Images',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'download-sample'     => 'Download Sample',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
+                    'file'                => 'File',
+                    'general'             => 'General',
+                    'images-directory'    => 'Path',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Edit Import',
+                    'type'                => 'Type',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'batch' => [
-                    'title' => '導入已添加到隊列中',
+                    'title' => 'Import added in the queue',
                 ],
-
                 'index' => [
-                    'button-title' => '創建導入',
-                    'title'        => '導入',
-
-                    'datagrid' => [
-                        'actions'               => '動作',
-                        'completed-at'          => '完成於',
-                        'created'               => '創建於',
-                        'delete'                => '刪除',
-                        'deleted'               => '已刪除',
-                        'edit'                  => '編輯',
-                        'error-file'            => '錯誤檔案',
+                    'button-title' => 'Create Import',
+                    'title'        => 'Imports',
+                    'datagrid'     => [
+                        'actions'               => 'Actions',
+                        'completed-at'          => 'Completed At',
+                        'created'               => 'Created',
+                        'delete'                => 'Delete',
+                        'deleted'               => 'Deleted',
+                        'edit'                  => 'Edit',
+                        'error-file'            => 'Error File',
                         'id'                    => 'ID',
-                        'code'                  => '代碼',
-                        'type'                  => '類型',
-                        'action'                => '動作',
-                        'started-at'            => '開始於',
-                        'state'                 => '狀態',
-                        'summary'               => '摘要',
-                        'updated'               => '更新於',
-                        'uploaded-file'         => '已上傳檔案',
-                        'images_directory_path' => '圖片目錄路徑',
-                        'import'                => '導入',
+                        'code'                  => 'Code',
+                        'type'                  => 'Type',
+                        'action'                => 'Action',
+                        'started-at'            => 'Started At',
+                        'state'                 => 'State',
+                        'summary'               => 'Summary',
+                        'updated'               => 'Updated',
+                        'uploaded-file'         => 'Uploaded File',
+                        'images_directory_path' => 'Images File',
+                        'import'                => 'Import',
                     ],
                 ],
-
                 'import' => [
-                    'back-btn'                => '返回',
-                    'completed-batches'       => '已完成的批次:',
-                    'download-error-report'   => '下載錯誤報告',
-                    'edit-btn'                => '編輯',
-                    'imported-info'           => '恭喜！您的導入已成功完成。',
-                    'importing-info'          => '正在導入中',
-                    'exporting-info'          => '正在導出中',
-                    'indexing-info'           => '正在索引資源（價格、Elastic Search）',
-                    'linking-info'            => '正在鏈接資源',
-                    'progress'                => '進度:',
-                    'pending-info'            => '在隊列中等待處理',
-                    'pending-step-export'     => '正在匯出',
-                    'title'                   => '導入',
-                    'total-batches'           => '總批次數:',
-                    'total-created'           => '總創建數量:',
-                    'total-deleted'           => '總刪除數量:',
-                    'total-errors'            => '總錯誤數量:',
-                    'total-invalid-rows'      => '總無效行數量:',
-                    'total-rows-processed'    => '總處理行數量:',
-                    'total-updated'           => '總更新數量:',
-                    'validate-info'           => '點擊以檢查數據並檢查導入。',
-                    'validate'                => '驗證',
-                    'file_path'               => '檔案路徑',
-                    'import-now'              => '立即導入',
-                    'action'                  => '動作類型',
-                    'profile'                 => '導入配置檔',
-                    'validating-info'         => '開始讀取和驗證數據',
-                    'validation-failed-info'  => '您的導入無效。請修正錯誤並重新嘗試。',
-                    'validation-success-info' => '您的匯入有效。正在自動開始匯入...',
+                    'action'                  => 'Action Mode',
+                    'back-btn'                => 'Back',
+                    'completed-batches'       => 'Total Batches Completed:',
+                    'download-error-report'   => 'Download Full Report',
+                    'edit-btn'                => 'Edit',
+                    'exporting-info'          => 'Export In Process',
+                    'exporting-info-sub'      => 'Generating export file and writing records. Please wait.',
+                    'file_path'               => 'File Path',
+                    'imported-info'           => 'Congratulations! Your import was successful.',
+                    'import-now'              => 'Import Now',
+                    'importing-info'          => 'Import In Process',
+                    'importing-info-sub'      => 'Processing batches and writing records to the database.',
+                    'indexing-info'           => 'Resources Indexing (Price, Elastic Search) In Progress',
+                    'indexing-info-sub'       => 'Rebuilding search indices and price caches after import. This step runs automatically.',
+                    'indexing-type'           => 'Price + ES',
+                    'linking-info'            => 'Resources Linking In Progress',
+                    'linking-info-sub'        => 'Linking related resources and associations between records.',
+                    'pending-info'            => 'Job queued — waiting for worker to start...',
+                    'pending-info-sub'        => 'Your job has been added to the processing queue. A worker will pick it up shortly.',
+                    'pending-step-complete'   => 'Complete',
+                    'pending-step-export'     => 'Exporting',
+                    'pending-step-import'     => 'Importing',
+                    'pending-step-queue'      => 'Queued',
+                    'pending-step-validate'   => 'Validating',
+                    'profile'                 => 'Import Profile',
+                    'progress'                => 'Progress:',
+                    'title'                   => 'Import',
+                    'total-batches'           => 'Total Batches:',
+                    'total-created'           => 'Total Records Created:',
+                    'total-deleted'           => 'Total Records Deleted:',
+                    'total-errors'            => 'Total Errors:',
+                    'total-invalid-rows'      => 'Total Invalid Rows:',
+                    'total-rows-processed'    => 'Total Rows Processed:',
+                    'total-updated'           => 'Total Records Updated:',
+                    'validate'                => 'Validate',
+                    'validate-info'           => 'Click on Validate Data to check your import.',
+                    'validating-info'         => 'Reading file and validating data...',
+                    'validating-info-sub'     => 'Checking schema integrity, field mappings, and data types before the import begins.',
+                    'validation-failed-info'  => 'Your import is invalid. Please fix the following errors and try again.',
+                    'validation-success-info' => 'Your import is valid. Starting import automatically...',
                 ],
-
-                'create-success'    => '導入已成功創建。',
-                'delete-failed'     => '無法刪除導入。',
-                'delete-success'    => '導入已成功刪除。',
-                'not-valid'         => '無效的導入',
-                'nothing-to-import' => '沒有資源可以導入。',
-                'setup-queue-error' => '請將隊列驅動程序更改為“database”或“redis”以開始導入過程。',
-                'update-success'    => '導入已成功更新。',
+                'create-success'     => 'Import created successfully.',
+                'delete-failed'      => 'Import deletion failed unexpectedly.',
+                'delete-success'     => 'Import deleted successfully.',
+                'invalid-zip'        => 'The uploaded file is not a valid ZIP archive.',
+                'not-valid'          => 'Import is invalid',
+                'nothing-to-import'  => 'There are no resources to import.',
+                'setup-queue-error'  => 'Please change your queue driver to "database" or "redis" to start the import process.',
+                'update-success'     => 'Import updated successfully.',
+                'zip-upload-success' => 'ZIP uploaded and extracted successfully.',
             ],
-
             'exports' => [
                 'create' => [
                     'code'                => '代碼',
@@ -1283,7 +1313,6 @@ return [
                     'type'                => '類型',
                     'validation-strategy' => '驗證策略',
                 ],
-
                 'edit' => [
                     'action'              => '動作',
                     'allowed-errors'      => '允許錯誤',
@@ -1307,16 +1336,13 @@ return [
                     'type'                => '類型',
                     'validation-strategy' => '驗證策略',
                 ],
-
                 'batch' => [
                     'title' => '匯出已加入排隊',
                 ],
-
                 'index' => [
                     'button-title' => '創建匯出',
                     'title'        => '匯出',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => '操作',
                         'completed-at'          => '完成時間',
                         'created'               => '已創建',
@@ -1337,7 +1363,6 @@ return [
                         'export'                => '匯出',
                     ],
                 ],
-
                 'export' => [
                     'back-btn'                => '返回',
                     'completed-batches'       => '已完成的批次:',
@@ -1367,7 +1392,6 @@ return [
                     'file-format'             => '檔案格式',
                     'with-media'              => '包含媒體',
                 ],
-
                 'create-success'    => '匯出創建成功。',
                 'delete-failed'     => '刪除匯出失敗。',
                 'delete-success'    => '匯出刪除成功。',
@@ -1377,7 +1401,6 @@ return [
                 'update-success'    => '匯出更新成功。',
             ],
         ],
-
         'channels' => [
             'index' => [
                 'create-btn'           => '創建頻道',
@@ -1396,7 +1419,6 @@ return [
                     'root-category' => '根目錄',
                 ],
             ],
-
             'create' => [
                 'allowed-ips'            => '允許的IP',
                 'cancel'                 => '返回',
@@ -1431,7 +1453,6 @@ return [
                 'theme'                  => '主題',
                 'title'                  => '創建頻道',
             ],
-
             'edit' => [
                 'allowed-ips'            => '允許的IP',
                 'back-btn'               => '返回',
@@ -1469,13 +1490,11 @@ return [
                 'update-success'         => '頻道更新成功',
             ],
         ],
-
         'users' => [
             'index' => [
-                'admin' => '管理員',
-                'title' => '用戶',
-                'user'  => '用戶',
-
+                'admin'  => '管理員',
+                'title'  => '用戶',
+                'user'   => '用戶',
                 'create' => [
                     'confirm-password'  => '確認密碼',
                     'email'             => '電子郵件',
@@ -1489,7 +1508,6 @@ return [
                     'user-timezone'     => '時區',
                     'select'            => '選擇',
                 ],
-
                 'datagrid' => [
                     'actions'  => '操作',
                     'active'   => '啟用',
@@ -1503,12 +1521,10 @@ return [
                     'status'   => '狀態',
                     'image'    => '圖片',
                 ],
-
                 'edit' => [
                     'title' => '編輯用戶',
                 ],
             ],
-
             'edit' => [
                 'back-btn'         => '返回',
                 'confirm-password' => '確認密碼',
@@ -1521,7 +1537,6 @@ return [
                 'status'           => '狀態',
                 'title'            => '編輯用戶',
             ],
-
             'activate-warning'          => '您的帳號尚未啟用，請聯繫管理員。',
             'cannot-change'             => '無法修改用戶',
             'create-success'            => '用戶創建成功。',
@@ -1534,13 +1549,11 @@ return [
             'update-success'            => '用戶更新成功。',
             'current-user-delete-error' => '無法刪除當前用戶。',
         ],
-
         'roles' => [
             'index' => [
                 'create-btn' => '創建角色',
                 'title'      => '角色',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => '刪除',
                     'edit'            => '編輯',
                     'id'              => 'ID',
@@ -1548,7 +1561,6 @@ return [
                     'permission-type' => '權限類型',
                 ],
             ],
-
             'create' => [
                 'access-control' => '訪問控制',
                 'all'            => '所有',
@@ -1561,7 +1573,6 @@ return [
                 'save-btn'       => '保存角色',
                 'title'          => '創建角色',
             ],
-
             'edit' => [
                 'access-control' => '訪問控制',
                 'all'            => '所有',
@@ -1574,7 +1585,6 @@ return [
                 'save-btn'       => '保存角色',
                 'title'          => '編輯角色',
             ],
-
             'being-used'        => '角色已被管理員用戶使用',
             'being-used-by'     => '角色已由 :name 用戶使用',
             'create-success'    => '角色創建成功',
@@ -1584,160 +1594,6 @@ return [
             'update-success'    => '角色更新成功',
         ],
     ],
-
-    'acl' => [
-        'addresses'                => '地址',
-        'attribute-families'       => '屬性家庭',
-        'attribute-groups'         => '屬性群組',
-        'attributes'               => '屬性',
-        'cancel'                   => '取消',
-        'catalog'                  => '目錄',
-        'categories'               => '類別',
-        'channels'                 => '頻道',
-        'configure'                => '配置',
-        'configuration'            => '配置',
-        'copy'                     => '複製',
-        'create'                   => '創建',
-        'currencies'               => '貨幣',
-        'dashboard'                => '儀表板',
-        'data-transfer'            => '數據傳輸',
-        'delete'                   => '刪除',
-        'edit'                     => '編輯',
-        'email-templates'          => '電子郵件模板',
-        'events'                   => '事件',
-        'groups'                   => '組',
-        'import'                   => '導入',
-        'imports'                  => '導入',
-        'invoices'                 => '發票',
-        'locales'                  => '語言環境',
-        'magic-ai'                 => 'Magic AI',
-        'marketing'                => '營銷',
-        'newsletter-subscriptions' => '電子報訂閱',
-        'note'                     => '筆記',
-        'orders'                   => '訂單',
-        'products'                 => '產品',
-        'promotions'               => '促銷活動',
-        'refunds'                  => '退款',
-        'reporting'                => '報告',
-        'reviews'                  => '評論',
-        'roles'                    => '角色',
-        'sales'                    => '銷售',
-        'search-seo'               => '搜索 & SEO',
-        'search-synonyms'          => '搜索同義詞',
-        'search-terms'             => '搜索條款',
-        'settings'                 => '設置',
-        'shipments'                => '發貨',
-        'sitemaps'                 => '網站地圖',
-        'subscribers'              => '訂閱者',
-        'tax-categories'           => '稅類別',
-        'tax-rates'                => '稅率',
-        'taxes'                    => '稅',
-        'themes'                   => '主題',
-        'integration'              => '集成',
-        'url-rewrites'             => 'URL 重新編寫',
-        'users'                    => '用戶',
-        'category_fields'          => '分類字段',
-        'view'                     => '查看',
-        'execute'                  => '執行',
-        'history'                  => '歷史記錄',
-        'restore'                  => '恢復',
-        'integrations'             => '集成',
-        'api'                      => 'API',
-        'tracker'                  => '工作追踪器',
-        'imports'                  => '導入',
-        'exports'                  => '出口',
-        'mass-update'              => '批次更新',
-        'mass-delete'              => '批次刪除',
-    ],
-
-    'errors' => [
-        'dashboard' => '儀表板',
-        'go-back'   => '返回',
-        'support'   => '如果問題仍然存在，請通過電子郵件<a href=":link" class=":class">:email</a>聯繫我們尋求幫助。',
-
-        '404' => [
-            'description' => '哎呀！您查找的頁面在度假。似乎我們找不到您正在尋找的內容。',
-            'title'       => '404 頁面未找到',
-        ],
-
-        '401' => [
-            'description' => '哎呀！似乎您無權訪問此頁面。似乎您缺少必要的許可權。',
-            'title'       => '401 未授權',
-            'message'     => '身份驗證失敗，由於無效的憑證或過期的令牌。',
-        ],
-
-        '403' => [
-            'description' => '哎呀！此頁面禁止訪問。似乎您無權查看此內容。',
-            'title'       => '403 禁止',
-        ],
-
-        '413' => [
-            'description' => '哎呀！似乎您嘗試上傳一個太大的文件。如果要上傳該文件，請根據需要更新PHP配置。',
-            'title'       => '413 内容太大',
-        ],
-
-        '419' => [
-            'description' => '哎呀！您的會话已過期。請刷新頁面並重新登錄以繼續。',
-            'title'       => '419 会话已过期',
-        ],
-
-        '500' => [
-            'description' => '哎呀！出了點问题。似乎我们在加载您正在寻找的页面时遇到问题。',
-            'title'       => '500 内部服务器错误',
-        ],
-
-        '503' => [
-            'description' => '哎呀！似乎我们暂时无法进行维护。请稍后再检查。',
-            'title'       => '503 服务不可用',
-        ],
-    ],
-
-    'export' => [
-        'csv'                  => 'CSV',
-        'download'             => '下載',
-        'export'               => '快速匯出',
-        'no-records'           => '無需匯出資料',
-        'xls'                  => 'XLS',
-        'xlsx'                 => 'XLSX',
-        'with-media'           => '附帶媒體',
-        'export-success'       => '匯出成功！',
-        'error'                => '發生了一些錯誤！',
-        'product-not-selected' => '未選擇要快速匯出的產品',
-    ],
-
-    'validations' => [
-        'slug-being-used' => '這個slug正在用於分類或產品。',
-        'slug-reserved'   => '這個slug是保留的。',
-        'invalid-locale'  => '無效的地區 :locales',
-    ],
-
-    'footer' => [
-        'copy-right' => '由UnoPim支持，由Webkul的社區項目',
-    ],
-
-    'emails' => [
-        'dear'   => '親愛的 :admin_name',
-        'thanks' => '如果需要任何幫助，請聯繫我們：<a href=":link" style=":style">:email</a>。<br/>謝謝！',
-
-        'admin' => [
-            'forgot-password' => [
-                'description'    => '您收到此電子郵件是因為我們收到了您的密碼重置請求。',
-                'greeting'       => '忘記密碼！',
-                'reset-password' => '重置密碼',
-                'subject'        => '重置密碼電子郵件',
-            ],
-        ],
-    ],
-
-    'common' => [
-        'yes'     => '是',
-        'no'      => '否',
-        'true'    => '真實',
-        'false'   => '虛假',
-        'enable'  => '啟用',
-        'disable' => '停用',
-    ],
-
     'configuration' => [
         'index' => [
             'delete'          => '刪除',
@@ -1746,50 +1602,51 @@ return [
             'save-message'    => '配置成功保存',
             'search'          => '搜尋',
             'title'           => '配置',
-
-            'general' => [
-                'info'  => '',
-                'title' => '常規',
-
+            'general'         => [
+                'info'    => '',
+                'title'   => '常規',
                 'general' => [
                     'info'  => '',
                     'title' => '常規',
                 ],
-
                 'magic-ai' => [
-                    'info'  => '設定Magic AI選項。',
-                    'title' => 'Magic AI',
-
+                    'info'     => '設定Magic AI選項。',
+                    'title'    => 'Magic AI',
                     'settings' => [
-                        'api-key'        => 'API密鑰',
-                        'enabled'        => '啟用',
-                        'llm-api-domain' => 'LLM API域名',
-                        'organization'   => '組織ID',
-                        'title'          => '常規設定',
-                        'title-info'     => '提升您的Magic AI體驗，通過輸入您的專用API密鑰並確定相關的組織進行無縫集成。控制您的OpenAI憑證並根據您的具體需求定制設定。',
+                        'enabled'     => '啟用',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => '常規設定',
+                        'title-info'  => '提升您的Magic AI體驗，通過輸入您的專用API密鑰並確定相關的組織進行無縫集成。控制您的OpenAI憑證並根據您的具體需求定制設定。',
                     ],
-
-                    'translation'   => [
-                        'title'                  => '翻譯',
-                        'enabled'                => '啟用',
-                        'title-info'             => '此功能將啟用 Magic AI 來翻譯文本，使您能夠輕鬆地將文本從一種語言轉換為另一種語言。',
-                        'global-source-channel'  => '來源頻道',
-                        'global-source-locale'   => '來源語言環境',
-                        'translation-model'      => '翻譯模型',
-                        'replace-existing-value' => '替換現有值',
-                        'target-channel'         => '目標頻道',
-                        'target-locales'         => '目標語言環境',
+                    'image-generation' => [
+                        'enabled'     => 'Enabled',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Image Generation',
+                        'title-info'  => 'Configure the default AI platform and model for generating product images. Only platforms that support image generation (OpenAI, Gemini, xAI) are listed.',
+                    ],
+                    'translation' => [
+                        'title'                       => '翻譯',
+                        'enabled'                     => '啟用',
+                        'title-info'                  => '此功能將啟用 Magic AI 來翻譯文本，使您能夠輕鬆地將文本從一種語言轉換為另一種語言。',
+                        'ai-platform'                 => 'Default Platform',
+                        'global-source-channel'       => '來源頻道',
+                        'global-source-locale'        => '來源語言環境',
+                        'translation-model'           => '翻譯模型',
+                        'replace-existing-value'      => '替換現有值',
+                        'target-channel'              => '目標頻道',
+                        'target-locales'              => '目標語言環境',
+                        'replace-existing-value-info' => 'Replace the existing value if it already exists.',
                     ],
                 ],
             ],
         ],
-
         'integrations' => [
             'index' => [
                 'create-btn' => '創建',
                 'title'      => '集成',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => '刪除',
                     'edit'            => '編輯',
                     'id'              => 'ID',
@@ -1799,7 +1656,6 @@ return [
                     'permission-type' => '許可類型',
                 ],
             ],
-
             'create' => [
                 'access-control' => '訪問控制',
                 'all'            => '全部',
@@ -1812,7 +1668,6 @@ return [
                 'save-btn'       => '保存',
                 'title'          => '新建集成',
             ],
-
             'edit' => [
                 'access-control' => '訪問控制',
                 'all'            => '全部',
@@ -1830,7 +1685,6 @@ return [
                 'save-btn'       => '保存',
                 'title'          => '編輯集成',
             ],
-
             'being-used'                     => 'API集成已被管理用戶使用',
             'create-success'                 => 'API集成成功創建',
             'delete-failed'                  => 'API集成刪除失敗',
@@ -1841,40 +1695,143 @@ return [
             're-generate-secret-key-success' => 'API秘密密鑰成功重新生成',
             'client-not-found'               => '客戶端未找到',
         ],
-
         'prompt' => [
             'datagrid' => [
-                'id'            => 'ID',
-                'title'         => '標題',
-                'prompt'        => '提示',
-                'type'          => '類型',
-                'created-at'    => '建立時間',
-                'updated-at'    => '更新時間',
-                'actions'       => '操作',
-                'edit'          => '編輯',
-                'delete'        => '刪除',
-                'product'       => '產品',
-                'category'      => '分類',
+                'id'               => 'ID',
+                'title'            => '標題',
+                'prompt'           => '提示',
+                'type'             => '類型',
+                'purpose'          => 'Purpose',
+                'text-generation'  => 'Text Generation',
+                'image-generation' => 'Image Generation',
+                'translation'      => 'Translation',
+                'created-at'       => '建立時間',
+                'updated-at'       => '更新時間',
+                'actions'          => '操作',
+                'edit'             => '編輯',
+                'delete'           => '刪除',
+                'product'          => '產品',
+                'category'         => '分類',
             ],
             'create' => [
-                'title'         => '提示',
-                'create-btn'    => '建立提示',
-                'edit-title'    => '編輯提示',
-                'create-title'  => '建立新提示',
-                'label-title'   => '標題',
-                'type'          => '類型',
-                'prompt'        => '提示',
-                'save-btn'      => '保存提示',
+                'title'        => '提示',
+                'create-btn'   => '建立提示',
+                'edit-title'   => '編輯提示',
+                'create-title' => '建立新提示',
+                'label-title'  => '標題',
+                'purpose'      => 'Purpose',
+                'type'         => '類型',
+                'prompt'       => '提示',
+                'save-btn'     => '保存提示',
             ],
             'message' => [
-                'save-success'      => '提示已成功保存。',
-                'update-success'    => '提示已成功更新。',
-                'delete-success'    => '提示已成功刪除。',
-                'delete-fail'       => '刪除提示失敗。',
+                'save-success'   => '提示已成功保存。',
+                'update-success' => '提示已成功更新。',
+                'delete-success' => '提示已成功刪除。',
+                'delete-fail'    => '刪除提示失敗。',
+            ],
+        ],
+        'system-prompt' => [
+            'datagrid' => [
+                'id'          => 'ID',
+                'title'       => 'Title',
+                'tone'        => 'Tone',
+                'max-tokens'  => 'Max Tokens',
+                'temperature' => 'Temperature',
+                'status'      => 'Status',
+                'created-at'  => 'Created At',
+                'updated-at'  => 'Updated At',
+                'actions'     => 'Actions',
+                'save'        => 'Save',
+                'edit'        => 'Edit',
+                'delete'      => 'delete',
+            ],
+            'create' => [
+                'title'        => 'System Prompt',
+                'create-btn'   => 'Create System Prompt',
+                'edit-title'   => 'Edit System Prompt',
+                'create-title' => 'Create New System Prompt',
+                'label-title'  => 'Title',
+                'max-tokens'   => 'Max Output Tokens',
+                'temperature'  => 'Temperature',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Save Prompt',
+                'prompt-tone'  => 'Prompt Tone',
+            ],
+            'message' => [
+                'save-success'   => 'System Prompt saved successfully.',
+                'update-success' => 'System Prompt updated successfully.',
+                'delete-success' => 'System Prompt deleted successfully.',
+                'delete-fail'    => 'System Prompt deletion failed.',
+            ],
+        ],
+        'platform' => [
+            'title'           => 'AI Platforms',
+            'create-btn'      => 'Add Platform',
+            'create-title'    => 'Add AI Platform',
+            'edit-title'      => 'Edit AI Platform',
+            'save-btn'        => 'Save',
+            'saving'          => 'Saving',
+            'test-connection' => 'Test Connection',
+            'setup'           => [
+                'title'              => 'Get Started with Magic AI',
+                'description'        => 'Connect your AI provider to unlock content generation, image creation, and translation powered by AI. Add your first platform to begin.',
+                'step-1'             => 'Choose a provider',
+                'step-2'             => 'Enter your API key',
+                'step-3'             => 'Select models & save',
+                'add-first'          => 'Add Your First Platform',
+                'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
+                'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+            ],
+            'testing'         => 'Testing',
+            'fetch-models'    => 'Fetch Models',
+            'fetching-models' => 'Fetching',
+            'set-default'     => 'Set as Default',
+            'datagrid'        => [
+                'label'      => 'Label',
+                'provider'   => 'Provider',
+                'models'     => 'Models',
+                'default'    => 'Default',
+                'status'     => 'Status',
+                'created-at' => 'Created At',
+                'edit'       => 'Edit',
+                'delete'     => 'Delete',
+            ],
+            'fields' => [
+                'label'                    => 'Label',
+                'provider'                 => 'Provider',
+                'select-provider'          => '-- Select Provider --',
+                'api-url'                  => 'API URL',
+                'api-url-hint'             => 'Pre-filled with the default endpoint. Edit only if using a proxy or custom deployment.',
+                'api-key'                  => 'API Key',
+                'models'                   => 'Models',
+                'custom-model-placeholder' => 'Type custom model ID...',
+                'add'                      => 'Add',
+                'enter-key-to-fetch'       => 'Enter your API key above to automatically fetch available models.',
+                'search-models'            => 'Search models...',
+                'no-models-match'          => 'No models match your search.',
+                'azure-deployment'         => 'Deployment Name',
+                'azure-api-version'        => 'API Version',
+                'is-default'               => 'Set as Default',
+                'status'                   => 'Status',
+                'use-default'              => '-- Use Default Platform --',
+                'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
+                'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
+                'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+            ],
+            'message' => [
+                'save-success'          => 'Platform saved successfully.',
+                'update-success'        => 'Platform updated successfully.',
+                'delete-success'        => 'Platform deleted successfully.',
+                'delete-fail'           => 'Platform deletion failed.',
+                'cannot-delete-default' => 'Cannot delete the only default platform.',
+                'set-default-success'   => 'Platform set as default successfully.',
+                'test-success'          => 'Connection verified successfully!',
+                'test-fail'             => 'Connection test failed',
             ],
         ],
     ],
-
     'components' => [
         'layouts' => [
             'header' => [
@@ -1885,7 +1842,6 @@ return [
                 'notifications' => '通知',
                 'visit-shop'    => '訪問商店',
             ],
-
             'sidebar' => [
                 'attribute-families' => '屬性族群',
                 'attribute-groups'   => '屬性群組',
@@ -1919,45 +1875,37 @@ return [
                 'general-tab'        => '配置',
             ],
         ],
-
         'datagrid' => [
             'index' => [
                 'no-records-selected'              => '未選擇任何記錄。',
                 'must-select-a-mass-action-option' => '必須選擇一個批量操作選項。',
                 'must-select-a-mass-action'        => '必須選擇一個批量操作。',
             ],
-
             'toolbar' => [
-                'length-of' => ':length of',
-                'of'        => '的',
-                'per-page'  => '每頁',
-                'results'   => ':total 結果',
-                'selected'  => ':total 選擇',
-
+                'length-of'    => ':length of',
+                'of'           => '的',
+                'per-page'     => '每頁',
+                'results'      => ':total 結果',
+                'selected'     => ':total 選擇',
                 'mass-actions' => [
                     'submit'        => '提交',
                     'select-option' => '選擇選項',
                     'select-action' => '選擇操作',
                 ],
-
                 'filter' => [
                     'title' => '過濾',
                 ],
-
                 'search_by' => [
                     'code'       => '按代碼搜索',
                     'code_or_id' => '按代碼或ID搜索',
                 ],
-
                 'search' => [
                     'title' => '搜索',
                 ],
-
                 'manage-columns' => [
                     'title' => '列',
                 ],
             ],
-
             'filters' => [
                 'select'   => '選擇',
                 'title'    => '應用過濾器',
@@ -1968,17 +1916,14 @@ return [
                         'no-results'        => '未找到結果...',
                     ],
                 ],
-
                 'custom-filters' => [
                     'clear-all' => '清除所有',
                     'title'     => '自定義過濾器',
                 ],
-
                 'boolean-options' => [
                     'false' => '假',
                     'true'  => '真',
                 ],
-
                 'date-options' => [
                     'last-month'        => '上個月',
                     'last-six-months'   => '過去6個月',
@@ -1990,12 +1935,10 @@ return [
                     'yesterday'         => '昨天',
                 ],
             ],
-
             'table' => [
                 'actions'              => '操作',
                 'no-records-available' => '無可用記錄。',
             ],
-
             'manage-columns' => [
                 'title'             => '管理列',
                 'available-columns' => '可用列',
@@ -2003,7 +1946,6 @@ return [
                 'apply-btn'         => '应用',
             ],
         ],
-
         'modal' => [
             'confirm' => [
                 'agree-btn'    => '同意',
@@ -2011,14 +1953,12 @@ return [
                 'message'      => '您確定要執行此操作嗎？',
                 'title'        => '您確定嗎？',
             ],
-
             'delete' => [
                 'agree-btn'    => '刪除',
                 'disagree-btn' => '取消',
                 'message'      => '您確定要刪除嗎？',
                 'title'        => '確認刪除',
             ],
-
             'history' => [
                 'title'           => '歷史預覽',
                 'subtitle'        => '快速檢視您的更新和變更。',
@@ -2032,7 +1972,6 @@ return [
                 'no-history'      => '未找到歷史記錄',
             ],
         ],
-
         'products' => [
             'search' => [
                 'add-btn'       => '添加選定產品',
@@ -2044,7 +1983,6 @@ return [
                 'title'         => '選擇產品',
             ],
         ],
-
         'media' => [
             'images' => [
                 'add-image-btn'      => '添加圖片',
@@ -2056,24 +1994,50 @@ return [
                 'allowed-types'      => 'png, jpeg, jpg',
                 'not-allowed-error'  => '僅允許圖片文件 (.jpeg, .jpg, .png, ..)。',
                 'upload-media-btn'   => '上傳媒體',
+                'ai-generation'      => [
+                    '1024x1024'        => '1024x1024',
+                    '1024x1792'        => '1024x1792',
+                    '1792x1024'        => '1792x1024',
+                    'apply'            => 'Apply',
+                    'dall-e-2'         => 'Dall.E 2',
+                    'dall-e-3'         => 'Dall.E 3',
+                    'generate'         => 'Generate',
+                    'generating'       => 'Generating...',
+                    'hd'               => 'HD',
+                    'model'            => 'Model',
+                    'number-of-images' => 'Number of Images',
+                    'prompt'           => 'Prompt',
+                    'quality'          => 'Quality',
+                    'regenerate'       => 'Regenerate',
+                    'regenerating'     => 'Regenerating...',
+                    'size'             => 'Size',
+                    'standard'         => 'Standard',
+                    'title'            => 'AI Image Generation',
+                ],
+                'placeholders' => [
+                    'front'     => 'Front',
+                    'next'      => 'Next',
+                    'size'      => 'Size',
+                    'use-cases' => 'Use Cases',
+                    'zoom'      => 'Zoom',
+                ],
             ],
-
+            'gallery' => [
+                'not-allowed-error' => 'Only image and video files are allowed. (.mp4, .jpg ..)',
+            ],
             'videos' => [
                 'add-video-btn'     => '添加視頻',
                 'allowed-types'     => 'mp4, webm, mkv',
                 'not-allowed-error' => '僅允許視頻文件 (.mp4, .mov, .ogg ..)。',
             ],
-
             'files' => [
                 'add-file-btn'      => '添加文件',
                 'allowed-types'     => 'pdf',
                 'not-allowed-error' => '僅允許pdf文件',
             ],
         ],
-
         'tinymce' => [
-            'ai-btn-tile' => '魔法AI',
-
+            'ai-btn-tile'   => '魔法AI',
             'ai-generation' => [
                 'apply'                  => '應用',
                 'generate'               => '生成',
@@ -2082,7 +2046,14 @@ return [
                 'generating'             => '正在生成...',
                 'prompt'                 => '提示',
                 'title'                  => 'AI輔助',
+                'platform'               => 'Platform',
                 'model'                  => '模型',
+                'rich-preview'           => 'Rich Preview',
+                'system-prompt'          => 'System Prompt',
+                'select-system-prompt'   => 'Select System Prompt',
+                'tone-instructions'      => 'Tone / Instructions',
+                'max-tokens'             => 'Max Tokens',
+                'temperature'            => 'Temperature',
                 'gpt-3-5-turbo'          => 'OpenAI gpt-3.5-turbo',
                 'llama2'                 => 'Llama 2',
                 'mistral'                => 'Mistral',
@@ -2099,7 +2070,147 @@ return [
             ],
         ],
     ],
-
+    'acl' => [
+        'addresses'                => '地址',
+        'attribute-families'       => '屬性家庭',
+        'attribute-groups'         => '屬性群組',
+        'attributes'               => '屬性',
+        'cancel'                   => '取消',
+        'catalog'                  => '目錄',
+        'categories'               => '類別',
+        'channels'                 => '頻道',
+        'configure'                => '配置',
+        'configuration'            => '配置',
+        'copy'                     => '複製',
+        'create'                   => '創建',
+        'currencies'               => '貨幣',
+        'dashboard'                => '儀表板',
+        'data-transfer'            => '數據傳輸',
+        'delete'                   => '刪除',
+        'edit'                     => '編輯',
+        'email-templates'          => '電子郵件模板',
+        'events'                   => '事件',
+        'groups'                   => '組',
+        'import'                   => '導入',
+        'imports'                  => '導入',
+        'invoices'                 => '發票',
+        'locales'                  => '語言環境',
+        'magic-ai'                 => 'Magic AI',
+        'magic-ai-general'         => 'General',
+        'magic-ai-prompt'          => 'Prompt',
+        'magic-ai-system-prompt'   => 'System Prompt',
+        'marketing'                => '營銷',
+        'newsletter-subscriptions' => '電子報訂閱',
+        'note'                     => '筆記',
+        'orders'                   => '訂單',
+        'products'                 => '產品',
+        'promotions'               => '促銷活動',
+        'refunds'                  => '退款',
+        'reporting'                => '報告',
+        'reviews'                  => '評論',
+        'roles'                    => '角色',
+        'sales'                    => '銷售',
+        'search-seo'               => '搜索 & SEO',
+        'search-synonyms'          => '搜索同義詞',
+        'search-terms'             => '搜索條款',
+        'settings'                 => '設置',
+        'shipments'                => '發貨',
+        'sitemaps'                 => '網站地圖',
+        'subscribers'              => '訂閱者',
+        'tax-categories'           => '稅類別',
+        'tax-rates'                => '稅率',
+        'taxes'                    => '稅',
+        'themes'                   => '主題',
+        'integration'              => '集成',
+        'url-rewrites'             => 'URL 重新編寫',
+        'users'                    => '用戶',
+        'category_fields'          => '分類字段',
+        'view'                     => '查看',
+        'execute'                  => '執行',
+        'history'                  => '歷史記錄',
+        'restore'                  => '恢復',
+        'integrations'             => '集成',
+        'api'                      => 'API',
+        'tracker'                  => '工作追踪器',
+        'exports'                  => '出口',
+        'mass-update'              => '批次更新',
+        'mass-delete'              => '批次刪除',
+    ],
+    'errors' => [
+        'dashboard' => '儀表板',
+        'go-back'   => '返回',
+        'support'   => '如果問題仍然存在，請通過電子郵件<a href=":link" class=":class">:email</a>聯繫我們尋求幫助。',
+        '404'       => [
+            'description' => '哎呀！您查找的頁面在度假。似乎我們找不到您正在尋找的內容。',
+            'title'       => '404 頁面未找到',
+        ],
+        '401' => [
+            'description' => '哎呀！似乎您無權訪問此頁面。似乎您缺少必要的許可權。',
+            'title'       => '401 未授權',
+            'message'     => '身份驗證失敗，由於無效的憑證或過期的令牌。',
+        ],
+        '403' => [
+            'description' => '哎呀！此頁面禁止訪問。似乎您無權查看此內容。',
+            'title'       => '403 禁止',
+        ],
+        '413' => [
+            'description' => '哎呀！似乎您嘗試上傳一個太大的文件。如果要上傳該文件，請根據需要更新PHP配置。',
+            'title'       => '413 内容太大',
+        ],
+        '419' => [
+            'description' => '哎呀！您的會话已過期。請刷新頁面並重新登錄以繼續。',
+            'title'       => '419 会话已过期',
+        ],
+        '500' => [
+            'description' => '哎呀！出了點问题。似乎我们在加载您正在寻找的页面时遇到问题。',
+            'title'       => '500 内部服务器错误',
+        ],
+        '503' => [
+            'description' => '哎呀！似乎我们暂时无法进行维护。请稍后再检查。',
+            'title'       => '503 服务不可用',
+        ],
+    ],
+    'export' => [
+        'csv'                  => 'CSV',
+        'download'             => '下載',
+        'export'               => '快速匯出',
+        'no-records'           => '無需匯出資料',
+        'xls'                  => 'XLS',
+        'xlsx'                 => 'XLSX',
+        'with-media'           => '附帶媒體',
+        'export-success'       => '匯出成功！',
+        'error'                => '發生了一些錯誤！',
+        'product-not-selected' => '未選擇要快速匯出的產品',
+    ],
+    'validations' => [
+        'slug-being-used' => '這個slug正在用於分類或產品。',
+        'slug-reserved'   => '這個slug是保留的。',
+        'invalid-locale'  => '無效的地區 :locales',
+    ],
+    'footer' => [
+        'copy-right' => '由<a href="https://unopim.com/" target="_blank">UnoPim</a>支持，由<a href="https://webkul.com/" target="_blank">Webkul</a>的社區項目',
+    ],
+    'emails' => [
+        'dear'   => '親愛的 :admin_name',
+        'thanks' => '如果需要任何幫助，請聯繫我們：<a href=":link" style=":style">:email</a>。<br/>謝謝！',
+        'admin'  => [
+            'forgot-password' => [
+                'description'    => '您收到此電子郵件是因為我們收到了您的密碼重置請求。',
+                'greeting'       => '忘記密碼！',
+                'reset-password' => '重置密碼',
+                'subject'        => '重置密碼電子郵件',
+            ],
+        ],
+    ],
+    'common' => [
+        'yes'            => '是',
+        'no'             => '否',
+        'true'           => '真實',
+        'false'          => '虛假',
+        'enable'         => '啟用',
+        'disable'        => '停用',
+        'no-match-found' => 'No Match Found!',
+    ],
     'default-prompt' => [
         'detailed' => [
             'title'  => '產品詳細描述',

@@ -5,6 +5,11 @@
     $magicAiPlatform = core()->getConfigData('general.magic_ai.settings.ai_platform') ?? 'openai';
     $magicAiModels   = core()->getConfigData('general.magic_ai.settings.api_model') ?? '';
     $magicAiModel    = trim(explode(',', $magicAiModels)[0]) ?: ucfirst($magicAiPlatform);
+
+    $platformRepo    = app(\Webkul\MagicAI\Repository\MagicAIPlatformRepository::class);
+    $aiPlatforms     = $platformRepo->getActivePlatformOptions();
+    $defaultPlatform = collect($aiPlatforms)->firstWhere('is_default', true);
+    $defaultPlatformId = $defaultPlatform['id'] ?? ($aiPlatforms[0]['id'] ?? null);
 @endphp
 
 <v-agenting-pim></v-agenting-pim>
@@ -25,20 +30,18 @@
                             <svg width="14" height="14" style="color:#fff;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                         </div>
                         <div>
-                            <p style="color:#fff;font-weight:600;font-size:13px;line-height:1.25;margin:0;">Agenting PIM</p>
-                            <p style="color:rgba(255,255,255,0.55);font-size:10px;line-height:1.25;margin:0;">AI-powered operations</p>
+                            <p style="color:#fff;font-weight:600;font-size:13px;line-height:1.25;margin:0;">@lang('ai-agent::app.widget.panel-title')</p>
+                            <p style="color:rgba(255,255,255,0.55);font-size:10px;line-height:1.25;margin:0;">@lang('ai-agent::app.widget.panel-subtitle')</p>
                         </div>
                     </div>
                     <div style="display:flex;align-items:center;gap:4px;">
-                        {{-- Model badge from Magic AI config --}}
-                        <span style="font-size:10px;background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:3px 8px;white-space:nowrap;max-width:130px;overflow:hidden;text-overflow:ellipsis;" title="{{ $magicAiModel }}">{{ $magicAiModel }}</span>
-                        <a href="{{ route('ai-agent.settings') }}" title="AI Settings" style="color:rgba(255,255,255,0.65);display:flex;align-items:center;padding:5px;border-radius:6px;text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">
+                        <a href="{{ route('ai-agent.settings') }}" title="@lang('ai-agent::app.widget.ai-settings')" style="color:rgba(255,255,255,0.65);display:flex;align-items:center;padding:5px;border-radius:6px;text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">
                             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
                         </a>
-                        <button v-if="activeTab === 'chat' && messages.length > 0" @click="newSession" title="New conversation" style="color:rgba(255,255,255,0.65);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;padding:5px;border-radius:6px;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">
+                        <button v-if="activeTab === 'chat' && messages.length > 0" @click="newSession" :title="trans.newConversation" style="color:rgba(255,255,255,0.65);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;padding:5px;border-radius:6px;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">
                             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
                         </button>
-                        <button @click="close" title="Close" style="color:rgba(255,255,255,0.65);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;padding:5px;border-radius:6px;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">
+                        <button @click="close" :title="trans.close" style="color:rgba(255,255,255,0.65);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;padding:5px;border-radius:6px;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='transparent'">
                             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
                         </button>
                     </div>
@@ -47,7 +50,7 @@
                 {{-- Product Context Banner --}}
                 <div v-if="productContext" style="display:flex;align-items:center;gap:8px;padding:6px 16px;background:#f5f3ff;border-bottom:1px solid #e9d5ff;flex-shrink:0;">
                     <svg width="13" height="13" style="flex-shrink:0;color:#7c3aed;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-                    <span style="font-size:11px;color:#5b21b6;font-weight:500;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" v-text="'Editing: ' + (productContext.sku || 'Product #' + productContext.id)"></span>
+                    <span style="font-size:11px;color:#5b21b6;font-weight:500;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" v-text="trans.editing + ': ' + (productContext.sku || trans.product + ' #' + productContext.id)"></span>
                     <button @click="productContext = null" style="color:#8b5cf6;background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;">
                         <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
                     </button>
@@ -59,28 +62,52 @@
                         :style="activeTab === 'capabilities'
                             ? 'border-bottom:2px solid #7c3aed;color:#7c3aed;font-weight:600;background:#fff;'
                             : 'color:#6b7280;background:transparent;'"
-                        style="flex:1;padding:8px 16px;font-size:11px;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all 0.15s;">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-                        Capabilities
+                        style="flex:1;padding:8px 12px;font-size:11px;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all 0.15s;">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                        @lang('ai-agent::app.widget.capabilities')
                     </button>
                     <button @click="activeTab = 'chat'"
                         :style="activeTab === 'chat'
                             ? 'border-bottom:2px solid #7c3aed;color:#7c3aed;font-weight:600;background:#fff;'
                             : 'color:#6b7280;background:transparent;'"
-                        style="flex:1;padding:8px 16px;font-size:11px;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:5px;transition:all 0.15s;">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                        Chat
+                        style="flex:1;padding:8px 12px;font-size:11px;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all 0.15s;">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        @lang('ai-agent::app.widget.chat')
                         <span v-if="messages.filter(m => m.role === 'assistant').length > 0"
-                            style="min-width:18px;height:18px;background:#ede9fe;color:#7c3aed;border-radius:9999px;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;padding:0 4px;"
+                            style="min-width:16px;height:16px;background:#ede9fe;color:#7c3aed;border-radius:9999px;font-size:8px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;padding:0 3px;"
                             v-text="messages.filter(m => m.role === 'assistant').length"></span>
+                    </button>
+                    <button @click="activeTab = 'sessions'"
+                        :style="activeTab === 'sessions'
+                            ? 'border-bottom:2px solid #7c3aed;color:#7c3aed;font-weight:600;background:#fff;'
+                            : 'color:#6b7280;background:transparent;'"
+                        style="flex:1;padding:8px 12px;font-size:11px;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all 0.15s;">
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+                        @lang('ai-agent::app.widget.sessions')
+                        <span v-if="sessions.length > 0"
+                            style="min-width:16px;height:16px;background:#ede9fe;color:#7c3aed;border-radius:9999px;font-size:8px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;padding:0 3px;"
+                            v-text="sessions.length"></span>
                     </button>
                 </div>
 
                 {{-- Capabilities Tab --}}
                 <div v-show="activeTab === 'capabilities'" style="flex:1;overflow-y:auto;padding:16px;">
-                    <p class="text-xs text-gray-400 dark:text-gray-500 mb-3 font-medium">Select an operation to begin:</p>
-                    <div class="grid grid-cols-2 gap-2.5">
-                        <button v-for="cap in capabilities" :key="cap.key" @click="activateCapability(cap)"
+                    {{-- Search bar --}}
+                    <div style="position:relative;margin-bottom:12px;">
+                        <svg style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#9ca3af;" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input
+                            v-model="capabilitySearch"
+                            type="text"
+                            :placeholder="trans.searchCapabilities"
+                            style="width:100%;padding:7px 10px 7px 32px;font-size:12px;border:1px solid #e5e7eb;border-radius:8px;outline:none;background:#f9fafb;color:#374151;box-sizing:border-box;"
+                            @focus="$event.target.style.borderColor='#7c3aed'"
+                            @blur="$event.target.style.borderColor='#e5e7eb'"
+                        />
+                    </div>
+
+                    {{-- Capability tiles --}}
+                    <div v-if="filteredCapabilities.length" class="grid grid-cols-2 gap-2.5">
+                        <button v-for="cap in filteredCapabilities" :key="cap.key" @click="activateCapability(cap)"
                             class="flex flex-col items-start gap-2 p-3 rounded-lg border border-gray-200 dark:border-cherry-700 hover:border-violet-300 dark:hover:border-violet-600 hover:bg-violet-50 dark:hover:bg-cherry-800 transition-all text-left group">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center" :style="{ background: cap.color + '15' }">
                                 <span v-html="cap.iconSvg" :style="{ color: cap.color }"></span>
@@ -90,6 +117,73 @@
                                 <p class="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5 leading-snug" v-text="cap.description"></p>
                             </div>
                         </button>
+                    </div>
+                    <p v-else class="text-xs text-gray-400 text-center py-8" v-text="trans.noMatch"></p>
+                </div>
+
+                {{-- Sessions Tab --}}
+                <div v-show="activeTab === 'sessions'" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;">
+                    {{-- New session button --}}
+                    <div style="padding:12px 16px;border-bottom:1px solid #e5e7eb;flex-shrink:0;">
+                        <button @click="createNewSession"
+                            style="width:100%;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;font-size:12px;font-weight:600;color:#7c3aed;background:#f5f3ff;border:1.5px dashed #c4b5fd;border-radius:8px;cursor:pointer;transition:all 0.15s;"
+                            @mouseenter="$event.currentTarget.style.background='#ede9fe'"
+                            @mouseleave="$event.currentTarget.style.background='#f5f3ff'"
+                        >
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+                            <span v-text="trans.newSession"></span>
+                        </button>
+                    </div>
+
+                    {{-- Session list --}}
+                    <div v-if="sessions.length" style="flex:1;overflow-y:auto;padding:8px;">
+                        <div v-for="(session, idx) in sessions" :key="session.id"
+                            @click="switchToSession(session.id)"
+                            :style="{
+                                background: session.id === activeSessionId ? '#f5f3ff' : '#fff',
+                                borderColor: session.id === activeSessionId ? '#c4b5fd' : '#e5e7eb',
+                            }"
+                            style="display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:6px;border-radius:8px;border:1px solid;cursor:pointer;transition:all 0.15s;"
+                            @mouseenter="session.id !== activeSessionId && ($event.currentTarget.style.background='#fafafa')"
+                            @mouseleave="session.id !== activeSessionId && ($event.currentTarget.style.background='#fff')"
+                        >
+                            {{-- Session icon --}}
+                            <div style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"
+                                :style="{ background: session.id === activeSessionId ? '#7c3aed' : '#f3f4f6' }">
+                                <svg width="14" height="14" fill="none" :stroke="session.id === activeSessionId ? '#fff' : '#9ca3af'" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+
+                            {{-- Session info --}}
+                            <div style="flex:1;min-width:0;">
+                                <p style="font-size:12px;font-weight:600;color:#374151;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" v-text="session.name"></p>
+                                <p style="font-size:10px;color:#9ca3af;margin:2px 0 0;">
+                                    <span v-text="session.messageCount + ' ' + trans.messages"></span>
+                                    &middot; <span v-text="session.lastActive"></span>
+                                </p>
+                            </div>
+
+                            {{-- Active indicator --}}
+                            <div v-if="session.id === activeSessionId"
+                                style="width:8px;height:8px;border-radius:50%;background:#7c3aed;flex-shrink:0;"></div>
+
+                            {{-- Delete button --}}
+                            <button v-else @click.stop="deleteSession(session.id)"
+                                :title="trans.deleteSession"
+                                style="padding:4px;color:#9ca3af;background:none;border:none;cursor:pointer;border-radius:4px;display:flex;align-items:center;"
+                                @mouseenter="$event.currentTarget.style.color='#ef4444'"
+                                @mouseleave="$event.currentTarget.style.color='#9ca3af'"
+                            >
+                                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    {{-- Empty state --}}
+                    <div v-else style="flex:1;display:flex;align-items:center;justify-content:center;padding:32px;">
+                        <div style="text-align:center;">
+                            <svg style="margin:0 auto 12px;color:#d1d5db;" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+                            <p style="font-size:12px;color:#9ca3af;" v-text="trans.noSessions"></p>
+                        </div>
                     </div>
                 </div>
 
@@ -103,14 +197,14 @@
                                 style="font-size:10px;font-weight:600;padding:2px 8px;border-radius:9999px;"
                                 :style="{ background: activeCapability.color + '18', color: activeCapability.color }"
                                 v-text="activeCapability.label"></span>
-                            <span v-else style="font-size:10px;color:#9ca3af;font-weight:500;">General Chat</span>
-                            <span v-if="messages.length > 0" style="font-size:10px;color:#9ca3af;">· <span v-text="messages.filter(m => m.role === 'user').length"></span> message(s)</span>
+                            <span v-else style="font-size:10px;color:#9ca3af;font-weight:500;" v-text="trans.generalChat"></span>
+                            <span v-if="messages.length > 0" style="font-size:10px;color:#9ca3af;">· <span v-text="messages.filter(m => m.role === 'user').length"></span> @lang('ai-agent::app.widget.messages')</span>
                         </div>
                         <button v-if="messages.length > 0" @click="clearChat"
                             style="display:flex;align-items:center;gap:4px;font-size:10px;color:#ef4444;padding:3px 8px;border-radius:6px;border:1px solid #fecaca;background:#fff5f5;cursor:pointer;transition:all 0.15s;"
-                            title="Clear this chat">
+                            :title="trans.clearChat">
                             <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
-                            Clear chat
+                            @lang('ai-agent::app.widget.clear-chat')
                         </button>
                     </div>
 
@@ -119,11 +213,11 @@
                         <div v-if="messages.length === 0 && !isLoading" class="flex flex-col items-center justify-center h-full text-center py-8">
                             <svg class="w-10 h-10 text-violet-200 dark:text-violet-800 mb-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                             <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                <template v-if="activeCapability">Ready for <strong class="text-violet-600 dark:text-violet-400" v-text="activeCapability.label"></strong></template>
-                                <template v-else>How can I help with your catalog?</template>
+                                <template v-if="activeCapability"><span v-text="trans.readyFor"></span> <strong class="text-violet-600 dark:text-violet-400" v-text="activeCapability.label"></strong></template>
+                                <template v-else><span v-text="trans.catalogHelp"></span></template>
                             </p>
                             <p v-if="activeCapability" class="text-[11px] text-gray-400 dark:text-gray-500 mt-1.5 max-w-[260px] leading-relaxed" v-text="activeCapability.hint"></p>
-                            <p v-if="productContext" class="text-[11px] text-violet-500 dark:text-violet-400 mt-2">Context: <strong v-text="productContext.sku || 'Product #' + productContext.id"></strong></p>
+                            <p v-if="productContext" class="text-[11px] text-violet-500 dark:text-violet-400 mt-2"><span v-text="trans.context"></span>: <strong v-text="productContext.sku || trans.product + ' #' + productContext.id"></strong></p>
                         </div>
 
                         <template v-for="(msg, idx) in messages" :key="idx">
@@ -144,31 +238,38 @@
                             </div>
 
                             {{-- Assistant --}}
-                            <div v-else class="flex gap-2 items-start">
-                                <div class="w-6 h-6 rounded-md flex-shrink-0 flex items-center justify-center mt-0.5" style="background:linear-gradient(135deg,#7c3aed,#8b5cf6);">
-                                    <svg class="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                            <div v-else class="flex gap-2.5 items-start">
+                                <div class="w-7 h-7 rounded-lg flex-shrink-0 flex items-center justify-center mt-0.5" style="background:linear-gradient(135deg,#6d28d9,#8b5cf6);box-shadow:0 2px 6px rgba(124,58,237,0.25);">
+                                    <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                                 </div>
-                                <div class="flex-1 min-w-0 space-y-2">
-                                    <div class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed" v-html="renderMarkdown(msg.content)"></div>
-                                    <div v-if="msg.result && Object.keys(msg.result).length" class="rounded-lg border border-gray-200 dark:border-cherry-700 overflow-hidden">
-                                        <div class="px-3 py-1.5 bg-gray-50 dark:bg-cherry-800 border-b border-gray-200 dark:border-cherry-700">
-                                            <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Result</p>
+                                <div class="flex-1 min-w-0 space-y-2.5">
+                                    {{-- Response card --}}
+                                    <div class="rounded-xl border border-violet-100 dark:border-cherry-700 bg-violet-50/50 dark:bg-cherry-800/50 px-3.5 py-3">
+                                        <div class="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed ap-ai-response" v-html="renderMarkdown(msg.content)"></div>
+                                    </div>
+
+                                    {{-- Result details card --}}
+                                    <div v-if="msg.result && Object.keys(msg.result).length" class="rounded-xl border border-violet-200 dark:border-cherry-700 overflow-hidden">
+                                        <div class="px-3.5 py-2 border-b border-violet-100 dark:border-cherry-700" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);">
+                                            <p class="text-[10px] font-bold text-violet-500 dark:text-violet-400 uppercase tracking-wider" v-text="trans.result"></p>
                                         </div>
-                                        <div class="px-3 py-2 space-y-1">
+                                        <div class="px-3.5 py-2.5 space-y-1.5 bg-white dark:bg-cherry-800">
                                             <div v-for="(val, key) in msg.result" :key="key" class="flex gap-2 text-xs">
-                                                <span class="text-gray-400 flex-shrink-0 capitalize" v-text="String(key).replace(/_/g, ' ') + ':'"></span>
-                                                <span class="text-gray-700 dark:text-gray-300 font-medium" v-text="val"></span>
+                                                <span class="text-violet-400 dark:text-violet-500 flex-shrink-0 capitalize font-medium" v-text="String(key).replace(/_/g, ' ') + ':'"></span>
+                                                <span class="text-gray-700 dark:text-gray-300 font-semibold" v-text="val"></span>
                                             </div>
                                         </div>
                                     </div>
+
+                                    {{-- Action buttons --}}
                                     <div class="flex gap-2 flex-wrap">
-                                        <a v-if="msg.product_url" :href="msg.product_url" class="inline-flex items-center gap-1 text-xs font-medium text-violet-600 dark:text-violet-400 px-2.5 py-1 bg-violet-50 dark:bg-violet-900/20 rounded-md border border-violet-200 dark:border-violet-800 hover:bg-violet-100 transition-colors">
-                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                                            View Product
+                                        <a v-if="msg.product_url" :href="msg.product_url" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white px-3.5 py-1.5 rounded-lg transition-all hover:shadow-md" style="background:linear-gradient(135deg,#7c3aed,#8b5cf6);">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                            @lang('ai-agent::app.widget.view-product')
                                         </a>
-                                        <a v-if="msg.download_url" :href="msg.download_url" class="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-900/20 rounded-md border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 transition-colors">
-                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                                            Download
+                                        <a v-if="msg.download_url" :href="msg.download_url" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white px-3.5 py-1.5 rounded-lg transition-all hover:shadow-md" style="background:linear-gradient(135deg,#059669,#10b981);">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                            @lang('ai-agent::app.widget.download')
                                         </a>
                                     </div>
                                 </div>
@@ -222,42 +323,56 @@
                                 @blur="$event.target.parentElement.style.border='1.5px solid #d1d5db'"
                             ></textarea>
 
-                            {{-- Toolbar row --}}
-                            <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-top:1px solid #f3f4f6;">
+                            {{-- Toolbar row: Attach + Platform/Model + Send --}}
+                            <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-top:1px solid #f3f4f6;gap:4px;">
 
-                                {{-- Left: attach --}}
-                                <label
-                                    :title="fileInputTitle"
-                                    style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#6b7280;padding:4px 10px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;cursor:pointer;transition:background 0.15s;"
-                                    @mouseenter="$event.currentTarget.style.background='#f5f0ff';$event.currentTarget.style.color='#7c3aed';$event.currentTarget.style.borderColor='#c4b5fd';"
-                                    @mouseleave="$event.currentTarget.style.background='#fff';$event.currentTarget.style.color='#6b7280';$event.currentTarget.style.borderColor='#e5e7eb';"
-                                >
-                                    <svg v-if="activeCapability && activeCapability.acceptsSpreadsheet" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-                                    <svg v-else width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-                                    Attach
-                                    <input type="file" ref="fileInput" class="hidden" :accept="fileAccept" multiple @change="onFileSelect"/>
-                                </label>
+                                {{-- Left: attach + platform + model --}}
+                                <div style="display:flex;align-items:center;gap:4px;flex:1;min-width:0;">
+                                    <label
+                                        :title="fileInputTitle"
+                                        style="display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#6b7280;padding:4px 8px;border-radius:6px;border:1px solid #e5e7eb;background:#fff;cursor:pointer;transition:background 0.15s;flex-shrink:0;"
+                                        @mouseenter="$event.currentTarget.style.background='#f5f0ff';$event.currentTarget.style.color='#7c3aed';$event.currentTarget.style.borderColor='#c4b5fd';"
+                                        @mouseleave="$event.currentTarget.style.background='#fff';$event.currentTarget.style.color='#6b7280';$event.currentTarget.style.borderColor='#e5e7eb';"
+                                    >
+                                        <svg v-if="activeCapability && activeCapability.acceptsSpreadsheet" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                                        <svg v-else width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                                        <input type="file" ref="fileInput" class="hidden" :accept="fileAccept" multiple @change="onFileSelect"/>
+                                    </label>
+
+                                    <template v-if="platforms.length > 0">
+                                        <select
+                                            v-model="selectedPlatformId"
+                                            @change="onPlatformChange"
+                                            style="font-size:10px;color:#6b7280;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:3px 6px;cursor:pointer;outline:none;max-width:120px;min-width:0;flex-shrink:1;"
+                                            :title="trans.selectPlatform"
+                                        >
+                                            <option v-for="p in platforms" :key="p.id" :value="p.id" v-text="p.label"></option>
+                                        </select>
+                                        <select
+                                            v-model="selectedModel"
+                                            style="font-size:10px;color:#6b7280;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:3px 6px;cursor:pointer;outline:none;max-width:110px;min-width:0;flex-shrink:1;"
+                                            :title="trans.selectModel"
+                                        >
+                                            <option v-for="m in availableModels" :key="m" :value="m" v-text="m"></option>
+                                        </select>
+                                    </template>
+                                </div>
 
                                 {{-- Right: Send button --}}
                                 <button
                                     @click="send"
                                     :disabled="isLoading || (!inputText.trim() && pendingFiles.length === 0)"
-                                    style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#fff;padding:6px 18px;border-radius:8px;border:none;cursor:pointer;background:linear-gradient(135deg,#7c3aed,#8b5cf6);transition:opacity 0.2s,transform 0.1s;"
+                                    style="display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:32px;height:32px;border-radius:8px;border:none;cursor:pointer;background:linear-gradient(135deg,#7c3aed,#8b5cf6);transition:opacity 0.2s,transform 0.1s;"
                                     :style="{ opacity: (isLoading || (!inputText.trim() && pendingFiles.length === 0)) ? '0.35' : '1', cursor: (isLoading || (!inputText.trim() && pendingFiles.length === 0)) ? 'not-allowed' : 'pointer' }"
+                                    :title="isLoading ? trans.sending : trans.send"
                                 >
-                                    <template v-if="!isLoading">
-                                        <svg width="13" height="13" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2" fill="white" stroke="none"/></svg>
-                                        Send
-                                    </template>
-                                    <template v-else>
-                                        <svg class="animate-spin" width="13" height="13" fill="none" viewBox="0 0 24 24"><circle style="opacity:.3" cx="12" cy="12" r="10" stroke="white" stroke-width="4"/><path style="opacity:.8" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>
-                                        Sending…
-                                    </template>
+                                    <svg v-if="!isLoading" width="14" height="14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2" fill="white" stroke="none"/></svg>
+                                    <svg v-else class="animate-spin" width="14" height="14" fill="none" viewBox="0 0 24 24"><circle style="opacity:.3" cx="12" cy="12" r="10" stroke="white" stroke-width="4"/><path style="opacity:.8" fill="white" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>
                                 </button>
                             </div>
                         </div>
 
-                        <p style="font-size:10px;color:#9ca3af;text-align:center;margin-top:6px;">Enter to send &middot; Shift+Enter for new line</p>
+                        <p style="font-size:10px;color:#9ca3af;text-align:center;margin-top:6px;">@lang('ai-agent::app.widget.enter-to-send') &middot; @lang('ai-agent::app.widget.shift-enter-newline')</p>
                     </div>
                 </div>
             </div>
@@ -267,7 +382,7 @@
         <button
             v-show="!isOpen"
             @click="toggle"
-            title="Open Agenting PIM"
+            :title="trans.openPanel"
             style="position:fixed;bottom:24px;right:24px;z-index:10002;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#8b5cf6);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(124,58,237,0.4);border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;"
             @mouseenter="$event.currentTarget.style.transform='scale(1.1)';$event.currentTarget.style.boxShadow='0 6px 20px rgba(124,58,237,0.5)'"
             @mouseleave="$event.currentTarget.style.transform='';$event.currentTarget.style.boxShadow='0 4px 15px rgba(124,58,237,0.4)'"
@@ -280,6 +395,14 @@
 <style>
 .ap-slide-enter-active, .ap-slide-leave-active { transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
 .ap-slide-enter-from, .ap-slide-leave-to { transform: translateX(100%); }
+
+/* AI response text styling */
+.ap-ai-response strong { color: #5b21b6; font-weight: 700; }
+.dark .ap-ai-response strong { color: #c4b5fd; }
+.ap-ai-response code { background: #ede9fe; color: #6d28d9; padding: 1px 5px; border-radius: 4px; font-size: 0.8em; }
+.dark .ap-ai-response code { background: rgba(139,92,246,0.15); color: #a78bfa; }
+.ap-ai-response a { color: #7c3aed; text-decoration: underline; text-underline-offset: 2px; }
+.ap-ai-response a:hover { color: #6d28d9; text-decoration: none; }
 </style>
 
 <script type="module">
@@ -291,6 +414,45 @@ app.component('v-agenting-pim', {
             const w = opts.w || 16, h = opts.h || 16;
             return `<svg width="${w}" height="${h}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
         };
+        const platforms = @json($aiPlatforms);
+        const defaultPlatformId = {{ $defaultPlatformId ?? 'null' }};
+        const initialPlatform = platforms.find(p => p.id === defaultPlatformId) || platforms[0] || null;
+        const initialModels = initialPlatform ? (initialPlatform.models || []) : [];
+
+        const trans = {
+            newConversation: `@lang('ai-agent::app.widget.new-conversation')`,
+            close: `@lang('ai-agent::app.widget.close')`,
+            openPanel: `@lang('ai-agent::app.widget.open-panel')`,
+            editing: `@lang('ai-agent::app.widget.editing')`,
+            product: `@lang('ai-agent::app.widget.product')`,
+            selectOperation: `@lang('ai-agent::app.widget.select-operation')`,
+            searchCapabilities: `@lang('ai-agent::app.widget.search-capabilities')`,
+            noMatch: `@lang('ai-agent::app.widget.no-match')`,
+            generalChat: `@lang('ai-agent::app.widget.general-chat')`,
+            clearChat: `@lang('ai-agent::app.widget.clear-chat')`,
+            sessions: `@lang('ai-agent::app.widget.sessions')`,
+            newSession: `@lang('ai-agent::app.widget.new-session')`,
+            noSessions: `@lang('ai-agent::app.widget.no-sessions')`,
+            sessionDefaultName: `@lang('ai-agent::app.widget.session-default-name')`,
+            deleteSession: `@lang('ai-agent::app.widget.delete-session')`,
+            renameSession: `@lang('ai-agent::app.widget.rename-session')`,
+            readyFor: `@lang('ai-agent::app.widget.ready-for')`,
+            catalogHelp: `@lang('ai-agent::app.widget.catalog-help')`,
+            context: `@lang('ai-agent::app.widget.context')`,
+            result: `@lang('ai-agent::app.widget.result')`,
+            selectPlatform: `@lang('ai-agent::app.widget.select-platform')`,
+            selectModel: `@lang('ai-agent::app.widget.select-model')`,
+            attachCsvXlsx: `@lang('ai-agent::app.widget.attach-csv-xlsx')`,
+            attachImage: `@lang('ai-agent::app.widget.attach-image')`,
+            processing: `@lang('ai-agent::app.widget.processing')`,
+            noResponse: `@lang('ai-agent::app.widget.no-response')`,
+            errorGeneric: `@lang('ai-agent::app.widget.error-generic')`,
+            askCatalog: `@lang('ai-agent::app.widget.ask-catalog')`,
+            send: `@lang('ai-agent::app.widget.send')`,
+            sending: `@lang('ai-agent::app.widget.sending')`,
+            openingProduct: `@lang('ai-agent::app.widget.opening-product')`,
+        };
+
         return {
             isOpen: false,
             activeTab: 'capabilities',
@@ -301,51 +463,157 @@ app.component('v-agenting-pim', {
             isLoading: false,
             productContext: null,
             noTransition: false,
+            capabilitySearch: '',
+            // Session management
+            sessions: [],
+            activeSessionId: null,
+            showSessions: false,
+            platforms: platforms,
+            selectedPlatformId: initialPlatform ? initialPlatform.id : null,
+            selectedModel: initialModels[0] || '',
+            trans: trans,
             capabilities: [
-                { key: 'create_from_image', label: 'Create from Image', description: 'Upload photos to auto-create products',
+                // Row 1: Product creation & updates
+                { key: 'create_from_image', label: `@lang('ai-agent::app.widget.capabilities-list.create-from-image')`, description: `@lang('ai-agent::app.widget.capabilities-list.create-from-image-desc')`,
                   iconSvg: svg('<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>'),
-                  color: '#7C3AED', hint: 'Upload a product image. AI will detect and create the product.', acceptsImages: true, acceptsSpreadsheet: false },
-                { key: 'update_products', label: 'Update Products', description: 'Update attributes/status by SKU',
+                  color: '#7C3AED', hint: `@lang('ai-agent::app.widget.capabilities-list.create-from-image-hint')`, acceptsImages: true, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.create-from-image-prompt')`, autoFileUpload: true },
+                { key: 'update_products', label: `@lang('ai-agent::app.widget.capabilities-list.update-products')`, description: `@lang('ai-agent::app.widget.capabilities-list.update-products-desc')`,
                   iconSvg: svg('<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>'),
-                  color: '#059669', hint: 'e.g. "Set status=active for SKU-001, SKU-002"', acceptsImages: false, acceptsSpreadsheet: true },
-                { key: 'upload_csv', label: 'Bulk Import CSV', description: 'Upload CSV/XLSX to batch update',
-                  iconSvg: svg('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>'),
-                  color: '#D97706', hint: 'Upload a CSV/XLSX with SKU column to batch update products.', acceptsImages: false, acceptsSpreadsheet: true },
-                { key: 'delete_products', label: 'Delete Products', description: 'Remove products by SKU list',
-                  iconSvg: svg('<polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>'),
-                  color: '#DC2626', hint: 'e.g. "Delete SKU-001, SKU-002, SKU-003"', acceptsImages: false, acceptsSpreadsheet: false },
-                { key: 'export_products', label: 'Export Products', description: 'Generate CSV/XLSX export',
-                  iconSvg: svg('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>'),
-                  color: '#0891B2', hint: 'e.g. "Export all active Electronics products to CSV"', acceptsImages: false, acceptsSpreadsheet: false },
-                { key: 'assign_categories', label: 'Assign Categories', description: 'Assign category paths to products',
+                  color: '#059669', hint: `@lang('ai-agent::app.widget.capabilities-list.update-products-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.update-products-prompt')`, autoFileUpload: false },
+                // Row 2: Search & explore
+                { key: 'search_products', label: `@lang('ai-agent::app.widget.capabilities-list.search-products')`, description: `@lang('ai-agent::app.widget.capabilities-list.search-products-desc')`,
+                  iconSvg: svg('<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>'),
+                  color: '#2563EB', hint: `@lang('ai-agent::app.widget.capabilities-list.search-products-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.search-products-prompt')`, autoFileUpload: false },
+                { key: 'find_similar', label: `@lang('ai-agent::app.widget.capabilities-list.find-similar')`, description: `@lang('ai-agent::app.widget.capabilities-list.find-similar-desc')`,
+                  iconSvg: svg('<path d="M16 16v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="12" height="12" rx="2"/>'),
+                  color: '#8B5CF6', hint: `@lang('ai-agent::app.widget.capabilities-list.find-similar-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.find-similar-prompt')`, autoFileUpload: false },
+                // Row 3: Content & AI generation
+                { key: 'generate_content', label: `@lang('ai-agent::app.widget.capabilities-list.generate-content')`, description: `@lang('ai-agent::app.widget.capabilities-list.generate-content-desc')`,
+                  iconSvg: svg('<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>'),
+                  color: '#F59E0B', hint: `@lang('ai-agent::app.widget.capabilities-list.generate-content-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.generate-content-prompt')`, autoFileUpload: false },
+                { key: 'generate_image', label: `@lang('ai-agent::app.widget.capabilities-list.generate-image')`, description: `@lang('ai-agent::app.widget.capabilities-list.generate-image-desc')`,
+                  iconSvg: svg('<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/>'),
+                  color: '#EC4899', hint: `@lang('ai-agent::app.widget.capabilities-list.generate-image-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.generate-image-prompt')`, autoFileUpload: false },
+                // Row 4: Categories & attributes
+                { key: 'assign_categories', label: `@lang('ai-agent::app.widget.capabilities-list.assign-categories')`, description: `@lang('ai-agent::app.widget.capabilities-list.assign-categories-desc')`,
                   iconSvg: svg('<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>'),
-                  color: '#6366F1', hint: 'e.g. "Assign Electronics > Laptops to SKU-001"', acceptsImages: false, acceptsSpreadsheet: false },
-                { key: 'generate_variants', label: 'Generate Variants', description: 'Auto-generate size/color variants',
+                  color: '#6366F1', hint: `@lang('ai-agent::app.widget.capabilities-list.assign-categories-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.assign-categories-prompt')`, autoFileUpload: false },
+                { key: 'list_attributes', label: `@lang('ai-agent::app.widget.capabilities-list.list-attributes')`, description: `@lang('ai-agent::app.widget.capabilities-list.list-attributes-desc')`,
                   iconSvg: svg('<line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>'),
-                  color: '#9333EA', hint: 'e.g. "Generate S/M/L × Red/Blue for SHIRT-001"', acceptsImages: false, acceptsSpreadsheet: false },
-                { key: 'edit_image', label: 'Edit Product Image', description: 'Remove/change background',
+                  color: '#14B8A6', hint: `@lang('ai-agent::app.widget.capabilities-list.list-attributes-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.list-attributes-prompt')`, autoFileUpload: false },
+                // Row 5: Image editing & export
+                { key: 'edit_image', label: `@lang('ai-agent::app.widget.capabilities-list.edit-image')`, description: `@lang('ai-agent::app.widget.capabilities-list.edit-image-desc')`,
                   iconSvg: svg('<circle cx="12" cy="12" r="3"/><path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12z" stroke-dasharray="4 2"/>'),
-                  color: '#EC4899', hint: 'Upload an image, then say "Remove background"', acceptsImages: true, acceptsSpreadsheet: false },
+                  color: '#D946EF', hint: `@lang('ai-agent::app.widget.capabilities-list.edit-image-hint')`, acceptsImages: true, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.edit-image-prompt')`, autoFileUpload: true },
+                { key: 'export_products', label: `@lang('ai-agent::app.widget.capabilities-list.export-products')`, description: `@lang('ai-agent::app.widget.capabilities-list.export-products-desc')`,
+                  iconSvg: svg('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>'),
+                  color: '#0891B2', hint: `@lang('ai-agent::app.widget.capabilities-list.export-products-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.export-products-prompt')`, autoFileUpload: false },
+                // Row 6: Bulk & destructive operations
+                { key: 'upload_csv', label: `@lang('ai-agent::app.widget.capabilities-list.bulk-import-csv')`, description: `@lang('ai-agent::app.widget.capabilities-list.bulk-import-csv-desc')`,
+                  iconSvg: svg('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>'),
+                  color: '#D97706', hint: `@lang('ai-agent::app.widget.capabilities-list.bulk-import-csv-hint')`, acceptsImages: false, acceptsSpreadsheet: true,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.bulk-import-csv-prompt')`, autoFileUpload: true },
+                { key: 'delete_products', label: `@lang('ai-agent::app.widget.capabilities-list.delete-products')`, description: `@lang('ai-agent::app.widget.capabilities-list.delete-products-desc')`,
+                  iconSvg: svg('<polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>'),
+                  color: '#DC2626', hint: `@lang('ai-agent::app.widget.capabilities-list.delete-products-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.delete-products-prompt')`, autoFileUpload: false },
+                // Row 7: Category management
+                { key: 'create_category', label: `@lang('ai-agent::app.widget.capabilities-list.create-category')`, description: `@lang('ai-agent::app.widget.capabilities-list.create-category-desc')`,
+                  iconSvg: svg('<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/>'),
+                  color: '#6366F1', hint: `@lang('ai-agent::app.widget.capabilities-list.create-category-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.create-category-prompt')`, autoFileUpload: false },
+                { key: 'category_tree', label: `@lang('ai-agent::app.widget.capabilities-list.category-tree')`, description: `@lang('ai-agent::app.widget.capabilities-list.category-tree-desc')`,
+                  iconSvg: svg('<path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>'),
+                  color: '#8B5CF6', hint: `@lang('ai-agent::app.widget.capabilities-list.category-tree-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.category-tree-prompt')`, autoFileUpload: false },
+                // Row 8: Attribute management
+                { key: 'create_attribute', label: `@lang('ai-agent::app.widget.capabilities-list.create-attribute')`, description: `@lang('ai-agent::app.widget.capabilities-list.create-attribute-desc')`,
+                  iconSvg: svg('<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>'),
+                  color: '#0D9488', hint: `@lang('ai-agent::app.widget.capabilities-list.create-attribute-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.create-attribute-prompt')`, autoFileUpload: false },
+                { key: 'manage_options', label: `@lang('ai-agent::app.widget.capabilities-list.manage-options')`, description: `@lang('ai-agent::app.widget.capabilities-list.manage-options-desc')`,
+                  iconSvg: svg('<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'),
+                  color: '#14B8A6', hint: `@lang('ai-agent::app.widget.capabilities-list.manage-options-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.manage-options-prompt')`, autoFileUpload: false },
+                // Row 9: Families & bulk ops
+                { key: 'manage_families', label: `@lang('ai-agent::app.widget.capabilities-list.manage-families')`, description: `@lang('ai-agent::app.widget.capabilities-list.manage-families-desc')`,
+                  iconSvg: svg('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>'),
+                  color: '#7C3AED', hint: `@lang('ai-agent::app.widget.capabilities-list.manage-families-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.manage-families-prompt')`, autoFileUpload: false },
+                { key: 'bulk_edit', label: `@lang('ai-agent::app.widget.capabilities-list.bulk-edit')`, description: `@lang('ai-agent::app.widget.capabilities-list.bulk-edit-desc')`,
+                  iconSvg: svg('<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/><line x1="4" y1="20" x2="20" y2="20"/>'),
+                  color: '#EA580C', hint: `@lang('ai-agent::app.widget.capabilities-list.bulk-edit-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.bulk-edit-prompt')`, autoFileUpload: false },
+                // Row 10: System & admin
+                { key: 'catalog_summary', label: `@lang('ai-agent::app.widget.capabilities-list.catalog-summary')`, description: `@lang('ai-agent::app.widget.capabilities-list.catalog-summary-desc')`,
+                  iconSvg: svg('<path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>'),
+                  color: '#059669', hint: `@lang('ai-agent::app.widget.capabilities-list.catalog-summary-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.catalog-summary-prompt')`, autoFileUpload: false },
+                { key: 'manage_channels', label: `@lang('ai-agent::app.widget.capabilities-list.manage-channels')`, description: `@lang('ai-agent::app.widget.capabilities-list.manage-channels-desc')`,
+                  iconSvg: svg('<path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/>'),
+                  color: '#2563EB', hint: `@lang('ai-agent::app.widget.capabilities-list.manage-channels-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.manage-channels-prompt')`, autoFileUpload: false },
+                // Row 11: Users & roles
+                { key: 'manage_users', label: `@lang('ai-agent::app.widget.capabilities-list.manage-users')`, description: `@lang('ai-agent::app.widget.capabilities-list.manage-users-desc')`,
+                  iconSvg: svg('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>'),
+                  color: '#64748B', hint: `@lang('ai-agent::app.widget.capabilities-list.manage-users-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.manage-users-prompt')`, autoFileUpload: false },
+                { key: 'manage_roles', label: `@lang('ai-agent::app.widget.capabilities-list.manage-roles')`, description: `@lang('ai-agent::app.widget.capabilities-list.manage-roles-desc')`,
+                  iconSvg: svg('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'),
+                  color: '#475569', hint: `@lang('ai-agent::app.widget.capabilities-list.manage-roles-hint')`, acceptsImages: false, acceptsSpreadsheet: false,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.manage-roles-prompt')`, autoFileUpload: false },
+                // Row 12: Free-form assistant
+                { key: 'ask_anything', label: `@lang('ai-agent::app.widget.capabilities-list.ask-anything')`, description: `@lang('ai-agent::app.widget.capabilities-list.ask-anything-desc')`,
+                  iconSvg: svg('<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>'),
+                  color: '#64748B', hint: `@lang('ai-agent::app.widget.capabilities-list.ask-anything-hint')`, acceptsImages: true, acceptsSpreadsheet: true,
+                  autoPrompt: `@lang('ai-agent::app.widget.capabilities-list.ask-anything-prompt')`, autoFileUpload: false },
             ],
         };
     },
 
     computed: {
+        filteredCapabilities() {
+            if (!this.capabilitySearch.trim()) return this.capabilities;
+            const q = this.capabilitySearch.toLowerCase();
+            return this.capabilities.filter(c =>
+                c.label.toLowerCase().includes(q) ||
+                c.description.toLowerCase().includes(q) ||
+                c.key.replace(/_/g, ' ').includes(q)
+            );
+        },
+        availableModels() {
+            const platform = this.platforms.find(p => p.id === this.selectedPlatformId);
+            return platform ? (platform.models || []) : [];
+        },
         fileAccept() {
             if (this.activeCapability?.acceptsSpreadsheet) return '.csv,.xlsx,.xls,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel';
             return 'image/jpeg,image/png,image/webp,image/gif';
         },
-        fileInputTitle() { return this.activeCapability?.acceptsSpreadsheet ? 'Attach CSV or XLSX' : 'Attach image'; },
+        fileInputTitle() { return this.activeCapability?.acceptsSpreadsheet ? this.trans.attachCsvXlsx : this.trans.attachImage; },
         inputPlaceholder() {
-            if (this.isLoading) return 'Processing…';
+            if (this.isLoading) return this.trans.processing;
             if (this.activeCapability) return this.activeCapability.hint;
-            return 'Ask me anything about your catalog…';
+            return this.trans.askCatalog;
         },
     },
 
     mounted() {
+        this.loadSessions();
         this.detectProductContext();
         this.restoreState();
+        if (!this.activeSessionId) {
+            this.activeSessionId = this.generateSessionId();
+        }
     },
 
     watch: {
@@ -388,9 +656,138 @@ app.component('v-agenting-pim', {
         },
         toggle() { this.isOpen = !this.isOpen; if (this.isOpen) this.$nextTick(() => this.$refs.textInput?.focus()); },
         close() { this.isOpen = false; },
-        newSession() { this.messages = []; this.inputText = ''; this.pendingFiles = []; this.activeCapability = null; this.activeTab = 'capabilities'; this.saveState(); },
+        newSession() {
+            // Save current session before creating new one
+            if (this.messages.length > 0) {
+                this.saveCurrentSession();
+            }
+            this.activeSessionId = this.generateSessionId();
+            this.messages = [];
+            this.inputText = '';
+            this.pendingFiles = [];
+            this.activeCapability = null;
+            this.activeTab = 'capabilities';
+            this.saveState();
+        },
         clearChat() { this.messages = []; this.inputText = ''; this.pendingFiles = []; this.saveState(); this.$nextTick(() => this.$refs.textInput?.focus()); },
-        activateCapability(cap) { this.activeCapability = cap; this.activeTab = 'chat'; this.$nextTick(() => this.$refs.textInput?.focus()); },
+
+        // Session management
+        generateSessionId() { return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6); },
+
+        createNewSession() {
+            if (this.messages.length > 0) {
+                this.saveCurrentSession();
+            }
+            this.activeSessionId = this.generateSessionId();
+            this.messages = [];
+            this.inputText = '';
+            this.pendingFiles = [];
+            this.activeCapability = null;
+            this.activeTab = 'chat';
+            this.saveState();
+            this.$nextTick(() => this.$refs.textInput?.focus());
+        },
+
+        saveCurrentSession() {
+            if (!this.activeSessionId || this.messages.length === 0) return;
+
+            // Find first meaningful user message for session name
+            const firstUserMsg = this.messages.find(m => m.role === 'user');
+            const name = firstUserMsg
+                ? firstUserMsg.content.substring(0, 50) + (firstUserMsg.content.length > 50 ? '…' : '')
+                : this.trans.sessionDefaultName;
+
+            const existingIdx = this.sessions.findIndex(s => s.id === this.activeSessionId);
+            const sessionData = {
+                id: this.activeSessionId,
+                name: name,
+                messageCount: this.messages.filter(m => m.role === 'user').length,
+                lastActive: new Date().toLocaleDateString(),
+                messages: this.messages.map(m => ({
+                    role: m.role,
+                    content: m.content,
+                    result: m.result || null,
+                    product_url: m.product_url || null,
+                    download_url: m.download_url || null,
+                })),
+                capability: this.activeCapability?.key || null,
+            };
+
+            if (existingIdx >= 0) {
+                this.sessions[existingIdx] = sessionData;
+            } else {
+                this.sessions.unshift(sessionData);
+            }
+
+            // Keep max 20 sessions
+            if (this.sessions.length > 20) {
+                this.sessions = this.sessions.slice(0, 20);
+            }
+
+            this.persistSessions();
+        },
+
+        switchToSession(sessionId) {
+            // Save current first
+            if (this.messages.length > 0 && this.activeSessionId) {
+                this.saveCurrentSession();
+            }
+
+            const session = this.sessions.find(s => s.id === sessionId);
+            if (!session) return;
+
+            this.activeSessionId = session.id;
+            this.messages = session.messages || [];
+            this.activeCapability = session.capability
+                ? this.capabilities.find(c => c.key === session.capability) || null
+                : null;
+            this.activeTab = 'chat';
+            this.saveState();
+            this.$nextTick(() => { this.scrollBottom(); this.$refs.textInput?.focus(); });
+        },
+
+        deleteSession(sessionId) {
+            this.sessions = this.sessions.filter(s => s.id !== sessionId);
+            this.persistSessions();
+        },
+
+        persistSessions() {
+            try {
+                localStorage.setItem('agenting_pim_sessions', JSON.stringify(this.sessions));
+            } catch (e) {}
+        },
+
+        loadSessions() {
+            try {
+                const raw = localStorage.getItem('agenting_pim_sessions');
+                if (raw) {
+                    this.sessions = JSON.parse(raw) || [];
+                }
+            } catch (e) { this.sessions = []; }
+        },
+        onPlatformChange() {
+            const models = this.availableModels;
+            this.selectedModel = models[0] || '';
+            this.saveState();
+        },
+        activateCapability(cap) {
+            this.activeCapability = cap;
+            this.activeTab = 'chat';
+
+            // Auto-populate the prompt text if the capability has one
+            if (cap.autoPrompt) {
+                this.inputText = cap.autoPrompt;
+            }
+
+            this.$nextTick(() => {
+                // Auto-trigger file picker for capabilities that require file upload
+                if (cap.autoFileUpload && this.$refs.fileInput) {
+                    this.$refs.fileInput.click();
+                } else {
+                    this.$refs.textInput?.focus();
+                }
+            });
+        },
 
         onFileSelect(e) {
             const spreadsheetExts = /\.(csv|xlsx|xls)$/i;
@@ -408,6 +805,54 @@ app.component('v-agenting-pim', {
         },
         removeFile(idx) { this.pendingFiles.splice(idx, 1); },
 
+        focusInput() {
+            this.$nextTick(() => {
+                const input = this.$refs.textInput;
+
+                if (input && !this.isLoading) {
+                    input.focus();
+                    const length = input.value?.length || 0;
+                    input.setSelectionRange(length, length);
+                }
+            });
+        },
+
+        shouldAutoRefreshAfterAction(data) {
+            if (!this.activeCapability) {
+                return false;
+            }
+
+            const path = window.location.pathname;
+            const isProductEditPage = /\/catalog\/products\/edit\/\d+/.test(path);
+            const isCategoryEditPage = /\/catalog\/categories\/edit\/\d+/.test(path);
+
+            if (!isProductEditPage && !isCategoryEditPage) {
+                return false;
+            }
+
+            const mutatingCapabilities = ['assign_categories', 'update_products', 'generate_variants'];
+
+            if (!mutatingCapabilities.includes(this.activeCapability.key)) {
+                return false;
+            }
+
+            if (data.product_url || data.download_url) {
+                return false;
+            }
+
+            const result = data.result || {};
+
+            if (typeof result.status === 'string' && result.status.toLowerCase().startsWith('error')) {
+                return false;
+            }
+
+            if (typeof result.updated === 'number' && result.updated < 1) {
+                return false;
+            }
+
+            return true;
+        },
+
         async send() {
             const text = this.inputText.trim();
             const files = [...this.pendingFiles];
@@ -423,6 +868,8 @@ app.component('v-agenting-pim', {
                 // Always send message field (even empty string) to avoid validation issues
                 fd.append('message', text || (files.length > 0 ? 'Process the attached file(s): ' + files.map(f => f.name).join(', ') : ''));
                 if (this.activeCapability) fd.append('action_type', this.activeCapability.key);
+                if (this.selectedPlatformId) fd.append('platform_id', this.selectedPlatformId);
+                if (this.selectedModel) fd.append('model', this.selectedModel);
                 files.forEach((f, i) => { if (f.type === 'image') fd.append('images[' + i + ']', f.file); else fd.append('files[' + i + ']', f.file); });
                 fd.append('history', JSON.stringify(this.messages.slice(0, -1).map(m => ({ role: m.role, content: m.content || '' }))));
                 fd.append('context[current_page]', window.location.pathname);
@@ -435,12 +882,27 @@ app.component('v-agenting-pim', {
                 const data = res.data;
                 // Clear pending files only on success
                 this.pendingFiles = [];
-                this.messages.push({ role: 'assistant', content: data.reply || 'No response received.', action: data.action || null, result: data.result || null, product_url: data.product_url || null, download_url: data.download_url || null });
+                this.messages.push({ role: 'assistant', content: data.reply || this.trans.noResponse, action: data.action || null, result: data.result || null, product_url: data.product_url || null, download_url: data.download_url || null });
+
+                // Auto-navigate to the created product page
+                if (data.product_url && this.activeCapability?.key === 'create_from_image') {
+                    this.messages.push({ role: 'assistant', content: this.trans.openingProduct, isRedirect: true });
+                    this.saveState();
+                    setTimeout(() => { window.location.href = data.product_url; }, 1500);
+                } else if (this.shouldAutoRefreshAfterAction(data)) {
+                    this.messages.push({ role: 'assistant', content: 'Refreshing page to show latest changes...', isRedirect: true });
+                    this.saveState();
+                    setTimeout(() => { window.location.reload(); }, 1200);
+                }
             } catch (err) {
                 // Restore pending files so user can retry
                 if (files.length > 0 && this.pendingFiles.length === 0) this.pendingFiles = files;
-                this.messages.push({ role: 'assistant', content: err.response?.data?.reply || err.response?.data?.message || 'Something went wrong. Please try again.' });
-            } finally { this.isLoading = false; this.scrollBottom(); }
+                this.messages.push({ role: 'assistant', content: err.response?.data?.reply || err.response?.data?.message || this.trans.errorGeneric });
+            } finally {
+                this.isLoading = false;
+                this.scrollBottom();
+                this.focusInput();
+            }
         },
 
         scrollBottom() { this.$nextTick(() => { const el = this.$refs.messagesEl; if (el) el.scrollTop = el.scrollHeight; }); },
@@ -468,8 +930,16 @@ app.component('v-agenting-pim', {
                 sessionStorage.setItem('agenting_pim_state', JSON.stringify({
                     isOpen: this.isOpen, activeTab: this.activeTab,
                     activeCapability: this.activeCapability ? this.activeCapability.key : null,
+                    selectedPlatformId: this.selectedPlatformId,
+                    selectedModel: this.selectedModel,
+                    activeSessionId: this.activeSessionId,
                     messages: this.messages.map(m => ({ role: m.role, content: m.content, result: m.result || null, product_url: m.product_url || null, download_url: m.download_url || null })),
                 }));
+
+                // Auto-save current session to localStorage
+                if (this.messages.length > 0 && this.activeSessionId) {
+                    this.saveCurrentSession();
+                }
             } catch (e) {}
         },
 
@@ -480,6 +950,15 @@ app.component('v-agenting-pim', {
                 const s = JSON.parse(raw);
                 if (s.activeTab) this.activeTab = s.activeTab;
                 if (s.activeCapability) this.activeCapability = this.capabilities.find(c => c.key === s.activeCapability) || null;
+                if (s.selectedPlatformId && this.platforms.find(p => p.id === s.selectedPlatformId)) {
+                    this.selectedPlatformId = s.selectedPlatformId;
+                    if (s.selectedModel && this.availableModels.includes(s.selectedModel)) {
+                        this.selectedModel = s.selectedModel;
+                    } else {
+                        this.selectedModel = this.availableModels[0] || '';
+                    }
+                }
+                if (s.activeSessionId) this.activeSessionId = s.activeSessionId;
                 if (Array.isArray(s.messages) && s.messages.length > 0) this.messages = s.messages;
                 if (s.isOpen) {
                     // Disable the Vue panel slide-in transition and #app margin animation on page load.

@@ -1,7 +1,5 @@
 <?php
 
-use Webkul\MagicAI\MagicAI;
-
 return [
     /**
      * General.
@@ -15,7 +13,6 @@ return [
         'key'       => 'general.magic_ai',
         'name'      => 'admin::app.configuration.index.general.magic-ai.title',
         'info'      => 'admin::app.configuration.index.general.magic-ai.info',
-        'validator' => 'Webkul\MagicAI\Validator\MagicAICredentialValidator',
         'icon'      => 'settings/magic-ai.svg',
         'sort'      => 3,
     ], [
@@ -29,55 +26,37 @@ return [
                 'title' => 'admin::app.configuration.index.general.magic-ai.settings.enabled',
                 'type'  => 'boolean',
             ], [
-                'name'    => 'ai_platform',
-                'title'   => 'AI Platforms',
-                'type'    => 'select',
-                'options' => [
-                    [
-                        'title' => 'Openai',
-                        'value' => MagicAI::MAGIC_OPEN_AI,
-                    ], [
-                        'title' => 'Groq',
-                        'value' => MagicAI::MAGIC_GROQ_AI,
-                    ], [
-                        'title' => 'Ollama',
-                        'value' => MagicAI::MAGIC_OLLAMA_AI,
-                    ], [
-                        'title' => 'Gemini',
-                        'value' => MagicAI::MAGIC_GEMINI_AI,
-                    ],
-                ],
-            ], [
-                'name'  => 'api_key',
-                'title' => 'admin::app.configuration.index.general.magic-ai.settings.api-key',
-                'type'  => 'password',
-            ], [
-                'name'  => 'organization',
-                'title' => 'admin::app.configuration.index.general.magic-ai.settings.organization',
+                'name'  => 'ai_platform',
+                'title' => 'admin::app.configuration.index.general.magic-ai.settings.ai-platform',
                 'type'  => 'blade',
-                'path'  => 'admin::configuration.magic-ai.field.organization',
+                'path'  => 'admin::configuration.magic-ai.field.text-generation-platform',
             ], [
-                'name'  => 'api_domain',
-                'title' => 'admin::app.configuration.index.general.magic-ai.settings.llm-api-domain',
+                'name'  => 'ai_model',
+                'title' => 'admin::app.configuration.index.general.magic-ai.settings.ai-model',
                 'type'  => 'blade',
-                'path'  => 'admin::configuration.magic-ai.field.domain',
-            ], [
-                'name'  => 'api_model',
-                'title' => 'admin::app.configuration.index.general.magic-ai.settings.api-model',
-                'type'  => 'blade',
-                'path'  => 'admin::configuration.magic-ai.field.model',
+                'path'  => 'admin::configuration.magic-ai.field.text-generation-model',
             ],
         ],
     ], [
         'key'    => 'general.magic_ai.image_generation',
         'name'   => 'admin::app.configuration.index.general.magic-ai.image-generation.title',
         'info'   => 'admin::app.configuration.index.general.magic-ai.image-generation.title-info',
-        'sort'   => 1,
+        'sort'   => 2,
         'fields' => [
             [
                 'name'  => 'enabled',
                 'title' => 'admin::app.configuration.index.general.magic-ai.image-generation.enabled',
                 'type'  => 'boolean',
+            ], [
+                'name'  => 'ai_platform',
+                'title' => 'admin::app.configuration.index.general.magic-ai.image-generation.ai-platform',
+                'type'  => 'blade',
+                'path'  => 'admin::configuration.magic-ai.field.image-generation-platform',
+            ], [
+                'name'  => 'ai_model',
+                'title' => 'admin::app.configuration.index.general.magic-ai.image-generation.ai-model',
+                'type'  => 'blade',
+                'path'  => 'admin::configuration.magic-ai.field.image-generation-model',
             ],
         ],
     ],
@@ -85,13 +64,18 @@ return [
         'key'    => 'general.magic_ai.translation',
         'name'   => 'admin::app.configuration.index.general.magic-ai.translation.title',
         'info'   => 'admin::app.configuration.index.general.magic-ai.translation.title-info',
-        'sort'   => 1,
+        'sort'   => 3,
         'fields' => [
             [
                 'name'  => 'enabled',
                 'title' => 'admin::app.configuration.index.general.magic-ai.translation.enabled',
                 'type'  => 'blade',
                 'path'  => 'admin::configuration.magic-ai.field.translation-boolean',
+            ], [
+                'name'  => 'ai_platform',
+                'title' => 'admin::app.configuration.index.general.magic-ai.translation.ai-platform',
+                'type'  => 'blade',
+                'path'  => 'admin::configuration.magic-ai.field.translation-platform',
             ], [
                 'name'  => 'ai_model',
                 'title' => 'admin::app.configuration.index.general.magic-ai.translation.translation-model',

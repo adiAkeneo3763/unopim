@@ -11,7 +11,6 @@ return [
             'powered-by'             => 'Didukung oleh :unopim,',
             'open-source-project-by' => 'Proyek open-source oleh :webkul.',
         ],
-
         'forget-password' => [
             'create' => [
                 'email'                  => 'Email terdaftar',
@@ -26,7 +25,6 @@ return [
                 'open-source-project-by' => 'Proyek open-source oleh :webkul.',
             ],
         ],
-
         'reset-password' => [
             'back-link-title'        => 'Kembali untuk Masuk?',
             'confirm-password'       => 'konfirmasi sandi',
@@ -38,7 +36,6 @@ return [
             'open-source-project-by' => 'Proyek open-source oleh :webkul.',
         ],
     ],
-
     'notifications' => [
         'description-text' => 'Sebutkan semua pemberitahuan',
         'marked-success'   => 'Pemberitahuan berhasil ditandai',
@@ -55,7 +52,6 @@ return [
             'processing' => 'Pengolahan',
         ],
     ],
-
     'account' => [
         'edit' => [
             'back-btn'          => 'Kembali',
@@ -76,25 +72,75 @@ return [
             'user-timezone'     => 'Zona waktu',
         ],
     ],
-
     'dashboard' => [
         'index' => [
-            'title'            => 'Dasbor',
-            'user-info'        => 'Pemantauan dengan cepat, apa \'s count in your PIM',
-            'user-name'        => 'Hai!:user_name',
-            'catalog-details'  => 'Katalog',
-            'total-families'   => 'Total keluarga',
-            'total-attributes' => 'Atribut total',
-            'total-groups'     => 'Total kelompok',
-            'total-categories' => 'Total Kategori',
-            'total-products'   => 'Total produk',
-            'settings-details' => 'Struktur katalog',
-            'total-locales'    => 'Total lokal',
-            'total-currencies' => 'Total mata uang',
-            'total-channels'   => 'Total saluran',
+            'title'                => 'Dasbor',
+            'user-info'            => 'Pemantauan dengan cepat, apa \'s count in your PIM',
+            'user-name'            => 'Hai!:user_name',
+            'catalog-details'      => 'Katalog',
+            'total-families'       => 'Total keluarga',
+            'total-attributes'     => 'Atribut total',
+            'total-groups'         => 'Total kelompok',
+            'total-categories'     => 'Total Kategori',
+            'total-products'       => 'Total produk',
+            'settings-details'     => 'Struktur katalog',
+            'total-locales'        => 'Total lokal',
+            'total-currencies'     => 'Total mata uang',
+            'total-channels'       => 'Total saluran',
+            'completeness'         => 'Completeness',
+            'active'               => 'Active',
+            'inactive'             => 'Inactive',
+            'simple'               => 'Simple',
+            'configurable'         => 'Configurable',
+            'product-stats'        => 'Product Statistics',
+            'product-type-dist'    => 'Product Type Distribution',
+            'products-by-status'   => 'Products by Status',
+            'products-over-time'   => 'Product Activity (Last 7 Days)',
+            'legend-created'       => 'Created',
+            'legend-updated'       => 'Updated',
+            'recent-activity'      => 'Recent Activity',
+            'no-activity'          => 'No recent activity found.',
+            'updated'              => 'updated',
+            'created'              => 'created',
+            'deleted'              => 'deleted',
+            'ago'                  => 'ago',
+            'just-now'             => 'just now',
+            'data-transfer'        => 'Data Transfer',
+            'no-jobs'              => 'No recent import/export jobs found.',
+            'job-type-import'      => 'Import',
+            'job-type-export'      => 'Export',
+            'job-state-completed'  => 'Completed',
+            'job-state-failed'     => 'Failed',
+            'job-state-processing' => 'Processing',
+            'job-state-pending'    => 'Pending',
+            'job-state-validated'  => 'Validated',
+            'rows-processed'       => 'Rows Processed',
+            'errors'               => 'Errors',
+            'quick-links'          => 'Quick Links',
+            'create-product'       => 'Create Product',
+            'import-data'          => 'Import Data',
+            'export-data'          => 'Export Data',
+            'manage-attributes'    => 'Manage Attributes',
+            'view-all-activity'    => 'View All',
+            'view-all-jobs'        => 'View All Jobs',
+            'new-this-week'        => 'New This Week',
+            'with-variants'        => 'With Variants',
+            'avg-completeness'     => 'Avg Completeness',
+            'enriched'             => 'Enriched',
+            'analytics-section'    => 'Analytics',
+            'operations-section'   => 'Operations',
+            'needs-attention'      => 'Needs Attention',
+            'unenriched-products'  => 'Unenriched Products',
+            'failed-jobs-24h'      => 'Failed Jobs (24h)',
+            'low-completeness'     => 'Low Completeness',
+            'all-good'             => 'Everything looks good!',
+            'channel-readiness'    => 'Channel Readiness',
+            'ready-to-publish'     => 'ready to publish',
+            'of'                   => 'of',
+            'products-ready'       => 'products ready',
+            'no-readiness-data'    => 'No completeness data available yet.',
         ],
     ],
-
     'catalog' => [
         'products' => [
             'index' => [
@@ -104,8 +150,7 @@ return [
                 'magic-ai-error'            => 'Harap verifikasi kredensial Magic AI dan pastikan model yang benar dipilih.',
                 'magic-ai-validate-error'   => 'Silakan periksa kredensial Magic AI.',
                 'magic-ai-validate-success' => 'Kredensial Magic AI berhasil diverifikasi.',
-
-                'create' => [
+                'create'                    => [
                     'back-btn'                          => 'Kembali',
                     'configurable-attributes'           => 'Atribut yang dapat dikonfigurasi',
                     'create-btn'                        => 'Buat Produk',
@@ -118,7 +163,6 @@ return [
                     'not-config-super-attributes-error' => 'Atribut super ini dengan nilai ":super_attributes" tidak dapat ditemukan',
                     'sku-exists-error'                  => 'SKU dengan nilai ":sku" sudah ada',
                 ],
-
                 'datagrid' => [
                     'active'                 => 'Aktif',
                     'attribute-family'       => 'Atribut Keluarga',
@@ -148,49 +192,43 @@ return [
                     'update-status'          => 'Memperbaharui status',
                     'parent'                 => 'Induk',
                     'parent-identifier'      => 'Orang tua : :sku',
+                    'created-at'             => 'Created At',
+                    'updated-at'             => 'Updated At',
                 ],
             ],
-
             'edit' => [
-                'preview'  => 'Pratinjau',
-                'remove'   => 'Menghapus',
-                'save-btn' => 'Simpan produk',
-                'title'    => 'Edit produk',
-
+                'preview'    => 'Pratinjau',
+                'remove'     => 'Menghapus',
+                'save-btn'   => 'Simpan produk',
+                'title'      => 'Edit produk',
                 'categories' => [
                     'title' => 'Kategori',
                 ],
-
                 'images' => [
                     'info'  => 'Resolusi gambar harus seperti 560px x 609px',
                     'title' => 'Gambar-gambar',
                 ],
-
                 'videos' => [
                     'error' => 'The :attribute mungkin tidak lebih besar dari :max kilobytes. Silakan pilih berkas yang lebih kecil.',
                     'info'  => 'Ukuran video maksimum harus seperti :size',
                     'title' => 'Video',
                 ],
-
                 'links' => [
                     'related-products' => [
                         'empty-info' => 'Tambahkan produk asosiasi terkait.',
                         'info'       => 'Selain produk yang dilihat pelanggan, mereka disajikan dengan produk terkait.',
                         'title'      => 'Produk-produk terkait',
                     ],
-
                     'up-sells' => [
                         'empty-info' => 'Tambahkan produk asosiasi jual.',
                         'info'       => 'Pelanggan disajikan dengan produk penjualan, yang berfungsi sebagai alternatif premium atau berkualitas lebih tinggi untuk produk yang saat ini mereka tonton.',
                         'title'      => 'Produk upell',
                     ],
-
                     'cross-sells' => [
                         'empty-info' => 'Tambahkan produk asosiasi penjualan silang.',
                         'info'       => 'Berdekatan dengan keranjang belanja, Anda \'ll find these \"impulse-buy\" products positioned as cross-sells to complement the items already added to your cart.',
                         'title'      => 'Produk Cross-Sell',
                     ],
-
                     'add-btn'           => 'Menambahkan',
                     'delete'            => 'Menghapus',
                     'empty-info'        => 'Untuk menambahkan produk :type saat bepergian.',
@@ -199,7 +237,6 @@ return [
                     'sku'               => 'Ski - :sku',
                     'title'             => 'Asosiasi',
                 ],
-
                 'types' => [
                     'configurable' => [
                         'add-btn'                            => 'Tambahkan varian',
@@ -216,15 +253,13 @@ return [
                         'variant-attribute-option-not-found' => 'Varian atribut atau opsi dengan nilai ":attributes" tidak ditemukan',
                         'supper-attribute-not-found'         => 'Atribut makan malam dengan nilai ":attribute" tidak ditemukan',
                         'variant-given-exists'               => 'Varian ini dengan nilai ":variants" sudah ada',
-
-                        'create' => [
+                        'create'                             => [
                             'description'            => 'Keterangan',
                             'name'                   => 'Nama',
                             'save-btn'               => 'Menambahkan',
                             'title'                  => 'Tambahkan varian',
                             'variant-already-exists' => 'Varian ini sudah ada',
                         ],
-
                         'edit' => [
                             'disabled'        => 'Dengan disabilitas',
                             'edit-info'       => 'Jika Anda ingin memperbarui informasi produk secara detail, maka buka',
@@ -240,7 +275,6 @@ return [
                             'title'           => 'Produk',
                             'weight'          => 'Berat',
                         ],
-
                         'mass-edit' => [
                             'add-images'          => 'Tambahkan gambar',
                             'apply-to-all-btn'    => 'Terapkan ke semua',
@@ -267,23 +301,31 @@ return [
                         ],
                     ],
                 ],
-
                 'translate' => [
-                    'translate-btn'            => 'Terjemahkan',
-                    'title'                    => 'Terjemahkan',
-                    'source-channel'           => 'Saluran Sumber',
-                    'locale'                   => 'Bahasa Sumber',
-                    'translated-content'       => 'Konten Terjemahan',
-                    'translating'              => 'Sedang Menerjemahkan',
-                    'apply'                    => 'Terapkan',
-                    'cancel'                   => 'Batalkan',
-                    'target-locales'           => 'Bahasa Target',
-                    'target-channel'           => 'Saluran Target',
-                    'attributes'               => 'Atribut',
-                    'source-content'           => 'Konten Sumber',
-                    'tranlated-job-processed'  => 'Tugas penyimpanan konten terjemahan telah diproses.',
+                    'translate-btn'               => 'Terjemahkan',
+                    'title'                       => 'Terjemahkan',
+                    'source-channel'              => 'Saluran Sumber',
+                    'locale'                      => 'Bahasa Sumber',
+                    'translated-content'          => 'Konten Terjemahan',
+                    'translating'                 => 'Sedang Menerjemahkan',
+                    'apply'                       => 'Terapkan',
+                    'back'                        => 'Back',
+                    'cancel'                      => 'Batalkan',
+                    'target-locales'              => 'Bahasa Target',
+                    'target-channel'              => 'Saluran Target',
+                    'attributes'                  => 'Atribut',
+                    'source-content'              => 'Konten Sumber',
+                    'tranlated-job-processed'     => 'Tugas penyimpanan konten terjemahan telah diproses.',
+                    'step'                        => 'Step',
+                    'select-source'               => 'Select Source',
+                    'select-target'               => 'Select Target',
+                    'first-step-title'            => 'Step 1: Select Source Channel, Language and Attributes',
+                    'first-step-title-attributes' => 'Step 1: Select Source Channel and Language',
+                    'second-step-title'           => 'Step 2: Select Target Channel and Languages',
+                    'target-content'              => 'Target Content',
+                    'next'                        => 'Next',
+                    'empty-translation-data'      => 'Data not available for translation on the basis of source channel and locale',
                 ],
-
                 'product-info' => [
                     'title'        => 'Informasi Produk',
                     'status'       => 'Status',
@@ -293,6 +335,7 @@ return [
                     'created-at'   => 'Tanggal Dibuat',
                     'product-type' => 'Tipe Produk',
                 ],
+                'more-actions' => 'More Actions',
             ],
             'bulk-edit' => [
                 'validation' => [
@@ -305,27 +348,22 @@ return [
                     'select-attribute-or-family' => 'Silakan pilih setidaknya satu atribut atau satu keluarga atribut.',
                     'failed'                     => 'Validasi gagal.',
                 ],
-
-                'modal'                      => [
+                'modal' => [
                     'title'            => 'Atribut untuk Sunting Massal',
                     'btn-cancel'       => 'Batal',
                     'btn-proceed'      => 'Lanjutkan',
                     'attribute-family' => 'Pilih Keluarga Atribut',
                 ],
-
                 'index' => [
-                    'no-product'    => 'Tidak ada produk yang dipilih untuk sunting massal.',
+                    'no-product' => 'Tidak ada produk yang dipilih untuk sunting massal.',
                 ],
-
                 'filter' => [
-                    'many-product'      => 'Terlalu banyak produk yang dipilih.',
-                    'redirect-message'  => 'Mengalihkan ke tampilan sunting massal.',
+                    'many-product'     => 'Terlalu banyak produk yang dipilih.',
+                    'redirect-message' => 'Mengalihkan ke tampilan sunting massal.',
                 ],
-
                 'handle-save' => [
-                    'edit-success'  => 'Sunting massal berhasil.',
+                    'edit-success' => 'Sunting massal berhasil.',
                 ],
-
                 'id'              => 'ID',
                 'no-changes'      => 'Tidak ada perubahan untuk disimpan.',
                 'success'         => 'Pekerjaan berhasil dijalankan.',
@@ -335,9 +373,8 @@ return [
                 'img-preview'     => 'Pratinjau Gambar',
                 'no-image'        => 'Tidak Ada Gambar',
                 'img-fail'        => 'Unggah gambar gagal',
-                'no-opton'        => 'Tidak Ada Opsi',
+                'no-option'       => 'No Options',
             ],
-
             'create-success'          => 'Produk berhasil dibuat',
             'delete-failed'           => 'Produk dihapus gagal',
             'delete-success'          => 'Produk berhasil dihapus',
@@ -351,13 +388,11 @@ return [
             'upload-success'          => 'File produk berhasil diunggah.',
             'update-failure'          => 'Produk gagal diperbarui.',
         ],
-
         'attributes' => [
             'index' => [
                 'create-btn' => 'Buat atribut',
                 'title'      => 'Atribut',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'            => 'Berbasis saluran',
                     'code'                     => 'Kode',
                     'created-at'               => 'Dibuat di',
@@ -375,7 +410,6 @@ return [
                     'delete-attribute-failure' => 'Tidak dapat menghapus atribut ini karena sedang digunakan untuk produk yang dapat dikonfigurasi.',
                 ],
             ],
-
             'create' => [
                 'add-attribute-options' => 'Tambahkan opsi atribut',
                 'add-option'            => 'Tambahkan opsi',
@@ -398,12 +432,13 @@ return [
                 'enable-wysiwyg'        => 'Aktifkan editor WYSIWYG',
                 'file'                  => 'Mengajukan',
                 'general'               => 'Umum',
+                'gallery'               => 'Gallery',
                 'image'                 => 'Gambar',
                 'input-options'         => 'Opsi input',
                 'input-validation'      => 'Validasi input',
                 'is-comparable'         => 'Atribut sebanding',
                 'is-configurable'       => 'Gunakan untuk membuat produk yang dapat dikonfigurasi',
-                'is-filterable'         => 'Gunakan dalam navigasi berlapis',
+                'is-filterable'         => 'Dapat difilter',
                 'is-required'           => 'Dibutuhkan',
                 'is-unique'             => 'Unik',
                 'is-visible-on-front'   => 'Terlihat di halaman tampilan produk di front-end',
@@ -431,10 +466,9 @@ return [
                 'yes'                   => 'Ya',
                 'same-code-error'       => 'Kode opsi harus unik.',
                 'usable-in-grid'        => 'Dapat digunakan dalam grid',
-                'is-filterable'         => 'Dapat difilter',
                 'ai-translate'          => 'AI Terjemahan',
-
-                'option' => [
+                'invalid-swatch-type'   => 'The :attribute is not allowed for attribute type :type with swatch type :swatch_type.',
+                'option'                => [
                     'color'    => 'Color Swatch',
                     'dropdown' => 'Dropdown',
                     'image'    => 'Gambar gambar',
@@ -442,7 +476,6 @@ return [
                     'text'     => 'Swatch Teks',
                 ],
             ],
-
             'edit' => [
                 'add-attribute-options' => 'Tambahkan opsi atribut',
                 'add-option'            => 'Tambahkan opsi',
@@ -470,7 +503,7 @@ return [
                 'input-validation'      => 'Validasi input',
                 'is-comparable'         => 'Atribut sebanding',
                 'is-configurable'       => 'Gunakan untuk membuat produk yang dapat dikonfigurasi',
-                'is-filterable'         => 'Gunakan dalam navigasi berlapis',
+                'is-filterable'         => 'Dapat difilter',
                 'is-required'           => 'Dibutuhkan',
                 'is-unique'             => 'Unik',
                 'is-visible-on-front'   => 'Terlihat di halaman tampilan produk di front-end',
@@ -498,24 +531,20 @@ return [
                 'yes'                   => 'Ya',
                 'same-code-error'       => 'Kode opsi harus unik.',
                 'usable-in-grid'        => 'Dapat digunakan dalam grid',
-                'is-filterable'         => 'Dapat difilter',
                 'ai-translate'          => 'AI Terjemahan',
-                'invalid-swatch-type'   => ':attribute tidak diizinkan untuk tipe atribut :type dengan tipe swatch :swatch_type.',
-
-                'option' => [
-                    'create-success'      => 'Opsi atribut berhasil dibuat',
-                    'delete-success'      => 'Opsi atribut berhasil dihapus',
+                'option'                => [
                     'save-btn'            => 'Simpan opsi',
-                    'sort-update-failure' => 'Gagal memperbarui urutan sortir',
-                    'sort-update-success' => 'Urutan sortir berhasil diperbarui',
+                    'create-success'      => 'Opsi atribut berhasil dibuat',
                     'update-success'      => 'Opsi atribut berhasil diperbarui',
+                    'sort-update-success' => 'Urutan sortir berhasil diperbarui',
+                    'sort-update-failure' => 'Gagal memperbarui urutan sortir',
+                    'delete-success'      => 'Opsi atribut berhasil dihapus',
                     'color'               => 'Color Swatch',
                     'dropdown'            => 'Dropdown',
                     'image'               => 'Gambar gambar',
                     'text'                => 'Swatch Teks',
                 ],
             ],
-
             'create-success'    => 'Atribut berhasil dibuat',
             'delete-failed'     => 'Atribut dihapus gagal',
             'delete-success'    => 'Atribut berhasil dihapus',
@@ -523,20 +552,16 @@ return [
             'user-define-error' => 'Tidak dapat menghapus atribut sistem',
             'not-found'         => 'Atribut dengan kode ":code" tidak dapat ditemukan',
         ],
-
         'attribute-options' => [
-            'create-success' => 'Opsi atribut berhasil dibuat',
-            'update-success' => 'Opsi atribut berhasil diperbarui',
-
+            'create-success'       => 'Opsi atribut berhasil dibuat',
+            'update-success'       => 'Opsi atribut berhasil diperbarui',
             'usable-in-grid-error' => 'Hanya 4 atribut yang dapat digunakan dalam kisi yang diaktifkan.',
         ],
-
         'attribute-groups' => [
             'index' => [
                 'create-btn' => 'Buat grup atribut',
                 'title'      => 'Grup atribut',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'code'                => 'Kode',
                     'delete'              => 'Menghapus',
                     'mass-delete-success' => 'Grup atribut yang dipilih berhasil dihapus',
@@ -548,7 +573,6 @@ return [
                     'update-status'       => 'Memperbaharui status',
                 ],
             ],
-
             'create' => [
                 'title'    => 'Tambahkan Grup Atribut',
                 'save-btn' => 'Simpan grup atribut',
@@ -557,7 +581,6 @@ return [
                 'code'     => 'Kode',
                 'label'    => 'Label',
             ],
-
             'edit' => [
                 'title'    => 'Edit grup atribut',
                 'back-btn' => 'Kembali',
@@ -566,7 +589,6 @@ return [
                 'code'     => 'Kode',
                 'label'    => 'Label',
             ],
-
             'create-success'        => 'Grup atribut berhasil dibuat',
             'delete-failed'         => 'Grup atribut dihapus gagal',
             'delete-success'        => 'Grup atribut berhasil dihapus',
@@ -575,12 +597,10 @@ return [
             'attribute-group-error' => 'Kelompok digunakan dalam keluarga.',
             'not-found'             => 'Grup atribut dengan kode ":code" tidak dapat ditemukan',
         ],
-
         'categories' => [
             'index' => [
-                'add-btn' => 'Buat kategori',
-                'title'   => 'Kategori',
-
+                'add-btn'  => 'Buat kategori',
+                'title'    => 'Kategori',
                 'datagrid' => [
                     'active'         => 'Aktif',
                     'code'           => 'Kode',
@@ -590,14 +610,13 @@ return [
                     'id'             => 'PENGENAL',
                     'inactive'       => 'Tidak aktif',
                     'name'           => 'Nama tampilan',
-                    'no-of-products' => 'Jumlah produk',
                     'category-name'  => 'Nama',
+                    'no-of-products' => 'Jumlah produk',
                     'position'       => 'Posisi',
                     'status'         => 'Terlihat di menu',
                     'update-status'  => 'Memperbaharui status',
                 ],
             ],
-
             'create' => [
                 'back-btn'            => 'Kembali',
                 'code'                => 'Kode',
@@ -618,7 +637,6 @@ return [
                 'right-section'       => 'Bagian Konfigurasi',
                 'left-section'        => 'Bagian Umum',
             ],
-
             'edit' => [
                 'back-btn'               => 'Kembali',
                 'code'                   => 'Kode',
@@ -637,7 +655,6 @@ return [
                 'right-section'          => 'Bagian Konfigurasi',
                 'left-section'           => 'Bagian Umum',
             ],
-
             'category'             => 'Kategori',
             'create-success'       => 'Kategori berhasil dibuat.',
             'delete-category-root' => 'Anda tidak dapat menghapus kategori root yang terkait dengan saluran.',
@@ -652,14 +669,12 @@ return [
             'create-failure'       => 'Kategori gagal dibuat.',
             'update-failure'       => 'Kategori gagal diperbarui.',
         ],
-
         'category_fields' => [
             'index' => [
                 'create-btn' => 'Buat bidang kategori',
                 'add-btn'    => 'Buat bidang kategori',
                 'title'      => 'Bidang kategori',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'       => 'Berbasis saluran',
                     'code'                => 'Kode',
                     'created-at'          => 'Dibuat di',
@@ -684,7 +699,6 @@ return [
                     'mass-delete-failed'  => 'Bidang kategori yang dipilih tidak dapat dihapus.',
                 ],
             ],
-
             'create' => [
                 'add-field-options'   => 'Tambahkan Opsi Bidang Kategori',
                 'add-option'          => 'Tambahkan opsi',
@@ -739,8 +753,7 @@ return [
                 'set-section-right'   => 'Bagian Konfigurasi',
                 'settings'            => 'Pengaturan',
                 'same-code-error'     => 'Kode opsi harus unik.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Dropdown',
                     'save-btn' => 'Simpan opsi',
                     'color'    => 'Color Swatch',
@@ -748,7 +761,6 @@ return [
                     'text'     => 'Swatch Teks',
                 ],
             ],
-
             'edit' => [
                 'add-field-options'   => 'Tambahkan Opsi Bidang Kategori',
                 'add-option'          => 'Tambahkan opsi',
@@ -804,8 +816,7 @@ return [
                 'set-section-right'   => 'Bagian Konfigurasi',
                 'settings'            => 'Pengaturan',
                 'same-code-error'     => 'Kode opsi harus unik.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Dropdown',
                     'save-btn' => 'Simpan opsi',
                     'color'    => 'Color Swatch',
@@ -813,7 +824,6 @@ return [
                     'text'     => 'Swatch Teks',
                 ],
             ],
-
             'create-success'    => 'Bidang kategori berhasil dibuat',
             'delete-failed'     => 'Kategori Bidang Dihapus Gagal',
             'delete-success'    => 'Bidang kategori berhasil dihapus',
@@ -821,17 +831,14 @@ return [
             'user-define-error' => 'Tidak dapat menghapus bidang kategori sistem',
             'not-found'         => 'Bidang kategori dengan kode ":code" tidak dapat ditemukan',
         ],
-
         'category-fields-options' => [
             'create-success' => 'Opsi bidang kategori berhasil dibuat',
             'update-success' => 'Opsi bidang kategori berhasil diperbarui',
         ],
-
         'families' => [
             'index' => [
-                'add'   => 'Buat keluarga atribut',
-                'title' => 'Keluarga',
-
+                'add'      => 'Buat keluarga atribut',
+                'title'    => 'Keluarga',
                 'datagrid' => [
                     'code'           => 'Kode',
                     'delete'         => 'Menghapus',
@@ -846,11 +853,9 @@ return [
                     'update-success' => ':resource yang dipilih berhasil diperbarui',
                 ],
             ],
-
             'create' => [
                 'assign-group-btn'                 => 'Tetapkan grup atribut',
                 'assign-group-title'               => 'Tetapkan grup atribut',
-                'assign-group-btn'                 => 'Tetapkan grup atribut',
                 'back-btn'                         => 'Kembali',
                 'code'                             => 'Kode',
                 'label'                            => 'Label',
@@ -878,11 +883,9 @@ return [
                 'unassigned-attribute-groups'      => 'Grup atribut yang tidak ditugaskan',
                 'assign-first-attribute-group'     => 'Tetapkan kelompok ke dalam keluarga.',
             ],
-
             'edit' => [
                 'assign-group-btn'                 => 'Tetapkan grup atribut',
                 'assign-group-title'               => 'Tetapkan grup atribut',
-                'assign-group-btn'                 => 'Tetapkan grup atribut',
                 'back-btn'                         => 'Kembali',
                 'code'                             => 'Kode',
                 'label'                            => 'Label',
@@ -913,7 +916,6 @@ return [
                 'variant-options-label'            => 'Opsi yang dapat dikonfigurasi',
                 'select-variant'                   => 'Pilih atribut',
             ],
-
             'attribute-family'               => 'Atribut Keluarga',
             'attribute-product-error'        => 'Keluarga digunakan dalam produk.',
             'create-success'                 => 'Keluarga diciptakan dengan sukses.',
@@ -926,18 +928,16 @@ return [
             'not-found'                      => 'Atribut keluarga dengan kode ":code" tidak dapat ditemukan',
             'can-not-update-variant-options' => 'Tidak dapat memperbarui opsi yang dapat dikonfigurasi karena keluarga ini sudah memiliki produk varian.',
         ],
-
         'history' => [
             'index' => [
                 'datagrid' => [
-                    'version'   => 'Versi:kapan',
+                    'version'   => 'Versi',
                     'user'      => 'Pengguna',
                     'date_time' => 'Tanggal Waktu',
                 ],
             ],
         ],
     ],
-
     'settings' => [
         'locales' => [
             'index' => [
@@ -946,8 +946,7 @@ return [
                 'title'                 => 'Lokal',
                 'can-not-delete-error'  => 'Anda tidak dapat menghapus lokasi yang terhubung ke saluran atau pengguna',
                 'can-not-disable-error' => 'Anda tidak dapat menonaktifkan lokasi yang terhubung ke saluran atau pengguna',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'     => 'Tindakan',
                     'code'        => 'Kode',
                     'delete'      => 'Menghapus',
@@ -958,14 +957,12 @@ return [
                     'name'        => 'Nama tampilan',
                     'rtl'         => 'Rtl',
                     'mass-update' => 'Memperbaharui status',
-
-                    'status' => [
+                    'status'      => [
                         'title'    => 'Status',
                         'active'   => 'Memungkinkan',
                         'inactive' => 'Cacat',
                     ],
                 ],
-
                 'create' => [
                     'code'             => 'Kode',
                     'direction'        => 'Arah',
@@ -976,11 +973,9 @@ return [
                     'title'            => 'Buat lokal',
                     'status'           => 'Status',
                 ],
-
                 'edit' => [
                     'title' => 'Edit lokal',
                 ],
-
                 'create-success'    => 'Lokal berhasil dibuat.',
                 'delete-failed'     => 'Penghapusan lokal gagal',
                 'delete-success'    => 'Lokal berhasil dihapus.',
@@ -989,7 +984,6 @@ return [
                 'update-success'    => 'Lokal berhasil diperbarui.',
             ],
         ],
-
         'currencies' => [
             'index' => [
                 'create-btn'            => 'Buat mata uang',
@@ -997,8 +991,7 @@ return [
                 'title'                 => 'Mata uang',
                 'can-not-delete-error'  => 'Anda tidak dapat menghapus mata uang yang terhubung ke saluran',
                 'can-not-disable-error' => 'Anda tidak dapat menonaktifkan mata uang yang ditautkan ke saluran',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'        => 'Tindakan',
                     'code'           => 'Kode',
                     'delete'         => 'Menghapus',
@@ -1010,14 +1003,12 @@ return [
                     'partial-action' => 'Beberapa tindakan tidak dilakukan karena kendala sistem terbatas pada:resource daya',
                     'update-success' => 'Dipilih :resource daya berhasil diperbarui',
                     'mass-update'    => 'Memperbaharui status',
-
-                    'status' => [
+                    'status'         => [
                         'title'    => 'Status',
                         'active'   => 'Memungkinkan',
                         'inactive' => 'Cacat',
                     ],
                 ],
-
                 'create' => [
                     'code'           => 'Kode',
                     'create-btn'     => 'Buat mata uang',
@@ -1030,11 +1021,9 @@ return [
                     'title'          => 'Buat mata uang baru',
                     'status'         => 'Status',
                 ],
-
                 'edit' => [
                     'title' => 'Edit mata uang',
                 ],
-
                 'create-success'    => 'Mata uang berhasil dibuat.',
                 'delete-failed'     => 'Mata uang dihapus gagal',
                 'delete-success'    => 'Mata uang yang berhasil dihapus.',
@@ -1043,7 +1032,6 @@ return [
                 'cannot-delete'     => 'Mata uang tidak dapat dihapus.',
             ],
         ],
-
         'data-transfer' => [
             'tracker' => [
                 'index' => [
@@ -1062,6 +1050,7 @@ return [
                         'created_at'           => 'Dibuat di',
                         'updated_at'           => 'Diperbarui di',
                         'pending'              => 'Tertunda',
+                        'validating'           => 'Validating',
                         'validated'            => 'Divalidasi',
                         'processing'           => 'Pengolahan',
                         'processed'            => 'Diproses',
@@ -1070,23 +1059,24 @@ return [
                         'indexing'             => 'Pengindeksan',
                         'indexed'              => 'Diindeks',
                         'completed'            => 'Lengkap',
+                        'paused'               => 'Paused',
+                        'cancelled'            => 'Cancelled',
                         'failed'               => 'Gagal',
                     ],
                 ],
-
                 'import' => [
                     'back-btn'                => 'Kembali',
                     'completed-batches'       => 'Total batch selesai:',
                     'download-error-report'   => 'Unduh Laporan Lengkap',
                     'edit-btn'                => 'Edit',
                     'imported-info'           => 'Selamat!Impor Anda berhasil.',
-                    'importing-info'          => 'Ekspor dalam proses',
+                    'exporting-info'          => 'Export In Process',
                     'indexing-info'           => 'Pengindeksan sumber daya (harga, pencarian elastis) yang sedang berlangsung',
                     'linking-info'            => 'Sumber daya yang sedang berlangsung',
                     'progress'                => 'Kemajuan:',
                     'title'                   => 'Ekspor',
                     'total-batches'           => 'Total batch:',
-                    'total-created'           => 'Total Records Dibuat:',
+                    'created'                 => 'Total Records Created:',
                     'total-deleted'           => 'Catatan Total Dihapus:',
                     'total-errors'            => 'Total kesalahan:',
                     'total-invalid-rows'      => 'Total baris tidak valid:',
@@ -1098,7 +1088,6 @@ return [
                     'validation-failed-info'  => 'Impor Anda tidak valid.Harap perbaiki kesalahan berikut dan coba lagi.',
                     'validation-success-info' => 'Impor Anda valid.Klik Ekspor untuk memulai proses impor.',
                 ],
-
                 'summary' => [
                     'total-batches' => 'Jumlah Batch:',
                     'created'       => 'Total Rekor yang Dibuat:',
@@ -1109,19 +1098,47 @@ return [
                     'updated'       => 'Total Catatan Diperbarui:',
                     'skipped'       => 'Total Rekor yang Dilewati:',
                 ],
-
-                'info'              => 'Selamat! Pekerjaan Anda berhasil dilaksanakan.',
-                'create-success'    => 'Ekspor berhasil dibuat.',
-                'delete-failed'     => 'Penghapusan ekspor gagal secara tak terduga.',
-                'delete-success'    => 'Ekspor dihapus dengan sukses.',
-                'not-valid'         => 'Ekspor tidak valid',
-                'nothing-to-import' => 'Tidak ada sumber daya untuk diimpor.',
-                'setup-queue-error' => 'Harap ubah driver antrian Anda menjadi "basis data" atau "redis" untuk memulai proses impor.',
-                'update-success'    => 'Ekspor berhasil diperbarui.',
-                'failed-info'       => 'Pekerjaan gagal. Harap perbaiki kesalahan berikut dan coba lagi.',
-                'download-log-file' => 'Unduh log',
+                'info'                  => 'Selamat! Pekerjaan Anda berhasil dilaksanakan.',
+                'running-time'          => 'Running time',
+                'estimated-remaining'   => 'Est. remaining',
+                'total-duration'        => 'Total Duration',
+                'status'                => 'Status',
+                'waiting'               => 'Waiting',
+                'total-records'         => 'Total records',
+                'job-id'                => 'Job ID',
+                'records-created'       => 'Records Created',
+                'records-updated'       => 'Records Updated',
+                'records-deleted'       => 'Records deleted',
+                'run-again'             => 'Run Again',
+                'completed-success'     => 'job completed successfully',
+                'completed-info-sub'    => 'All records have been processed and indexed. Your catalog is up to date.',
+                'create-success'        => 'Ekspor berhasil dibuat.',
+                'delete-failed'         => 'Penghapusan ekspor gagal secara tak terduga.',
+                'delete-success'        => 'Ekspor dihapus dengan sukses.',
+                'not-valid'             => 'Ekspor tidak valid',
+                'nothing-to-import'     => 'Tidak ada sumber daya untuk diimpor.',
+                'setup-queue-error'     => 'Harap ubah driver antrian Anda menjadi "basis data" atau "redis" untuk memulai proses impor.',
+                'update-success'        => 'Ekspor berhasil diperbarui.',
+                'failed-info'           => 'Pekerjaan gagal. Harap perbaiki kesalahan berikut dan coba lagi.',
+                'download-log-file'     => 'Unduh log',
+                'pause'                 => 'Pause',
+                'resume'                => 'Resume',
+                'cancel'                => 'Cancel',
+                'paused'                => 'Import has been paused.',
+                'resumed'               => 'Import has been resumed.',
+                'cancelled'             => 'Import has been cancelled.',
+                'paused-info'           => 'Import is paused. Remaining batches are on hold.',
+                'paused-info-export'    => 'Export is paused. Remaining batches are on hold.',
+                'cancelled-info'        => 'Import was cancelled. Partial results are shown below.',
+                'cancelled-info-export' => 'Export was cancelled. Partial results are shown below.',
+                'cancel-confirm'        => 'Are you sure you want to cancel this job? This action cannot be undone.',
+                'live'                  => 'Live',
+                'import-progress'       => 'Import progress',
+                'export-progress'       => 'Export progress',
+                'linking-progress'      => 'Linking progress',
+                'indexing-progress'     => 'Indexing progress',
+                'job-label'             => 'Job',
             ],
-
             'imports' => [
                 'create' => [
                     'code'                => 'Kode',
@@ -1135,12 +1152,20 @@ return [
                     'images'              => 'Gambar-gambar',
                     'download-sample'     => 'Unduh :resource Sampel Sumber Daya',
                     'field-separator'     => 'Pemisah lapangan',
+                    'separator-info'      => 'Only use for CSV files',
                     'file-info-example'   => 'Misalnya, dalam hal citra produk, file harus ditempatkan ke/folder Project-Root/Storage/App/Impor/Produk-gambar.',
                     'file-info'           => 'Gunakan jalur relatif ke/proyek-root/penyimpanan/aplikasi/impor, mis.gambar produk, gambar impor.',
                     'file'                => 'Mengajukan',
                     'general'             => 'Umum',
                     'upload_images'       => 'Unggah gambar untuk mengatur jalur',
                     'download-sample-zip' => 'Unduh contoh gambar zip',
+                    'zip-uploading'       => 'Uploading and extracting ZIP...',
+                    'zip-upload-success'  => 'ZIP uploaded and extracted successfully.',
+                    'zip-upload-error'    => 'Failed to upload ZIP. Please try again.',
+                    'invalid-zip'         => 'The uploaded file is not a valid ZIP archive.',
+                    'zip-upload-or'       => 'or upload a ZIP of images',
+                    'zip-click-upload'    => 'Click to upload a ZIP of images',
+                    'zip-files-extracted' => 'files extracted',
                     'zip-drop-hint'       => 'Klik atau seret dan lepaskan file ZIP di sini',
                     'images-directory'    => 'Jalur',
                     'process-in-queue'    => 'Proses antrian',
@@ -1153,7 +1178,6 @@ return [
                     'type'                => 'Jenis',
                     'validation-strategy' => 'Strategi validasi',
                 ],
-
                 'edit' => [
                     'images'              => 'Gambar-gambar',
                     'action'              => 'Tindakan',
@@ -1164,6 +1188,7 @@ return [
                     'delete'              => 'Menghapus',
                     'download-sample'     => 'Unduh sampel',
                     'field-separator'     => 'Pemisah lapangan',
+                    'separator-info'      => 'Only use for CSV files',
                     'file-info-example'   => 'Misalnya, dalam hal citra produk, file harus ditempatkan ke/folder Project-Root/Storage/App/Impor/Produk-gambar.',
                     'file-info'           => 'Gunakan jalur relatif ke/proyek-root/penyimpanan/aplikasi/impor, mis.gambar produk, gambar impor.',
                     'file'                => 'Mengajukan',
@@ -1179,16 +1204,13 @@ return [
                     'type'                => 'Jenis',
                     'validation-strategy' => 'Strategi validasi',
                 ],
-
                 'batch' => [
                     'title' => 'Impor ditambahkan dalam antrian',
                 ],
-
                 'index' => [
                     'button-title' => 'Buat impor',
                     'title'        => 'Impor',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => 'Tindakan',
                         'completed-at'          => 'Selesai di',
                         'created'               => 'Dibuat',
@@ -1209,19 +1231,33 @@ return [
                         'import'                => 'Impor',
                     ],
                 ],
-
                 'import' => [
+                    'action'                  => 'Mode aksi',
                     'back-btn'                => 'Kembali',
                     'completed-batches'       => 'Total batch selesai:',
                     'download-error-report'   => 'Unduh Laporan Lengkap',
                     'edit-btn'                => 'Edit',
+                    'exporting-info'          => 'Export In Process',
+                    'exporting-info-sub'      => 'Generating export file and writing records. Please wait.',
+                    'file_path'               => 'Jalur file',
                     'imported-info'           => 'Selamat!Impor Anda berhasil.',
+                    'import-now'              => 'Impor sekarang',
                     'importing-info'          => 'Impor dalam proses',
+                    'importing-info-sub'      => 'Processing batches and writing records to the database.',
                     'indexing-info'           => 'Pengindeksan sumber daya (harga, pencarian elastis) yang sedang berlangsung',
+                    'indexing-info-sub'       => 'Rebuilding search indices and price caches after import. This step runs automatically.',
+                    'indexing-type'           => 'Price + ES',
                     'linking-info'            => 'Sumber daya yang sedang berlangsung',
-                    'progress'                => 'Kemajuan:',
+                    'linking-info-sub'        => 'Linking related resources and associations between records.',
                     'pending-info'            => 'Menunggu pemrosesan pekerjaan dalam antrian',
+                    'pending-info-sub'        => 'Your job has been added to the processing queue. A worker will pick it up shortly.',
+                    'pending-step-complete'   => 'Complete',
                     'pending-step-export'     => 'Mengekspor',
+                    'pending-step-import'     => 'Importing',
+                    'pending-step-queue'      => 'Queued',
+                    'pending-step-validate'   => 'Validating',
+                    'profile'                 => 'Impor Profil',
+                    'progress'                => 'Kemajuan:',
                     'title'                   => 'Impor',
                     'total-batches'           => 'Total batch:',
                     'total-created'           => 'Total Records Dibuat:',
@@ -1230,26 +1266,23 @@ return [
                     'total-invalid-rows'      => 'Total baris tidak valid:',
                     'total-rows-processed'    => 'Total baris yang diproses:',
                     'total-updated'           => 'Total catatan diperbarui:',
-                    'validate-info'           => 'Klik Validasi Data untuk memeriksa impor Anda.',
                     'validate'                => 'Mengesahkan',
-                    'file_path'               => 'Jalur file',
-                    'import-now'              => 'Impor sekarang',
-                    'action'                  => 'Mode aksi',
-                    'profile'                 => 'Impor Profil',
+                    'validate-info'           => 'Klik Validasi Data untuk memeriksa impor Anda.',
                     'validating-info'         => 'Data mulai membaca dan memvalidasi',
+                    'validating-info-sub'     => 'Checking schema integrity, field mappings, and data types before the import begins.',
                     'validation-failed-info'  => 'Impor Anda tidak valid.Harap perbaiki kesalahan berikut dan coba lagi.',
                     'validation-success-info' => 'Impor Anda valid. Memulai impor secara otomatis...',
                 ],
-
-                'create-success'    => 'Impor berhasil dibuat.',
-                'delete-failed'     => 'Penghapusan impor gagal secara tidak terduga.',
-                'delete-success'    => 'Impor berhasil dihapus.',
-                'not-valid'         => 'Impor tidak valid',
-                'nothing-to-import' => 'Tidak ada sumber daya untuk diimpor.',
-                'setup-queue-error' => 'Harap ubah driver antrian Anda menjadi "basis data" atau "redis" untuk memulai proses impor.',
-                'update-success'    => 'Impor berhasil diperbarui.',
+                'create-success'     => 'Impor berhasil dibuat.',
+                'delete-failed'      => 'Penghapusan impor gagal secara tidak terduga.',
+                'delete-success'     => 'Impor berhasil dihapus.',
+                'invalid-zip'        => 'The uploaded file is not a valid ZIP archive.',
+                'not-valid'          => 'Impor tidak valid',
+                'nothing-to-import'  => 'Tidak ada sumber daya untuk diimpor.',
+                'setup-queue-error'  => 'Harap ubah driver antrian Anda menjadi "basis data" atau "redis" untuk memulai proses impor.',
+                'update-success'     => 'Impor berhasil diperbarui.',
+                'zip-upload-success' => 'ZIP uploaded and extracted successfully.',
             ],
-
             'exports' => [
                 'create' => [
                     'code'                => 'Kode',
@@ -1280,7 +1313,6 @@ return [
                     'type'                => 'Jenis',
                     'validation-strategy' => 'Strategi validasi',
                 ],
-
                 'edit' => [
                     'action'              => 'Tindakan',
                     'allowed-errors'      => 'Kesalahan yang diizinkan',
@@ -1298,23 +1330,19 @@ return [
                     'results'             => 'Hasil',
                     'save-btn'            => 'Simpan ekspor',
                     'settings'            => 'Pengaturan',
-                    'filters'             => 'Filter',
                     'skip-errors'         => 'Lewati kesalahan',
                     'stop-on-errors'      => 'Berhenti pada kesalahan',
                     'title'               => 'Edit Ekspor',
                     'type'                => 'Jenis',
                     'validation-strategy' => 'Strategi validasi',
                 ],
-
                 'batch' => [
                     'title' => 'Ekspor ditambahkan dalam antrian',
                 ],
-
                 'index' => [
                     'button-title' => 'Buat ekspor',
                     'title'        => 'Ekspor',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => 'Tindakan',
                         'completed-at'          => 'Selesai di',
                         'created'               => 'Dibuat',
@@ -1332,9 +1360,9 @@ return [
                         'updated'               => 'Diperbarui',
                         'uploaded-file'         => 'File yang diunggah',
                         'images_directory_path' => 'File gambar',
+                        'export'                => 'Export',
                     ],
                 ],
-
                 'export' => [
                     'back-btn'                => 'Kembali',
                     'completed-batches'       => 'Total batch selesai:',
@@ -1360,12 +1388,10 @@ return [
                     'validating-info'         => 'Data mulai membaca dan memvalidasi',
                     'validation-failed-info'  => 'Ekspor Anda tidak valid.Harap perbaiki kesalahan berikut dan coba lagi.',
                     'validation-success-info' => 'Ekspor Anda valid.Klik Ekspor untuk memulai proses ekspor.',
-                    'action'                  => 'Mode aksi',
                     'profile'                 => 'Profil Ekspor',
                     'file-format'             => 'Format Berkas',
                     'with-media'              => 'Dengan Media',
                 ],
-
                 'create-success'    => 'Ekspor berhasil dibuat.',
                 'delete-failed'     => 'Penghapusan ekspor gagal secara tak terduga.',
                 'delete-success'    => 'Ekspor dihapus dengan sukses.',
@@ -1375,7 +1401,6 @@ return [
                 'update-success'    => 'Ekspor berhasil diperbarui.',
             ],
         ],
-
         'channels' => [
             'index' => [
                 'create-btn'           => 'Buat saluran',
@@ -1394,7 +1419,6 @@ return [
                     'root-category' => 'Kategori root',
                 ],
             ],
-
             'create' => [
                 'allowed-ips'            => 'IP yang diizinkan',
                 'cancel'                 => 'Kembali',
@@ -1429,7 +1453,6 @@ return [
                 'theme'                  => 'Tema',
                 'title'                  => 'Buat saluran',
             ],
-
             'edit' => [
                 'allowed-ips'            => 'IP yang diizinkan',
                 'back-btn'               => 'Kembali',
@@ -1467,13 +1490,11 @@ return [
                 'update-success'         => 'Perbarui saluran berhasil',
             ],
         ],
-
         'users' => [
             'index' => [
-                'admin' => 'Admin',
-                'title' => 'Pengguna',
-                'user'  => 'Pengguna',
-
+                'admin'  => 'Admin',
+                'title'  => 'Pengguna',
+                'user'   => 'Pengguna',
                 'create' => [
                     'confirm-password'  => 'konfirmasi sandi',
                     'email'             => 'Surel',
@@ -1487,7 +1508,6 @@ return [
                     'user-timezone'     => 'Zona waktu',
                     'select'            => 'Pilih',
                 ],
-
                 'datagrid' => [
                     'actions'  => 'Tindakan',
                     'active'   => 'Aktif',
@@ -1501,12 +1521,10 @@ return [
                     'status'   => 'Status',
                     'image'    => 'Gambar',
                 ],
-
                 'edit' => [
                     'title' => 'Edit pengguna',
                 ],
             ],
-
             'edit' => [
                 'back-btn'         => 'Kembali',
                 'confirm-password' => 'konfirmasi sandi',
@@ -1519,7 +1537,6 @@ return [
                 'status'           => 'Status',
                 'title'            => 'Edit pengguna',
             ],
-
             'activate-warning'          => 'Akun Anda belum diaktifkan, silakan hubungi Administrator.',
             'cannot-change'             => 'Pengguna tidak dapat diubah',
             'create-success'            => 'Pengguna berhasil dibuat.',
@@ -1532,13 +1549,11 @@ return [
             'update-success'            => 'Pengguna berhasil diperbarui.',
             'current-user-delete-error' => 'Pengguna yang masuk tidak dapat dihapus',
         ],
-
         'roles' => [
             'index' => [
                 'create-btn' => 'Buat peran',
                 'title'      => 'Peran',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => 'Menghapus',
                     'edit'            => 'Edit',
                     'id'              => 'Pengenal',
@@ -1546,7 +1561,6 @@ return [
                     'permission-type' => 'Jenis izin',
                 ],
             ],
-
             'create' => [
                 'access-control' => 'Kontrol akses',
                 'all'            => 'Semua',
@@ -1559,7 +1573,6 @@ return [
                 'save-btn'       => 'Simpan peran',
                 'title'          => 'Buat peran',
             ],
-
             'edit' => [
                 'access-control' => 'Kontrol akses',
                 'all'            => 'Semua',
@@ -1572,7 +1585,6 @@ return [
                 'save-btn'       => 'Simpan peran',
                 'title'          => 'Edit Peran',
             ],
-
             'being-used'        => 'Peran sudah digunakan pada pengguna admin',
             'being-used-by'     => 'Peran sudah digunakan oleh:name pengguna',
             'create-success'    => 'Peran diciptakan dengan sukses',
@@ -1582,68 +1594,59 @@ return [
             'update-success'    => 'Peran berhasil diperbarui',
         ],
     ],
-
     'configuration' => [
         'index' => [
-            'back-btn'                     => 'Kembali',
-            'delete'                       => 'Menghapus',
-            'enable-at-least-one-payment'  => 'Aktifkan setidaknya satu metode pembayaran.',
-            'enable-at-least-one-shipping' => 'Aktifkan setidaknya satu metode pengiriman.',
-            'no-result-found'              => 'Tidak ada hasil yang ditemukan',
-            'save-btn'                     => 'Simpan konfigurasi',
-            'save-message'                 => 'Konfigurasi berhasil disimpan',
-            'search'                       => 'Mencari',
-            'title'                        => 'Konfigurasi',
-
-            'general' => [
-                'info'  => '',
-                'title' => 'Umum',
-
+            'delete'          => 'Menghapus',
+            'no-result-found' => 'Tidak ada hasil yang ditemukan',
+            'save-btn'        => 'Simpan konfigurasi',
+            'save-message'    => 'Konfigurasi berhasil disimpan',
+            'search'          => 'Mencari',
+            'title'           => 'Konfigurasi',
+            'general'         => [
+                'info'    => '',
+                'title'   => 'Umum',
                 'general' => [
                     'info'  => '',
                     'title' => 'Umum',
                 ],
-
                 'magic-ai' => [
-                    'info'  => 'Atur opsi AI ajaib.',
-                    'title' => 'Sihir yang Anda miliki',
-
+                    'info'     => 'Atur opsi AI ajaib.',
+                    'title'    => 'Sihir yang Anda miliki',
                     'settings' => [
-                        'api-key'        => 'kunci API',
-                        'enabled'        => 'Diaktifkan',
-                        'llm-api-domain' => 'Domain API LLM',
-                        'organization'   => 'ID Organisasi',
-                        'title'          => 'Pengaturan Umum',
-                        'title-info'     => 'Tingkatkan pengalaman Anda dengan fitur AI ajaib dengan memasukkan kunci API eksklusif Anda dan menunjukkan organisasi terkait untuk integrasi yang mudah.Rebut perintah atas kredensial OpenAI Anda dan sesuaikan pengaturan sesuai dengan kebutuhan spesifik Anda.',
+                        'enabled'     => 'Diaktifkan',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Pengaturan Umum',
+                        'title-info'  => 'Tingkatkan pengalaman Anda dengan fitur AI ajaib dengan memasukkan kunci API eksklusif Anda dan menunjukkan organisasi terkait untuk integrasi yang mudah.Rebut perintah atas kredensial OpenAI Anda dan sesuaikan pengaturan sesuai dengan kebutuhan spesifik Anda.',
                     ],
-
                     'image-generation' => [
-                        'enabled'    => 'Diaktifkan',
-                        'title'      => 'Pembuatan Gambar',
-                        'title-info' => 'Fitur ini akan mengaktifkan Magic AI untuk setiap unggahan gambar, di mana Anda ingin menghasilkan gambar menggunakan DALL-E.<br/><br/>Jika Diaktifkan, buka unggahan gambar mana pun untuk menghasilkan gambar.',
+                        'enabled'     => 'Diaktifkan',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Pembuatan Gambar',
+                        'title-info'  => 'Fitur ini akan mengaktifkan Magic AI untuk setiap unggahan gambar, di mana Anda ingin menghasilkan gambar menggunakan DALL-E.<br/><br/>Jika Diaktifkan, buka unggahan gambar mana pun untuk menghasilkan gambar.',
                     ],
-
-                    'translation'   => [
-                        'title'                  => 'Terjemahan',
-                        'enabled'                => 'Diaktifkan',
-                        'title-info'             => 'Fitur ini akan mengaktifkan Magic AI untuk menerjemahkan teks, memungkinkan Anda mengubah teks dari satu bahasa ke bahasa lain dengan mudah.',
-                        'global-source-channel'  => 'Saluran Sumber',
-                        'global-source-locale'   => 'Bahasa Sumber',
-                        'translation-model'      => 'Model Terjemahan',
-                        'replace-existing-value' => 'Ganti Nilai yang Ada',
-                        'target-channel'         => 'Saluran Target',
-                        'target-locales'         => 'Bahasa Target',
+                    'translation' => [
+                        'title'                       => 'Terjemahan',
+                        'enabled'                     => 'Diaktifkan',
+                        'title-info'                  => 'Fitur ini akan mengaktifkan Magic AI untuk menerjemahkan teks, memungkinkan Anda mengubah teks dari satu bahasa ke bahasa lain dengan mudah.',
+                        'ai-platform'                 => 'Default Platform',
+                        'global-source-channel'       => 'Saluran Sumber',
+                        'global-source-locale'        => 'Bahasa Sumber',
+                        'translation-model'           => 'Model Terjemahan',
+                        'replace-existing-value'      => 'Ganti Nilai yang Ada',
+                        'target-channel'              => 'Saluran Target',
+                        'target-locales'              => 'Bahasa Target',
+                        'replace-existing-value-info' => 'Replace the existing value if it already exists.',
                     ],
                 ],
             ],
         ],
-
         'integrations' => [
             'index' => [
                 'create-btn' => 'Membuat',
                 'title'      => 'Integrasi',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => 'Menghapus',
                     'edit'            => 'Edit',
                     'id'              => 'Pengenal',
@@ -1653,7 +1656,6 @@ return [
                     'permission-type' => 'Jenis izin',
                 ],
             ],
-
             'create' => [
                 'access-control' => 'Kontrol akses',
                 'all'            => 'Semua',
@@ -1666,7 +1668,6 @@ return [
                 'save-btn'       => 'Menyimpan',
                 'title'          => 'Integrasi baru',
             ],
-
             'edit' => [
                 'access-control' => 'Kontrol akses',
                 'all'            => 'Semua',
@@ -1684,7 +1685,6 @@ return [
                 'save-btn'       => 'Menyimpan',
                 'title'          => 'Edit integrasi',
             ],
-
             'being-used'                     => 'Integrasi API sudah digunakan pada pengguna admin',
             'create-success'                 => 'Integrasi API berhasil dibuat',
             'delete-failed'                  => 'Integrasi API dihapus gagal',
@@ -1695,40 +1695,143 @@ return [
             're-generate-secret-key-success' => 'Kunci Rahasia API dengan sukses',
             'client-not-found'               => 'Klien tidak ditemukan',
         ],
-
         'prompt' => [
             'datagrid' => [
-                'id'            => 'ID',
-                'title'         => 'Judul',
-                'prompt'        => 'Prompt',
-                'type'          => 'Tipe',
-                'created-at'    => 'Dibuat Pada',
-                'updated-at'    => 'Diperbarui Pada',
-                'actions'       => 'Aksi',
-                'edit'          => 'Edit',
-                'delete'        => 'Hapus',
-                'product'       => 'Produk',
-                'category'      => 'Kategori',
+                'id'               => 'ID',
+                'title'            => 'Judul',
+                'prompt'           => 'Prompt',
+                'type'             => 'Tipe',
+                'purpose'          => 'Purpose',
+                'text-generation'  => 'Text Generation',
+                'image-generation' => 'Image Generation',
+                'translation'      => 'Translation',
+                'created-at'       => 'Dibuat Pada',
+                'updated-at'       => 'Diperbarui Pada',
+                'actions'          => 'Aksi',
+                'edit'             => 'Edit',
+                'delete'           => 'Hapus',
+                'product'          => 'Produk',
+                'category'         => 'Kategori',
             ],
             'create' => [
-                'title'         => 'Prompt',
-                'create-btn'    => 'Buat Prompt',
-                'edit-title'    => 'Edit Prompt',
-                'create-title'  => 'Buat Prompt Baru',
-                'label-title'   => 'Judul',
-                'type'          => 'Tipe',
-                'prompt'        => 'Prompt',
-                'save-btn'      => 'Simpan Prompt',
+                'title'        => 'Prompt',
+                'create-btn'   => 'Buat Prompt',
+                'edit-title'   => 'Edit Prompt',
+                'create-title' => 'Buat Prompt Baru',
+                'label-title'  => 'Judul',
+                'purpose'      => 'Purpose',
+                'type'         => 'Tipe',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Simpan Prompt',
             ],
             'message' => [
-                'save-success'      => 'Prompt berhasil disimpan.',
-                'update-success'    => 'Prompt berhasil diperbarui.',
-                'delete-success'    => 'Prompt berhasil dihapus.',
-                'delete-fail'       => 'Gagal menghapus prompt.',
+                'save-success'   => 'Prompt berhasil disimpan.',
+                'update-success' => 'Prompt berhasil diperbarui.',
+                'delete-success' => 'Prompt berhasil dihapus.',
+                'delete-fail'    => 'Gagal menghapus prompt.',
+            ],
+        ],
+        'system-prompt' => [
+            'datagrid' => [
+                'id'          => 'ID',
+                'title'       => 'Title',
+                'tone'        => 'Tone',
+                'max-tokens'  => 'Max Tokens',
+                'temperature' => 'Temperature',
+                'status'      => 'Status',
+                'created-at'  => 'Created At',
+                'updated-at'  => 'Updated At',
+                'actions'     => 'Actions',
+                'save'        => 'Save',
+                'edit'        => 'Edit',
+                'delete'      => 'delete',
+            ],
+            'create' => [
+                'title'        => 'System Prompt',
+                'create-btn'   => 'Create System Prompt',
+                'edit-title'   => 'Edit System Prompt',
+                'create-title' => 'Create New System Prompt',
+                'label-title'  => 'Title',
+                'max-tokens'   => 'Max Output Tokens',
+                'temperature'  => 'Temperature',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Save Prompt',
+                'prompt-tone'  => 'Prompt Tone',
+            ],
+            'message' => [
+                'save-success'   => 'System Prompt saved successfully.',
+                'update-success' => 'System Prompt updated successfully.',
+                'delete-success' => 'System Prompt deleted successfully.',
+                'delete-fail'    => 'System Prompt deletion failed.',
+            ],
+        ],
+        'platform' => [
+            'title'           => 'AI Platforms',
+            'create-btn'      => 'Add Platform',
+            'create-title'    => 'Add AI Platform',
+            'edit-title'      => 'Edit AI Platform',
+            'save-btn'        => 'Save',
+            'saving'          => 'Saving',
+            'test-connection' => 'Test Connection',
+            'setup'           => [
+                'title'              => 'Get Started with Magic AI',
+                'description'        => 'Connect your AI provider to unlock content generation, image creation, and translation powered by AI. Add your first platform to begin.',
+                'step-1'             => 'Choose a provider',
+                'step-2'             => 'Enter your API key',
+                'step-3'             => 'Select models & save',
+                'add-first'          => 'Add Your First Platform',
+                'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
+                'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+            ],
+            'testing'         => 'Testing',
+            'fetch-models'    => 'Fetch Models',
+            'fetching-models' => 'Fetching',
+            'set-default'     => 'Set as Default',
+            'datagrid'        => [
+                'label'      => 'Label',
+                'provider'   => 'Provider',
+                'models'     => 'Models',
+                'default'    => 'Default',
+                'status'     => 'Status',
+                'created-at' => 'Created At',
+                'edit'       => 'Edit',
+                'delete'     => 'Delete',
+            ],
+            'fields' => [
+                'label'                    => 'Label',
+                'provider'                 => 'Provider',
+                'select-provider'          => '-- Select Provider --',
+                'api-url'                  => 'API URL',
+                'api-url-hint'             => 'Pre-filled with the default endpoint. Edit only if using a proxy or custom deployment.',
+                'api-key'                  => 'API Key',
+                'models'                   => 'Models',
+                'custom-model-placeholder' => 'Type custom model ID...',
+                'add'                      => 'Add',
+                'enter-key-to-fetch'       => 'Enter your API key above to automatically fetch available models.',
+                'search-models'            => 'Search models...',
+                'no-models-match'          => 'No models match your search.',
+                'azure-deployment'         => 'Deployment Name',
+                'azure-api-version'        => 'API Version',
+                'is-default'               => 'Set as Default',
+                'status'                   => 'Status',
+                'use-default'              => '-- Use Default Platform --',
+                'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
+                'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
+                'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+            ],
+            'message' => [
+                'save-success'          => 'Platform saved successfully.',
+                'update-success'        => 'Platform updated successfully.',
+                'delete-success'        => 'Platform deleted successfully.',
+                'delete-fail'           => 'Platform deletion failed.',
+                'cannot-delete-default' => 'Cannot delete the only default platform.',
+                'set-default-success'   => 'Platform set as default successfully.',
+                'test-success'          => 'Connection verified successfully!',
+                'test-fail'             => 'Connection test failed',
             ],
         ],
     ],
-
     'components' => [
         'layouts' => [
             'header' => [
@@ -1738,25 +1841,7 @@ return [
                 'my-account'    => 'Akun saya',
                 'notifications' => 'Pemberitahuan',
                 'visit-shop'    => 'Kunjungi toko',
-
-                'mega-search' => [
-                    'categories'                      => 'Kategori',
-                    'customers'                       => 'Pelanggan',
-                    'explore-all-categories'          => 'Jelajahi semua kategori',
-                    'explore-all-customers'           => 'Jelajahi semua pelanggan',
-                    'explore-all-matching-categories' => 'Jelajahi Semua Kategori Pencocokan ":Query" (:Count)',
-                    'explore-all-matching-customers'  => 'Jelajahi Semua Pelanggan Pencocokan ":Query" (:Count)',
-                    'explore-all-matching-orders'     => 'Jelajahi Semua Pesanan Pencocokan ":Query" (:Count)',
-                    'explore-all-matching-products'   => 'Jelajahi Semua Produk Pencocokan ":Query" (:Count)',
-                    'explore-all-orders'              => 'Jelajahi semua pesanan',
-                    'explore-all-products'            => 'Jelajahi semua produk',
-                    'orders'                          => 'Pesanan',
-                    'products'                        => 'Produk',
-                    'sku'                             => 'Ski:Mac',
-                    'title'                           => 'Pencarian mega',
-                ],
             ],
-
             'sidebar' => [
                 'attribute-families' => 'Keluarga atribut',
                 'attribute-groups'   => 'Grup atribut',
@@ -1790,45 +1875,37 @@ return [
                 'general-tab'        => 'Konfigurasi',
             ],
         ],
-
         'datagrid' => [
             'index' => [
                 'no-records-selected'              => 'Tidak ada catatan yang dipilih.',
                 'must-select-a-mass-action-option' => 'Anda harus memilih tindakan massa \'s option.',
                 'must-select-a-mass-action'        => 'Anda harus memilih tindakan massa.',
             ],
-
             'toolbar' => [
-                'length-of' => ':length of',
-                'of'        => 'dari',
-                'per-page'  => 'Per halaman',
-                'results'   => ':total total',
-                'selected'  => ':total yang dipilih',
-
+                'length-of'    => ':length of',
+                'of'           => 'dari',
+                'per-page'     => 'Per halaman',
+                'results'      => ':total total',
+                'selected'     => ':total yang dipilih',
                 'mass-actions' => [
                     'submit'        => 'Kirim',
                     'select-option' => 'Pilih opsi',
                     'select-action' => 'Pilih Tindakan',
                 ],
-
                 'filter' => [
                     'title' => 'Saring',
                 ],
-
                 'search_by' => [
                     'code'       => 'Cari dengan kode',
                     'code_or_id' => 'Cari dengan kode atau ID',
                 ],
-
                 'search' => [
                     'title' => 'Mencari',
                 ],
-
                 'manage-columns' => [
                     'title' => 'Kolom',
                 ],
             ],
-
             'filters' => [
                 'select'   => 'Pilih',
                 'title'    => 'Menerapkan filter',
@@ -1839,17 +1916,14 @@ return [
                         'no-results'        => 'Tidak ada hasil yang ditemukan ...',
                     ],
                 ],
-
                 'custom-filters' => [
                     'clear-all' => 'Bersihkan semua',
                     'title'     => 'Filter khusus',
                 ],
-
                 'boolean-options' => [
                     'false' => 'PALSU',
                     'true'  => 'BENAR',
                 ],
-
                 'date-options' => [
                     'last-month'        => 'Bulan lalu',
                     'last-six-months'   => '6 bulan terakhir',
@@ -1861,12 +1935,10 @@ return [
                     'yesterday'         => 'Kemarin',
                 ],
             ],
-
             'table' => [
                 'actions'              => 'Tindakan',
                 'no-records-available' => 'Tidak ada catatan yang tersedia.',
             ],
-
             'manage-columns' => [
                 'title'             => 'Kelola kolom',
                 'available-columns' => 'Kolom yang Tersedia',
@@ -1874,7 +1946,6 @@ return [
                 'apply-btn'         => 'Terapkan',
             ],
         ],
-
         'modal' => [
             'confirm' => [
                 'agree-btn'    => 'Setuju',
@@ -1882,19 +1953,17 @@ return [
                 'message'      => 'Apakah Anda yakin ingin melakukan tindakan ini?',
                 'title'        => 'Apa kamu yakin?',
             ],
-
             'delete' => [
                 'agree-btn'    => 'Menghapus',
                 'disagree-btn' => 'Membatalkan',
                 'message'      => 'Apakah Anda yakin ingin menghapus?',
                 'title'        => 'Konfirmasi penghapusan',
             ],
-
             'history' => [
                 'title'           => 'Pratinjau Sejarah',
                 'subtitle'        => 'Tinjau pembaruan dan perubahan Anda dengan cepat.',
                 'close-btn'       => 'Menutup',
-                'version-label'   => 'Versi:kapan',
+                'version-label'   => 'Versi',
                 'date-time-label' => 'Tanggal Waktu',
                 'user-label'      => 'Pengguna',
                 'name-label'      => 'Kunci',
@@ -1903,7 +1972,6 @@ return [
                 'no-history'      => 'Tidak ada sejarah yang ditemukan',
             ],
         ],
-
         'products' => [
             'search' => [
                 'add-btn'       => 'Tambahkan produk yang dipilih',
@@ -1915,7 +1983,6 @@ return [
                 'title'         => 'Pilih Produk',
             ],
         ],
-
         'media' => [
             'images' => [
                 'add-image-btn'      => 'Menambahkan gambar',
@@ -1927,8 +1994,7 @@ return [
                 'allowed-types'      => 'png, jpeg, jpg',
                 'not-allowed-error'  => 'Hanya file gambar (.jpeg, .jpg, .png, ..) diizinkan.',
                 'upload-media-btn'   => 'Unggah Media',
-
-                'ai-generation' => [
+                'ai-generation'      => [
                     '1024x1024'        => '1024x1024',
                     '1024x1792'        => '1024x1792',
                     '1792x1024'        => '1792x1024',
@@ -1948,7 +2014,6 @@ return [
                     'standard'         => 'Standar',
                     'title'            => 'Pembuatan gambar AI',
                 ],
-
                 'placeholders' => [
                     'front'     => 'Depan',
                     'next'      => 'Berikutnya',
@@ -1957,23 +2022,22 @@ return [
                     'zoom'      => 'Perbesar',
                 ],
             ],
-
+            'gallery' => [
+                'not-allowed-error' => 'Only image and video files are allowed. (.mp4, .jpg ..)',
+            ],
             'videos' => [
                 'add-video-btn'     => 'Tambahkan video',
                 'allowed-types'     => 'mp4, webm, mkv',
                 'not-allowed-error' => 'Hanya file video (.mp4, .mov, .ogg ..) yang diizinkan.',
             ],
-
             'files' => [
                 'add-file-btn'      => 'Tambah berkas',
                 'allowed-types'     => 'pdf',
                 'not-allowed-error' => 'Hanya file PDF yang diizinkan',
             ],
         ],
-
         'tinymce' => [
-            'ai-btn-tile' => 'Sihir yang Anda miliki',
-
+            'ai-btn-tile'   => 'Sihir yang Anda miliki',
             'ai-generation' => [
                 'apply'                  => 'Menerapkan',
                 'generate'               => 'Menghasilkan',
@@ -1982,7 +2046,14 @@ return [
                 'generating'             => 'Menghasilkan ...',
                 'prompt'                 => 'Mengingatkan',
                 'title'                  => 'Bantuan ai',
+                'platform'               => 'Platform',
                 'model'                  => 'Model',
+                'rich-preview'           => 'Rich Preview',
+                'system-prompt'          => 'System Prompt',
+                'select-system-prompt'   => 'Select System Prompt',
+                'tone-instructions'      => 'Tone / Instructions',
+                'max-tokens'             => 'Max Tokens',
+                'temperature'            => 'Temperature',
                 'gpt-3-5-turbo'          => 'Openai GPT-3.5-Turbo',
                 'llama2'                 => 'Llama 2',
                 'mistral'                => 'Mistral',
@@ -1999,27 +2070,20 @@ return [
             ],
         ],
     ],
-
     'acl' => [
         'addresses'                => 'Alamat',
         'attribute-families'       => 'Keluarga atribut',
         'attribute-groups'         => 'Grup atribut',
         'attributes'               => 'Atribut',
-        'campaigns'                => 'Kampanye',
         'cancel'                   => 'Membatalkan',
-        'cart-rules'               => 'Aturan gerobak',
-        'catalog-rules'            => 'Aturan katalog',
         'catalog'                  => 'Katalog',
         'categories'               => 'Kategori',
         'channels'                 => 'Saluran',
-        'cms'                      => 'CMS',
-        'communications'           => 'Komunikasi',
         'configure'                => 'Konfigurasikan',
         'configuration'            => 'Konfigurasi',
         'copy'                     => 'Menyalin',
         'create'                   => 'Membuat',
         'currencies'               => 'Mata uang',
-        'customers'                => 'Pelanggan',
         'dashboard'                => 'Dasbor',
         'data-transfer'            => 'Transfer data',
         'delete'                   => 'Menghapus',
@@ -2032,6 +2096,9 @@ return [
         'invoices'                 => 'Faktur',
         'locales'                  => 'Lokal',
         'magic-ai'                 => 'Sihir yang Anda miliki',
+        'magic-ai-general'         => 'Umum',
+        'magic-ai-prompt'          => 'Prompt',
+        'magic-ai-system-prompt'   => 'Prompt Sistem',
         'marketing'                => 'Pemasaran',
         'newsletter-subscriptions' => 'Langganan buletin',
         'note'                     => 'Catatan',
@@ -2065,54 +2132,44 @@ return [
         'integrations'             => 'Integrasi',
         'api'                      => 'API',
         'tracker'                  => 'Pelacak Pekerjaan',
-        'imports'                  => 'Impor',
         'exports'                  => 'Ekspor',
         'mass-update'              => 'Pembaruan massal',
         'mass-delete'              => 'Penghapusan massal',
     ],
-
     'errors' => [
         'dashboard' => 'Dasbor',
         'go-back'   => 'Kembali',
         'support'   => 'Jika masalah tetap ada, hubungi kami di <a href=":link" class=":class">:email</a> for assistance.',
-
-        '404' => [
+        '404'       => [
             'description' => 'Ups!Halaman yang Anda \'re looking for is on vacation. It seems we couldn\'t find what you were searching for.',
             'title'       => '404 halaman tidak ditemukan',
         ],
-
         '401' => [
             'description' => 'Ups!Seperti kamu\'re not allowed to access this page. It seems you\'re missing the necessary credentials.',
             'title'       => '401 tidak sah',
             'message'     => 'Otentikasi gagal karena kredensial yang tidak valid atau token yang kedaluwarsa.',
         ],
-
         '403' => [
             'description' => 'Ups!Halaman ini terlarang.Tampaknya Anda tidak \'t have the required permissions to view this content.',
             'title'       => '403 dilarang',
         ],
-
         '413' => [
             'description' => 'Ups!Sepertinya Anda mencoba mengunggah file yang terlalu besar.Jika Anda ingin mengunggah yang sama, harap perbarui konfigurasi PHP yang sesuai.',
             'title'       => '413 konten terlalu besar',
         ],
-
         '419' => [
             'description' => 'Ups!Sesi Anda telah berakhir.Harap segarkan halaman dan masuk lagi untuk melanjutkan.',
             'title'       => '419 sesi telah kedaluwarsa',
         ],
-
         '500' => [
             'description' => 'Ups!Ada yang salah.Sepertinya kami \'re having trouble loading the page you\'re looking for.',
             'title'       => '500 Internal Server Error',
         ],
-
         '503' => [
             'description' => 'Ups!Sepertinya kami \'re temporarily down for maintenance. Please check back in a bit.',
             'title'       => '503 Layanan tidak tersedia',
         ],
     ],
-
     'export' => [
         'csv'                  => 'CSV',
         'download'             => 'Unduh',
@@ -2125,22 +2182,18 @@ return [
         'error'                => 'Terjadi kesalahan!',
         'product-not-selected' => 'Tidak ada produk yang dipilih untuk ekspor cepat',
     ],
-
     'validations' => [
         'slug-being-used' => 'Siput ini digunakan dalam kategori atau produk.',
         'slug-reserved'   => 'Siput ini dicadangkan.',
         'invalid-locale'  => 'Lokal tidak valid :locales',
     ],
-
     'footer' => [
         'copy-right' => 'Didukung oleh <a href="https://unopim.com/" target="_blank">UnoPim</a>, A Community Project by <a href="https://webkul.com/" target="_blank">Webkul</a>',
     ],
-
     'emails' => [
         'dear'   => 'Dear:admin_name',
         'thanks' => 'Jika Anda memerlukan bantuan apa pun, silakan hubungi kami di <a href=":link" style=":style">:email</a>.<br/>Thanks!',
-
-        'admin' => [
+        'admin'  => [
             'forgot-password' => [
                 'description'    => 'Anda menerima email ini karena kami menerima permintaan reset kata sandi untuk akun Anda.',
                 'greeting'       => 'Tidak ingat kata sandi!',
@@ -2149,16 +2202,15 @@ return [
             ],
         ],
     ],
-
     'common' => [
-        'yes'     => 'Ya',
-        'no'      => 'TIDAK',
-        'true'    => 'BENAR',
-        'false'   => 'PALSU',
-        'enable'  => 'Diaktifkan',
-        'disable' => 'Dengan disabilitas',
+        'yes'            => 'Ya',
+        'no'             => 'TIDAK',
+        'true'           => 'BENAR',
+        'false'          => 'PALSU',
+        'enable'         => 'Diaktifkan',
+        'disable'        => 'Dengan disabilitas',
+        'no-match-found' => 'Tidak ditemukan kecocokan!',
     ],
-
     'default-prompt' => [
         'detailed' => [
             'title'  => 'Deskripsi Detail Produk',

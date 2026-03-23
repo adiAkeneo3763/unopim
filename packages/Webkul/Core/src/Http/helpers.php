@@ -1,10 +1,13 @@
 <?php
 
+use Intervention\Image\ImageManager;
+use Webkul\Core\Core;
+
 if (! function_exists('core')) {
     /**
      * Core helper.
      *
-     * @return \Webkul\Core\Core
+     * @return Core
      */
     function core()
     {
@@ -47,5 +50,15 @@ if (! function_exists('array_permutation')) {
         }
 
         return $results;
+    }
+}
+
+if (! function_exists('image_manager')) {
+    /**
+     * Get the image manager instance.
+     */
+    function image_manager(): ImageManager
+    {
+        return app('image_manager');
     }
 }

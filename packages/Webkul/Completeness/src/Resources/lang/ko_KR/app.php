@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => '저장',
                     'back-btn'            => '뒤로',
                     'mass-update-success' => '완성도가 성공적으로 업데이트되었습니다',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => '코드',
                         'name'             => '이름',
                         'channel-required' => '채널에서 필요함',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => '완성도 요구사항 변경',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => '완전',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => '완성도',
                     'subtitle' => '평균 완성도',
                 ],
-
                 'required-attributes' => '누락된 필수 속성',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => '완전성 계산 완료',
+        'completeness-calculated'        => ':count개 제품의 완전성이 계산되었습니다.',
+        'completeness-calculated-family' => '":family" 패밀리의 :count개 제품의 완전성이 계산되었습니다.',
+        'email-subject'                  => '완전성 계산 완료',
+        'email-greeting'                 => '안녕하세요,',
+        'email-body'                     => ':count개 제품에 대한 완전성 계산이 완료되었습니다.',
+        'email-body-family'              => '속성 패밀리 ":family"의 :count개 제품에 대한 완전성 계산이 완료되었습니다.',
+        'email-footer'                   => '대시보드에서 완전성 세부 정보를 확인할 수 있습니다.',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => '계산된 제품',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => '완성도가 낮습니다. 개선을 위해 세부 정보를 추가하세요.',
                     'medium'  => '계속 진행하세요. 정보를 계속 추가하세요.',
                     'high'    => '거의 완료되었습니다. 몇 가지 세부 정보만 남았습니다.',

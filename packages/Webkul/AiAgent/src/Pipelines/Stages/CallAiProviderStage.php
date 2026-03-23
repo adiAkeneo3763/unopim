@@ -4,9 +4,9 @@ namespace Webkul\AiAgent\Pipelines\Stages;
 
 use Webkul\AiAgent\Contracts\PipelineStageContract;
 use Webkul\AiAgent\DTOs\AgentPayload;
+use Webkul\AiAgent\DTOs\CredentialConfig;
 use Webkul\AiAgent\Http\Client\AiApiClient;
 use Webkul\AiAgent\Repositories\CredentialRepository;
-use Webkul\AiAgent\DTOs\CredentialConfig;
 
 /**
  * Calls the AI provider API via the cURL client and attaches
@@ -25,7 +25,7 @@ class CallAiProviderStage implements PipelineStageContract
     public function handle(AgentPayload $payload, \Closure $next): AgentPayload
     {
         $credential = $this->credentialRepository->findOrFail($payload->credentialId);
-        $config     = CredentialConfig::fromModel($credential);
+        $config = CredentialConfig::fromModel($credential);
 
         $this->apiClient->configure($config);
 

@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => '保存',
                     'back-btn'            => '返回',
                     'mass-update-success' => '完整性已成功更新',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => '代码',
                         'name'             => '名称',
                         'channel-required' => '频道中必需',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => '更改完整性要求',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => '完整',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => '完整性',
                     'subtitle' => '平均完整性',
                 ],
-
                 'required-attributes' => '缺少必填属性',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => '完整度计算已完成',
+        'completeness-calculated'        => '已为 :count 个产品计算完整度。',
+        'completeness-calculated-family' => '已为系列 ":family" 中的 :count 个产品计算完整度。',
+        'email-subject'                  => '完整度计算已完成',
+        'email-greeting'                 => '您好，',
+        'email-body'                     => '已为 :count 个产品完成完整度计算。',
+        'email-body-family'              => '已为属性系列 ":family" 中的 :count 个产品完成完整度计算。',
+        'email-footer'                   => '您可以在仪表板上查看完整度详情。',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => '已计算产品',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => '完整性较低，请添加详细信息以改进。',
                     'medium'  => '继续，继续添加信息。',
                     'high'    => '几乎完成，只剩一些细节。',

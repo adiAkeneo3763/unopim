@@ -19,7 +19,7 @@ class BearerToken
     public function apply($ch): void
     {
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Authorization: Bearer ' . $this->token,
+            'Authorization: Bearer '.$this->token,
             'Content-Type: application/json',
             'Accept: application/json',
         ]);

@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => 'Salvar',
                     'back-btn'            => 'Voltar',
                     'mass-update-success' => 'Integridade atualizada com sucesso',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => 'Código',
                         'name'             => 'Nome',
                         'channel-required' => 'Necessário nos canais',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => 'Alterar requisito de integridade',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => 'Completo',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => 'Integridade',
                     'subtitle' => 'Integridade média',
                 ],
-
                 'required-attributes' => 'atributos obrigatórios ausentes',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => 'Cálculo de completude concluído',
+        'completeness-calculated'        => 'Completude calculada para :count produtos.',
+        'completeness-calculated-family' => 'Completude calculada para :count produtos na família ":family".',
+        'email-subject'                  => 'Cálculo de completude concluído',
+        'email-greeting'                 => 'Olá,',
+        'email-body'                     => 'O cálculo de completude foi concluído para :count produtos.',
+        'email-body-family'              => 'O cálculo de completude foi concluído para :count produtos na família de atributos ":family".',
+        'email-footer'                   => 'Você pode ver os detalhes de completude no seu painel.',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Produtos calculados',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => 'Baixa integridade — adicione detalhes para melhorar.',
                     'medium'  => 'Continue, continue adicionando informações.',
                     'high'    => 'Quase completo, restam apenas alguns detalhes.',

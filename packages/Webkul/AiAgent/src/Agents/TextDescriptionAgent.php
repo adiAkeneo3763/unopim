@@ -2,8 +2,6 @@
 
 namespace Webkul\AiAgent\Agents;
 
-use Webkul\AiAgent\DTOs\AgentResult;
-
 /**
  * Concrete agent for generating product descriptions from text input.
  *
@@ -49,9 +47,9 @@ class TextDescriptionAgent extends BaseAgent
         if (is_array($input)) {
             $details = json_encode($input, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
-            return "Generate product descriptions for:\n\n" . $details;
+            return "Generate product descriptions for:\n\n".$details;
         }
 
-        return "Generate compelling product descriptions for: " . (string) $input;
+        return 'Generate compelling product descriptions for: '.(string) $input;
     }
 }

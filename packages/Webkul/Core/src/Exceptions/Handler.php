@@ -2,14 +2,15 @@
 
 namespace Webkul\Core\Exceptions;
 
-use App\Exceptions\Handler as BaseHandler;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Exceptions\PostTooLargeException;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
-class Handler extends BaseHandler
+class Handler extends ExceptionHandler
 {
     /**
      * Register the exception handling callbacks for the application.

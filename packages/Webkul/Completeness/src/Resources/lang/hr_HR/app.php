@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => 'Spremi',
                     'back-btn'            => 'Natrag',
                     'mass-update-success' => 'Potpunost je uspješno ažurirana',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => 'Šifra',
                         'name'             => 'Naziv',
                         'channel-required' => 'Obavezno u kanalima',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => 'Promijeni zahtjev za potpunost',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => 'Potpun',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => 'Potpunost',
                     'subtitle' => 'Prosječna potpunost',
                 ],
-
                 'required-attributes' => 'Nedostaju obavezni atributi',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => 'Izračun potpunosti završen',
+        'completeness-calculated'        => 'Potpunost izračunata za :count proizvoda.',
+        'completeness-calculated-family' => 'Potpunost izračunata za :count proizvoda u obitelji ":family".',
+        'email-subject'                  => 'Izračun potpunosti završen',
+        'email-greeting'                 => 'Pozdrav,',
+        'email-body'                     => 'Izračun potpunosti je završen za :count proizvoda.',
+        'email-body-family'              => 'Izračun potpunosti je završen za :count proizvoda u obitelji atributa ":family".',
+        'email-footer'                   => 'Detalje potpunosti možete pregledati na nadzornoj ploči.',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Izračunati proizvodi',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => 'Niska potpunost — dodajte detalje kako biste poboljšali informacije.',
                     'medium'  => 'Nastavite, dodajte dodatne informacije.',
                     'high'    => 'Gotovo kompletno — ostalo je samo nekoliko detalja.',

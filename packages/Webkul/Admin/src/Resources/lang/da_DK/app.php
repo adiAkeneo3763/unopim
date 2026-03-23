@@ -11,7 +11,6 @@ return [
             'powered-by'             => 'Drevet af :unopim,',
             'open-source-project-by' => 'Et open source-projekt af :webkul.',
         ],
-
         'forget-password' => [
             'create' => [
                 'email'                  => 'Registreret e-mail',
@@ -26,7 +25,6 @@ return [
                 'open-source-project-by' => 'Et open source-projekt af :webkul.',
             ],
         ],
-
         'reset-password' => [
             'back-link-title'        => 'Tilbage til log ind?',
             'confirm-password'       => 'Bekræft adgangskode',
@@ -38,7 +36,6 @@ return [
             'open-source-project-by' => 'Et open source-projekt af :webkul.',
         ],
     ],
-
     'notifications' => [
         'description-text' => 'Vis alle meddelelser',
         'marked-success'   => 'Meddelelse markeret som læst',
@@ -55,7 +52,6 @@ return [
             'processing' => 'Behandler',
         ],
     ],
-
     'account' => [
         'edit' => [
             'back-btn'          => 'Tilbage',
@@ -76,25 +72,75 @@ return [
             'user-timezone'     => 'Tidszone',
         ],
     ],
-
     'dashboard' => [
         'index' => [
-            'title'            => 'Dashboard',
-            'user-info'        => 'Hurtigt overblik over din PIM',
-            'user-name'        => 'Hej! :user_name',
-            'catalog-details'  => 'Katalog',
-            'total-families'   => 'Samlede familier',
-            'total-attributes' => 'Samlede attributter',
-            'total-groups'     => 'Samlede grupper',
-            'total-categories' => 'Samlede kategorier',
-            'total-products'   => 'Samlede produkter',
-            'settings-details' => 'Katalogstruktur',
-            'total-locales'    => 'Samlede lokaliteter',
-            'total-currencies' => 'Samlede valutaer',
-            'total-channels'   => 'Samlede kanaler',
+            'title'                => 'Dashboard',
+            'user-info'            => 'Hurtigt overblik over din PIM',
+            'user-name'            => 'Hej! :user_name',
+            'catalog-details'      => 'Katalog',
+            'total-families'       => 'Samlede familier',
+            'total-attributes'     => 'Samlede attributter',
+            'total-groups'         => 'Samlede grupper',
+            'total-categories'     => 'Samlede kategorier',
+            'total-products'       => 'Samlede produkter',
+            'settings-details'     => 'Katalogstruktur',
+            'total-locales'        => 'Samlede lokaliteter',
+            'total-currencies'     => 'Samlede valutaer',
+            'total-channels'       => 'Samlede kanaler',
+            'completeness'         => 'Completeness',
+            'active'               => 'Active',
+            'inactive'             => 'Inactive',
+            'simple'               => 'Simple',
+            'configurable'         => 'Configurable',
+            'product-stats'        => 'Product Statistics',
+            'product-type-dist'    => 'Product Type Distribution',
+            'products-by-status'   => 'Products by Status',
+            'products-over-time'   => 'Product Activity (Last 7 Days)',
+            'legend-created'       => 'Created',
+            'legend-updated'       => 'Updated',
+            'recent-activity'      => 'Recent Activity',
+            'no-activity'          => 'No recent activity found.',
+            'updated'              => 'updated',
+            'created'              => 'created',
+            'deleted'              => 'deleted',
+            'ago'                  => 'ago',
+            'just-now'             => 'just now',
+            'data-transfer'        => 'Data Transfer',
+            'no-jobs'              => 'No recent import/export jobs found.',
+            'job-type-import'      => 'Import',
+            'job-type-export'      => 'Export',
+            'job-state-completed'  => 'Completed',
+            'job-state-failed'     => 'Failed',
+            'job-state-processing' => 'Processing',
+            'job-state-pending'    => 'Pending',
+            'job-state-validated'  => 'Validated',
+            'rows-processed'       => 'Rows Processed',
+            'errors'               => 'Errors',
+            'quick-links'          => 'Quick Links',
+            'create-product'       => 'Create Product',
+            'import-data'          => 'Import Data',
+            'export-data'          => 'Export Data',
+            'manage-attributes'    => 'Manage Attributes',
+            'view-all-activity'    => 'View All',
+            'view-all-jobs'        => 'View All Jobs',
+            'new-this-week'        => 'New This Week',
+            'with-variants'        => 'With Variants',
+            'avg-completeness'     => 'Avg Completeness',
+            'enriched'             => 'Enriched',
+            'analytics-section'    => 'Analytics',
+            'operations-section'   => 'Operations',
+            'needs-attention'      => 'Needs Attention',
+            'unenriched-products'  => 'Unenriched Products',
+            'failed-jobs-24h'      => 'Failed Jobs (24h)',
+            'low-completeness'     => 'Low Completeness',
+            'all-good'             => 'Everything looks good!',
+            'channel-readiness'    => 'Channel Readiness',
+            'ready-to-publish'     => 'ready to publish',
+            'of'                   => 'of',
+            'products-ready'       => 'products ready',
+            'no-readiness-data'    => 'No completeness data available yet.',
         ],
     ],
-
     'catalog' => [
         'products' => [
             'index' => [
@@ -104,8 +150,7 @@ return [
                 'magic-ai-error'            => 'Venligst bekræft Magic AI-legitimationsoplysningerne og sørg for, at den korrekte model er valgt.',
                 'magic-ai-validate-error'   => 'Bekræft venligst Magic AI-legitimationsoplysningerne.',
                 'magic-ai-validate-success' => 'Magic AI-legitimationsoplysninger valideret',
-
-                'create' => [
+                'create'                    => [
                     'back-btn'                          => 'Tilbage',
                     'configurable-attributes'           => 'Konfigurerbare Attributter',
                     'create-btn'                        => 'Opret Produkt',
@@ -118,7 +163,6 @@ return [
                     'not-config-super-attributes-error' => 'Disse superattributter med værdien ":super_attributes" kunne ikke findes',
                     'sku-exists-error'                  => 'SKU med værdien ":sku" findes allerede',
                 ],
-
                 'datagrid' => [
                     'active'                 => 'Aktiver',
                     'attribute-family'       => 'Attributfamilie',
@@ -148,49 +192,43 @@ return [
                     'update-status'          => 'Opdater Status',
                     'parent'                 => 'Forælder',
                     'parent-identifier'      => 'Forælder: :sku',
+                    'created-at'             => 'Created At',
+                    'updated-at'             => 'Updated At',
                 ],
             ],
-
             'edit' => [
-                'preview'  => 'Forhåndsvisning',
-                'remove'   => 'Fjern',
-                'save-btn' => 'Gem Produkt',
-                'title'    => 'Rediger Produkt',
-
+                'preview'    => 'Forhåndsvisning',
+                'remove'     => 'Fjern',
+                'save-btn'   => 'Gem Produkt',
+                'title'      => 'Rediger Produkt',
                 'categories' => [
                     'title' => 'Kategorier',
                 ],
-
                 'images' => [
                     'info'  => 'Billedopløsningen bør være som 560px X 609px',
                     'title' => 'Billeder',
                 ],
-
                 'videos' => [
                     'error' => 'Attributten :attribute må ikke være større end :max kilobytes. Vælg venligst en mindre fil.',
                     'info'  => 'Den maksimale video størrelse bør være :size',
                     'title' => 'Videoer',
                 ],
-
                 'links' => [
                     'related-products' => [
                         'empty-info' => 'Tilføj relaterede produkter.',
                         'info'       => 'Ud over det produkt, som kunden ser på, vil de blive præsenteret for relaterede produkter.',
                         'title'      => 'Relaterede Produkter',
                     ],
-
                     'up-sells' => [
                         'empty-info' => 'Tilføj op-sell produkter.',
                         'info'       => 'Kunden vil blive præsenteret for op-sell produkter, som fungerer som et premium eller højere kvalitetsalternativ til det produkt, de ser på.',
                         'title'      => 'Op-Sell Produkter',
                     ],
-
                     'cross-sells' => [
                         'empty-info' => 'Tilføj cross-sell produkter.',
                         'info'       => 'Ved siden af indkøbskurven vil disse "impulskøb"-produkter blive præsenteret som cross-sells for at komplementere de allerede tilføjede varer.',
                         'title'      => 'Cross-Sell Produkter',
                     ],
-
                     'add-btn'           => 'Tilføj',
                     'delete'            => 'Slet',
                     'empty-info'        => 'For at tilføje :type produkter med det samme.',
@@ -199,7 +237,6 @@ return [
                     'sku'               => 'SKU - :sku',
                     'title'             => 'Forbindelser',
                 ],
-
                 'types' => [
                     'configurable' => [
                         'add-btn'                            => 'Tilføj Variant',
@@ -216,15 +253,13 @@ return [
                         'variant-attribute-option-not-found' => 'Variantattribut eller mulighed med værdien ":attributes" kunne ikke findes',
                         'supper-attribute-not-found'         => 'Superattribut med værdien ":attribute" kunne ikke findes',
                         'variant-given-exists'               => 'Denne variant med værdien ":variants" findes allerede',
-
-                        'create' => [
+                        'create'                             => [
                             'description'            => 'Beskrivelse',
                             'name'                   => 'Navn',
                             'save-btn'               => 'Tilføj',
                             'title'                  => 'Tilføj Variant',
                             'variant-already-exists' => 'Denne variant findes allerede',
                         ],
-
                         'edit' => [
                             'disabled'        => 'Deaktiveret',
                             'edit-info'       => 'Hvis du vil opdatere produktinformation i detaljer, så gå til',
@@ -240,7 +275,6 @@ return [
                             'title'           => 'Produkt',
                             'weight'          => 'Vægt',
                         ],
-
                         'mass-edit' => [
                             'add-images'          => 'Tilføj Billeder',
                             'apply-to-all-btn'    => 'Anvend på Alle',
@@ -267,23 +301,31 @@ return [
                         ],
                     ],
                 ],
-
                 'translate' => [
-                    'translate-btn'            => 'Oversæt',
-                    'title'                    => 'Oversæt',
-                    'source-channel'           => 'Kildekanal',
-                    'locale'                   => 'Kildelokalitet',
-                    'translated-content'       => 'Oversat indhold',
-                    'translating'              => 'Oversætter',
-                    'apply'                    => 'Anvend',
-                    'cancel'                   => 'Annuller',
-                    'target-locales'           => 'Mållokaliteter',
-                    'target-channel'           => 'Målkanal',
-                    'attributes'               => 'Egenskaber',
-                    'source-content'           => 'Kildeindhold',
-                    'tranlated-job-processed'  => 'Behandling af oversat indhold er fuldført.',
+                    'translate-btn'               => 'Oversæt',
+                    'title'                       => 'Oversæt',
+                    'source-channel'              => 'Kildekanal',
+                    'locale'                      => 'Kildelokalitet',
+                    'translated-content'          => 'Oversat indhold',
+                    'translating'                 => 'Oversætter',
+                    'apply'                       => 'Anvend',
+                    'back'                        => 'Back',
+                    'cancel'                      => 'Annuller',
+                    'target-locales'              => 'Mållokaliteter',
+                    'target-channel'              => 'Målkanal',
+                    'attributes'                  => 'Egenskaber',
+                    'source-content'              => 'Kildeindhold',
+                    'tranlated-job-processed'     => 'Behandling af oversat indhold er fuldført.',
+                    'step'                        => 'Step',
+                    'select-source'               => 'Select Source',
+                    'select-target'               => 'Select Target',
+                    'first-step-title'            => 'Step 1: Select Source Channel, Language and Attributes',
+                    'first-step-title-attributes' => 'Step 1: Select Source Channel and Language',
+                    'second-step-title'           => 'Step 2: Select Target Channel and Languages',
+                    'target-content'              => 'Target Content',
+                    'next'                        => 'Next',
+                    'empty-translation-data'      => 'Data not available for translation on the basis of source channel and locale',
                 ],
-
                 'product-info' => [
                     'title'        => 'Produktinformation',
                     'status'       => 'Status',
@@ -293,6 +335,7 @@ return [
                     'created-at'   => 'Oprettelsesdato',
                     'product-type' => 'Produkttype',
                 ],
+                'more-actions' => 'More Actions',
             ],
             'bulk-edit' => [
                 'validation' => [
@@ -305,27 +348,22 @@ return [
                     'select-attribute-or-family' => 'Vælg mindst ét attribut eller en attributfamilie.',
                     'failed'                     => 'Validering mislykkedes.',
                 ],
-
-                'modal'                      => [
+                'modal' => [
                     'title'            => 'Attributter til masse-redigering',
                     'btn-cancel'       => 'Annuller',
                     'btn-proceed'      => 'Fortsæt',
                     'attribute-family' => 'Vælg attributfamilie',
                 ],
-
                 'index' => [
-                    'no-product'    => 'Ingen produkter valgt til masse-redigering.',
+                    'no-product' => 'Ingen produkter valgt til masse-redigering.',
                 ],
-
                 'filter' => [
-                    'many-product'      => 'For mange produkter er valgt.',
-                    'redirect-message'  => 'Omdirigerer til masse-redigeringsvisning.',
+                    'many-product'     => 'For mange produkter er valgt.',
+                    'redirect-message' => 'Omdirigerer til masse-redigeringsvisning.',
                 ],
-
                 'handle-save' => [
-                    'edit-success'  => 'Masse-redigering lykkedes.',
+                    'edit-success' => 'Masse-redigering lykkedes.',
                 ],
-
                 'id'              => 'ID',
                 'no-changes'      => 'Ingen ændringer at gemme.',
                 'success'         => 'Handling gennemført med succes.',
@@ -335,9 +373,8 @@ return [
                 'img-preview'     => 'Billedforhåndsvisning',
                 'no-image'        => 'Intet billede',
                 'img-fail'        => 'Billedupload mislykkedes.',
-                'no-opton'        => 'No Options',
+                'no-option'       => 'No Options',
             ],
-
             'create-success'          => 'Produkt oprettet med succes',
             'delete-failed'           => 'Produkt sletning mislykkedes',
             'delete-success'          => 'Produkt slettet med succes',
@@ -351,30 +388,28 @@ return [
             'upload-success'          => 'Produktfil uploadet med succes.',
             'update-failure'          => 'Produktet kunne ikke opdateres.',
         ],
-
         'attributes' => [
             'index' => [
                 'create-btn' => 'Opret Attribut',
                 'title'      => 'Attributter',
-
-                'datagrid' => [
-                    'channel-based'       => 'Kanalbaseret',
-                    'code'                => 'Kode',
-                    'created-at'          => 'Oprettet den',
-                    'delete'              => 'Slet',
-                    'edit'                => 'Rediger',
-                    'id'                  => 'ID',
-                    'locale-based'        => 'Lokalebaseret',
-                    'mass-delete-success' => 'Valgte Attributter blev slettet succesfuldt',
-                    'name'                => 'Navn',
-                    'required'            => 'Påkrævet',
-                    'type'                => 'Type',
-                    'unique'              => 'Unik',
-                    'delete-failed'       => 'Denne attribut kan ikke slettes.',
-                    'mass-delete-failed'  => 'De valgte attributter kan ikke slettes.',
+                'datagrid'   => [
+                    'channel-based'            => 'Kanalbaseret',
+                    'code'                     => 'Kode',
+                    'created-at'               => 'Oprettet den',
+                    'delete'                   => 'Slet',
+                    'edit'                     => 'Rediger',
+                    'id'                       => 'ID',
+                    'locale-based'             => 'Lokalebaseret',
+                    'mass-delete-success'      => 'Valgte Attributter blev slettet succesfuldt',
+                    'name'                     => 'Navn',
+                    'required'                 => 'Påkrævet',
+                    'type'                     => 'Type',
+                    'unique'                   => 'Unik',
+                    'delete-failed'            => 'Denne attribut kan ikke slettes.',
+                    'mass-delete-failed'       => 'De valgte attributter kan ikke slettes.',
+                    'delete-attribute-failure' => 'This attribute cannot be removed because it is in use for configurable products',
                 ],
             ],
-
             'create' => [
                 'add-attribute-options' => 'Tilføj Attributmuligheder',
                 'add-option'            => 'Tilføj Mulighed',
@@ -397,13 +432,13 @@ return [
                 'enable-wysiwyg'        => 'Aktivér WYSIWYG-editor',
                 'file'                  => 'Fil',
                 'general'               => 'Generelt',
-                'image'                 => 'Billede',
                 'gallery'               => 'Galleri',
+                'image'                 => 'Billede',
                 'input-options'         => 'Indtastningsmuligheder',
                 'input-validation'      => 'Indtastningsvalidering',
                 'is-comparable'         => 'Attribut er sammenlignelig',
                 'is-configurable'       => 'Bruges til at oprette konfigurerbare produkter',
-                'is-filterable'         => 'Bruges i lagdelt navigation',
+                'is-filterable'         => 'Er filtrerbar',
                 'is-required'           => 'Er påkrævet',
                 'is-unique'             => 'Er unik',
                 'is-visible-on-front'   => 'Synlig på produktvisningssiden på frontend',
@@ -431,10 +466,9 @@ return [
                 'yes'                   => 'Ja',
                 'same-code-error'       => 'Mulighedskoden skal være unik.',
                 'usable-in-grid'        => 'Brugbar i gitter',
-                'is-filterable'         => 'Er filtrerbar',
                 'ai-translate'          => 'AI Oversæt',
-
-                'option' => [
+                'invalid-swatch-type'   => 'The :attribute is not allowed for attribute type :type with swatch type :swatch_type.',
+                'option'                => [
                     'color'    => 'Farveprøve',
                     'dropdown' => 'Dropdown',
                     'image'    => 'Billedeprøve',
@@ -442,7 +476,6 @@ return [
                     'text'     => 'Tekstprøve',
                 ],
             ],
-
             'edit' => [
                 'add-attribute-options' => 'Tilføj Attributmuligheder',
                 'add-option'            => 'Tilføj Mulighed',
@@ -466,12 +499,11 @@ return [
                 'file'                  => 'Fil',
                 'general'               => 'Generelt',
                 'image'                 => 'Billede',
-                'gallery'               => 'Galleri',
                 'input-options'         => 'Indtastningsmuligheder',
                 'input-validation'      => 'Indtastningsvalidering',
                 'is-comparable'         => 'Attribut er sammenlignelig',
                 'is-configurable'       => 'Bruges til at oprette konfigurerbare produkter',
-                'is-filterable'         => 'Bruges i lagdelt navigation',
+                'is-filterable'         => 'Er filtrerbar',
                 'is-required'           => 'Er påkrævet',
                 'is-unique'             => 'Er unik',
                 'is-visible-on-front'   => 'Synlig på produktvisningssiden på frontend',
@@ -499,24 +531,20 @@ return [
                 'yes'                   => 'Ja',
                 'same-code-error'       => 'Mulighedskoden skal være unik.',
                 'usable-in-grid'        => 'Brugbar i gitter',
-                'is-filterable'         => 'Er filtrerbar',
                 'ai-translate'          => 'AI Oversæt',
-                'invalid-swatch-type'   => ':attribute er ikke tilladt for attributtype :type med swatch-type :swatch_type.',
-
-                'option' => [
-                    'create-success'      => 'Attributmulighed oprettet succesfuldt',
-                    'delete-success'      => 'Attributmulighed slettet succesfuldt',
+                'option'                => [
                     'save-btn'            => 'Gem Mulighed',
-                    'sort-update-failure' => 'Kunne ikke opdatere sorteringsrækkefølge',
-                    'sort-update-success' => 'Sorteringsrækkefølge opdateret succesfuldt',
+                    'create-success'      => 'Attributmulighed oprettet succesfuldt',
                     'update-success'      => 'Attributmulighed opdateret succesfuldt',
+                    'sort-update-success' => 'Sorteringsrækkefølge opdateret succesfuldt',
+                    'sort-update-failure' => 'Kunne ikke opdatere sorteringsrækkefølge',
+                    'delete-success'      => 'Attributmulighed slettet succesfuldt',
                     'color'               => 'Farveprøve',
                     'dropdown'            => 'Dropdown',
                     'image'               => 'Billedeprøve',
                     'text'                => 'Tekstprøve',
                 ],
             ],
-
             'create-success'    => 'Attribut oprettet succesfuldt',
             'delete-failed'     => 'Attribut sletning fejlede',
             'delete-success'    => 'Attribut slettet succesfuldt',
@@ -524,19 +552,16 @@ return [
             'user-define-error' => 'Kan ikke slette systemattribut',
             'not-found'         => 'Attribut med kode ":code" blev ikke fundet',
         ],
-
         'attribute-options' => [
             'create-success'       => 'Attributmulighed oprettet succesfuldt',
             'update-success'       => 'Attributmulighed opdateret succesfuldt',
             'usable-in-grid-error' => 'Kun 4 attributter kan have "brugbar i grid" aktiveret.',
         ],
-
         'attribute-groups' => [
             'index' => [
                 'create-btn' => 'Opret Attributgruppe',
                 'title'      => 'Attributgrupper',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'code'                => 'Kode',
                     'delete'              => 'Slet',
                     'mass-delete-success' => 'Valgte Attributgrupper blev succesfuldt slettet',
@@ -548,7 +573,6 @@ return [
                     'update-status'       => 'Opdater Status',
                 ],
             ],
-
             'create' => [
                 'title'    => 'Tilføj Attributgruppe',
                 'save-btn' => 'Gem Attributgruppe',
@@ -557,7 +581,6 @@ return [
                 'code'     => 'Kode',
                 'label'    => 'Etiket',
             ],
-
             'edit' => [
                 'title'    => 'Rediger Attributgruppe',
                 'back-btn' => 'Tilbage',
@@ -566,7 +589,6 @@ return [
                 'code'     => 'Kode',
                 'label'    => 'Etiket',
             ],
-
             'create-success'        => 'Attributgruppe oprettet succesfuldt',
             'delete-failed'         => 'Attributgruppe kunne ikke slettes',
             'delete-success'        => 'Attributgruppe slettet succesfuldt',
@@ -575,12 +597,10 @@ return [
             'attribute-group-error' => 'Gruppen er i brug i familier.',
             'not-found'             => 'Attributgruppen med kode ":code" kunne ikke findes',
         ],
-
         'categories' => [
             'index' => [
-                'add-btn' => 'Opret kategori',
-                'title'   => 'Kategorier',
-
+                'add-btn'  => 'Opret kategori',
+                'title'    => 'Kategorier',
                 'datagrid' => [
                     'active'         => 'Aktiv',
                     'code'           => 'Kode',
@@ -590,14 +610,13 @@ return [
                     'id'             => 'ID',
                     'inactive'       => 'Inaktiv',
                     'name'           => 'Visningsnavn',
+                    'category-name'  => 'Navn',
                     'no-of-products' => 'Antal produkter',
                     'position'       => 'Position',
-                    'category-name'  => 'Navn',
                     'status'         => 'Synlig i menu',
                     'update-status'  => 'Opdater status',
                 ],
             ],
-
             'create' => [
                 'back-btn'            => 'Tilbage',
                 'code'                => 'Kode',
@@ -618,7 +637,6 @@ return [
                 'right-section'       => 'Konfigurationssektion',
                 'left-section'        => 'Generel sektion',
             ],
-
             'edit' => [
                 'back-btn'               => 'Tilbage',
                 'code'                   => 'Kode',
@@ -637,7 +655,6 @@ return [
                 'right-section'          => 'Konfigurationssektion',
                 'left-section'           => 'Generel sektion',
             ],
-
             'category'             => 'Kategori',
             'create-success'       => 'Kategori oprettet succesfuldt.',
             'delete-category-root' => 'Du kan ikke slette rodkategorien, der er tilknyttet et kanal.',
@@ -652,14 +669,12 @@ return [
             'create-failure'       => 'Kategorien kunne ikke oprettes.',
             'update-failure'       => 'Kategorien kunne ikke opdateres.',
         ],
-
         'category_fields' => [
             'index' => [
                 'create-btn' => 'Opret Kategori Felt',
                 'add-btn'    => 'Opret Kategori Felt',
                 'title'      => 'Kategori Felter',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'       => 'Kanal Baseret',
                     'code'                => 'Kode',
                     'created-at'          => 'Oprettet På',
@@ -684,7 +699,6 @@ return [
                     'mass-delete-failed'  => 'Valgte kategori felter kan ikke slettes.',
                 ],
             ],
-
             'create' => [
                 'add-field-options'   => 'Tilføj Kategori Felt Muligheder',
                 'add-option'          => 'Tilføj Mulighed',
@@ -739,8 +753,7 @@ return [
                 'set-section-right'   => 'Konfigurations Sektion',
                 'settings'            => 'Indstillinger',
                 'same-code-error'     => 'Mulighedskoden skal være unik.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Dropdown',
                     'save-btn' => 'Gem Mulighed',
                     'color'    => 'Farve Swatch',
@@ -748,7 +761,6 @@ return [
                     'text'     => 'Tekst Swatch',
                 ],
             ],
-
             'edit' => [
                 'add-field-options'   => 'Tilføj Kategori Felt Muligheder',
                 'add-option'          => 'Tilføj Mulighed',
@@ -804,8 +816,7 @@ return [
                 'set-section-right'   => 'Konfigurations Sektion',
                 'settings'            => 'Indstillinger',
                 'same-code-error'     => 'Mulighedskoden skal være unik.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Dropdown',
                     'save-btn' => 'Gem Mulighed',
                     'color'    => 'Farve Swatch',
@@ -813,7 +824,6 @@ return [
                     'text'     => 'Tekst Swatch',
                 ],
             ],
-
             'create-success'    => 'Kategori Felt Oprettet Med Succes',
             'delete-failed'     => 'Kategori Felt Sletning Mislykkedes',
             'delete-success'    => 'Kategori Felt Slettet Med Succes',
@@ -821,17 +831,14 @@ return [
             'user-define-error' => 'Kan ikke slette system Kategori Felt',
             'not-found'         => 'Kategori Felt med kode ":code" blev ikke fundet',
         ],
-
         'category-fields-options' => [
             'create-success' => 'Kategori Felt Option Oprettet Succesfuldt',
             'update-success' => 'Kategori Felt Option Opdateret Succesfuldt',
         ],
-
         'families' => [
             'index' => [
-                'add'   => 'Opret Attribut Familie',
-                'title' => 'Familier',
-
+                'add'      => 'Opret Attribut Familie',
+                'title'    => 'Familier',
                 'datagrid' => [
                     'code'           => 'Kode',
                     'delete'         => 'Slet',
@@ -846,7 +853,6 @@ return [
                     'update-success' => 'De valgte :resource blev opdateret korrekt',
                 ],
             ],
-
             'create' => [
                 'assign-group-btn'                 => 'Tildel Attributgruppe',
                 'assign-group-title'               => 'Tildel Attributgruppe',
@@ -877,7 +883,6 @@ return [
                 'unassigned-attribute-groups'      => 'U tildelte Attributgrupper',
                 'assign-first-attribute-group'     => 'Tildel gruppen til familien.',
             ],
-
             'edit' => [
                 'assign-group-btn'                 => 'Tildel Attributgruppe',
                 'assign-group-title'               => 'Tildel Attributgruppe',
@@ -911,7 +916,6 @@ return [
                 'variant-options-label'            => 'Konfigurerbare muligheder',
                 'select-variant'                   => 'Vælg attributter',
             ],
-
             'attribute-family'               => 'Attributfamilie',
             'attribute-product-error'        => 'Familien bruges i produkter.',
             'create-success'                 => 'Familie oprettet korrekt.',
@@ -924,7 +928,6 @@ return [
             'not-found'                      => 'Attributfamilie med kode ":code" kunne ikke findes',
             'can-not-update-variant-options' => 'Kan ikke opdatere konfigurerbare muligheder, da denne familie allerede har variantprodukter.',
         ],
-
         'history' => [
             'index' => [
                 'datagrid' => [
@@ -935,7 +938,6 @@ return [
             ],
         ],
     ],
-
     'settings' => [
         'locales' => [
             'index' => [
@@ -944,8 +946,7 @@ return [
                 'title'                 => 'Lokaliteter',
                 'can-not-delete-error'  => 'Du kan ikke slette en lokalitet, der er knyttet til en kanal eller bruger',
                 'can-not-disable-error' => 'Du kan ikke deaktivere en lokalitet, der er knyttet til en kanal eller bruger',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'     => 'Handlinger',
                     'code'        => 'Kode',
                     'delete'      => 'Slet',
@@ -956,14 +957,12 @@ return [
                     'name'        => 'Visningsnavn',
                     'rtl'         => 'RTL',
                     'mass-update' => 'Opdater Status',
-
-                    'status' => [
+                    'status'      => [
                         'title'    => 'Status',
                         'active'   => 'Aktiver',
                         'inactive' => 'Deaktiver',
                     ],
                 ],
-
                 'create' => [
                     'code'             => 'Kode',
                     'direction'        => 'Retning',
@@ -974,11 +973,9 @@ return [
                     'title'            => 'Opret Lokalitet',
                     'status'           => 'Status',
                 ],
-
                 'edit' => [
                     'title' => 'Rediger Lokalitet',
                 ],
-
                 'create-success'    => 'Lokalitet oprettet med succes.',
                 'delete-failed'     => 'Sletning af lokalitet mislykkedes',
                 'delete-success'    => 'Lokalitet slettet med succes.',
@@ -987,7 +984,6 @@ return [
                 'update-success'    => 'Lokalitet opdateret med succes.',
             ],
         ],
-
         'currencies' => [
             'index' => [
                 'create-btn'            => 'Opret Valuta',
@@ -995,8 +991,7 @@ return [
                 'title'                 => 'Valutaer',
                 'can-not-delete-error'  => 'Du kan ikke slette en valuta, der er knyttet til en kanal',
                 'can-not-disable-error' => 'Du kan ikke deaktivere en valuta, der er knyttet til en kanal',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'        => 'Handlinger',
                     'code'           => 'Kode',
                     'delete'         => 'Slet',
@@ -1008,14 +1003,12 @@ return [
                     'partial-action' => 'Nogle handlinger blev ikke udført på grund af systembegrænsninger for :resource',
                     'update-success' => 'Valgte :resource blev opdateret med succes',
                     'mass-update'    => 'Opdater Status',
-
-                    'status' => [
+                    'status'         => [
                         'title'    => 'Status',
                         'active'   => 'Aktiver',
                         'inactive' => 'Deaktiver',
                     ],
                 ],
-
                 'create' => [
                     'code'           => 'Kode',
                     'create-btn'     => 'Opret Valuta',
@@ -1028,11 +1021,9 @@ return [
                     'title'          => 'Opret Ny Valuta',
                     'status'         => 'Status',
                 ],
-
                 'edit' => [
                     'title' => 'Rediger Valuta',
                 ],
-
                 'create-success'    => 'Valuta oprettet med succes.',
                 'delete-failed'     => 'Sletning af valuta mislykkedes',
                 'delete-success'    => 'Valuta slettet med succes.',
@@ -1041,12 +1032,10 @@ return [
                 'cannot-delete'     => 'Valuta kan ikke slettes.',
             ],
         ],
-
         'data-transfer' => [
             'tracker' => [
                 'index' => [
-                    'title' => 'Jobovervågning',
-
+                    'title'    => 'Jobovervågning',
                     'datagrid' => [
                         'id'                   => 'ID',
                         'job_code'             => 'Job',
@@ -1060,28 +1049,28 @@ return [
                         'user'                 => 'Bruger',
                         'created_at'           => 'Oprettet Kl.',
                         'updated_at'           => 'Opdateret Kl.',
-
-                        'pending'    => 'Afventer',
-                        'validated'  => 'Valideret',
-                        'processing' => 'Behandler',
-                        'processed'  => 'Behandlet',
-                        'linking'    => 'Linker',
-                        'linked'     => 'Linket',
-
-                        'indexing'  => 'Indekserer',
-                        'indexed'   => 'Indekseret',
-                        'completed' => 'Fuldført',
-                        'failed'    => 'Mislykket',
+                        'pending'              => 'Afventer',
+                        'validating'           => 'Validating',
+                        'validated'            => 'Valideret',
+                        'processing'           => 'Behandler',
+                        'processed'            => 'Behandlet',
+                        'linking'              => 'Linker',
+                        'linked'               => 'Linket',
+                        'indexing'             => 'Indekserer',
+                        'indexed'              => 'Indekseret',
+                        'completed'            => 'Fuldført',
+                        'paused'               => 'Paused',
+                        'cancelled'            => 'Cancelled',
+                        'failed'               => 'Mislykket',
                     ],
                 ],
-
                 'import' => [
                     'back-btn'                => 'Tilbage',
                     'completed-batches'       => 'Fuldførte Batcher:',
                     'download-error-report'   => 'Download Fuld Rapport',
                     'edit-btn'                => 'Rediger',
                     'imported-info'           => 'Tillykke! Din import var vellykket.',
-                    'importing-info'          => 'Eksport i Gang',
+                    'exporting-info'          => 'Export In Process',
                     'indexing-info'           => 'Indeksering af Ressourcer (Pris, Elastic Search) i Gang',
                     'linking-info'            => 'Linkning af Ressourcer i Gang',
                     'progress'                => 'Fremskridt:',
@@ -1099,7 +1088,6 @@ return [
                     'validation-failed-info'  => 'Din import er ugyldig. Ret følgende fejl og prøv igen.',
                     'validation-success-info' => 'Din import er gyldig. Klik på Eksport for at starte importprocessen.',
                 ],
-
                 'summary' => [
                     'total-batches' => 'Samlede Batcher:',
                     'created'       => 'Oprettede Poster I Alt:',
@@ -1110,19 +1098,47 @@ return [
                     'updated'       => 'Opdaterede Poster I Alt:',
                     'skipped'       => 'Springede Poster Over I Alt:',
                 ],
-
-                'info'              => 'Tillykke! Dit job blev udført med succes.',
-                'create-success'    => 'Eksport oprettet med succes.',
-                'delete-failed'     => 'Sletning af eksport mislykkedes uventet.',
-                'delete-success'    => 'Eksport slettet med succes.',
-                'not-valid'         => 'Eksport er ugyldig',
-                'nothing-to-import' => 'Der er ingen ressourcer at importere.',
-                'setup-queue-error' => 'Skift din kødriver til "database" eller "redis" for at starte importprocessen.',
-                'update-success'    => 'Eksport opdateret med succes.',
-                'failed-info'       => 'Jobbet mislykkedes. Ret følgende fejl og prøv igen.',
-                'download-log-file' => 'Download log',
+                'info'                  => 'Tillykke! Dit job blev udført med succes.',
+                'running-time'          => 'Running time',
+                'estimated-remaining'   => 'Est. remaining',
+                'total-duration'        => 'Total Duration',
+                'status'                => 'Status',
+                'waiting'               => 'Waiting',
+                'total-records'         => 'Total records',
+                'job-id'                => 'Job ID',
+                'records-created'       => 'Records Created',
+                'records-updated'       => 'Records Updated',
+                'records-deleted'       => 'Records deleted',
+                'run-again'             => 'Run Again',
+                'completed-success'     => 'job completed successfully',
+                'completed-info-sub'    => 'All records have been processed and indexed. Your catalog is up to date.',
+                'create-success'        => 'Eksport oprettet med succes.',
+                'delete-failed'         => 'Sletning af eksport mislykkedes uventet.',
+                'delete-success'        => 'Eksport slettet med succes.',
+                'not-valid'             => 'Eksport er ugyldig',
+                'nothing-to-import'     => 'Der er ingen ressourcer at importere.',
+                'setup-queue-error'     => 'Skift din kødriver til "database" eller "redis" for at starte importprocessen.',
+                'update-success'        => 'Eksport opdateret med succes.',
+                'failed-info'           => 'Jobbet mislykkedes. Ret følgende fejl og prøv igen.',
+                'download-log-file'     => 'Download log',
+                'pause'                 => 'Pause',
+                'resume'                => 'Resume',
+                'cancel'                => 'Cancel',
+                'paused'                => 'Import has been paused.',
+                'resumed'               => 'Import has been resumed.',
+                'cancelled'             => 'Import has been cancelled.',
+                'paused-info'           => 'Import is paused. Remaining batches are on hold.',
+                'paused-info-export'    => 'Export is paused. Remaining batches are on hold.',
+                'cancelled-info'        => 'Import was cancelled. Partial results are shown below.',
+                'cancelled-info-export' => 'Export was cancelled. Partial results are shown below.',
+                'cancel-confirm'        => 'Are you sure you want to cancel this job? This action cannot be undone.',
+                'live'                  => 'Live',
+                'import-progress'       => 'Import progress',
+                'export-progress'       => 'Export progress',
+                'linking-progress'      => 'Linking progress',
+                'indexing-progress'     => 'Indexing progress',
+                'job-label'             => 'Job',
             ],
-
             'imports' => [
                 'create' => [
                     'code'                => 'Kode',
@@ -1143,6 +1159,13 @@ return [
                     'general'             => 'Generelt',
                     'upload_images'       => 'Upload Billeder for at angive Sti',
                     'download-sample-zip' => 'Download Eksempel Billeder ZIP',
+                    'zip-uploading'       => 'Uploading and extracting ZIP...',
+                    'zip-upload-success'  => 'ZIP uploaded and extracted successfully.',
+                    'zip-upload-error'    => 'Failed to upload ZIP. Please try again.',
+                    'invalid-zip'         => 'The uploaded file is not a valid ZIP archive.',
+                    'zip-upload-or'       => 'or upload a ZIP of images',
+                    'zip-click-upload'    => 'Click to upload a ZIP of images',
+                    'zip-files-extracted' => 'files extracted',
                     'zip-drop-hint'       => 'Klik eller træk og slip en ZIP-fil her',
                     'images-directory'    => 'Sti',
                     'process-in-queue'    => 'Behandl i Kø',
@@ -1155,7 +1178,6 @@ return [
                     'type'                => 'Type',
                     'validation-strategy' => 'Valideringsstrategi',
                 ],
-
                 'edit' => [
                     'images'              => 'Billeder',
                     'action'              => 'Handling',
@@ -1182,16 +1204,13 @@ return [
                     'type'                => 'Type',
                     'validation-strategy' => 'Valideringsstrategi',
                 ],
-
                 'batch' => [
                     'title' => 'Import tilføjet til køen',
                 ],
-
                 'index' => [
                     'button-title' => 'Opret Import',
                     'title'        => 'Importer',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => 'Handlinger',
                         'completed-at'          => 'Afsluttet Den',
                         'created'               => 'Oprettet',
@@ -1212,20 +1231,33 @@ return [
                         'import'                => 'Import',
                     ],
                 ],
-
                 'import' => [
+                    'action'                  => 'Handlingsmetode',
                     'back-btn'                => 'Tilbage',
                     'completed-batches'       => 'Samlede Afsluttede Batcher:',
                     'download-error-report'   => 'Download Fuld Rapport',
                     'edit-btn'                => 'Rediger',
-                    'imported-info'           => 'Tillykke! Din import var vellykket.',
-                    'importing-info'          => 'Import i Gang',
                     'exporting-info'          => 'Eksport i Gang',
+                    'exporting-info-sub'      => 'Generating export file and writing records. Please wait.',
+                    'file_path'               => 'Filsti',
+                    'imported-info'           => 'Tillykke! Din import var vellykket.',
+                    'import-now'              => 'Importer Nu',
+                    'importing-info'          => 'Import i Gang',
+                    'importing-info-sub'      => 'Processing batches and writing records to the database.',
                     'indexing-info'           => 'Ressourceindeksering (Pris, Elastic Search) i Gang',
+                    'indexing-info-sub'       => 'Rebuilding search indices and price caches after import. This step runs automatically.',
+                    'indexing-type'           => 'Price + ES',
                     'linking-info'            => 'Ressourceforbindelser i Gang',
-                    'progress'                => 'Fremdrift:',
+                    'linking-info-sub'        => 'Linking related resources and associations between records.',
                     'pending-info'            => 'Afventer Jobbehandling i Køen',
+                    'pending-info-sub'        => 'Your job has been added to the processing queue. A worker will pick it up shortly.',
+                    'pending-step-complete'   => 'Complete',
                     'pending-step-export'     => 'Eksporterer',
+                    'pending-step-import'     => 'Importing',
+                    'pending-step-queue'      => 'Queued',
+                    'pending-step-validate'   => 'Validating',
+                    'profile'                 => 'Importprofil',
+                    'progress'                => 'Fremdrift:',
                     'title'                   => 'Import',
                     'total-batches'           => 'Samlede Batcher:',
                     'total-created'           => 'Samlede Oprettede Poster:',
@@ -1234,26 +1266,23 @@ return [
                     'total-invalid-rows'      => 'Samlede Ugyldige Rækker:',
                     'total-rows-processed'    => 'Samlede Behandlede Rækker:',
                     'total-updated'           => 'Samlede Opdaterede Poster:',
-                    'validate-info'           => 'Klik på Valider Data for at kontrollere din import.',
                     'validate'                => 'Valider',
-                    'file_path'               => 'Filsti',
-                    'import-now'              => 'Importer Nu',
-                    'action'                  => 'Handlingsmetode',
-                    'profile'                 => 'Importprofil',
+                    'validate-info'           => 'Klik på Valider Data for at kontrollere din import.',
                     'validating-info'         => 'Dataene læses og valideres',
+                    'validating-info-sub'     => 'Checking schema integrity, field mappings, and data types before the import begins.',
                     'validation-failed-info'  => 'Din import er ugyldig. Ret følgende fejl og prøv igen.',
                     'validation-success-info' => 'Din import er gyldig. Starter import automatisk...',
                 ],
-
-                'create-success'    => 'Import oprettet med succes.',
-                'delete-failed'     => 'Sletning af import mislykkedes uventet.',
-                'delete-success'    => 'Import slettet med succes.',
-                'not-valid'         => 'Importen er ugyldig',
-                'nothing-to-import' => 'Der er ingen ressourcer at importere.',
-                'setup-queue-error' => 'Skift din kødriver til "database" eller "redis" for at starte importprocessen.',
-                'update-success'    => 'Import opdateret med succes.',
+                'create-success'     => 'Import oprettet med succes.',
+                'delete-failed'      => 'Sletning af import mislykkedes uventet.',
+                'delete-success'     => 'Import slettet med succes.',
+                'invalid-zip'        => 'The uploaded file is not a valid ZIP archive.',
+                'not-valid'          => 'Importen er ugyldig',
+                'nothing-to-import'  => 'Der er ingen ressourcer at importere.',
+                'setup-queue-error'  => 'Skift din kødriver til "database" eller "redis" for at starte importprocessen.',
+                'update-success'     => 'Import opdateret med succes.',
+                'zip-upload-success' => 'ZIP uploaded and extracted successfully.',
             ],
-
             'exports' => [
                 'create' => [
                     'code'                => 'Kode',
@@ -1284,7 +1313,6 @@ return [
                     'type'                => 'Type',
                     'validation-strategy' => 'Valideringsstrategi',
                 ],
-
                 'edit' => [
                     'action'              => 'Handling',
                     'allowed-errors'      => 'Tilladte Fejl',
@@ -1308,16 +1336,13 @@ return [
                     'type'                => 'Type',
                     'validation-strategy' => 'Valideringsstrategi',
                 ],
-
                 'batch' => [
                     'title' => 'Eksport tilføjet til køen',
                 ],
-
                 'index' => [
                     'button-title' => 'Opret Eksport',
                     'title'        => 'Eksporter',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => 'Handlinger',
                         'completed-at'          => 'Afsluttet Den',
                         'created'               => 'Oprettet',
@@ -1338,7 +1363,6 @@ return [
                         'export'                => 'Eksport',
                     ],
                 ],
-
                 'export' => [
                     'back-btn'                => 'Tilbage',
                     'completed-batches'       => 'Samlede Afsluttede Batcher:',
@@ -1368,7 +1392,6 @@ return [
                     'file-format'             => 'Filformat',
                     'with-media'              => 'Med Media',
                 ],
-
                 'create-success'    => 'Eksport oprettet med succes.',
                 'delete-failed'     => 'Sletning af eksport mislykkedes uventet.',
                 'delete-success'    => 'Eksport slettet med succes.',
@@ -1378,7 +1401,6 @@ return [
                 'update-success'    => 'Eksport opdateret med succes.',
             ],
         ],
-
         'channels' => [
             'index' => [
                 'create-btn'           => 'Opret kanal',
@@ -1397,7 +1419,6 @@ return [
                     'root-category' => 'Rodkategori',
                 ],
             ],
-
             'create' => [
                 'allowed-ips'            => 'Tilladte IP-adresser',
                 'cancel'                 => 'Tilbage',
@@ -1432,7 +1453,6 @@ return [
                 'theme'                  => 'Tema',
                 'title'                  => 'Opret Kanal',
             ],
-
             'edit' => [
                 'allowed-ips'            => 'Tilladte IP-adresser',
                 'back-btn'               => 'Tilbage',
@@ -1470,13 +1490,11 @@ return [
                 'update-success'         => 'Kanal opdateret med succes',
             ],
         ],
-
         'users' => [
             'index' => [
-                'admin' => 'Administrator',
-                'title' => 'Brugere',
-                'user'  => 'Bruger',
-
+                'admin'  => 'Administrator',
+                'title'  => 'Brugere',
+                'user'   => 'Bruger',
                 'create' => [
                     'confirm-password'  => 'Bekræft Adgangskode',
                     'email'             => 'E-mail',
@@ -1490,7 +1508,6 @@ return [
                     'user-timezone'     => 'Tidszone',
                     'select'            => 'Vælg',
                 ],
-
                 'datagrid' => [
                     'actions'  => 'Handlinger',
                     'active'   => 'Aktiv',
@@ -1504,12 +1521,10 @@ return [
                     'status'   => 'Status',
                     'image'    => 'Billede',
                 ],
-
                 'edit' => [
                     'title' => 'Rediger Bruger',
                 ],
             ],
-
             'edit' => [
                 'back-btn'         => 'Tilbage',
                 'confirm-password' => 'Bekræft Adgangskode',
@@ -1522,7 +1537,6 @@ return [
                 'status'           => 'Status',
                 'title'            => 'Rediger Bruger',
             ],
-
             'activate-warning'          => 'Din konto er endnu ikke aktiveret, kontakt administrator.',
             'cannot-change'             => 'Bruger kan ikke ændres',
             'create-success'            => 'Bruger oprettet succesfuldt.',
@@ -1535,13 +1549,11 @@ return [
             'update-success'            => 'Bruger opdateret succesfuldt.',
             'current-user-delete-error' => 'Den loggede bruger kan ikke slettes.',
         ],
-
         'roles' => [
             'index' => [
                 'create-btn' => 'Opret Rolle',
                 'title'      => 'Roller',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => 'Slet',
                     'edit'            => 'Rediger',
                     'id'              => 'ID',
@@ -1549,7 +1561,6 @@ return [
                     'permission-type' => 'Tilladelsestype',
                 ],
             ],
-
             'create' => [
                 'access-control' => 'Adgangskontrol',
                 'all'            => 'Alle',
@@ -1562,7 +1573,6 @@ return [
                 'save-btn'       => 'Gem Rolle',
                 'title'          => 'Opret Rolle',
             ],
-
             'edit' => [
                 'access-control' => 'Adgangskontrol',
                 'all'            => 'Alle',
@@ -1575,7 +1585,6 @@ return [
                 'save-btn'       => 'Gem Rolle',
                 'title'          => 'Rediger Rolle',
             ],
-
             'being-used'        => 'Rollen er allerede brugt af en Administrator Bruger',
             'being-used-by'     => 'Rollen er allerede brugt af :name Bruger',
             'create-success'    => 'Roller oprettet succesfuldt',
@@ -1585,7 +1594,482 @@ return [
             'update-success'    => 'Rolle opdateret succesfuldt',
         ],
     ],
-
+    'configuration' => [
+        'index' => [
+            'delete'          => 'Slet',
+            'no-result-found' => 'Ingen resultater fundet',
+            'save-btn'        => 'Gem konfiguration',
+            'save-message'    => 'Konfiguration gemt med succes',
+            'search'          => 'Søg',
+            'title'           => 'Konfiguration',
+            'general'         => [
+                'info'    => '',
+                'title'   => 'Generel',
+                'general' => [
+                    'info'  => '',
+                    'title' => 'Generel',
+                ],
+                'magic-ai' => [
+                    'info'     => 'Indstil Magic AI-indstillinger.',
+                    'title'    => 'Magic AI',
+                    'settings' => [
+                        'enabled'     => 'Aktiveret',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Generelle indstillinger',
+                        'title-info'  => 'Forbedr din oplevelse med Magic AI-funktionen ved at indtaste din eksklusive API-nøgle og angive den relevante organisation for problemfri integration. Tag kontrol over dine OpenAI-legitimationsoplysninger og tilpas indstillingerne efter dine specifikke behov.',
+                    ],
+                    'image-generation' => [
+                        'enabled'     => 'Enabled',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Image Generation',
+                        'title-info'  => 'Configure the default AI platform and model for generating product images. Only platforms that support image generation (OpenAI, Gemini, xAI) are listed.',
+                    ],
+                    'translation' => [
+                        'title'                       => 'Oversættelse',
+                        'enabled'                     => 'Aktiveret',
+                        'title-info'                  => 'Denne funktion aktiverer Magic AI til at oversætte tekst, hvilket gør det nemt at konvertere tekst fra et sprog til et andet.',
+                        'ai-platform'                 => 'Default Platform',
+                        'global-source-channel'       => 'Kildekanal',
+                        'global-source-locale'        => 'Kildesprog',
+                        'translation-model'           => 'Oversættelsesmodel',
+                        'replace-existing-value'      => 'Erstat eksisterende værdi',
+                        'target-channel'              => 'Målkanal',
+                        'target-locales'              => 'Målsprog',
+                        'replace-existing-value-info' => 'Replace the existing value if it already exists.',
+                    ],
+                ],
+            ],
+        ],
+        'integrations' => [
+            'index' => [
+                'create-btn' => 'Opret',
+                'title'      => 'Integrationer',
+                'datagrid'   => [
+                    'delete'          => 'Slet',
+                    'edit'            => 'Rediger',
+                    'id'              => 'ID',
+                    'name'            => 'Navn',
+                    'user'            => 'Bruger',
+                    'client-id'       => 'Klient-ID',
+                    'permission-type' => 'Tilladelsestype',
+                ],
+            ],
+            'create' => [
+                'access-control' => 'Adgangskontrol',
+                'all'            => 'Alle',
+                'back-btn'       => 'Tilbage',
+                'custom'         => 'Tilpasset',
+                'assign-user'    => 'Tildel bruger',
+                'general'        => 'Generel',
+                'name'           => 'Navn',
+                'permissions'    => 'Tilladelser',
+                'save-btn'       => 'Gem',
+                'title'          => 'Ny integration',
+            ],
+            'edit' => [
+                'access-control' => 'Adgangskontrol',
+                'all'            => 'Alle',
+                'back-btn'       => 'Tilbage',
+                'custom'         => 'Tilpasset',
+                'assign-user'    => 'Tildel bruger',
+                'general'        => 'Generel',
+                'name'           => 'Navn',
+                'credentials'    => 'Legitimationsoplysninger',
+                'client-id'      => 'Klient-ID',
+                'secret-key'     => 'Hemmelig nøgle',
+                'generate-btn'   => 'Generer',
+                're-secret-btn'  => 'Regenerer hemmelig nøgle',
+                'permissions'    => 'Tilladelser',
+                'save-btn'       => 'Gem',
+                'title'          => 'Rediger integration',
+            ],
+            'being-used'                     => 'API-integrationen er allerede brugt af admin-bruger',
+            'create-success'                 => 'API-integration oprettet med succes',
+            'delete-failed'                  => 'API-integrationen blev ikke slettet med succes',
+            'delete-success'                 => 'API-integration slettet med succes',
+            'last-delete-error'              => 'Sidste API-integration kan ikke slettes',
+            'update-success'                 => 'API-integrationen opdateret med succes',
+            'generate-key-success'           => 'API-nøgle genereret med succes',
+            're-generate-secret-key-success' => 'API-hjemmelig nøgle regenereret med succes',
+            'client-not-found'               => 'Klient ikke fundet',
+        ],
+        'prompt' => [
+            'datagrid' => [
+                'id'               => 'ID',
+                'title'            => 'Titel',
+                'prompt'           => 'Prompt',
+                'type'             => 'Type',
+                'purpose'          => 'Purpose',
+                'text-generation'  => 'Text Generation',
+                'image-generation' => 'Image Generation',
+                'translation'      => 'Translation',
+                'created-at'       => 'Oprettet den',
+                'updated-at'       => 'Opdateret den',
+                'actions'          => 'Handlinger',
+                'edit'             => 'Rediger',
+                'delete'           => 'Slet',
+                'product'          => 'Produkt',
+                'category'         => 'Kategori',
+            ],
+            'create' => [
+                'title'        => 'Prompt',
+                'create-btn'   => 'Opret Prompt',
+                'edit-title'   => 'Rediger Prompt',
+                'create-title' => 'Opret Ny Prompt',
+                'label-title'  => 'Titel',
+                'purpose'      => 'Purpose',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Gem Prompt',
+            ],
+            'message' => [
+                'save-success'   => 'Prompt gemt succesfuldt.',
+                'update-success' => 'Prompt opdateret succesfuldt.',
+                'delete-success' => 'Prompt slettet succesfuldt.',
+                'delete-fail'    => 'Sletning af prompt mislykkedes.',
+            ],
+        ],
+        'system-prompt' => [
+            'datagrid' => [
+                'id'          => 'ID',
+                'title'       => 'Title',
+                'tone'        => 'Tone',
+                'max-tokens'  => 'Max Tokens',
+                'temperature' => 'Temperature',
+                'status'      => 'Status',
+                'created-at'  => 'Created At',
+                'updated-at'  => 'Updated At',
+                'actions'     => 'Actions',
+                'save'        => 'Save',
+                'edit'        => 'Edit',
+                'delete'      => 'delete',
+            ],
+            'create' => [
+                'title'        => 'System Prompt',
+                'create-btn'   => 'Create System Prompt',
+                'edit-title'   => 'Edit System Prompt',
+                'create-title' => 'Create New System Prompt',
+                'label-title'  => 'Title',
+                'max-tokens'   => 'Max Output Tokens',
+                'temperature'  => 'Temperature',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Save Prompt',
+                'prompt-tone'  => 'Prompt Tone',
+            ],
+            'message' => [
+                'save-success'   => 'System Prompt saved successfully.',
+                'update-success' => 'System Prompt updated successfully.',
+                'delete-success' => 'System Prompt deleted successfully.',
+                'delete-fail'    => 'System Prompt deletion failed.',
+            ],
+        ],
+        'platform' => [
+            'title'           => 'AI Platforms',
+            'create-btn'      => 'Add Platform',
+            'create-title'    => 'Add AI Platform',
+            'edit-title'      => 'Edit AI Platform',
+            'save-btn'        => 'Save',
+            'saving'          => 'Saving',
+            'test-connection' => 'Test Connection',
+            'setup'           => [
+                'title'              => 'Get Started with Magic AI',
+                'description'        => 'Connect your AI provider to unlock content generation, image creation, and translation powered by AI. Add your first platform to begin.',
+                'step-1'             => 'Choose a provider',
+                'step-2'             => 'Enter your API key',
+                'step-3'             => 'Select models & save',
+                'add-first'          => 'Add Your First Platform',
+                'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
+                'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+            ],
+            'testing'         => 'Testing',
+            'fetch-models'    => 'Fetch Models',
+            'fetching-models' => 'Fetching',
+            'set-default'     => 'Set as Default',
+            'datagrid'        => [
+                'label'      => 'Label',
+                'provider'   => 'Provider',
+                'models'     => 'Models',
+                'default'    => 'Default',
+                'status'     => 'Status',
+                'created-at' => 'Created At',
+                'edit'       => 'Edit',
+                'delete'     => 'Delete',
+            ],
+            'fields' => [
+                'label'                    => 'Label',
+                'provider'                 => 'Provider',
+                'select-provider'          => '-- Select Provider --',
+                'api-url'                  => 'API URL',
+                'api-url-hint'             => 'Pre-filled with the default endpoint. Edit only if using a proxy or custom deployment.',
+                'api-key'                  => 'API Key',
+                'models'                   => 'Models',
+                'custom-model-placeholder' => 'Type custom model ID...',
+                'add'                      => 'Add',
+                'enter-key-to-fetch'       => 'Enter your API key above to automatically fetch available models.',
+                'search-models'            => 'Search models...',
+                'no-models-match'          => 'No models match your search.',
+                'azure-deployment'         => 'Deployment Name',
+                'azure-api-version'        => 'API Version',
+                'is-default'               => 'Set as Default',
+                'status'                   => 'Status',
+                'use-default'              => '-- Use Default Platform --',
+                'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
+                'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
+                'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+            ],
+            'message' => [
+                'save-success'          => 'Platform saved successfully.',
+                'update-success'        => 'Platform updated successfully.',
+                'delete-success'        => 'Platform deleted successfully.',
+                'delete-fail'           => 'Platform deletion failed.',
+                'cannot-delete-default' => 'Cannot delete the only default platform.',
+                'set-default-success'   => 'Platform set as default successfully.',
+                'test-success'          => 'Connection verified successfully!',
+                'test-fail'             => 'Connection test failed',
+            ],
+        ],
+    ],
+    'components' => [
+        'layouts' => [
+            'header' => [
+                'account-title' => 'Konto',
+                'app-version'   => 'Version : :version',
+                'logout'        => 'Log ud',
+                'my-account'    => 'Min konto',
+                'notifications' => 'Notifikationer',
+                'visit-shop'    => 'Besøg butik',
+            ],
+            'sidebar' => [
+                'attribute-families' => 'Attributfamilier',
+                'attribute-groups'   => 'Attributgrupper',
+                'attributes'         => 'Attributter',
+                'history'            => 'Historik',
+                'edit-section'       => 'Data',
+                'general'            => 'Generelt',
+                'catalog'            => 'Katalog',
+                'categories'         => 'Kategorier',
+                'category_fields'    => 'Kategorifelter',
+                'channels'           => 'Kanaler',
+                'collapse'           => 'Kollaps',
+                'configure'          => 'Konfiguration',
+                'currencies'         => 'Valutaer',
+                'dashboard'          => 'Dashboard',
+                'data-transfer'      => 'Dataoverførsel',
+                'groups'             => 'Grupper',
+                'tracker'            => 'Jobsporing',
+                'imports'            => 'Importer',
+                'exports'            => 'Eksporter',
+                'locales'            => 'Lokaliseringer',
+                'magic-ai'           => 'Magic AI',
+                'mode'               => 'Mørk tilstand',
+                'products'           => 'Produkter',
+                'roles'              => 'Roller',
+                'settings'           => 'Indstillinger',
+                'themes'             => 'Temaer',
+                'users'              => 'Brugere',
+                'integrations'       => 'Integrationer',
+                'prompt'             => 'Prompt',
+                'general-tab'        => 'Konfiguration',
+            ],
+        ],
+        'datagrid' => [
+            'index' => [
+                'no-records-selected'              => 'Ingen poster er valgt.',
+                'must-select-a-mass-action-option' => 'Du skal vælge en massehandling.',
+                'must-select-a-mass-action'        => 'Du skal vælge en massehandling.',
+            ],
+            'toolbar' => [
+                'length-of'    => ':length of',
+                'of'           => 'af',
+                'per-page'     => 'Pr. side',
+                'results'      => ':total Resultater',
+                'selected'     => ':total Valgte',
+                'mass-actions' => [
+                    'submit'        => 'Send',
+                    'select-option' => 'Vælg en mulighed',
+                    'select-action' => 'Vælg handling',
+                ],
+                'filter' => [
+                    'title' => 'Filtrer',
+                ],
+                'search_by' => [
+                    'code'       => 'Søg efter kode',
+                    'code_or_id' => 'Søg efter kode eller id',
+                ],
+                'search' => [
+                    'title' => 'Søg',
+                ],
+                'manage-columns' => [
+                    'title' => 'kolonner',
+                ],
+            ],
+            'filters' => [
+                'select'   => 'Vælg',
+                'title'    => 'Anvend filtre',
+                'save'     => 'Gem',
+                'dropdown' => [
+                    'searchable' => [
+                        'atleast-two-chars' => 'Skriv mindst 2 tegn...',
+                        'no-results'        => 'Ingen resultater fundet...',
+                    ],
+                ],
+                'custom-filters' => [
+                    'clear-all' => 'Ryd alle',
+                    'title'     => 'Brugerdefinerede filtre',
+                ],
+                'boolean-options' => [
+                    'false' => 'Falsk',
+                    'true'  => 'Sand',
+                ],
+                'date-options' => [
+                    'last-month'        => 'Sidste måned',
+                    'last-six-months'   => 'Sidste 6 måneder',
+                    'last-three-months' => 'Sidste 3 måneder',
+                    'this-month'        => 'Denne måned',
+                    'this-week'         => 'Denne uge',
+                    'this-year'         => 'Dette år',
+                    'today'             => 'I dag',
+                    'yesterday'         => 'I går',
+                ],
+            ],
+            'table' => [
+                'actions'              => 'Handlinger',
+                'no-records-available' => 'Ingen poster tilgængelige.',
+            ],
+            'manage-columns' => [
+                'title'             => 'Administrer kolonner',
+                'available-columns' => 'Tilgængelige kolonner',
+                'selected-columns'  => 'Udvalgte kolonner',
+                'apply-btn'         => 'Anvende',
+            ],
+        ],
+        'modal' => [
+            'confirm' => [
+                'agree-btn'    => 'Enig',
+                'disagree-btn' => 'Uenig',
+                'message'      => 'Er du sikker på, at du vil udføre denne handling?',
+                'title'        => 'Er du sikker?',
+            ],
+            'delete' => [
+                'agree-btn'    => 'Slet',
+                'disagree-btn' => 'Annuller',
+                'message'      => 'Er du sikker på, at du vil slette?',
+                'title'        => 'Bekræft sletning',
+            ],
+            'history' => [
+                'title'           => 'Historikvisning',
+                'subtitle'        => 'Få hurtigt overblik over dine opdateringer og ændringer.',
+                'close-btn'       => 'Luk',
+                'version-label'   => 'Version',
+                'date-time-label' => 'Dato/Tid',
+                'user-label'      => 'Bruger',
+                'name-label'      => 'Nøgle',
+                'old-value-label' => 'Tidligere værdi',
+                'new-value-label' => 'Ny værdi',
+                'no-history'      => 'Ingen historik fundet',
+            ],
+        ],
+        'products' => [
+            'search' => [
+                'add-btn'       => 'Tilføj valgte produkt',
+                'empty-info'    => 'Ingen produkter tilgængelige for søgeudtrykket.',
+                'empty-title'   => 'Ingen produkter fundet',
+                'product-image' => 'Produktbillede',
+                'qty'           => ':qty Tilgængelig',
+                'sku'           => 'SKU - :sku',
+                'title'         => 'Vælg produkter',
+            ],
+        ],
+        'media' => [
+            'images' => [
+                'add-image-btn'      => 'Tilføj billede',
+                'generate-with-ai'   => 'Generer med AI',
+                'upload-from-device' => 'Upload fra enhed',
+                'cancel'             => 'Annuller',
+                'ai-add-image-btn'   => 'Magic AI',
+                'ai-btn-info'        => 'Generer billede',
+                'allowed-types'      => 'png, jpeg, jpg',
+                'not-allowed-error'  => 'Kun billedfiler (.jpeg, .jpg, .png, ..) er tilladt.',
+                'upload-media-btn'   => 'Upload medier',
+                'ai-generation'      => [
+                    '1024x1024'        => '1024x1024',
+                    '1024x1792'        => '1024x1792',
+                    '1792x1024'        => '1792x1024',
+                    'apply'            => 'Anvend',
+                    'dall-e-2'         => 'Dall.E 2',
+                    'dall-e-3'         => 'Dall.E 3',
+                    'generate'         => 'Generer',
+                    'generating'       => 'Genererer...',
+                    'hd'               => 'HD',
+                    'model'            => 'Model',
+                    'number-of-images' => 'Antal billeder',
+                    'prompt'           => 'Prompt',
+                    'quality'          => 'Kvalitet',
+                    'regenerate'       => 'Gendan',
+                    'regenerating'     => 'Gendanner...',
+                    'size'             => 'Størrelse',
+                    'standard'         => 'Standard',
+                    'title'            => 'AI-billedgenerering',
+                ],
+                'placeholders' => [
+                    'front'     => 'Front',
+                    'next'      => 'Næste',
+                    'size'      => 'Størrelse',
+                    'use-cases' => 'Brugsområder',
+                    'zoom'      => 'Zoom',
+                ],
+            ],
+            'gallery' => [
+                'not-allowed-error' => 'Only image and video files are allowed. (.mp4, .jpg ..)',
+            ],
+            'videos' => [
+                'add-video-btn'     => 'Tilføj video',
+                'allowed-types'     => 'mp4, webm, mkv',
+                'not-allowed-error' => 'Kun videofiler (.mp4, .mov, .ogg ..) er tilladt.',
+            ],
+            'files' => [
+                'add-file-btn'      => 'Tilføj fil',
+                'allowed-types'     => 'pdf',
+                'not-allowed-error' => 'Kun pdf-filer er tilladt',
+            ],
+        ],
+        'tinymce' => [
+            'ai-btn-tile'   => 'Magic AI',
+            'ai-generation' => [
+                'apply'                  => 'Anvend',
+                'generate'               => 'Generer',
+                'generated-content'      => 'Genereret indhold',
+                'generated-content-info' => 'AI-indhold kan være vildledende. Vær venlig at gennemgå det genererede indhold, før du anvender det.',
+                'generating'             => 'Genererer...',
+                'prompt'                 => 'Prompt',
+                'title'                  => 'AI-assistance',
+                'platform'               => 'Platform',
+                'model'                  => 'Model',
+                'rich-preview'           => 'Rich Preview',
+                'system-prompt'          => 'System Prompt',
+                'select-system-prompt'   => 'Select System Prompt',
+                'tone-instructions'      => 'Tone / Instructions',
+                'max-tokens'             => 'Max Tokens',
+                'temperature'            => 'Temperature',
+                'gpt-3-5-turbo'          => 'OpenAI gpt-3.5-turbo',
+                'llama2'                 => 'Llama 2',
+                'mistral'                => 'Mistral',
+                'dolphin-phi'            => 'Dolphin Phi',
+                'phi'                    => 'Phi-2',
+                'starling-lm'            => 'Starling',
+                'llama2-uncensored'      => 'Llama 2 Uncensored',
+                'llama2:13b'             => 'Llama 2 13B',
+                'llama2:70b'             => 'Llama 2 70B',
+                'orca-mini'              => 'Orca Mini',
+                'vicuna'                 => 'Vicuna',
+                'llava'                  => 'LLaVA',
+                'default-prompt'         => 'Standard prompt',
+            ],
+        ],
+    ],
     'acl' => [
         'addresses'                => 'Adresser',
         'attribute-families'       => 'Attributfamilier',
@@ -1612,6 +2096,9 @@ return [
         'invoices'                 => 'Fakturaer',
         'locales'                  => 'Lokaliseringer',
         'magic-ai'                 => 'Magisk AI',
+        'magic-ai-general'         => 'Generelt',
+        'magic-ai-prompt'          => 'Prompt',
+        'magic-ai-system-prompt'   => 'Systemprompt',
         'marketing'                => 'Markedsføring',
         'newsletter-subscriptions' => 'Nyhedsbrevabonnementer',
         'note'                     => 'Note',
@@ -1645,54 +2132,44 @@ return [
         'integrations'             => 'Integrationer',
         'api'                      => 'API',
         'tracker'                  => 'Job Tracker',
-        'imports'                  => 'Importer',
         'exports'                  => 'Eksporter',
         'mass-update'              => 'Masseopdatering',
         'mass-delete'              => 'Masse sletning',
     ],
-
     'errors' => [
         'dashboard' => 'Instrumentbræt',
         'go-back'   => 'Gå tilbage',
         'support'   => 'Hvis problemet fortsætter, kontakt os på <a href=":link" class=":class">:email</a> for hjælp.',
-
-        '404' => [
+        '404'       => [
             'description' => 'Ups! Siden, du leder efter, er på ferie. Vi kunne ikke finde, hvad du søgte efter.',
             'title'       => '404 Side ikke fundet',
         ],
-
         '401' => [
             'description' => 'Ups! Det ser ud til, at du ikke er tilladt at få adgang til denne side. Du mangler de nødvendige legitimationsoplysninger.',
             'title'       => '401 Uautoriseret',
             'message'     => 'Autentificeringen mislykkedes på grund af ugyldige legitimationsoplysninger eller udløbet token.',
         ],
-
         '403' => [
             'description' => 'Ups! Denne side er lukket. Du har ikke de nødvendige tilladelser til at se dette indhold.',
             'title'       => '403 Forbudt',
         ],
-
         '413' => [
             'description' => 'Ups! Det ser ud til, at du forsøger at uploade en fil, der er for stor. Hvis du vil uploade den, skal du opdatere PHP-konfigurationen.',
             'title'       => '413 Indhold for stort',
         ],
-
         '419' => [
             'description' => 'Ups! Din session er udløbet. Genindlæs siden og log ind igen for at fortsætte.',
             'title'       => '419 Session er udløbet',
         ],
-
         '500' => [
             'description' => 'Ups! Noget gik galt. Vi har problemer med at indlæse den side, du leder efter.',
             'title'       => '500 Intern serverfejl',
         ],
-
         '503' => [
             'description' => 'Ups! Det ser ud til, at vi midlertidigt er utilgængelige for vedligeholdelse. Prøv igen senere.',
             'title'       => '503 Tjeneste utilgængelig',
         ],
     ],
-
     'export' => [
         'csv'                  => 'CSV',
         'download'             => 'Download',
@@ -1705,22 +2182,18 @@ return [
         'error'                => 'Noget gik galt!',
         'product-not-selected' => 'Ingen produkter valgt til hurtig eksport',
     ],
-
     'validations' => [
         'slug-being-used' => 'Denne slug bruges i enten kategorier eller produkter.',
         'slug-reserved'   => 'Denne slug er reserveret.',
         'invalid-locale'  => 'Ugyldige lokaliseringer :locales',
     ],
-
     'footer' => [
         'copy-right' => 'Drevet af <a href="https://unopim.com/" target="_blank">UnoPim</a>, Et fællesskabsprojekt af <a href="https://webkul.com/" target="_blank">Webkul</a>',
     ],
-
     'emails' => [
         'dear'   => 'Kære :admin_name',
         'thanks' => 'Hvis du har brug for hjælp, kan du kontakte os på <a href=":link" style=":style">:email</a>.<br/>Tak!',
-
-        'admin' => [
+        'admin'  => [
             'forgot-password' => [
                 'description'    => 'Du modtager denne e-mail, fordi vi har modtaget en anmodning om nulstilling af adgangskode for din konto.',
                 'greeting'       => 'Glemt adgangskode!',
@@ -1729,407 +2202,15 @@ return [
             ],
         ],
     ],
-
     'common' => [
-        'yes'     => 'Ja',
-        'no'      => 'Nej',
-        'true'    => 'Sand',
-        'false'   => 'Falsk',
-        'enable'  => 'Aktiveret',
-        'disable' => 'Deaktiveret',
+        'yes'            => 'Ja',
+        'no'             => 'Nej',
+        'true'           => 'Sand',
+        'false'          => 'Falsk',
+        'enable'         => 'Aktiveret',
+        'disable'        => 'Deaktiveret',
+        'no-match-found' => 'Ingen match fundet!',
     ],
-
-    'configuration' => [
-        'index' => [
-            'delete'          => 'Slet',
-            'no-result-found' => 'Ingen resultater fundet',
-            'save-btn'        => 'Gem konfiguration',
-            'save-message'    => 'Konfiguration gemt med succes',
-            'search'          => 'Søg',
-            'title'           => 'Konfiguration',
-
-            'general' => [
-                'info'  => '',
-                'title' => 'Generel',
-
-                'general' => [
-                    'info'  => '',
-                    'title' => 'Generel',
-                ],
-
-                'magic-ai' => [
-                    'info'  => 'Indstil Magic AI-indstillinger.',
-                    'title' => 'Magic AI',
-
-                    'settings' => [
-                        'api-key'        => 'API-nøgle',
-                        'enabled'        => 'Aktiveret',
-                        'llm-api-domain' => 'LLM API-domæne',
-                        'organization'   => 'Organisations-ID',
-                        'title'          => 'Generelle indstillinger',
-                        'title-info'     => 'Forbedr din oplevelse med Magic AI-funktionen ved at indtaste din eksklusive API-nøgle og angive den relevante organisation for problemfri integration. Tag kontrol over dine OpenAI-legitimationsoplysninger og tilpas indstillingerne efter dine specifikke behov.',
-                    ],
-
-                    'translation'   => [
-                        'title'                  => 'Oversættelse',
-                        'enabled'                => 'Aktiveret',
-                        'title-info'             => 'Denne funktion aktiverer Magic AI til at oversætte tekst, hvilket gør det nemt at konvertere tekst fra et sprog til et andet.',
-                        'global-source-channel'  => 'Kildekanal',
-                        'global-source-locale'   => 'Kildesprog',
-                        'translation-model'      => 'Oversættelsesmodel',
-                        'replace-existing-value' => 'Erstat eksisterende værdi',
-                        'target-channel'         => 'Målkanal',
-                        'target-locales'         => 'Målsprog',
-                    ],
-                ],
-            ],
-        ],
-
-        'integrations' => [
-            'index' => [
-                'create-btn' => 'Opret',
-                'title'      => 'Integrationer',
-
-                'datagrid' => [
-                    'delete'          => 'Slet',
-                    'edit'            => 'Rediger',
-                    'id'              => 'ID',
-                    'name'            => 'Navn',
-                    'user'            => 'Bruger',
-                    'client-id'       => 'Klient-ID',
-                    'permission-type' => 'Tilladelsestype',
-                ],
-            ],
-
-            'create' => [
-                'access-control' => 'Adgangskontrol',
-                'all'            => 'Alle',
-                'back-btn'       => 'Tilbage',
-                'custom'         => 'Tilpasset',
-                'assign-user'    => 'Tildel bruger',
-                'general'        => 'Generel',
-                'name'           => 'Navn',
-                'permissions'    => 'Tilladelser',
-                'save-btn'       => 'Gem',
-                'title'          => 'Ny integration',
-            ],
-
-            'edit' => [
-                'access-control' => 'Adgangskontrol',
-                'all'            => 'Alle',
-                'back-btn'       => 'Tilbage',
-                'custom'         => 'Tilpasset',
-                'assign-user'    => 'Tildel bruger',
-                'general'        => 'Generel',
-                'name'           => 'Navn',
-                'credentials'    => 'Legitimationsoplysninger',
-                'client-id'      => 'Klient-ID',
-                'secret-key'     => 'Hemmelig nøgle',
-                'generate-btn'   => 'Generer',
-                're-secret-btn'  => 'Regenerer hemmelig nøgle',
-                'permissions'    => 'Tilladelser',
-                'save-btn'       => 'Gem',
-                'title'          => 'Rediger integration',
-            ],
-
-            'being-used'                     => 'API-integrationen er allerede brugt af admin-bruger',
-            'create-success'                 => 'API-integration oprettet med succes',
-            'delete-failed'                  => 'API-integrationen blev ikke slettet med succes',
-            'delete-success'                 => 'API-integration slettet med succes',
-            'last-delete-error'              => 'Sidste API-integration kan ikke slettes',
-            'update-success'                 => 'API-integrationen opdateret med succes',
-            'generate-key-success'           => 'API-nøgle genereret med succes',
-            're-generate-secret-key-success' => 'API-hjemmelig nøgle regenereret med succes',
-            'client-not-found'               => 'Klient ikke fundet',
-        ],
-
-        'prompt' => [
-            'datagrid' => [
-                'id'            => 'ID',
-                'title'         => 'Titel',
-                'prompt'        => 'Prompt',
-                'type'          => 'Type',
-                'created-at'    => 'Oprettet den',
-                'updated-at'    => 'Opdateret den',
-                'actions'       => 'Handlinger',
-                'edit'          => 'Rediger',
-                'delete'        => 'Slet',
-                'product'       => 'Produkt',
-                'category'      => 'Kategori',
-            ],
-            'create' => [
-                'title'         => 'Prompt',
-                'create-btn'    => 'Opret Prompt',
-                'edit-title'    => 'Rediger Prompt',
-                'create-title'  => 'Opret Ny Prompt',
-                'label-title'   => 'Titel',
-                'type'          => 'Type',
-                'prompt'        => 'Prompt',
-                'save-btn'      => 'Gem Prompt',
-            ],
-            'message' => [
-                'save-success'      => 'Prompt gemt succesfuldt.',
-                'update-success'    => 'Prompt opdateret succesfuldt.',
-                'delete-success'    => 'Prompt slettet succesfuldt.',
-                'delete-fail'       => 'Sletning af prompt mislykkedes.',
-            ],
-        ],
-    ],
-
-    'components' => [
-        'layouts' => [
-            'header' => [
-                'account-title' => 'Konto',
-                'app-version'   => 'Version : :version',
-                'logout'        => 'Log ud',
-                'my-account'    => 'Min konto',
-                'notifications' => 'Notifikationer',
-                'visit-shop'    => 'Besøg butik',
-            ],
-
-            'sidebar' => [
-                'attribute-families'  => 'Attributfamilier',
-                'attribute-groups'    => 'Attributgrupper',
-                'attributes'          => 'Attributter',
-                'history'             => 'Historik',
-                'edit-section'        => 'Data',
-                'general'             => 'Generelt',
-                'catalog'             => 'Katalog',
-                'categories'          => 'Kategorier',
-                'category_fields'     => 'Kategorifelter',
-                'channels'            => 'Kanaler',
-                'collapse'            => 'Kollaps',
-                'configure'           => 'Konfiguration',
-                'currencies'          => 'Valutaer',
-                'dashboard'           => 'Dashboard',
-                'data-transfer'       => 'Dataoverførsel',
-                'groups'              => 'Grupper',
-                'tracker'             => 'Jobsporing',
-                'imports'             => 'Importer',
-                'exports'             => 'Eksporter',
-                'locales'             => 'Lokaliseringer',
-                'magic-ai'            => 'Magic AI',
-                'mode'                => 'Mørk tilstand',
-                'products'            => 'Produkter',
-                'roles'               => 'Roller',
-                'settings'            => 'Indstillinger',
-                'themes'              => 'Temaer',
-                'users'               => 'Brugere',
-                'integrations'        => 'Integrationer',
-                'prompt'              => 'Prompt',
-                'general-tab'         => 'Konfiguration',
-            ],
-        ],
-
-        'datagrid' => [
-            'index' => [
-                'no-records-selected'              => 'Ingen poster er valgt.',
-                'must-select-a-mass-action-option' => 'Du skal vælge en massehandling.',
-                'must-select-a-mass-action'        => 'Du skal vælge en massehandling.',
-            ],
-
-            'toolbar' => [
-                'length-of' => ':length of',
-                'of'        => 'af',
-                'per-page'  => 'Pr. side',
-                'results'   => ':total Resultater',
-                'selected'  => ':total Valgte',
-
-                'mass-actions' => [
-                    'submit'        => 'Send',
-                    'select-option' => 'Vælg en mulighed',
-                    'select-action' => 'Vælg handling',
-                ],
-
-                'filter' => [
-                    'title' => 'Filtrer',
-                ],
-
-                'search_by' => [
-                    'code'       => 'Søg efter kode',
-                    'code_or_id' => 'Søg efter kode eller id',
-                ],
-
-                'search' => [
-                    'title' => 'Søg',
-                ],
-
-                'manage-columns' => [
-                    'title' => 'kolonner',
-                ],
-            ],
-
-            'filters' => [
-                'select'   => 'Vælg',
-                'title'    => 'Anvend filtre',
-                'save'     => 'Gem',
-                'dropdown' => [
-                    'searchable' => [
-                        'atleast-two-chars' => 'Skriv mindst 2 tegn...',
-                        'no-results'        => 'Ingen resultater fundet...',
-                    ],
-                ],
-
-                'custom-filters' => [
-                    'clear-all' => 'Ryd alle',
-                    'title'     => 'Brugerdefinerede filtre',
-                ],
-
-                'boolean-options' => [
-                    'false' => 'Falsk',
-                    'true'  => 'Sand',
-                ],
-
-                'date-options' => [
-                    'last-month'        => 'Sidste måned',
-                    'last-six-months'   => 'Sidste 6 måneder',
-                    'last-three-months' => 'Sidste 3 måneder',
-                    'this-month'        => 'Denne måned',
-                    'this-week'         => 'Denne uge',
-                    'this-year'         => 'Dette år',
-                    'today'             => 'I dag',
-                    'yesterday'         => 'I går',
-                ],
-            ],
-
-            'table' => [
-                'actions'              => 'Handlinger',
-                'no-records-available' => 'Ingen poster tilgængelige.',
-            ],
-
-            'manage-columns' => [
-                'title'             => 'Administrer kolonner',
-                'available-columns' => 'Tilgængelige kolonner',
-                'selected-columns'  => 'Udvalgte kolonner',
-                'apply-btn'         => 'Anvende',
-            ],
-        ],
-
-        'modal' => [
-            'confirm' => [
-                'agree-btn'    => 'Enig',
-                'disagree-btn' => 'Uenig',
-                'message'      => 'Er du sikker på, at du vil udføre denne handling?',
-                'title'        => 'Er du sikker?',
-            ],
-
-            'delete' => [
-                'agree-btn'    => 'Slet',
-                'disagree-btn' => 'Annuller',
-                'message'      => 'Er du sikker på, at du vil slette?',
-                'title'        => 'Bekræft sletning',
-            ],
-
-            'history' => [
-                'title'           => 'Historikvisning',
-                'subtitle'        => 'Få hurtigt overblik over dine opdateringer og ændringer.',
-                'close-btn'       => 'Luk',
-                'version-label'   => 'Version',
-                'date-time-label' => 'Dato/Tid',
-                'user-label'      => 'Bruger',
-                'name-label'      => 'Nøgle',
-                'old-value-label' => 'Tidligere værdi',
-                'new-value-label' => 'Ny værdi',
-                'no-history'      => 'Ingen historik fundet',
-            ],
-        ],
-
-        'products' => [
-            'search' => [
-                'add-btn'       => 'Tilføj valgte produkt',
-                'empty-info'    => 'Ingen produkter tilgængelige for søgeudtrykket.',
-                'empty-title'   => 'Ingen produkter fundet',
-                'product-image' => 'Produktbillede',
-                'qty'           => ':qty Tilgængelig',
-                'sku'           => 'SKU - :sku',
-                'title'         => 'Vælg produkter',
-            ],
-        ],
-
-        'media' => [
-            'images' => [
-                'add-image-btn'      => 'Tilføj billede',
-                'generate-with-ai'   => 'Generer med AI',
-                'upload-from-device' => 'Upload fra enhed',
-                'cancel'             => 'Annuller',
-                'ai-add-image-btn'   => 'Magic AI',
-                'ai-btn-info'        => 'Generer billede',
-                'allowed-types'      => 'png, jpeg, jpg',
-                'not-allowed-error'  => 'Kun billedfiler (.jpeg, .jpg, .png, ..) er tilladt.',
-                'upload-media-btn'   => 'Upload medier',
-
-                'ai-generation' => [
-                    '1024x1024'        => '1024x1024',
-                    '1024x1792'        => '1024x1792',
-                    '1792x1024'        => '1792x1024',
-                    'apply'            => 'Anvend',
-                    'dall-e-2'         => 'Dall.E 2',
-                    'dall-e-3'         => 'Dall.E 3',
-                    'generate'         => 'Generer',
-                    'generating'       => 'Genererer...',
-                    'hd'               => 'HD',
-                    'model'            => 'Model',
-                    'number-of-images' => 'Antal billeder',
-                    'prompt'           => 'Prompt',
-                    'quality'          => 'Kvalitet',
-                    'regenerate'       => 'Gendan',
-                    'regenerating'     => 'Gendanner...',
-                    'size'             => 'Størrelse',
-                    'standard'         => 'Standard',
-                    'title'            => 'AI-billedgenerering',
-                ],
-
-                'placeholders' => [
-                    'front'     => 'Front',
-                    'next'      => 'Næste',
-                    'size'      => 'Størrelse',
-                    'use-cases' => 'Brugsområder',
-                    'zoom'      => 'Zoom',
-                ],
-            ],
-
-            'videos' => [
-                'add-video-btn'     => 'Tilføj video',
-                'allowed-types'     => 'mp4, webm, mkv',
-                'not-allowed-error' => 'Kun videofiler (.mp4, .mov, .ogg ..) er tilladt.',
-            ],
-
-            'files' => [
-                'add-file-btn'      => 'Tilføj fil',
-                'allowed-types'     => 'pdf',
-                'not-allowed-error' => 'Kun pdf-filer er tilladt',
-            ],
-        ],
-
-        'tinymce' => [
-            'ai-btn-tile' => 'Magic AI',
-
-            'ai-generation' => [
-                'apply'                  => 'Anvend',
-                'generate'               => 'Generer',
-                'generated-content'      => 'Genereret indhold',
-                'generated-content-info' => 'AI-indhold kan være vildledende. Vær venlig at gennemgå det genererede indhold, før du anvender det.',
-                'generating'             => 'Genererer...',
-                'prompt'                 => 'Prompt',
-                'title'                  => 'AI-assistance',
-                'model'                  => 'Model',
-                'gpt-3-5-turbo'          => 'OpenAI gpt-3.5-turbo',
-                'llama2'                 => 'Llama 2',
-                'mistral'                => 'Mistral',
-                'dolphin-phi'            => 'Dolphin Phi',
-                'phi'                    => 'Phi-2',
-                'starling-lm'            => 'Starling',
-                'llama2-uncensored'      => 'Llama 2 Uncensored',
-                'llama2:13b'             => 'Llama 2 13B',
-                'llama2:70b'             => 'Llama 2 70B',
-                'orca-mini'              => 'Orca Mini',
-                'vicuna'                 => 'Vicuna',
-                'llava'                  => 'LLaVA',
-                'default-prompt'         => 'Standard prompt',
-            ],
-        ],
-    ],
-
     'default-prompt' => [
         'detailed' => [
             'title'  => 'Detaljeret produktbeskrivelse',

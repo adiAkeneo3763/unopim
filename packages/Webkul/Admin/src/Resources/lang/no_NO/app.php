@@ -11,7 +11,6 @@ return [
             'powered-by'             => 'Drevet av :unopim,',
             'open-source-project-by' => 'Et åpen kilde-prosjekt av :webkul.',
         ],
-
         'forget-password' => [
             'create' => [
                 'email'                  => 'Registrert e-post',
@@ -26,7 +25,6 @@ return [
                 'open-source-project-by' => 'Et åpen kilde-prosjekt av :webkul.',
             ],
         ],
-
         'reset-password' => [
             'back-link-title'        => 'Tilbake til innlogging?',
             'confirm-password'       => 'Bekreft passord',
@@ -38,7 +36,6 @@ return [
             'open-source-project-by' => 'Et åpen kilde-prosjekt av :webkul.',
         ],
     ],
-
     'notifications' => [
         'description-text' => 'Liste over alle varslinger',
         'marked-success'   => 'Varsling merket som lest',
@@ -55,7 +52,6 @@ return [
             'processing' => 'Behandling pågår',
         ],
     ],
-
     'account' => [
         'edit' => [
             'back-btn'          => 'Tilbake',
@@ -76,25 +72,75 @@ return [
             'user-timezone'     => 'Tidssone',
         ],
     ],
-
     'dashboard' => [
         'index' => [
-            'title'            => 'Dashboard',
-            'user-info'        => 'Rask monitorering av viktige ting i PIM',
-            'user-name'        => 'Hei! :user_name',
-            'catalog-details'  => 'Katalog',
-            'total-families'   => 'Totale familier',
-            'total-attributes' => 'Totale attributter',
-            'total-groups'     => 'Totale grupper',
-            'total-categories' => 'Totale kategorier',
-            'total-products'   => 'Totale produkter',
-            'settings-details' => 'Katalogstruktur',
-            'total-locales'    => 'Totale lokaliseringer',
-            'total-currencies' => 'Totale valutaer',
-            'total-channels'   => 'Totale kanaler',
+            'title'                => 'Dashboard',
+            'user-info'            => 'Rask monitorering av viktige ting i PIM',
+            'user-name'            => 'Hei! :user_name',
+            'catalog-details'      => 'Katalog',
+            'total-families'       => 'Totale familier',
+            'total-attributes'     => 'Totale attributter',
+            'total-groups'         => 'Totale grupper',
+            'total-categories'     => 'Totale kategorier',
+            'total-products'       => 'Totale produkter',
+            'settings-details'     => 'Katalogstruktur',
+            'total-locales'        => 'Totale lokaliseringer',
+            'total-currencies'     => 'Totale valutaer',
+            'total-channels'       => 'Totale kanaler',
+            'completeness'         => 'Completeness',
+            'active'               => 'Active',
+            'inactive'             => 'Inactive',
+            'simple'               => 'Simple',
+            'configurable'         => 'Configurable',
+            'product-stats'        => 'Product Statistics',
+            'product-type-dist'    => 'Product Type Distribution',
+            'products-by-status'   => 'Products by Status',
+            'products-over-time'   => 'Product Activity (Last 7 Days)',
+            'legend-created'       => 'Created',
+            'legend-updated'       => 'Updated',
+            'recent-activity'      => 'Recent Activity',
+            'no-activity'          => 'No recent activity found.',
+            'updated'              => 'updated',
+            'created'              => 'created',
+            'deleted'              => 'deleted',
+            'ago'                  => 'ago',
+            'just-now'             => 'just now',
+            'data-transfer'        => 'Data Transfer',
+            'no-jobs'              => 'No recent import/export jobs found.',
+            'job-type-import'      => 'Import',
+            'job-type-export'      => 'Export',
+            'job-state-completed'  => 'Completed',
+            'job-state-failed'     => 'Failed',
+            'job-state-processing' => 'Processing',
+            'job-state-pending'    => 'Pending',
+            'job-state-validated'  => 'Validated',
+            'rows-processed'       => 'Rows Processed',
+            'errors'               => 'Errors',
+            'quick-links'          => 'Quick Links',
+            'create-product'       => 'Create Product',
+            'import-data'          => 'Import Data',
+            'export-data'          => 'Export Data',
+            'manage-attributes'    => 'Manage Attributes',
+            'view-all-activity'    => 'View All',
+            'view-all-jobs'        => 'View All Jobs',
+            'new-this-week'        => 'New This Week',
+            'with-variants'        => 'With Variants',
+            'avg-completeness'     => 'Avg Completeness',
+            'enriched'             => 'Enriched',
+            'analytics-section'    => 'Analytics',
+            'operations-section'   => 'Operations',
+            'needs-attention'      => 'Needs Attention',
+            'unenriched-products'  => 'Unenriched Products',
+            'failed-jobs-24h'      => 'Failed Jobs (24h)',
+            'low-completeness'     => 'Low Completeness',
+            'all-good'             => 'Everything looks good!',
+            'channel-readiness'    => 'Channel Readiness',
+            'ready-to-publish'     => 'ready to publish',
+            'of'                   => 'of',
+            'products-ready'       => 'products ready',
+            'no-readiness-data'    => 'No completeness data available yet.',
         ],
     ],
-
     'catalog' => [
         'products' => [
             'index' => [
@@ -104,8 +150,7 @@ return [
                 'magic-ai-error'            => 'Sjekk Magic AI-legitimasjonen og sørg for at riktig modell er valgt.',
                 'magic-ai-validate-error'   => 'Vennligst sjekk Magic AI-legitimasjonen.',
                 'magic-ai-validate-success' => 'Magic AI-legitimasjonen ble vellykket validert.',
-
-                'create' => [
+                'create'                    => [
                     'back-btn'                          => 'Tilbake',
                     'configurable-attributes'           => 'Konfigurerbare attributter',
                     'create-btn'                        => 'Lag produkt',
@@ -118,7 +163,6 @@ return [
                     'not-config-super-attributes-error' => 'Den superattributten ":super_attributes" finnes ikke',
                     'sku-exists-error'                  => 'SKU-verdien ":sku" er allerede i bruk',
                 ],
-
                 'datagrid' => [
                     'active'                 => 'Aktiv',
                     'attribute-family'       => 'Attributtfamilie',
@@ -148,49 +192,43 @@ return [
                     'update-status'          => 'Oppdater status',
                     'parent'                 => 'Forelder',
                     'parent-identifier'      => 'Forelder: :sku',
+                    'created-at'             => 'Created At',
+                    'updated-at'             => 'Updated At',
                 ],
             ],
-
             'edit' => [
-                'preview'  => 'Forhåndsvisning',
-                'remove'   => 'Fjern',
-                'save-btn' => 'Lagre produkt',
-                'title'    => 'Rediger produkt',
-
+                'preview'    => 'Forhåndsvisning',
+                'remove'     => 'Fjern',
+                'save-btn'   => 'Lagre produkt',
+                'title'      => 'Rediger produkt',
                 'categories' => [
                     'title' => 'Kategorier',
                 ],
-
                 'images' => [
                     'info'  => 'Bilder bør ha oppløsningen 560px X 609px',
                     'title' => 'Bilder',
                 ],
-
                 'videos' => [
                     'error' => ':attribute kan ikke være større enn :max kilobyte. Velg en mindre fil.',
                     'info'  => 'Maksimal videostørrelse er :size',
                     'title' => 'Videoer',
                 ],
-
                 'links' => [
                     'related-products' => [
                         'empty-info' => 'Legg til relaterte produkter.',
                         'info'       => 'I tillegg til det viste produktet, vil relaterte produkter også bli vist.',
                         'title'      => 'Relaterte produkter',
                     ],
-
                     'up-sells' => [
                         'empty-info' => 'Legg til oppsalg-produkter.',
                         'info'       => 'Kunder vil se produkter som er premiumalternativer eller høyere kvalitet enn det viste produktet.',
                         'title'      => 'Oppsalg-produkter',
                     ],
-
                     'cross-sells' => [
                         'empty-info' => 'Legg til kryss-salg-produkter.',
                         'info'       => 'I tillegg til produktet i handlekurven, vil kundene se andre produkter de kan kjøpe.',
                         'title'      => 'Kryss-salg-produkter',
                     ],
-
                     'add-btn'           => 'Legg til',
                     'delete'            => 'Slett',
                     'empty-info'        => 'Legg til :type produkter samtidig.',
@@ -199,7 +237,6 @@ return [
                     'sku'               => 'SKU - :sku',
                     'title'             => 'Produkter',
                 ],
-
                 'types' => [
                     'configurable' => [
                         'add-btn'                            => 'Legg til variant',
@@ -213,18 +250,16 @@ return [
                         'sku'                                => 'SKU - :sku',
                         'title'                              => 'Variant',
                         'variant-exists'                     => 'Denne varianten eller SKU finnes allerede.',
-                        'variant-attribute-option-not-found' => 'Variantattributt eller alternativ ikke funnet',
-                        'supper-attribute-not-found'         => 'Superattributt ikke funnet',
-                        'variant-given-exists'               => 'Denne varianten eksisterer allerede',
-
-                        'create' => [
+                        'variant-attribute-option-not-found' => 'Variantattributt eller alternativ ikke funnet :attributes',
+                        'supper-attribute-not-found'         => 'Superattributt ikke funnet :attribute',
+                        'variant-given-exists'               => 'Denne varianten eksisterer allerede :variants',
+                        'create'                             => [
                             'description'            => 'Beskrivelse',
                             'name'                   => 'Navn',
                             'save-btn'               => 'Legg til',
                             'title'                  => 'Legg til variant',
                             'variant-already-exists' => 'Denne varianten eksisterer allerede',
                         ],
-
                         'edit' => [
                             'disabled'        => 'Deaktivert',
                             'edit-info'       => 'For å oppdatere detaljert produktinformasjon, gå til siden',
@@ -240,7 +275,6 @@ return [
                             'title'           => 'Produkt',
                             'weight'          => 'Vekt',
                         ],
-
                         'mass-edit' => [
                             'add-images'          => 'Legg til bilder',
                             'apply-to-all-btn'    => 'Bruk for alle',
@@ -267,23 +301,31 @@ return [
                         ],
                     ],
                 ],
-
                 'translate' => [
-                    'translate-btn'            => 'Oversett',
-                    'title'                    => 'Oversett',
-                    'source-channel'           => 'Kildekanal',
-                    'locale'                   => 'Kildelokalisering',
-                    'translated-content'       => 'Oversatt innhold',
-                    'translating'              => 'Oversetter',
-                    'apply'                    => 'Bruk',
-                    'cancel'                   => 'Avbryt',
-                    'target-locales'           => 'Mållokaliseringer',
-                    'target-channel'           => 'Målkanal',
-                    'attributes'               => 'Egenskaper',
-                    'source-content'           => 'Kildeinnhold',
-                    'tranlated-job-processed'  => 'Oppgaven for lagring av oversatt innhold er behandlet.',
+                    'translate-btn'               => 'Oversett',
+                    'title'                       => 'Oversett',
+                    'source-channel'              => 'Kildekanal',
+                    'locale'                      => 'Kildelokalisering',
+                    'translated-content'          => 'Oversatt innhold',
+                    'translating'                 => 'Oversetter',
+                    'apply'                       => 'Bruk',
+                    'back'                        => 'Back',
+                    'cancel'                      => 'Avbryt',
+                    'target-locales'              => 'Mållokaliseringer',
+                    'target-channel'              => 'Målkanal',
+                    'attributes'                  => 'Egenskaper',
+                    'source-content'              => 'Kildeinnhold',
+                    'tranlated-job-processed'     => 'Oppgaven for lagring av oversatt innhold er behandlet.',
+                    'step'                        => 'Step',
+                    'select-source'               => 'Select Source',
+                    'select-target'               => 'Select Target',
+                    'first-step-title'            => 'Step 1: Select Source Channel, Language and Attributes',
+                    'first-step-title-attributes' => 'Step 1: Select Source Channel and Language',
+                    'second-step-title'           => 'Step 2: Select Target Channel and Languages',
+                    'target-content'              => 'Target Content',
+                    'next'                        => 'Next',
+                    'empty-translation-data'      => 'Data not available for translation on the basis of source channel and locale',
                 ],
-
                 'product-info' => [
                     'title'        => 'Produktinformasjon',
                     'status'       => 'Status',
@@ -293,6 +335,7 @@ return [
                     'created-at'   => 'Opprettet',
                     'product-type' => 'Produkttype',
                 ],
+                'more-actions' => 'More Actions',
             ],
             'bulk-edit' => [
                 'validation' => [
@@ -305,27 +348,22 @@ return [
                     'select-attribute-or-family' => 'Vennligst velg minst ett attributt eller en attributtfamilie.',
                     'failed'                     => 'Validering mislyktes.',
                 ],
-
-                'modal'                      => [
+                'modal' => [
                     'title'            => 'Attributter for masseendring',
                     'btn-cancel'       => 'Avbryt',
                     'btn-proceed'      => 'Fortsett',
                     'attribute-family' => 'Velg attributtfamilie',
                 ],
-
                 'index' => [
-                    'no-product'    => 'Ingen produkter valgt for masseendring.',
+                    'no-product' => 'Ingen produkter valgt for masseendring.',
                 ],
-
                 'filter' => [
-                    'many-product'      => 'For mange produkter valgt.',
-                    'redirect-message'  => 'Omdirigerer til visning for masseendring.',
+                    'many-product'     => 'For mange produkter valgt.',
+                    'redirect-message' => 'Omdirigerer til visning for masseendring.',
                 ],
-
                 'handle-save' => [
-                    'edit-success'  => 'Masseendring vellykket.',
+                    'edit-success' => 'Masseendring vellykket.',
                 ],
-
                 'id'              => 'ID',
                 'no-changes'      => 'Ingen endringer å lagre.',
                 'success'         => 'Jobb fullført.',
@@ -335,9 +373,8 @@ return [
                 'img-preview'     => 'Bilde forhåndsvisning',
                 'no-image'        => 'Ingen bilde',
                 'img-fail'        => 'Opplasting av bilde mislyktes',
-                'no-opton'        => 'Ingen alternativer',
+                'no-option'       => 'No Options',
             ],
-
             'create-success'          => 'Produkt opprettet vellykket',
             'delete-failed'           => 'Sletting av produkt mislyktes',
             'delete-success'          => 'Produkt slettet vellykket',
@@ -351,30 +388,28 @@ return [
             'upload-success'          => 'Produkt fil lastet opp vellykket.',
             'update-failure'          => 'Produktet kunne ikke oppdateres.',
         ],
-
         'attributes' => [
             'index' => [
                 'create-btn' => 'Opprett attributt',
                 'title'      => 'Attributter',
-
-                'datagrid' => [
-                    'channel-based'       => 'Kanalsbasert',
-                    'code'                => 'Kode',
-                    'created-at'          => 'Opprettet den',
-                    'delete'              => 'Slett',
-                    'edit'                => 'Rediger',
-                    'id'                  => 'ID',
-                    'locale-based'        => 'Lokalbasert',
-                    'mass-delete-success' => 'Valgte attributter ble slettet',
-                    'name'                => 'Navn',
-                    'required'            => 'Påkrevd',
-                    'type'                => 'Type',
-                    'unique'              => 'Unik',
-                    'delete-failed'       => 'Kan ikke slette dette attributtet.',
-                    'mass-delete-failed'  => 'Kan ikke slette de valgte attributtene.',
+                'datagrid'   => [
+                    'channel-based'            => 'Kanalsbasert',
+                    'code'                     => 'Kode',
+                    'created-at'               => 'Opprettet den',
+                    'delete'                   => 'Slett',
+                    'edit'                     => 'Rediger',
+                    'id'                       => 'ID',
+                    'locale-based'             => 'Lokalbasert',
+                    'mass-delete-success'      => 'Valgte attributter ble slettet',
+                    'name'                     => 'Navn',
+                    'required'                 => 'Påkrevd',
+                    'type'                     => 'Type',
+                    'unique'                   => 'Unik',
+                    'delete-failed'            => 'Kan ikke slette dette attributtet.',
+                    'mass-delete-failed'       => 'Kan ikke slette de valgte attributtene.',
+                    'delete-attribute-failure' => 'This attribute cannot be removed because it is in use for configurable products',
                 ],
             ],
-
             'create' => [
                 'add-attribute-options' => 'Legg til attributt alternativer',
                 'add-option'            => 'Legg til alternativ',
@@ -397,13 +432,13 @@ return [
                 'enable-wysiwyg'        => 'Aktiver WYSIWYG-redigerer',
                 'file'                  => 'Fil',
                 'general'               => 'Generelt',
-                'image'                 => 'Bilde',
                 'gallery'               => 'Galleri',
+                'image'                 => 'Bilde',
                 'input-options'         => 'Inndatalternativer',
                 'input-validation'      => 'Inndata validering',
                 'is-comparable'         => 'Er dette attributtet sammenlignbart',
                 'is-configurable'       => 'Bruk for å lage konfigurerbare produkter',
-                'is-filterable'         => 'Kan brukes i filtre',
+                'is-filterable'         => 'Er filtrerbar',
                 'is-required'           => 'Obligatorisk',
                 'is-unique'             => 'Unik',
                 'is-visible-on-front'   => 'Synlig på produktdetaljsiden (frontend)',
@@ -431,10 +466,9 @@ return [
                 'yes'                   => 'Ja',
                 'same-code-error'       => 'Alternativkoden må være unik.',
                 'usable-in-grid'        => 'Brukes i rutenett',
-                'is-filterable'         => 'Er filtrerbar',
                 'ai-translate'          => 'AI Oversettelse',
-
-                'option' => [
+                'invalid-swatch-type'   => 'The :attribute is not allowed for attribute type :type with swatch type :swatch_type.',
+                'option'                => [
                     'color'    => 'Fargeprøve',
                     'dropdown' => 'Nedtrekksmeny',
                     'image'    => 'Bildeprøve',
@@ -442,7 +476,6 @@ return [
                     'text'     => 'Tekstprøve',
                 ],
             ],
-
             'edit' => [
                 'add-attribute-options' => 'Legg til attributt alternativer',
                 'add-option'            => 'Legg til alternativ',
@@ -466,12 +499,11 @@ return [
                 'file'                  => 'Fil',
                 'general'               => 'Generelt',
                 'image'                 => 'Bilde',
-                'gallery'               => 'Galleri',
                 'input-options'         => 'Inndatalternativer',
                 'input-validation'      => 'Inndata validering',
                 'is-comparable'         => 'Er dette attributtet sammenlignbart',
                 'is-configurable'       => 'Bruk for å lage konfigurerbare produkter',
-                'is-filterable'         => 'Kan brukes i filtre',
+                'is-filterable'         => 'Er filtrerbar',
                 'is-required'           => 'Obligatorisk',
                 'is-unique'             => 'Unik',
                 'is-visible-on-front'   => 'Synlig på produktdetaljsiden (frontend)',
@@ -499,24 +531,20 @@ return [
                 'yes'                   => 'Ja',
                 'same-code-error'       => 'Alternativkoden må være unik.',
                 'usable-in-grid'        => 'Brukes i rutenett',
-                'is-filterable'         => 'Er filtrerbar',
                 'ai-translate'          => 'AI Oversettelse',
-                'invalid-swatch-type'   => ':attribute er ikke tillatt for attributttype :type med swatch-type :swatch_type.',
-
-                'option' => [
-                    'create-success'      => 'Attributtalternativ opprettet',
-                    'delete-success'      => 'Attributtalternativ slettet',
+                'option'                => [
                     'save-btn'            => 'Lagre alternativ',
-                    'sort-update-failure' => 'Kunne ikke oppdatere sorteringsrekkefølge',
-                    'sort-update-success' => 'Sorteringsrekkefølge oppdatert',
+                    'create-success'      => 'Attributtalternativ opprettet',
                     'update-success'      => 'Attributtalternativ oppdatert',
+                    'sort-update-success' => 'Sorteringsrekkefølge oppdatert',
+                    'sort-update-failure' => 'Kunne ikke oppdatere sorteringsrekkefølge',
+                    'delete-success'      => 'Attributtalternativ slettet',
                     'color'               => 'Fargeprøve',
                     'dropdown'            => 'Nedtrekksmeny',
                     'image'               => 'Bildeprøve',
                     'text'                => 'Tekstprøve',
                 ],
             ],
-
             'create-success'    => 'Attributt opprettet',
             'delete-failed'     => 'Feil ved sletting av attributt',
             'delete-success'    => 'Attributt slettet',
@@ -524,19 +552,16 @@ return [
             'user-define-error' => 'Kan ikke slette systemattributt',
             'not-found'         => 'Fant ikke attributt med kode ":code"',
         ],
-
         'attribute-options' => [
             'create-success'       => 'Attributalternativ opprettet',
             'update-success'       => 'Attributalternativ oppdatert',
             'usable-in-grid-error' => 'Kun 4 attributter kan være merket som brukbare i grid.',
         ],
-
         'attribute-groups' => [
             'index' => [
                 'create-btn' => 'Opprett attributtgruppe',
                 'title'      => 'Attributtgrupper',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'code'                => 'Kode',
                     'delete'              => 'Slett',
                     'mass-delete-success' => 'Valgte attributtgrupper ble slettet',
@@ -548,7 +573,6 @@ return [
                     'update-status'       => 'Oppdater status',
                 ],
             ],
-
             'create' => [
                 'title'    => 'Legg til attributtgruppe',
                 'save-btn' => 'Lagre attributtgruppe',
@@ -557,7 +581,6 @@ return [
                 'code'     => 'Kode',
                 'label'    => 'Etikett',
             ],
-
             'edit' => [
                 'title'    => 'Rediger attributtgruppe',
                 'back-btn' => 'Tilbake',
@@ -566,7 +589,6 @@ return [
                 'code'     => 'Kode',
                 'label'    => 'Etikett',
             ],
-
             'create-success'        => 'Attributtgruppe opprettet',
             'delete-failed'         => 'Sletting av attributtgruppe mislyktes',
             'delete-success'        => 'Attributtgruppe slettet',
@@ -575,12 +597,10 @@ return [
             'attribute-group-error' => 'Gruppen er brukt i familier.',
             'not-found'             => 'Attributtgruppe med kode ":code" ble ikke funnet',
         ],
-
         'categories' => [
             'index' => [
-                'add-btn' => 'Opprett kategori',
-                'title'   => 'Kategorier',
-
+                'add-btn'  => 'Opprett kategori',
+                'title'    => 'Kategorier',
                 'datagrid' => [
                     'active'         => 'Aktiv',
                     'code'           => 'Kode',
@@ -590,14 +610,13 @@ return [
                     'id'             => 'ID',
                     'inactive'       => 'Inaktiv',
                     'name'           => 'Visningsnavn',
+                    'category-name'  => 'Navn',
                     'no-of-products' => 'Antall produkter',
                     'position'       => 'Posisjon',
-                    'category-name'  => 'Navn',
                     'status'         => 'Vis i meny',
                     'update-status'  => 'Oppdater status',
                 ],
             ],
-
             'create' => [
                 'back-btn'            => 'Tilbake',
                 'code'                => 'Kode',
@@ -618,7 +637,6 @@ return [
                 'right-section'       => 'Konfigurasjonsseksjon',
                 'left-section'        => 'Generell seksjon',
             ],
-
             'edit' => [
                 'back-btn'               => 'Tilbake',
                 'code'                   => 'Kode',
@@ -637,7 +655,6 @@ return [
                 'right-section'          => 'Konfigurasjonsseksjon',
                 'left-section'           => 'Generell seksjon',
             ],
-
             'category'             => 'Kategori',
             'create-success'       => 'Kategori opprettet.',
             'delete-category-root' => 'Du kan ikke slette en rotkategori som er tilknyttet et kanal.',
@@ -652,14 +669,12 @@ return [
             'create-failure'       => 'Kategorien kunne ikke opprettes.',
             'update-failure'       => 'Kategorien kunne ikke oppdateres.',
         ],
-
         'category_fields' => [
             'index' => [
                 'create-btn' => 'Opprett Kategorifelt',
                 'add-btn'    => 'Opprett Kategorifelt',
                 'title'      => 'Kategorifelt',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'       => 'Kanalbasert',
                     'code'                => 'Kode',
                     'created-at'          => 'Opprettet',
@@ -684,7 +699,6 @@ return [
                     'mass-delete-failed'  => 'Valgte kategorifelt kan ikke slettes.',
                 ],
             ],
-
             'create' => [
                 'add-field-options'   => 'Legg til alternativ for kategorifelt',
                 'add-option'          => 'Legg til alternativ',
@@ -739,8 +753,7 @@ return [
                 'set-section-right'   => 'Konfigurasjonsseksjon',
                 'settings'            => 'Innstillinger',
                 'same-code-error'     => 'Alternativkode må være unik.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Nedtrekksmeny',
                     'save-btn' => 'Lagre alternativ',
                     'color'    => 'Fargeprøve',
@@ -748,7 +761,6 @@ return [
                     'text'     => 'Tekstprøve',
                 ],
             ],
-
             'edit' => [
                 'add-field-options'   => 'Legg til alternativ for kategorifelt',
                 'add-option'          => 'Legg til alternativ',
@@ -804,8 +816,7 @@ return [
                 'set-section-right'   => 'Konfigurasjonsseksjon',
                 'settings'            => 'Innstillinger',
                 'same-code-error'     => 'Alternativkode må være unik.',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => 'Nedtrekksmeny',
                     'save-btn' => 'Lagre alternativ',
                     'color'    => 'Fargeprøve',
@@ -813,7 +824,6 @@ return [
                     'text'     => 'Tekstprøve',
                 ],
             ],
-
             'create-success'    => 'Kategorifelt Opprettet',
             'delete-failed'     => 'Kategorifelt Sletting Feilet',
             'delete-success'    => 'Kategorifelt Slettet',
@@ -821,17 +831,14 @@ return [
             'user-define-error' => 'Kan ikke slette system Kategorifelt',
             'not-found'         => 'Kategorifelt med kode ":code" ble ikke funnet',
         ],
-
         'category-fields-options' => [
             'create-success' => 'Kategori feltalternativ opprettet',
             'update-success' => 'Kategori feltalternativ oppdatert',
         ],
-
         'families' => [
             'index' => [
-                'add'   => 'Opprett attributt familie',
-                'title' => 'Familier',
-
+                'add'      => 'Opprett attributt familie',
+                'title'    => 'Familier',
                 'datagrid' => [
                     'code'           => 'Kode',
                     'delete'         => 'Slett',
@@ -846,7 +853,6 @@ return [
                     'update-success' => 'Valgte :resource ble oppdatert',
                 ],
             ],
-
             'create' => [
                 'assign-group-btn'                 => 'Tildel attributtgruppe',
                 'assign-group-title'               => 'Tildel attributtgruppe',
@@ -877,7 +883,6 @@ return [
                 'unassigned-attribute-groups'      => 'Ikke tildelte attributtgrupper',
                 'assign-first-attribute-group'     => 'Tildel en gruppe til familien.',
             ],
-
             'edit' => [
                 'assign-group-btn'                 => 'Tildel attributtgruppe',
                 'assign-group-title'               => 'Tildel attributtgruppe',
@@ -911,7 +916,6 @@ return [
                 'variant-options-label'            => 'Konfigurasjonsalternativer',
                 'select-variant'                   => 'Velg attributter',
             ],
-
             'attribute-family'               => 'Attributtfamilie',
             'attribute-product-error'        => 'Familien brukes i produkter.',
             'create-success'                 => 'Familie opprettet.',
@@ -924,7 +928,6 @@ return [
             'not-found'                      => 'Attributtfamilie med kode ":code" ble ikke funnet.',
             'can-not-update-variant-options' => 'Kan ikke oppdatere konfigurasjonsalternativer, fordi denne familien allerede har produktvarianter.',
         ],
-
         'history' => [
             'index' => [
                 'datagrid' => [
@@ -935,7 +938,6 @@ return [
             ],
         ],
     ],
-
     'settings' => [
         'locales' => [
             'index' => [
@@ -944,8 +946,7 @@ return [
                 'title'                 => 'Lokale',
                 'can-not-delete-error'  => 'Du kan ikke slette et lokale knyttet til en kanal eller bruker',
                 'can-not-disable-error' => 'Du kan ikke deaktivere et lokale knyttet til en kanal eller bruker',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'     => 'Handlinger',
                     'code'        => 'Kode',
                     'delete'      => 'Slett',
@@ -956,14 +957,12 @@ return [
                     'name'        => 'Visningsnavn',
                     'rtl'         => 'RTL',
                     'mass-update' => 'Oppdater Status',
-
-                    'status' => [
+                    'status'      => [
                         'title'    => 'Status',
                         'active'   => 'Aktiver',
                         'inactive' => 'Deaktiver',
                     ],
                 ],
-
                 'create' => [
                     'code'             => 'Kode',
                     'direction'        => 'Retning',
@@ -974,11 +973,9 @@ return [
                     'title'            => 'Opprett Lokale',
                     'status'           => 'Status',
                 ],
-
                 'edit' => [
                     'title' => 'Rediger Lokale',
                 ],
-
                 'create-success'    => 'Lokale opprettet.',
                 'delete-failed'     => 'Kunne ikke slette lokalet.',
                 'delete-success'    => 'Lokale slettet.',
@@ -987,7 +984,6 @@ return [
                 'update-success'    => 'Lokale oppdatert.',
             ],
         ],
-
         'currencies' => [
             'index' => [
                 'create-btn'            => 'Opprett Valuta',
@@ -995,8 +991,7 @@ return [
                 'title'                 => 'Valutaer',
                 'can-not-delete-error'  => 'Du kan ikke slette en valuta knyttet til en kanal',
                 'can-not-disable-error' => 'Du kan ikke deaktivere en valuta knyttet til en kanal',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'        => 'Handlinger',
                     'code'           => 'Kode',
                     'delete'         => 'Slett',
@@ -1008,14 +1003,12 @@ return [
                     'partial-action' => 'Noen handlinger ble ikke utført på grunn av systembegrensninger for :resource',
                     'update-success' => 'Valgte :resource oppdatert.',
                     'mass-update'    => 'Oppdater Status',
-
-                    'status' => [
+                    'status'         => [
                         'title'    => 'Status',
                         'active'   => 'Aktiver',
                         'inactive' => 'Deaktiver',
                     ],
                 ],
-
                 'create' => [
                     'code'           => 'Kode',
                     'create-btn'     => 'Opprett Valuta',
@@ -1028,11 +1021,9 @@ return [
                     'title'          => 'Opprett Ny Valuta',
                     'status'         => 'Status',
                 ],
-
                 'edit' => [
                     'title' => 'Rediger Valuta',
                 ],
-
                 'create-success'    => 'Valuta opprettet.',
                 'delete-failed'     => 'Kunne ikke slette valutaen.',
                 'delete-success'    => 'Valuta slettet.',
@@ -1041,7 +1032,6 @@ return [
                 'cannot-delete'     => 'Valutaen kan ikke slettes.',
             ],
         ],
-
         'data-transfer' => [
             'tracker' => [
                 'index' => [
@@ -1059,28 +1049,28 @@ return [
                         'user'                 => 'Bruker',
                         'created_at'           => 'Opprettet',
                         'updated_at'           => 'Oppdatert',
-
-                        'pending'    => 'Venter',
-                        'validated'  => 'Validerte',
-                        'processing' => 'Behandler',
-                        'processed'  => 'Behandlet',
-                        'linking'    => 'Kobler',
-                        'linked'     => 'Koblet',
-
-                        'indexing'  => 'Indeksering',
-                        'indexed'   => 'Indeksert',
-                        'completed' => 'Fullført',
-                        'failed'    => 'Mislyktes',
+                        'pending'              => 'Venter',
+                        'validating'           => 'Validating',
+                        'validated'            => 'Validerte',
+                        'processing'           => 'Behandler',
+                        'processed'            => 'Behandlet',
+                        'linking'              => 'Kobler',
+                        'linked'               => 'Koblet',
+                        'indexing'             => 'Indeksering',
+                        'indexed'              => 'Indeksert',
+                        'completed'            => 'Fullført',
+                        'paused'               => 'Paused',
+                        'cancelled'            => 'Cancelled',
+                        'failed'               => 'Mislyktes',
                     ],
                 ],
-
                 'import' => [
                     'back-btn'                => 'Tilbake',
                     'completed-batches'       => 'Fullførte Batcher:',
                     'download-error-report'   => 'Last Ned Full Rapport',
                     'edit-btn'                => 'Rediger',
                     'imported-info'           => 'Gratulerer! Importen var vellykket.',
-                    'importing-info'          => 'Eksport pågår',
+                    'exporting-info'          => 'Export In Process',
                     'indexing-info'           => 'Ressursindeksering (Pris, Elasticsearch) pågår',
                     'linking-info'            => 'Kobler Ressurser',
                     'progress'                => 'Fremdrift:',
@@ -1098,7 +1088,6 @@ return [
                     'validation-failed-info'  => 'Importen din er ugyldig. Fiks følgende feil og prøv igjen.',
                     'validation-success-info' => 'Importen din er gyldig. Klikk på "Eksporter" for å starte importprosessen.',
                 ],
-
                 'summary' => [
                     'total-batches' => 'Totalt Antall Batcher:',
                     'created'       => 'Totalt Antall Opprettede Poster:',
@@ -1109,150 +1098,191 @@ return [
                     'updated'       => 'Totalt Antall Oppdaterte Poster:',
                     'skipped'       => 'Totalt Antall Hoppede Poster:',
                 ],
-
-                'info'              => 'Gratulerer! Jobben ble utført vellykket.',
-                'create-success'    => 'Eksport ble opprettet vellykket.',
-                'delete-failed'     => 'Eksportsletting mislyktes.',
-                'delete-success'    => 'Eksport ble slettet vellykket.',
-                'not-valid'         => 'Eksporten er ugyldig',
-                'nothing-to-import' => 'Ingen ressurser å importere.',
-                'setup-queue-error' => 'Vennligst endre kødriveren din til "database" eller "redis" for å starte importprosessen.',
-                'update-success'    => 'Eksport ble oppdatert vellykket.',
-                'failed-info'       => 'Jobben mislyktes. Fiks følgende feil og prøv igjen.',
-                'download-log-file' => 'Last Ned Loggfil',
+                'info'                  => 'Gratulerer! Jobben ble utført vellykket.',
+                'running-time'          => 'Running time',
+                'estimated-remaining'   => 'Est. remaining',
+                'total-duration'        => 'Total Duration',
+                'status'                => 'Status',
+                'waiting'               => 'Waiting',
+                'total-records'         => 'Total records',
+                'job-id'                => 'Job ID',
+                'records-created'       => 'Records Created',
+                'records-updated'       => 'Records Updated',
+                'records-deleted'       => 'Records deleted',
+                'run-again'             => 'Run Again',
+                'completed-success'     => 'job completed successfully',
+                'completed-info-sub'    => 'All records have been processed and indexed. Your catalog is up to date.',
+                'create-success'        => 'Eksport ble opprettet vellykket.',
+                'delete-failed'         => 'Eksportsletting mislyktes.',
+                'delete-success'        => 'Eksport ble slettet vellykket.',
+                'not-valid'             => 'Eksporten er ugyldig',
+                'nothing-to-import'     => 'Ingen ressurser å importere.',
+                'setup-queue-error'     => 'Vennligst endre kødriveren din til "database" eller "redis" for å starte importprosessen.',
+                'update-success'        => 'Eksport ble oppdatert vellykket.',
+                'failed-info'           => 'Jobben mislyktes. Fiks følgende feil og prøv igjen.',
+                'download-log-file'     => 'Last Ned Loggfil',
+                'pause'                 => 'Pause',
+                'resume'                => 'Resume',
+                'cancel'                => 'Cancel',
+                'paused'                => 'Import has been paused.',
+                'resumed'               => 'Import has been resumed.',
+                'cancelled'             => 'Import has been cancelled.',
+                'paused-info'           => 'Import is paused. Remaining batches are on hold.',
+                'paused-info-export'    => 'Export is paused. Remaining batches are on hold.',
+                'cancelled-info'        => 'Import was cancelled. Partial results are shown below.',
+                'cancelled-info-export' => 'Export was cancelled. Partial results are shown below.',
+                'cancel-confirm'        => 'Are you sure you want to cancel this job? This action cannot be undone.',
+                'live'                  => 'Live',
+                'import-progress'       => 'Import progress',
+                'export-progress'       => 'Export progress',
+                'linking-progress'      => 'Linking progress',
+                'indexing-progress'     => 'Indexing progress',
+                'job-label'             => 'Job',
             ],
-
-            'import' => [
+            'imports' => [
                 'create' => [
-                    'code'                => 'Kode',
-                    'action'              => 'Handling',
-                    'allowed-errors'      => 'Tillatte feil',
-                    'allowed-file-types'  => 'Tillatte filtyper (CSV, XLSX, XLS)',
-                    'back-btn'            => 'Tilbake',
-                    'create-update'       => 'Opprett/oppdater',
-                    'delete'              => 'Slett',
-                    'media'               => 'Fil / Bilder',
-                    'images'              => 'Bilder',
-                    'download-sample'     => 'Last ned :resource CSV prøvefil',
-                    'field-separator'     => 'Feltseparator',
-                    'separator-info'      => 'Brukes kun for CSV-filer',
-                    'file-info-example'   => 'Plasser bilder i storage/app/public/. Hvis bildene er i storage/app/public/import-images, inkluder import-images/ i stien og bruk kun filnavnet i importfilen.',
-                    'file-info'           => 'Bruk relativ sti til /project-root/storage/app/import, f.eks. product-images, import-images.',
-                    'file'                => 'Fil',
-                    'general'             => 'Generelt',
-                    'upload_images'       => 'Last opp bilder for å sette sti',
-                    'download-sample-zip' => 'Last ned prøvebilder ZIP',
-                    'zip-drop-hint'       => 'Klikk eller dra og slipp en ZIP-fil her',
-                    'images-directory'    => 'Sti',
-                    'process-in-queue'    => 'Prosesserer i kø',
-                    'results'             => 'Resultater',
-                    'save-btn'            => 'Lagre import',
-                    'settings'            => 'Innstillinger',
-                    'skip-errors'         => 'Hopp over feil',
-                    'stop-on-errors'      => 'Stopp ved feil',
-                    'title'               => 'Opprett import',
+                    'code'                => 'Code',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'media'               => 'File / Images',
+                    'images'              => 'Images',
+                    'download-sample'     => 'Download :resource Sample CSV',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
+                    'file'                => 'File',
+                    'general'             => 'General',
+                    'upload_images'       => 'Upload Images to set Path',
+                    'download-sample-zip' => 'Download Sample Images ZIP',
+                    'zip-uploading'       => 'Uploading and extracting ZIP...',
+                    'zip-upload-success'  => 'ZIP uploaded and extracted successfully.',
+                    'zip-upload-error'    => 'Failed to upload ZIP. Please try again.',
+                    'invalid-zip'         => 'The uploaded file is not a valid ZIP archive.',
+                    'zip-upload-or'       => 'or upload a ZIP of images',
+                    'zip-click-upload'    => 'Click to upload a ZIP of images',
+                    'zip-files-extracted' => 'files extracted',
+                    'zip-drop-hint'       => 'Click or drag & drop a ZIP file here',
+                    'images-directory'    => 'Path',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Create Import',
                     'type'                => 'Type',
-                    'validation-strategy' => 'Valideringsstrategi',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'edit' => [
-                    'images'              => 'Bilder',
-                    'action'              => 'Handling',
-                    'allowed-errors'      => 'Tillatte feil',
-                    'allowed-file-types'  => 'Tillatte filtyper (CSV, XLSX, XLS)',
-                    'back-btn'            => 'Tilbake',
-                    'create-update'       => 'Opprett/oppdater',
-                    'delete'              => 'Slett',
-                    'download-sample'     => 'Last ned prøvefil',
-                    'field-separator'     => 'Feltseparator',
-                    'separator-info'      => 'Brukes kun for CSV-filer',
-                    'file-info-example'   => 'Plasser bilder i storage/app/public/. Hvis bildene er i storage/app/public/import-images, inkluder import-images/ i stien og bruk kun filnavnet i importfilen.',
-                    'file-info'           => 'Bruk relativ sti til /project-root/storage/app/import, f.eks. product-images, import-images.',
-                    'file'                => 'Fil',
-                    'general'             => 'Generelt',
-                    'images-directory'    => 'Sti',
-                    'process-in-queue'    => 'Prosesserer i kø',
-                    'results'             => 'Resultater',
-                    'save-btn'            => 'Lagre import',
-                    'settings'            => 'Innstillinger',
-                    'skip-errors'         => 'Hopp over feil',
-                    'stop-on-errors'      => 'Stopp ved feil',
-                    'title'               => 'Rediger import',
+                    'images'              => 'Images',
+                    'action'              => 'Action',
+                    'allowed-errors'      => 'Allowed Errors',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
+                    'back-btn'            => 'Back',
+                    'create-update'       => 'Create/Update',
+                    'delete'              => 'Delete',
+                    'download-sample'     => 'Download Sample',
+                    'field-separator'     => 'Field Separator',
+                    'separator-info'      => 'Only use for CSV files',
+                    'file-info-example'   => 'Place images in storage/app/public/. For images in storage/app/public/import-images, include import-images/ in the path and use only the file name in the import file.',
+                    'file-info'           => 'Use relative path to /project-root/storage/app/import, e.g. product-images, import-images.',
+                    'file'                => 'File',
+                    'general'             => 'General',
+                    'images-directory'    => 'Path',
+                    'process-in-queue'    => 'Process In Queue',
+                    'results'             => 'Results',
+                    'save-btn'            => 'Save Import',
+                    'settings'            => 'Settings',
+                    'skip-errors'         => 'Skip Errors',
+                    'stop-on-errors'      => 'Stop on Errors',
+                    'title'               => 'Edit Import',
                     'type'                => 'Type',
-                    'validation-strategy' => 'Valideringsstrategi',
+                    'validation-strategy' => 'Validation Strategy',
                 ],
-
                 'batch' => [
-                    'title' => 'Importert lagt til i kø',
+                    'title' => 'Import added in the queue',
                 ],
-
                 'index' => [
-                    'button-title' => 'Opprett import',
-                    'title'        => 'Importer',
-
-                    'datagrid' => [
-                        'actions'               => 'Handlinger',
-                        'completed-at'          => 'Fullført',
-                        'created'               => 'Opprettet',
-                        'delete'                => 'Slett',
-                        'deleted'               => 'Slettet',
-                        'edit'                  => 'Rediger',
-                        'error-file'            => 'Feilfil',
+                    'button-title' => 'Create Import',
+                    'title'        => 'Imports',
+                    'datagrid'     => [
+                        'actions'               => 'Actions',
+                        'completed-at'          => 'Completed At',
+                        'created'               => 'Created',
+                        'delete'                => 'Delete',
+                        'deleted'               => 'Deleted',
+                        'edit'                  => 'Edit',
+                        'error-file'            => 'Error File',
                         'id'                    => 'ID',
-                        'code'                  => 'Kode',
+                        'code'                  => 'Code',
                         'type'                  => 'Type',
-                        'action'                => 'Handling',
-                        'started-at'            => 'Startet',
-                        'state'                 => 'Status',
-                        'summary'               => 'Sammendrag',
-                        'updated'               => 'Oppdatert',
-                        'uploaded-file'         => 'Opplastet fil',
-                        'images_directory_path' => 'Bilder',
+                        'action'                => 'Action',
+                        'started-at'            => 'Started At',
+                        'state'                 => 'State',
+                        'summary'               => 'Summary',
+                        'updated'               => 'Updated',
+                        'uploaded-file'         => 'Uploaded File',
+                        'images_directory_path' => 'Images File',
                         'import'                => 'Import',
                     ],
                 ],
-
                 'import' => [
-                    'back-btn'                => 'Tilbake',
-                    'completed-batches'       => 'Totalt fullførte batcher:',
-                    'download-error-report'   => 'Last ned full rapport',
-                    'edit-btn'                => 'Rediger',
-                    'imported-info'           => 'Gratulerer! Importen din var vellykket.',
-                    'importing-info'          => 'Import i prosess',
-                    'exporting-info'          => 'Eksport i prosess',
-                    'indexing-info'           => 'Ressursindeksering (pris, Elastic Search) pågår',
-                    'linking-info'            => 'Ressurslinking pågår',
-                    'progress'                => 'Progresjon:',
-                    'pending-info'            => 'Venter på behandling i kø',
-                    'pending-step-export'     => 'Eksporterer',
+                    'action'                  => 'Action Mode',
+                    'back-btn'                => 'Back',
+                    'completed-batches'       => 'Total Batches Completed:',
+                    'download-error-report'   => 'Download Full Report',
+                    'edit-btn'                => 'Edit',
+                    'exporting-info'          => 'Export In Process',
+                    'exporting-info-sub'      => 'Generating export file and writing records. Please wait.',
+                    'file_path'               => 'File Path',
+                    'imported-info'           => 'Congratulations! Your import was successful.',
+                    'import-now'              => 'Import Now',
+                    'importing-info'          => 'Import In Process',
+                    'importing-info-sub'      => 'Processing batches and writing records to the database.',
+                    'indexing-info'           => 'Resources Indexing (Price, Elastic Search) In Progress',
+                    'indexing-info-sub'       => 'Rebuilding search indices and price caches after import. This step runs automatically.',
+                    'indexing-type'           => 'Price + ES',
+                    'linking-info'            => 'Resources Linking In Progress',
+                    'linking-info-sub'        => 'Linking related resources and associations between records.',
+                    'pending-info'            => 'Job queued — waiting for worker to start...',
+                    'pending-info-sub'        => 'Your job has been added to the processing queue. A worker will pick it up shortly.',
+                    'pending-step-complete'   => 'Complete',
+                    'pending-step-export'     => 'Exporting',
+                    'pending-step-import'     => 'Importing',
+                    'pending-step-queue'      => 'Queued',
+                    'pending-step-validate'   => 'Validating',
+                    'profile'                 => 'Import Profile',
+                    'progress'                => 'Progress:',
                     'title'                   => 'Import',
-                    'total-batches'           => 'Totalt antall batcher:',
-                    'total-created'           => 'Totalt antall opprettede poster:',
-                    'total-deleted'           => 'Totalt antall slettede poster:',
-                    'total-errors'            => 'Totalt antall feil:',
-                    'total-invalid-rows'      => 'Totalt antall ugyldige rader:',
-                    'total-rows-processed'    => 'Totalt antall behandlede rader:',
-                    'total-updated'           => 'Totalt antall oppdaterte poster:',
-                    'validate-info'           => 'Klikk på "Valider data" for å sjekke importen.',
-                    'validate'                => 'Valider',
-                    'file_path'               => 'Filsti',
-                    'import-now'              => 'Importer nå',
-                    'action'                  => 'Handlingsmodus',
-                    'profile'                 => 'Importprofil',
-                    'validating-info'         => 'Lesing og validering av data pågår',
-                    'validation-failed-info'  => 'Importen er ugyldig. Vennligst rett følgende feil og prøv igjen.',
-                    'validation-success-info' => 'Importen din er gyldig. Starter import automatisk...',
+                    'total-batches'           => 'Total Batches:',
+                    'total-created'           => 'Total Records Created:',
+                    'total-deleted'           => 'Total Records Deleted:',
+                    'total-errors'            => 'Total Errors:',
+                    'total-invalid-rows'      => 'Total Invalid Rows:',
+                    'total-rows-processed'    => 'Total Rows Processed:',
+                    'total-updated'           => 'Total Records Updated:',
+                    'validate'                => 'Validate',
+                    'validate-info'           => 'Click on Validate Data to check your import.',
+                    'validating-info'         => 'Reading file and validating data...',
+                    'validating-info-sub'     => 'Checking schema integrity, field mappings, and data types before the import begins.',
+                    'validation-failed-info'  => 'Your import is invalid. Please fix the following errors and try again.',
+                    'validation-success-info' => 'Your import is valid. Starting import automatically...',
                 ],
-
-                'create-success'    => 'Import opprettet med suksess.',
-                'delete-failed'     => 'Import sletting mislyktes uventet.',
-                'delete-success'    => 'Import slettet med suksess.',
-                'not-valid'         => 'Import er ugyldig',
-                'nothing-to-import' => 'Det er ingen ressurser å importere.',
-                'setup-queue-error' => 'Vennligst endre kødriveren til "database" eller "redis" for å starte importprosessen.',
-                'update-success'    => 'Import oppdatert med suksess.',
+                'create-success'     => 'Import created successfully.',
+                'delete-failed'      => 'Import deletion failed unexpectedly.',
+                'delete-success'     => 'Import deleted successfully.',
+                'invalid-zip'        => 'The uploaded file is not a valid ZIP archive.',
+                'not-valid'          => 'Import is invalid',
+                'nothing-to-import'  => 'There are no resources to import.',
+                'setup-queue-error'  => 'Please change your queue driver to "database" or "redis" to start the import process.',
+                'update-success'     => 'Import updated successfully.',
+                'zip-upload-success' => 'ZIP uploaded and extracted successfully.',
             ],
-
             'exports' => [
                 'create' => [
                     'code'                => 'Kode',
@@ -1283,7 +1313,6 @@ return [
                     'type'                => 'Type',
                     'validation-strategy' => 'Valideringsstrategi',
                 ],
-
                 'edit' => [
                     'action'              => 'Handling',
                     'allowed-errors'      => 'Tillatte feil',
@@ -1307,16 +1336,13 @@ return [
                     'type'                => 'Type',
                     'validation-strategy' => 'Valideringsstrategi',
                 ],
-
                 'batch' => [
                     'title' => 'Eksport lagt til i kø',
                 ],
-
                 'index' => [
                     'button-title' => 'Opprett eksport',
                     'title'        => 'Eksporter',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => 'Handlinger',
                         'completed-at'          => 'Fullført på',
                         'created'               => 'Opprettet',
@@ -1337,7 +1363,6 @@ return [
                         'export'                => 'Eksport',
                     ],
                 ],
-
                 'export' => [
                     'back-btn'                => 'Tilbake',
                     'completed-batches'       => 'Totalt fullførte batcher:',
@@ -1367,7 +1392,6 @@ return [
                     'file-format'             => 'Filformat',
                     'with-media'              => 'Med media',
                 ],
-
                 'create-success'    => 'Eksport opprettet med suksess.',
                 'delete-failed'     => 'Sletting av eksport mislyktes uventet.',
                 'delete-success'    => 'Eksport slettet med suksess.',
@@ -1377,7 +1401,6 @@ return [
                 'update-success'    => 'Eksport oppdatert med suksess.',
             ],
         ],
-
         'channels' => [
             'index' => [
                 'create-btn'           => 'Opprett Kanal',
@@ -1396,7 +1419,6 @@ return [
                     'root-category' => 'Rotkategori',
                 ],
             ],
-
             'create' => [
                 'allowed-ips'            => 'Tillatte IP-er',
                 'cancel'                 => 'Tilbake',
@@ -1431,7 +1453,6 @@ return [
                 'theme'                  => 'Tema',
                 'title'                  => 'Opprett Kanal',
             ],
-
             'edit' => [
                 'allowed-ips'            => 'Tillatte IP-er',
                 'back-btn'               => 'Tilbake',
@@ -1469,13 +1490,11 @@ return [
                 'update-success'         => 'Kanal oppdatert med suksess',
             ],
         ],
-
         'users' => [
             'index' => [
-                'admin' => 'Administrator',
-                'title' => 'Brukere',
-                'user'  => 'Bruker',
-
+                'admin'  => 'Administrator',
+                'title'  => 'Brukere',
+                'user'   => 'Bruker',
                 'create' => [
                     'confirm-password'  => 'Bekreft Passord',
                     'email'             => 'E-post',
@@ -1489,7 +1508,6 @@ return [
                     'user-timezone'     => 'Tidszone',
                     'select'            => 'Velg',
                 ],
-
                 'datagrid' => [
                     'actions'  => 'Handlinger',
                     'active'   => 'Aktiv',
@@ -1503,12 +1521,10 @@ return [
                     'status'   => 'Status',
                     'image'    => 'Bilde',
                 ],
-
                 'edit' => [
                     'title' => 'Rediger Bruker',
                 ],
             ],
-
             'edit' => [
                 'back-btn'         => 'Tilbake',
                 'confirm-password' => 'Bekreft Passord',
@@ -1521,7 +1537,6 @@ return [
                 'status'           => 'Status',
                 'title'            => 'Rediger Bruker',
             ],
-
             'activate-warning'          => 'Kontoen din er ennå ikke aktivert. Vennligst kontakt administrator.',
             'cannot-change'             => 'Bruker kan ikke endres',
             'create-success'            => 'Bruker opprettet suksessfullt.',
@@ -1534,13 +1549,11 @@ return [
             'update-success'            => 'Bruker oppdatert suksessfullt.',
             'current-user-delete-error' => 'Innlogget bruker kan ikke slettes.',
         ],
-
         'roles' => [
             'index' => [
                 'create-btn' => 'Opprett Rolle',
                 'title'      => 'Roller',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => 'Slett',
                     'edit'            => 'Rediger',
                     'id'              => 'ID',
@@ -1548,7 +1561,6 @@ return [
                     'permission-type' => 'Tillatelsestype',
                 ],
             ],
-
             'create' => [
                 'access-control' => 'Tilgangskontroll',
                 'all'            => 'Alle',
@@ -1561,7 +1573,6 @@ return [
                 'save-btn'       => 'Lagre Rolle',
                 'title'          => 'Opprett Rolle',
             ],
-
             'edit' => [
                 'access-control' => 'Tilgangskontroll',
                 'all'            => 'Alle',
@@ -1574,7 +1585,6 @@ return [
                 'save-btn'       => 'Lagre Rolle',
                 'title'          => 'Rediger Rolle',
             ],
-
             'being-used'        => 'Rolle er allerede brukt i Administrator bruker',
             'being-used-by'     => 'Rolle er allerede brukt av :name bruker',
             'create-success'    => 'Rolle opprettet suksessfullt',
@@ -1584,160 +1594,6 @@ return [
             'update-success'    => 'Rolle oppdatert suksessfullt',
         ],
     ],
-
-    'acl' => [
-        'addresses'                => 'Adresser',
-        'attribute-families'       => 'Attributfamilier',
-        'attribute-groups'         => 'Attributgrupper',
-        'attributes'               => 'Attributter',
-        'cancel'                   => 'Avbryt',
-        'catalog'                  => 'Katalog',
-        'categories'               => 'Kategorier',
-        'channels'                 => 'Kanaler',
-        'configure'                => 'Konfigurere',
-        'configuration'            => 'Konfigurering',
-        'copy'                     => 'Kopiere',
-        'create'                   => 'Opprette',
-        'currencies'               => 'Valutaer',
-        'dashboard'                => 'Instrumentbord',
-        'data-transfer'            => 'Dataoverføring',
-        'delete'                   => 'Slette',
-        'edit'                     => 'Redigere',
-        'email-templates'          => 'E-postmaler',
-        'events'                   => 'Hendelser',
-        'groups'                   => 'Grupper',
-        'import'                   => 'Importer',
-        'imports'                  => 'Importer',
-        'invoices'                 => 'Fakturaer',
-        'locales'                  => 'Lokaliteter',
-        'magic-ai'                 => 'Magisk AI',
-        'marketing'                => 'Markedsføring',
-        'newsletter-subscriptions' => 'Nyhetsbrevabonnementer',
-        'note'                     => 'Merk',
-        'orders'                   => 'Ordrer',
-        'products'                 => 'Produkter',
-        'promotions'               => 'Kampanjer',
-        'refunds'                  => 'Tilbakebetalinger',
-        'reporting'                => 'Rapportering',
-        'reviews'                  => 'Anmeldelser',
-        'roles'                    => 'Roller',
-        'sales'                    => 'Salg',
-        'search-seo'               => 'Søking og SEO',
-        'search-synonyms'          => 'Søkesynonymer',
-        'search-terms'             => 'Søkeord',
-        'settings'                 => 'Innstillinger',
-        'shipments'                => 'Forsendelser',
-        'sitemaps'                 => 'Sitemaps',
-        'subscribers'              => 'Nyhetsbrevabonnenter',
-        'tax-categories'           => 'Skattekategorier',
-        'tax-rates'                => 'Skattesatser',
-        'taxes'                    => 'Skatter',
-        'themes'                   => 'Temaer',
-        'integration'              => 'Integrasjon',
-        'url-rewrites'             => 'URL-omskrivninger',
-        'users'                    => 'Brukere',
-        'category_fields'          => 'Kategori felt',
-        'view'                     => 'Visning',
-        'execute'                  => 'Utfør',
-        'history'                  => 'Historie',
-        'restore'                  => 'Gjenopprette',
-        'integrations'             => 'Integrasjoner',
-        'api'                      => 'API',
-        'tracker'                  => 'Jobbspor',
-        'imports'                  => 'Importer',
-        'exports'                  => 'Eksporter',
-        'mass-update'              => 'Masseoppdatering',
-        'mass-delete'              => 'Masse sletting',
-    ],
-
-    'errors' => [
-        'dashboard' => 'Instrumentbord',
-        'go-back'   => 'Gå tilbake',
-        'support'   => 'Hvis problemet vedvarer, kan du kontakte oss på <a href=":link" class=":class">:email</a> for hjelp.',
-
-        '404' => [
-            'description' => 'Ups! Siden du leter etter er på ferie. Det ser ut som om vi ikke kunne finne det du leter etter.',
-            'title'       => '404 Siden ikke funnet',
-        ],
-
-        '401' => [
-            'description' => 'Ups! Det ser ut som om du ikke har tilgang til denne siden. Det ser ut som om du mangler nødvendige kredensialer.',
-            'title'       => '401 Uautorisert',
-            'message'     => 'Autentisering mislyktes på grunn av ugyldige kredensialer eller utløpt token.',
-        ],
-
-        '403' => [
-            'description' => 'Ups! Denne siden er utilgjengelig. Det ser ut som du ikke har tillatelse til å se dette innholdet.',
-            'title'       => '403 Forbudt',
-        ],
-
-        '413' => [
-            'description' => 'Ups! Det ser ut som om du prøver å laste opp en fil som er for stor. Hvis du ønsker å laste opp samme, oppdater PHP-konfigurasjonen tilsvarende.',
-            'title'       => '413 Innholdet er for stort',
-        ],
-
-        '419' => [
-            'description' => 'Ups! Økten din har utløpt. Vennligst oppdater siden og logg inn igjen for å fortsette.',
-            'title'       => '419 Økten har utløpt',
-        ],
-
-        '500' => [
-            'description' => 'Ups! Noe gikk galt. Det ser ut som vi har problemer med å laste den siden du leter etter.',
-            'title'       => '500 Intern serverfeil',
-        ],
-
-        '503' => [
-            'description' => 'Ups! Det ser ut som vi for øyeblikket er utilgjengelige for vedlikehold. Sjekk tilbake snart.',
-            'title'       => '503 Tjenesten utilgjengelig',
-        ],
-    ],
-
-    'export' => [
-        'csv'                  => 'CSV',
-        'download'             => 'Last ned',
-        'export'               => 'Hurtig eksport',
-        'no-records'           => 'Ingen poster å eksportere',
-        'xls'                  => 'XLS',
-        'xlsx'                 => 'XLSX',
-        'with-media'           => 'Med media',
-        'export-success'       => 'Eksporten var vellykket!',
-        'error'                => 'Noe gikk galt!',
-        'product-not-selected' => 'Ingen produkter valgt for hurtig eksport',
-    ],
-
-    'validations' => [
-        'slug-being-used' => 'Denne slagen er i bruk i enten kategorier eller produkter.',
-        'slug-reserved'   => 'Denne slagen er reservert.',
-        'invalid-locale'  => 'Ugyldige lokaliteter :locales',
-    ],
-
-    'footer' => [
-        'copy-right' => 'Powered by <a href="https://unopim.com/" target="_blank">UnoPim</a>, Et samfunnsprosjekt fra <a href="https://webkul.com/" target="_blank">Webkul</a>',
-    ],
-
-    'emails' => [
-        'dear'   => 'Dear :admin_name',
-        'thanks' => 'If you need any kind of help please contact us at <a href=":link" style=":style">:email</a>.<br/>Thanks!',
-
-        'admin' => [
-            'forgot-password' => [
-                'description'    => 'You are receiving this email because we received a password reset request for your account.',
-                'greeting'       => 'Forgot Password!',
-                'reset-password' => 'Reset Password',
-                'subject'        => 'Reset Password Email',
-            ],
-        ],
-    ],
-
-    'common' => [
-        'yes'     => 'Ja',
-        'no'      => 'Nei',
-        'true'    => 'Sann',
-        'false'   => 'Usann',
-        'enable'  => 'Aktivert',
-        'disable' => 'Deaktivert',
-    ],
-
     'configuration' => [
         'index' => [
             'delete'          => 'Slett',
@@ -1746,50 +1602,51 @@ return [
             'save-message'    => 'Konfigurasjonen ble lagret med suksess',
             'search'          => 'Søk',
             'title'           => 'Konfigurasjon',
-
-            'general' => [
-                'info'  => '',
-                'title' => 'Generelt',
-
+            'general'         => [
+                'info'    => '',
+                'title'   => 'Generelt',
                 'general' => [
                     'info'  => '',
                     'title' => 'Generelt',
                 ],
-
                 'magic-ai' => [
-                    'info'  => 'Sett Magic AI-innstillinger.',
-                    'title' => 'Magic AI',
-
+                    'info'     => 'Sett Magic AI-innstillinger.',
+                    'title'    => 'Magic AI',
                     'settings' => [
-                        'api-key'        => 'API-nøkkel',
-                        'enabled'        => 'Aktivert',
-                        'llm-api-domain' => 'LLM API-domenet',
-                        'organization'   => 'Organisasjons-ID',
-                        'title'          => 'Generelle innstillinger',
-                        'title-info'     => 'Forbedre opplevelsen din med Magic AI ved å legge inn din eksklusive API-nøkkel og spesifisere den relevante organisasjonen for sømløs integrasjon. Ta kontroll over OpenAI-tilgang og tilpass innstillingene etter dine spesifikke behov.',
+                        'enabled'     => 'Aktivert',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Generelle innstillinger',
+                        'title-info'  => 'Forbedre opplevelsen din med Magic AI ved å legge inn din eksklusive API-nøkkel og spesifisere den relevante organisasjonen for sømløs integrasjon. Ta kontroll over OpenAI-tilgang og tilpass innstillingene etter dine spesifikke behov.',
                     ],
-
-                    'translation'   => [
-                        'title'                  => 'Oversettelse',
-                        'enabled'                => 'Aktivert',
-                        'title-info'             => 'Denne funksjonen aktiverer Magic AI for å oversette tekst, slik at du enkelt kan konvertere tekst fra ett språk til et annet.',
-                        'global-source-channel'  => 'Kildekanal',
-                        'global-source-locale'   => 'Kildelokale',
-                        'translation-model'      => 'Oversettelsesmodell',
-                        'replace-existing-value' => 'Erstatt eksisterende verdi',
-                        'target-channel'         => 'Målkanal',
-                        'target-locales'         => 'Mållokaler',
+                    'image-generation' => [
+                        'enabled'     => 'Enabled',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => 'Image Generation',
+                        'title-info'  => 'Configure the default AI platform and model for generating product images. Only platforms that support image generation (OpenAI, Gemini, xAI) are listed.',
+                    ],
+                    'translation' => [
+                        'title'                       => 'Oversettelse',
+                        'enabled'                     => 'Aktivert',
+                        'title-info'                  => 'Denne funksjonen aktiverer Magic AI for å oversette tekst, slik at du enkelt kan konvertere tekst fra ett språk til et annet.',
+                        'ai-platform'                 => 'Default Platform',
+                        'global-source-channel'       => 'Kildekanal',
+                        'global-source-locale'        => 'Kildelokale',
+                        'translation-model'           => 'Oversettelsesmodell',
+                        'replace-existing-value'      => 'Erstatt eksisterende verdi',
+                        'target-channel'              => 'Målkanal',
+                        'target-locales'              => 'Mållokaler',
+                        'replace-existing-value-info' => 'Replace the existing value if it already exists.',
                     ],
                 ],
             ],
         ],
-
         'integrations' => [
             'index' => [
                 'create-btn' => 'Opprett',
                 'title'      => 'Integrasjoner',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => 'Slett',
                     'edit'            => 'Rediger',
                     'id'              => 'ID',
@@ -1799,7 +1656,6 @@ return [
                     'permission-type' => 'Tillatelsestype',
                 ],
             ],
-
             'create' => [
                 'access-control' => 'Tilgangskontroll',
                 'all'            => 'Alle',
@@ -1812,7 +1668,6 @@ return [
                 'save-btn'       => 'Lagre',
                 'title'          => 'Ny integrasjon',
             ],
-
             'edit' => [
                 'access-control' => 'Tilgangskontroll',
                 'all'            => 'Alle',
@@ -1830,7 +1685,6 @@ return [
                 'save-btn'       => 'Lagre',
                 'title'          => 'Rediger integrasjon',
             ],
-
             'being-used'                     => 'API-integrasjon er allerede i bruk av Admin-bruker',
             'create-success'                 => 'API-integrasjon opprettet vellykket',
             'delete-failed'                  => 'API-integrasjon kunne ikke slettes',
@@ -1841,40 +1695,143 @@ return [
             're-generate-secret-key-success' => 'API-sikkerhetsnøkkel ble generert på nytt vellykket',
             'client-not-found'               => 'Klient ble ikke funnet',
         ],
-
         'prompt' => [
             'datagrid' => [
-                'id'            => 'ID',
-                'title'         => 'Tittel',
-                'prompt'        => 'Prompt',
-                'type'          => 'Type',
-                'created-at'    => 'Opprettet',
-                'updated-at'    => 'Oppdatert',
-                'actions'       => 'Handlinger',
-                'edit'          => 'Rediger',
-                'delete'        => 'Slett',
-                'product'       => 'Produkt',
-                'category'      => 'Kategori',
+                'id'               => 'ID',
+                'title'            => 'Tittel',
+                'prompt'           => 'Prompt',
+                'type'             => 'Type',
+                'purpose'          => 'Purpose',
+                'text-generation'  => 'Text Generation',
+                'image-generation' => 'Image Generation',
+                'translation'      => 'Translation',
+                'created-at'       => 'Opprettet',
+                'updated-at'       => 'Oppdatert',
+                'actions'          => 'Handlinger',
+                'edit'             => 'Rediger',
+                'delete'           => 'Slett',
+                'product'          => 'Produkt',
+                'category'         => 'Kategori',
             ],
             'create' => [
-                'title'         => 'Prompt',
-                'create-btn'    => 'Opprett Prompt',
-                'edit-title'    => 'Rediger Prompt',
-                'create-title'  => 'Opprett Ny Prompt',
-                'label-title'   => 'Tittel',
-                'type'          => 'Type',
-                'prompt'        => 'Prompt',
-                'save-btn'      => 'Lagre Prompt',
+                'title'        => 'Prompt',
+                'create-btn'   => 'Opprett Prompt',
+                'edit-title'   => 'Rediger Prompt',
+                'create-title' => 'Opprett Ny Prompt',
+                'label-title'  => 'Tittel',
+                'purpose'      => 'Purpose',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Lagre Prompt',
             ],
             'message' => [
-                'save-success'      => 'Prompt ble lagret.',
-                'update-success'    => 'Prompt ble oppdatert.',
-                'delete-success'    => 'Prompt ble slettet.',
-                'delete-fail'       => 'Kunne ikke slette prompt.',
+                'save-success'   => 'Prompt ble lagret.',
+                'update-success' => 'Prompt ble oppdatert.',
+                'delete-success' => 'Prompt ble slettet.',
+                'delete-fail'    => 'Kunne ikke slette prompt.',
+            ],
+        ],
+        'system-prompt' => [
+            'datagrid' => [
+                'id'          => 'ID',
+                'title'       => 'Title',
+                'tone'        => 'Tone',
+                'max-tokens'  => 'Max Tokens',
+                'temperature' => 'Temperature',
+                'status'      => 'Status',
+                'created-at'  => 'Created At',
+                'updated-at'  => 'Updated At',
+                'actions'     => 'Actions',
+                'save'        => 'Save',
+                'edit'        => 'Edit',
+                'delete'      => 'delete',
+            ],
+            'create' => [
+                'title'        => 'System Prompt',
+                'create-btn'   => 'Create System Prompt',
+                'edit-title'   => 'Edit System Prompt',
+                'create-title' => 'Create New System Prompt',
+                'label-title'  => 'Title',
+                'max-tokens'   => 'Max Output Tokens',
+                'temperature'  => 'Temperature',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Save Prompt',
+                'prompt-tone'  => 'Prompt Tone',
+            ],
+            'message' => [
+                'save-success'   => 'System Prompt saved successfully.',
+                'update-success' => 'System Prompt updated successfully.',
+                'delete-success' => 'System Prompt deleted successfully.',
+                'delete-fail'    => 'System Prompt deletion failed.',
+            ],
+        ],
+        'platform' => [
+            'title'           => 'AI Platforms',
+            'create-btn'      => 'Add Platform',
+            'create-title'    => 'Add AI Platform',
+            'edit-title'      => 'Edit AI Platform',
+            'save-btn'        => 'Save',
+            'saving'          => 'Saving',
+            'test-connection' => 'Test Connection',
+            'setup'           => [
+                'title'              => 'Get Started with Magic AI',
+                'description'        => 'Connect your AI provider to unlock content generation, image creation, and translation powered by AI. Add your first platform to begin.',
+                'step-1'             => 'Choose a provider',
+                'step-2'             => 'Enter your API key',
+                'step-3'             => 'Select models & save',
+                'add-first'          => 'Add Your First Platform',
+                'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
+                'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+            ],
+            'testing'         => 'Testing',
+            'fetch-models'    => 'Fetch Models',
+            'fetching-models' => 'Fetching',
+            'set-default'     => 'Set as Default',
+            'datagrid'        => [
+                'label'      => 'Label',
+                'provider'   => 'Provider',
+                'models'     => 'Models',
+                'default'    => 'Default',
+                'status'     => 'Status',
+                'created-at' => 'Created At',
+                'edit'       => 'Edit',
+                'delete'     => 'Delete',
+            ],
+            'fields' => [
+                'label'                    => 'Label',
+                'provider'                 => 'Provider',
+                'select-provider'          => '-- Select Provider --',
+                'api-url'                  => 'API URL',
+                'api-url-hint'             => 'Pre-filled with the default endpoint. Edit only if using a proxy or custom deployment.',
+                'api-key'                  => 'API Key',
+                'models'                   => 'Models',
+                'custom-model-placeholder' => 'Type custom model ID...',
+                'add'                      => 'Add',
+                'enter-key-to-fetch'       => 'Enter your API key above to automatically fetch available models.',
+                'search-models'            => 'Search models...',
+                'no-models-match'          => 'No models match your search.',
+                'azure-deployment'         => 'Deployment Name',
+                'azure-api-version'        => 'API Version',
+                'is-default'               => 'Set as Default',
+                'status'                   => 'Status',
+                'use-default'              => '-- Use Default Platform --',
+                'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
+                'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
+                'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+            ],
+            'message' => [
+                'save-success'          => 'Platform saved successfully.',
+                'update-success'        => 'Platform updated successfully.',
+                'delete-success'        => 'Platform deleted successfully.',
+                'delete-fail'           => 'Platform deletion failed.',
+                'cannot-delete-default' => 'Cannot delete the only default platform.',
+                'set-default-success'   => 'Platform set as default successfully.',
+                'test-success'          => 'Connection verified successfully!',
+                'test-fail'             => 'Connection test failed',
             ],
         ],
     ],
-
     'components' => [
         'layouts' => [
             'header' => [
@@ -1885,7 +1842,6 @@ return [
                 'notifications' => 'Varsler',
                 'visit-shop'    => 'Besøk butikk',
             ],
-
             'sidebar' => [
                 'attribute-families' => 'Egenskapsfamilier',
                 'attribute-groups'   => 'Egenskapsgrupper',
@@ -1919,45 +1875,37 @@ return [
                 'general-tab'        => 'Konfigurasjon',
             ],
         ],
-
         'datagrid' => [
             'index' => [
                 'no-records-selected'              => 'Ingen oppføringer valgt.',
                 'must-select-a-mass-action-option' => 'Du må velge et mass action-alternativ.',
                 'must-select-a-mass-action'        => 'Du må velge en mass action.',
             ],
-
             'toolbar' => [
-                'length-of' => ':length av',
-                'of'        => 'av',
-                'per-page'  => 'Per side',
-                'results'   => ':total Resultater',
-                'selected'  => ':total Valgt',
-
+                'length-of'    => ':length av',
+                'of'           => 'av',
+                'per-page'     => 'Per side',
+                'results'      => ':total Resultater',
+                'selected'     => ':total Valgt',
                 'mass-actions' => [
                     'submit'        => 'Sende inn',
                     'select-option' => 'Velg alternativ',
                     'select-action' => 'Velg handling',
                 ],
-
                 'filter' => [
                     'title' => 'Filter',
                 ],
-
                 'search_by' => [
                     'code'       => 'Søk etter kode',
                     'code_or_id' => 'Søk etter kode eller id',
                 ],
-
                 'search' => [
                     'title' => 'Søk',
                 ],
-
                 'manage-columns' => [
                     'title' => 'kolonner',
                 ],
             ],
-
             'filters' => [
                 'select'   => 'Velg',
                 'title'    => 'Bruk filter',
@@ -1968,17 +1916,14 @@ return [
                         'no-results'        => 'Ingen resultater funnet...',
                     ],
                 ],
-
                 'custom-filters' => [
                     'clear-all' => 'Tøm alle',
                     'title'     => 'Brukerdefinerte filtre',
                 ],
-
                 'boolean-options' => [
                     'false' => 'Falsk',
                     'true'  => 'Sann',
                 ],
-
                 'date-options' => [
                     'last-month'        => 'Siste måned',
                     'last-six-months'   => 'Siste 6 måneder',
@@ -1990,12 +1935,10 @@ return [
                     'yesterday'         => 'I går',
                 ],
             ],
-
             'table' => [
                 'actions'              => 'Handlinger',
                 'no-records-available' => 'Ingen oppføringer tilgjengelig.',
             ],
-
             'manage-columns' => [
                 'title'             => 'Administrer kolonner',
                 'available-columns' => 'Tilgjengelige kolonner',
@@ -2003,7 +1946,6 @@ return [
                 'apply-btn'         => 'Søke',
             ],
         ],
-
         'modal' => [
             'confirm' => [
                 'agree-btn'    => 'Enig',
@@ -2011,14 +1953,12 @@ return [
                 'message'      => 'Er du sikker på at du vil utføre denne handlingen?',
                 'title'        => 'Er du sikker?',
             ],
-
             'delete' => [
                 'agree-btn'    => 'Slett',
                 'disagree-btn' => 'Avbryt',
                 'message'      => 'Er du sikker på at du vil slette?',
                 'title'        => 'Bekreft sletting',
             ],
-
             'history' => [
                 'title'           => 'Historikkvisning',
                 'subtitle'        => 'Se raskt gjennom dine oppdateringer og endringer.',
@@ -2032,7 +1972,6 @@ return [
                 'no-history'      => 'Ingen historie funnet',
             ],
         ],
-
         'products' => [
             'search' => [
                 'add-btn'       => 'Legg til valgte produkt',
@@ -2044,7 +1983,6 @@ return [
                 'title'         => 'Velg produkter',
             ],
         ],
-
         'media' => [
             'images' => [
                 'add-image-btn'      => 'Legg til bilde',
@@ -2056,8 +1994,7 @@ return [
                 'allowed-types'      => 'png, jpeg, jpg',
                 'not-allowed-error'  => 'Bare bildestørrelser (.jpeg, .jpg, .png, ..) er tillatt.',
                 'upload-media-btn'   => 'Last opp medier',
-
-                'ai-generation' => [
+                'ai-generation'      => [
                     '1024x1024'        => '1024x1024',
                     '1024x1792'        => '1024x1792',
                     '1792x1024'        => '1792x1024',
@@ -2077,7 +2014,6 @@ return [
                     'standard'         => 'Standard',
                     'title'            => 'AI Bildeskaping',
                 ],
-
                 'placeholders' => [
                     'front'     => 'Front',
                     'next'      => 'Neste',
@@ -2086,23 +2022,22 @@ return [
                     'zoom'      => 'Zoom',
                 ],
             ],
-
+            'gallery' => [
+                'not-allowed-error' => 'Only image and video files are allowed. (.mp4, .jpg ..)',
+            ],
             'videos' => [
                 'add-video-btn'     => 'Legg til video',
                 'allowed-types'     => 'mp4, webm, mkv',
                 'not-allowed-error' => 'Bare videofiler (.mp4, .mov, .ogg ..) er tillatt.',
             ],
-
             'files' => [
                 'add-file-btn'      => 'Legg til fil',
                 'allowed-types'     => 'pdf',
                 'not-allowed-error' => 'Bare PDF-filer er tillatt',
             ],
         ],
-
         'tinymce' => [
-            'ai-btn-tile' => 'Magisk AI',
-
+            'ai-btn-tile'   => 'Magisk AI',
             'ai-generation' => [
                 'apply'                  => 'Bruk',
                 'generate'               => 'Generer',
@@ -2111,7 +2046,14 @@ return [
                 'generating'             => 'Genererer...',
                 'prompt'                 => 'Beskjed',
                 'title'                  => 'AI-støtte',
+                'platform'               => 'Platform',
                 'model'                  => 'Modell',
+                'rich-preview'           => 'Rich Preview',
+                'system-prompt'          => 'System Prompt',
+                'select-system-prompt'   => 'Select System Prompt',
+                'tone-instructions'      => 'Tone / Instructions',
+                'max-tokens'             => 'Max Tokens',
+                'temperature'            => 'Temperature',
                 'gpt-3-5-turbo'          => 'OpenAI gpt-3.5-turbo',
                 'llama2'                 => 'Llama 2',
                 'mistral'                => 'Mistral',
@@ -2128,7 +2070,147 @@ return [
             ],
         ],
     ],
-
+    'acl' => [
+        'addresses'                => 'Adresser',
+        'attribute-families'       => 'Attributfamilier',
+        'attribute-groups'         => 'Attributgrupper',
+        'attributes'               => 'Attributter',
+        'cancel'                   => 'Avbryt',
+        'catalog'                  => 'Katalog',
+        'categories'               => 'Kategorier',
+        'channels'                 => 'Kanaler',
+        'configure'                => 'Konfigurere',
+        'configuration'            => 'Konfigurering',
+        'copy'                     => 'Kopiere',
+        'create'                   => 'Opprette',
+        'currencies'               => 'Valutaer',
+        'dashboard'                => 'Instrumentbord',
+        'data-transfer'            => 'Dataoverføring',
+        'delete'                   => 'Slette',
+        'edit'                     => 'Redigere',
+        'email-templates'          => 'E-postmaler',
+        'events'                   => 'Hendelser',
+        'groups'                   => 'Grupper',
+        'import'                   => 'Importer',
+        'imports'                  => 'Importer',
+        'invoices'                 => 'Fakturaer',
+        'locales'                  => 'Lokaliteter',
+        'magic-ai'                 => 'Magisk AI',
+        'magic-ai-general'         => 'Generelt',
+        'magic-ai-prompt'          => 'Prompt',
+        'magic-ai-system-prompt'   => 'Systemprompt',
+        'marketing'                => 'Markedsføring',
+        'newsletter-subscriptions' => 'Nyhetsbrevabonnementer',
+        'note'                     => 'Merk',
+        'orders'                   => 'Ordrer',
+        'products'                 => 'Produkter',
+        'promotions'               => 'Kampanjer',
+        'refunds'                  => 'Tilbakebetalinger',
+        'reporting'                => 'Rapportering',
+        'reviews'                  => 'Anmeldelser',
+        'roles'                    => 'Roller',
+        'sales'                    => 'Salg',
+        'search-seo'               => 'Søking og SEO',
+        'search-synonyms'          => 'Søkesynonymer',
+        'search-terms'             => 'Søkeord',
+        'settings'                 => 'Innstillinger',
+        'shipments'                => 'Forsendelser',
+        'sitemaps'                 => 'Sitemaps',
+        'subscribers'              => 'Nyhetsbrevabonnenter',
+        'tax-categories'           => 'Skattekategorier',
+        'tax-rates'                => 'Skattesatser',
+        'taxes'                    => 'Skatter',
+        'themes'                   => 'Temaer',
+        'integration'              => 'Integrasjon',
+        'url-rewrites'             => 'URL-omskrivninger',
+        'users'                    => 'Brukere',
+        'category_fields'          => 'Kategori felt',
+        'view'                     => 'Visning',
+        'execute'                  => 'Utfør',
+        'history'                  => 'Historie',
+        'restore'                  => 'Gjenopprette',
+        'integrations'             => 'Integrasjoner',
+        'api'                      => 'API',
+        'tracker'                  => 'Jobbspor',
+        'exports'                  => 'Eksporter',
+        'mass-update'              => 'Masseoppdatering',
+        'mass-delete'              => 'Masse sletting',
+    ],
+    'errors' => [
+        'dashboard' => 'Instrumentbord',
+        'go-back'   => 'Gå tilbake',
+        'support'   => 'Hvis problemet vedvarer, kan du kontakte oss på <a href=":link" class=":class">:email</a> for hjelp.',
+        '404'       => [
+            'description' => 'Ups! Siden du leter etter er på ferie. Det ser ut som om vi ikke kunne finne det du leter etter.',
+            'title'       => '404 Siden ikke funnet',
+        ],
+        '401' => [
+            'description' => 'Ups! Det ser ut som om du ikke har tilgang til denne siden. Det ser ut som om du mangler nødvendige kredensialer.',
+            'title'       => '401 Uautorisert',
+            'message'     => 'Autentisering mislyktes på grunn av ugyldige kredensialer eller utløpt token.',
+        ],
+        '403' => [
+            'description' => 'Ups! Denne siden er utilgjengelig. Det ser ut som du ikke har tillatelse til å se dette innholdet.',
+            'title'       => '403 Forbudt',
+        ],
+        '413' => [
+            'description' => 'Ups! Det ser ut som om du prøver å laste opp en fil som er for stor. Hvis du ønsker å laste opp samme, oppdater PHP-konfigurasjonen tilsvarende.',
+            'title'       => '413 Innholdet er for stort',
+        ],
+        '419' => [
+            'description' => 'Ups! Økten din har utløpt. Vennligst oppdater siden og logg inn igjen for å fortsette.',
+            'title'       => '419 Økten har utløpt',
+        ],
+        '500' => [
+            'description' => 'Ups! Noe gikk galt. Det ser ut som vi har problemer med å laste den siden du leter etter.',
+            'title'       => '500 Intern serverfeil',
+        ],
+        '503' => [
+            'description' => 'Ups! Det ser ut som vi for øyeblikket er utilgjengelige for vedlikehold. Sjekk tilbake snart.',
+            'title'       => '503 Tjenesten utilgjengelig',
+        ],
+    ],
+    'export' => [
+        'csv'                  => 'CSV',
+        'download'             => 'Last ned',
+        'export'               => 'Hurtig eksport',
+        'no-records'           => 'Ingen poster å eksportere',
+        'xls'                  => 'XLS',
+        'xlsx'                 => 'XLSX',
+        'with-media'           => 'Med media',
+        'export-success'       => 'Eksporten var vellykket!',
+        'error'                => 'Noe gikk galt!',
+        'product-not-selected' => 'Ingen produkter valgt for hurtig eksport',
+    ],
+    'validations' => [
+        'slug-being-used' => 'Denne slagen er i bruk i enten kategorier eller produkter.',
+        'slug-reserved'   => 'Denne slagen er reservert.',
+        'invalid-locale'  => 'Ugyldige lokaliteter :locales',
+    ],
+    'footer' => [
+        'copy-right' => 'Powered by <a href="https://unopim.com/" target="_blank">UnoPim</a>, Et samfunnsprosjekt fra <a href="https://webkul.com/" target="_blank">Webkul</a>',
+    ],
+    'emails' => [
+        'dear'   => 'Dear :admin_name',
+        'thanks' => 'If you need any kind of help please contact us at <a href=":link" style=":style">:email</a>.<br/>Thanks!',
+        'admin'  => [
+            'forgot-password' => [
+                'description'    => 'You are receiving this email because we received a password reset request for your account.',
+                'greeting'       => 'Forgot Password!',
+                'reset-password' => 'Reset Password',
+                'subject'        => 'Reset Password Email',
+            ],
+        ],
+    ],
+    'common' => [
+        'yes'            => 'Ja',
+        'no'             => 'Nei',
+        'true'           => 'Sann',
+        'false'          => 'Usann',
+        'enable'         => 'Aktivert',
+        'disable'        => 'Deaktivert',
+        'no-match-found' => 'Ingen treff funnet!',
+    ],
     'default-prompt' => [
         'detailed' => [
             'title'  => 'Detaljert produktbeskrivelse',

@@ -40,14 +40,17 @@ class VisionService
 
         {
           "productType":         string,
+          "productName":         string,
           "detectedObjects":     string[],
           "colors":              string[],
+          "sizes":               string[],
           "materials":           string[],
           "patterns":            string[],
           "style":               string,
           "condition":           "new"|"used"|"damaged"|"refurbished",
           "brandIndicators":     string[],
           "suggestedCategories": string[],
+          "estimatedPriceUSD":   number|null,
           "rawDescription":      string
         }
 
@@ -55,6 +58,10 @@ class VisionService
         - If a field cannot be determined, use null (arrays → []).
         - Do not wrap the JSON in markdown fences.
         - Be specific; avoid generic terms like "object" or "item".
+        - For "productName", give a clear, marketable product name.
+        - For "sizes", detect any visible sizes (S/M/L/XL, dimensions, etc.). Use [] if not visible.
+        - For "estimatedPriceUSD", estimate a reasonable retail price in USD based on product type, brand, and quality. Use null if impossible to estimate.
+        - For "suggestedCategories", provide category paths like "Electronics > Laptops" or "Furniture > Chairs".
         PROMPT;
 
     /**
@@ -77,7 +84,7 @@ class VisionService
      * Analyze an image source string and return a populated ImageProductContext.
      *
      * @param  string  $imageContent  URL, base64 data URI, or raw base64 string
-     * @param  int     $credentialId  Credential record ID to use for this call
+     * @param  int  $credentialId  Credential record ID to use for this call
      * @param  array{
      *     systemPrompt?:  string,
      *     maxTokens?:     int,
@@ -88,28 +95,37 @@ class VisionService
      *     locale?:        string,
      * }  $options
      *
-     * @throws ApiException  When all retry attempts are exhausted
+     * @throws ApiException When all retry attempts are exhausted
      */
-    public function analyze(string $imageContent, int $credentialId, array $options = []): ImageProductContext
+    public function analyze(string $imageContent, int $credentialId = 0, ?AiApiClient $apiClient = null, array $options = []): ImageProductContext
     {
-        if ($credentialId > 0) {
+        // Use pre-configured client if provided, otherwise build from credential/config
+        if ($apiClient) {
+            $this->apiClient = $apiClient;
+            $provider = $apiClient->getProvider();
+            $model = $apiClient->getModel();
+        } elseif ($credentialId > 0) {
             $credential = $this->credentialRepository->findOrFail($credentialId);
-            $config     = CredentialConfig::fromModel($credential);
+            $config = CredentialConfig::fromModel($credential);
+            $this->apiClient->configure($config);
+            $provider = $config->provider;
+            $model = $config->model;
         } else {
             $config = $this->buildMagicAiConfig();
+            $this->apiClient->configure($config);
+            $provider = $config->provider;
+            $model = $config->model;
         }
 
-        $this->apiClient->configure($config);
-
         $systemPrompt = $options['systemPrompt'] ?? self::DEFAULT_SYSTEM_PROMPT;
-        $maxTokens    = (int) ($options['maxTokens']   ?? 2048);
-        $temperature  = (float) ($options['temperature'] ?? 0.2);
-        $maxAttempts  = (int) ($options['maxAttempts']  ?? 3);
-        $baseDelayMs  = (int) ($options['baseDelayMs']  ?? 500);
-        $capDelayMs   = (int) ($options['capDelayMs']   ?? 8_000);
-        $locale       = (string) ($options['locale']    ?? 'en');
+        $maxTokens = (int) ($options['maxTokens'] ?? 2048);
+        $temperature = (float) ($options['temperature'] ?? 0.2);
+        $maxAttempts = (int) ($options['maxAttempts'] ?? 1);
+        $baseDelayMs = (int) ($options['baseDelayMs'] ?? 300);
+        $capDelayMs = (int) ($options['capDelayMs'] ?? 2_000);
+        $locale = (string) ($options['locale'] ?? 'en');
 
-        $messages = $this->buildVisionMessages($config->provider, $imageContent, $systemPrompt, $locale);
+        $messages = $this->buildVisionMessages($provider, $imageContent, $systemPrompt, $locale);
 
         $rawResponse = $this->callWithRetry(
             fn () => $this->apiClient->chat($messages, $maxTokens, $temperature),
@@ -118,7 +134,7 @@ class VisionService
             $capDelayMs,
         );
 
-        return $this->buildContext($imageContent, $rawResponse, $config->model);
+        return $this->buildContext($imageContent, $rawResponse, $model);
     }
 
     /**
@@ -201,7 +217,7 @@ class VisionService
                 'role'    => 'user',
                 'content' => [
                     $imageBlock,
-                    ['type' => 'text', 'text' => 'Analyze this product image and return the JSON.' . $localeNote],
+                    ['type' => 'text', 'text' => 'Analyze this product image and return the JSON.'.$localeNote],
                 ],
             ],
         ];
@@ -218,7 +234,7 @@ class VisionService
             // data:image/jpeg;base64,<data>
             preg_match('#^data:([^;]+);base64,(.+)$#s', $imageContent, $m);
             $mediaType = $m[1] ?? 'image/jpeg';
-            $b64data   = $m[2] ?? '';
+            $b64data = $m[2] ?? '';
 
             $imageBlock = [
                 'type'   => 'image',
@@ -238,7 +254,7 @@ class VisionService
                 'role'    => 'user',
                 'content' => [
                     $imageBlock,
-                    ['type' => 'text', 'text' => 'Analyze this product image and return the JSON.' . $localeNote],
+                    ['type' => 'text', 'text' => 'Analyze this product image and return the JSON.'.$localeNote],
                 ],
             ],
         ];
@@ -260,7 +276,7 @@ class VisionService
             ['role' => 'system', 'content' => $systemPrompt],
             [
                 'role'    => 'user',
-                'content' => "Analyze this product image: $imageRef" . $localeNote,
+                'content' => "Analyze this product image: $imageRef".$localeNote,
             ],
         ];
     }
@@ -276,7 +292,7 @@ class VisionService
      */
     protected function buildContext(string $imageSource, array $response, string $model): ImageProductContext
     {
-        $raw      = $response['content'] ?? '';
+        $raw = $response['content'] ?? '';
         $detected = $this->parseDetections($raw);
 
         // Derive top-level DTO fields from detection data
@@ -314,7 +330,9 @@ class VisionService
     {
         $map = [
             'productType'         => 'product_type',
+            'productName'         => 'detected_name',
             'colors'              => 'color',
+            'sizes'               => 'size',
             'materials'           => 'material',
             'patterns'            => 'pattern',
             'style'               => 'style',
@@ -322,6 +340,7 @@ class VisionService
             'brandIndicators'     => 'brand',
             'suggestedCategories' => 'categories',
             'rawDescription'      => 'description',
+            'estimatedPriceUSD'   => 'estimated_price',
         ];
 
         $attributes = [];
@@ -333,12 +352,20 @@ class VisionService
 
             $value = $detected[$detectionKey];
 
-            // Join simple multi-value fields to a comma string
-            if (is_array($value) && in_array($detectionKey, ['colors', 'materials', 'patterns', 'brandIndicators'], true)) {
-                $value = implode(', ', array_filter($value));
+            // Join simple multi-value fields — take first value for single-value PIM attributes
+            if (is_array($value) && in_array($detectionKey, ['colors', 'sizes', 'materials', 'patterns', 'brandIndicators'], true)) {
+                // For color/size, use only the first detected value (PIM expects single value)
+                if (in_array($detectionKey, ['colors', 'sizes'], true)) {
+                    $value = array_filter($value);
+                    $value = ! empty($value) ? reset($value) : null;
+                } else {
+                    $value = implode(', ', array_filter($value));
+                }
             }
 
-            $attributes[$pimKey] = $value;
+            if ($value !== null && $value !== '' && $value !== []) {
+                $attributes[$pimKey] = $value;
+            }
         }
 
         return $attributes;
@@ -352,8 +379,8 @@ class VisionService
     protected function parseDetections(string $raw): array
     {
         // Strip ```json ... ``` or ``` ... ``` fences
-        $clean   = preg_replace('/^```(?:json)?\s*/m', '', $raw);
-        $clean   = preg_replace('/\s*```\s*$/m', '', $clean ?? $raw);
+        $clean = preg_replace('/^```(?:json)?\s*/m', '', $raw);
+        $clean = preg_replace('/\s*```\s*$/m', '', $clean ?? $raw);
         $decoded = json_decode(trim($clean ?? ''), true);
 
         if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
@@ -379,7 +406,7 @@ class VisionService
      * @param  callable(): T  $operation
      * @return T
      *
-     * @throws ApiException  When all attempts fail
+     * @throws ApiException When all attempts fail
      */
     protected function callWithRetry(
         callable $operation,
@@ -399,7 +426,7 @@ class VisionService
                     throw $e;
                 }
 
-                $ceilMs  = min($capDelayMs, $baseDelayMs * (2 ** $attempt));
+                $ceilMs = min($capDelayMs, $baseDelayMs * (2 ** $attempt));
                 $delayMs = random_int(0, $ceilMs);
 
                 usleep($delayMs * 1_000);
@@ -431,10 +458,10 @@ class VisionService
     protected function buildMagicAiConfig(): CredentialConfig
     {
         $platform = (string) (core()->getConfigData('general.magic_ai.settings.ai_platform') ?? 'openai');
-        $apiKey   = (string) (core()->getConfigData('general.magic_ai.settings.api_key') ?? '');
-        $models   = (string) (core()->getConfigData('general.magic_ai.settings.api_model') ?? 'gpt-4o');
-        $domain   = (string) (core()->getConfigData('general.magic_ai.settings.api_domain') ?? '');
-        $model    = trim(explode(',', $models)[0]);
+        $apiKey = (string) (core()->getConfigData('general.magic_ai.settings.api_key') ?? '');
+        $models = (string) (core()->getConfigData('general.magic_ai.settings.api_model') ?? 'gpt-4o');
+        $domain = (string) (core()->getConfigData('general.magic_ai.settings.api_domain') ?? '');
+        $model = trim(explode(',', $models)[0]);
 
         if (! $domain) {
             $domain = match ($platform) {
@@ -445,7 +472,7 @@ class VisionService
                 default  => 'https://api.openai.com/v1',
             };
         } elseif (! preg_match('#^https?://#i', $domain)) {
-            $domain = 'https://' . $domain;
+            $domain = 'https://'.$domain;
         }
 
         return new CredentialConfig(

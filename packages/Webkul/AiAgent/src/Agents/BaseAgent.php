@@ -44,7 +44,6 @@ abstract class BaseAgent
      * @param  int  $agentId  Agent configuration ID
      * @param  int  $credentialId  AI credential ID
      * @param  array<string, mixed>  $context  Extra context
-     * @return AgentResult
      */
     public function execute(
         mixed $input,
@@ -65,11 +64,7 @@ abstract class BaseAgent
     /**
      * Execute the agent asynchronously (queued).
      *
-     * @param  mixed  $input
-     * @param  int  $agentId
-     * @param  int  $credentialId
      * @param  array<string, mixed>  $context
-     * @return void
      */
     public function executeAsync(
         mixed $input,

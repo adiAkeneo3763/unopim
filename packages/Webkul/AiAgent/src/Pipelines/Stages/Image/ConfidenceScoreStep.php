@@ -37,13 +37,15 @@ class ConfidenceScoreStep implements PipelineStageContract
      * Per-origin base confidence values.
      */
     protected const SCORE_VISION_DIRECT = 0.90;
-    protected const SCORE_AI_ENRICHED   = 0.65;
-    protected const SCORE_DEFAULT       = 0.35;
+
+    protected const SCORE_AI_ENRICHED = 0.65;
+
+    protected const SCORE_DEFAULT = 0.35;
 
     /**
      * Attributes that are inherently hard to assess visually get a cap.
      *
-     * @var array<string, float>  attribute_code → max_score
+     * @var array<string, float> attribute_code → max_score
      */
     protected const VISUAL_CONFIDENCE_CAPS = [
         'meta_title'        => 0.75,
@@ -69,15 +71,15 @@ class ConfidenceScoreStep implements PipelineStageContract
             );
         }
 
-        $threshold       = (float) ($payload->context['confidenceThreshold'] ?? 0.6);
-        $enrichedKeys    = (array) ($payload->metadata['enrichedKeys'] ?? []);
+        $threshold = (float) ($payload->context['confidenceThreshold'] ?? 0.6);
+        $enrichedKeys = (array) ($payload->metadata['enrichedKeys'] ?? []);
         $visionDetection = (array) ($payload->metadata['visionDetections'] ?? []);
 
         // Build the set of keys that came from direct vision output
         $visionMappedKeys = $this->resolveVisionMappedKeys($visionDetection);
 
-        $scores           = [];
-        $lowConfidence    = [];
+        $scores = [];
+        $lowConfidence = [];
 
         foreach ($enriched as $key => $value) {
             $score = $this->scoreField($key, $value, $visionMappedKeys, $enrichedKeys);
@@ -89,7 +91,7 @@ class ConfidenceScoreStep implements PipelineStageContract
             }
         }
 
-        $overall        = empty($scores) ? 0.0 : array_sum($scores) / count($scores);
+        $overall = empty($scores) ? 0.0 : array_sum($scores) / count($scores);
         $requiresReview = ! empty($lowConfidence);
 
         $ctx = ImageProductContext::fromArray($payload->metadata['imageContext'] ?? [])
@@ -107,7 +109,6 @@ class ConfidenceScoreStep implements PipelineStageContract
     /**
      * Compute the confidence score for a single attribute field.
      *
-     * @param  mixed          $value
      * @param  array<string>  $visionMappedKeys
      * @param  array<string>  $enrichedKeys
      */
@@ -137,8 +138,6 @@ class ConfidenceScoreStep implements PipelineStageContract
 
     /**
      * Return a multiplier (0.5 – 1.0) based on value quality heuristics.
-     *
-     * @param  mixed  $value
      */
     protected function qualityFactor(mixed $value): float
     {
@@ -151,7 +150,7 @@ class ConfidenceScoreStep implements PipelineStageContract
             return count($value) === 1 ? 0.8 : 1.0;
         }
 
-        $str    = (string) $value;
+        $str = (string) $value;
         $length = mb_strlen(strip_tags($str));
 
         return match (true) {

@@ -12,9 +12,10 @@ return [
     'type'                         => ':attribute 必须是有效类型。',
     'validation-type'              => ':attribute 必须是有效类型。',
     'field-option-not-found'       => ':attribute 包含无效选项 :invalid_codes。',
-    'boolean-string'               => '此值必须是表示为 真的 或 错误的 的布尔字符串',
+    'boolean-string'               => ':attribute 此值必须是表示为 真的 或 错误的 的布尔字符串',
     'not-supported'                => ':attribute 不支持以下值 (:unsupported)。',
     'seperator-not-supported'      => '仅支持 , 或 ; 或 | 作为分隔符。',
     'file-type'                    => '文件必须为 csv、xls、xlsx 类型',
-    'file-mime-extension-mismatch' => '文件扩展名和 MIME 类型不匹配。文件扩展名是 :extension，MIME 类型是 :mimeType。',
+    'file-mime-extension-mismatch' => ':attribute 文件扩展名和 MIME 类型不匹配。文件扩展名是 :extension，MIME 类型是 :mimeType。',
+    'file-not-exists'              => 'The selected file does not exist :value for the field :attribute.',
 ];

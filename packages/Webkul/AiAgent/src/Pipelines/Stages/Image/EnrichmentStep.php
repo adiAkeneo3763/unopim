@@ -66,7 +66,7 @@ class EnrichmentStep implements PipelineStageContract
         // Allow callers to skip enrichment for lightweight runs
         if ($payload->context['skipEnrichment'] ?? false) {
             $mapped = $payload->metadata['mappedAttributes'] ?? [];
-            $ctx    = ImageProductContext::fromArray($payload->metadata['imageContext'] ?? []);
+            $ctx = ImageProductContext::fromArray($payload->metadata['imageContext'] ?? []);
 
             return $next($payload->withMetadata([
                 'imageContext'       => $ctx->toArray(),
@@ -103,14 +103,14 @@ class EnrichmentStep implements PipelineStageContract
         }
 
         $credential = $this->credentialRepository->findOrFail($payload->credentialId);
-        $config     = CredentialConfig::fromModel($credential);
+        $config = CredentialConfig::fromModel($credential);
 
         $this->apiClient->configure($config);
 
-        $locale   = $payload->context['enrichLocale'] ?? 'en_US';
+        $locale = $payload->context['enrichLocale'] ?? 'en_US';
         $messages = $this->buildMessages($mapped, array_values($missingTargets), $locale);
 
-        $response  = $this->apiClient->chat(messages: $messages, maxTokens: 2048, temperature: 0.6);
+        $response = $this->apiClient->chat(messages: $messages, maxTokens: 2048, temperature: 0.6);
         $generated = $this->parseGenerated($response['content'] ?? '');
 
         // Merge: existing mapped values take priority; generated fills gaps
@@ -131,13 +131,13 @@ class EnrichmentStep implements PipelineStageContract
      * Build the message array for the enrichment call.
      *
      * @param  array<string, mixed>  $existingAttributes
-     * @param  array<string>         $missingKeys
+     * @param  array<string>  $missingKeys
      * @return array<int, array{role: string, content: string}>
      */
     protected function buildMessages(array $existingAttributes, array $missingKeys, string $locale): array
     {
         $existingJson = json_encode($existingAttributes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        $targetKeys   = json_encode($missingKeys);
+        $targetKeys = json_encode($missingKeys);
 
         return [
             [
@@ -172,8 +172,8 @@ class EnrichmentStep implements PipelineStageContract
      */
     protected function parseGenerated(string $raw): array
     {
-        $clean   = preg_replace('/^```(?:json)?\s*/m', '', $raw);
-        $clean   = preg_replace('/\s*```$/m', '', $clean ?? $raw);
+        $clean = preg_replace('/^```(?:json)?\s*/m', '', $raw);
+        $clean = preg_replace('/\s*```$/m', '', $clean ?? $raw);
         $decoded = json_decode(trim($clean ?? ''), true);
 
         return (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) ? $decoded : [];

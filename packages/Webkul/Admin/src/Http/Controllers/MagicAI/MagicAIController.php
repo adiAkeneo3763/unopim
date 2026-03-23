@@ -12,6 +12,7 @@ use Webkul\MagicAI\Facades\MagicAI;
 use Webkul\MagicAI\Jobs\SaveTranslatedAllAttributesJob;
 use Webkul\MagicAI\Jobs\SaveTranslatedDataJob;
 use Webkul\MagicAI\Models\MagicAISystemPrompt;
+use Webkul\MagicAI\Repository\MagicAIPlatformRepository;
 use Webkul\MagicAI\Repository\MagicAISystemPromptRepository;
 use Webkul\MagicAI\Repository\MagicPromptRepository;
 use Webkul\MagicAI\Services\AIModel;
@@ -27,6 +28,7 @@ class MagicAIController extends Controller
         protected CategoryFieldRepository $categoryFieldRepository,
         protected MagicPromptRepository $magicPromptRepository,
         protected MagicAISystemPromptRepository $magicAiSystemPromptRepository,
+        protected MagicAIPlatformRepository $platformRepository,
         protected Prompt $promptService,
     ) {}
 
@@ -36,8 +38,19 @@ class MagicAIController extends Controller
     public function model(): JsonResponse
     {
         try {
+            $platformId = request()->input('platform_id');
+            $type = request()->input('type'); // 'image' to filter image models
+
+            $models = $platformId
+                ? AIModel::getModelsForPlatform((int) $platformId)
+                : AIModel::getModels();
+
+            if ($type === 'image') {
+                $models = AIModel::filterImageModels($models, $platformId ? (int) $platformId : null);
+            }
+
             return new JsonResponse([
-                'models'  => AIModel::getModels(),
+                'models'  => $models,
                 'message' => trans('admin::app.catalog.products.index.magic-ai-validate-success'),
             ]);
         } catch (\Exception $e) {
@@ -52,10 +65,6 @@ class MagicAIController extends Controller
      */
     public function validateCredential(): JsonResponse
     {
-        $this->validate(request(), [
-            'api_domain' => 'required',
-        ]);
-
         try {
             return new JsonResponse([
                 'models'  => AIModel::validate(),
@@ -75,6 +84,16 @@ class MagicAIController extends Controller
     {
         return new JsonResponse([
             'models' => AIModel::getAvailableModels(),
+        ]);
+    }
+
+    /**
+     * Get active platforms with their models for frontend dropdown.
+     */
+    public function platforms(): JsonResponse
+    {
+        return new JsonResponse([
+            'platforms' => $this->platformRepository->getActivePlatformOptions(),
         ]);
     }
 
@@ -103,7 +122,7 @@ class MagicAIController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Generate AI content.
      */
     public function content(): JsonResponse
     {
@@ -117,7 +136,22 @@ class MagicAIController extends Controller
             $prompt = request()->input('prompt');
             $tone = request()->input('tone');
 
-            $toneData = MagicAISystemPrompt::where('id', $tone)->first(['tone', 'temperature', 'max_tokens']);
+            // Use editable values if provided, otherwise fall back to system prompt record
+            $systemPromptText = request()->input('system_prompt_text');
+            $temperature = request()->input('temperature');
+            $maxTokens = request()->input('max_tokens');
+
+            if ($systemPromptText !== null) {
+                $toneText = $systemPromptText;
+                $temperature = (float) ($temperature ?? 0.7);
+                $maxTokens = (int) ($maxTokens ?? 1054);
+            } else {
+                $toneData = MagicAISystemPrompt::where('id', $tone)->first(['tone', 'temperature', 'max_tokens']);
+                $toneText = $toneData->tone;
+                $temperature = $toneData->temperature;
+                $maxTokens = $toneData->max_tokens;
+            }
+
             $prompt .= "\n\nGenerated content should be in {$locale}.";
 
             $prompt = $this->promptService->getPrompt(
@@ -125,11 +159,14 @@ class MagicAIController extends Controller
                 request()->input('resource_id'),
                 request()->input('resource_type')
             );
-            $response = MagicAI::setModel(request()->input('model'))
-                ->setPlatForm(core()->getConfigData('general.magic_ai.settings.ai_platform'))
-                ->setTemperature($toneData->temperature)
-                ->setMaxTokens($toneData->max_tokens)
-                ->setSystemPrompt($toneData->tone)
+
+            $magicAi = $this->resolvePlatform();
+
+            $response = $magicAi
+                ->setModel(request()->input('model'))
+                ->setTemperature($temperature)
+                ->setMaxTokens($maxTokens)
+                ->setSystemPrompt($toneText)
                 ->setPrompt($prompt)
                 ->ask();
 
@@ -141,7 +178,7 @@ class MagicAIController extends Controller
 
             $message = $e->getMessage();
 
-            if (str_contains($message, 'cURL error 28')) {
+            if (str_contains($message, 'cURL error 28') || str_contains($message, 'timed out')) {
                 $message = 'The AI response is taking longer than expected. Please try again.';
             }
 
@@ -152,39 +189,15 @@ class MagicAIController extends Controller
     }
 
     /**
-     * Generate a Image.
+     * Generate an image.
      */
     public function image(): JsonResponse
     {
-        $model = request()->input('model');
-
-        $platform = str_starts_with($model, 'gemini')
-            ? 'gemini'
-            : 'openai';
-
-        config([
-            'openai.api_key'      => core()->getConfigData('general.magic_ai.settings.api_key'),
-            'openai.organization' => core()->getConfigData('general.magic_ai.settings.organization'),
-            'gemini.api_key'      => core()->getConfigData('general.magic_ai.settings.gemini_api_key'),
-        ]);
-
-        $baseRules = [
+        $this->validate(request(), [
             'prompt' => 'required|string',
-            'model'  => 'required|in:dall-e-2,dall-e-3,gpt-image-1.5,gpt-image-1,gpt-image-1-mini,gemini-3-pro-image-preview,gemini-2.5-flash-image',
+            'model'  => 'required|string',
             'size'   => 'required|in:1024x1024,1024x1792,1792x1024',
-        ];
-
-        $openAiRules = [
-            'n'       => 'required_if:model,dall-e-2|integer|min:1|max:10',
-            'quality' => 'required_if:model,dall-e-3|in:standard,hd',
-        ];
-
-        $this->validate(
-            request(),
-            $platform === 'openai'
-                ? array_merge($baseRules, $openAiRules)
-                : $baseRules
-        );
+        ]);
 
         try {
             $prompt = $this->promptService->getPrompt(
@@ -193,13 +206,12 @@ class MagicAIController extends Controller
                 request()->input('resource_type')
             );
 
-            $options = match ($platform) {
-                'openai' => request()->only(['n', 'size', 'quality']),
-                'gemini' => request()->only(['size']),
-            };
+            $options = request()->only(['n', 'size', 'quality']);
 
-            $images = MagicAI::setModel($model)
-                ->setPlatForm($platform)
+            $magicAi = $this->resolvePlatform();
+
+            $images = $magicAi
+                ->setModel(request()->input('model'))
                 ->setPrompt($prompt)
                 ->images($options);
 
@@ -215,14 +227,22 @@ class MagicAIController extends Controller
 
     public function defaultPrompt()
     {
-        if (request()->field == 'category_field') {
-            $prompts = $this->magicPromptRepository->where('type', 'category')->select('prompt', 'title')->get();
+        $type = request()->input('entity_type', 'product');
+        $purpose = request()->input('purpose', 'text_generation');
 
-            return new JsonResponse([
-                'prompts' => $prompts,
-            ]);
+        if (request()->field == 'category_field') {
+            $type = 'category';
         }
-        $prompts = $this->magicPromptRepository->where('type', 'product')->select('prompt', 'title')->get();
+
+        $query = $this->magicPromptRepository
+            ->where('purpose', $purpose);
+
+        // For text_generation, filter by entity type (product/category)
+        if ($purpose === 'text_generation') {
+            $query->where('type', $type);
+        }
+
+        $prompts = $query->select('prompt', 'title')->get();
 
         return new JsonResponse([
             'prompts' => $prompts,
@@ -238,15 +258,13 @@ class MagicAIController extends Controller
         return view('admin::configuration.magic-ai-prompt.index');
     }
 
-    /**
-     * Merge tone with prompt and send the final prompt to the function.
-     */
     public function store(): JsonResponse
     {
         $this->validate(request(), [
             'prompt'    => 'required',
             'title'     => 'required',
             'type'      => 'required',
+            'purpose'   => 'required|in:text_generation,image_generation',
             'tone'      => 'nullable',
         ]);
 
@@ -254,6 +272,7 @@ class MagicAIController extends Controller
             'prompt',
             'title',
             'type',
+            'purpose',
             'tone',
         ]);
 
@@ -279,10 +298,11 @@ class MagicAIController extends Controller
             'prompt'    => 'required',
             'title'     => 'required',
             'type'      => 'required',
+            'purpose'   => 'required|in:text_generation,image_generation',
             'tone'      => 'nullable',
         ]);
 
-        $data = request()->only(['prompt', 'title', 'type', 'tone']);
+        $data = request()->only(['prompt', 'title', 'type', 'purpose', 'tone']);
         $this->magicPromptRepository->update($data, request()->id);
 
         return new JsonResponse([
@@ -327,6 +347,9 @@ class MagicAIController extends Controller
         $field = request()->input('field');
         $targetLocales = explode(',', request()->input('targetLocale'));
         $translatedData = [];
+
+        $magicAi = $this->resolveTranslationPlatform();
+
         foreach ($targetLocales as $locale) {
             $p = "Translate @$field into $locale. Return only the translated value wrapped in a single <p> tag. Do not include any additional text, descriptions, or explanations.";
             $prompt = $this->promptService->getPrompt(
@@ -335,8 +358,8 @@ class MagicAIController extends Controller
                 request()->input('resource_type')
             );
 
-            $response = MagicAI::setModel(request()->input('model'))
-                ->setPlatForm(core()->getConfigData('general.magic_ai.settings.ai_platform'))
+            $response = $magicAi
+                ->setModel(request()->input('model'))
                 ->setPrompt($prompt)
                 ->ask();
             preg_match_all('/<p>(.*?)<\/p>/', $response, $matches);
@@ -409,14 +432,13 @@ class MagicAIController extends Controller
         ];
 
         $targetLocales = explode(',', request()->input('targetLocale'));
+        $magicAi = $this->resolveTranslationPlatform();
 
         foreach ($targetLocales as $locale) {
             $translatedDataForLocale = [];
 
             foreach ($attributes as $key => $attribute) {
                 $field = $attribute['fieldName'];
-
-                $value = null;
 
                 $p = "Translate @$field into $locale. Return only the translated value wrapped in a single <p> tag. Do not include any additional text, descriptions, or explanations.";
 
@@ -426,8 +448,8 @@ class MagicAIController extends Controller
                     request()->input('resource_type')
                 );
 
-                $response = MagicAI::setModel(request()->input('model'))
-                    ->setPlatForm(core()->getConfigData('general.magic_ai.settings.ai_platform'))
+                $response = $magicAi
+                    ->setModel(request()->input('model'))
                     ->setPrompt($prompt)
                     ->ask();
 
@@ -455,5 +477,48 @@ class MagicAIController extends Controller
         SaveTranslatedAllAttributesJob::dispatch($productId, $translatedValues, $channel);
 
         return response()->json(['message' => trans('admin::app.catalog.products.edit.translate.tranlated-job-processed')]);
+    }
+
+    /**
+     * Resolve the platform from request or use default.
+     */
+    protected function resolvePlatform(): \Webkul\MagicAI\MagicAI
+    {
+        $platformId = request()->input('platform_id');
+
+        if ($platformId && $platformId !== '0') {
+            return MagicAI::setPlatformId((int) $platformId);
+        }
+
+        // Check if a specific platform is configured for text generation
+        $configPlatformId = core()->getConfigData('general.magic_ai.settings.ai_platform');
+
+        if ($configPlatformId && $configPlatformId !== '0') {
+            return MagicAI::setPlatformId((int) $configPlatformId);
+        }
+
+        return MagicAI::useDefault();
+    }
+
+    /**
+     * Resolve the translation platform from config or fall back to default.
+     */
+    protected function resolveTranslationPlatform(): \Webkul\MagicAI\MagicAI
+    {
+        // Check if user overrode platform from product edit page
+        $requestPlatformId = request()->input('platform_id');
+
+        if ($requestPlatformId && $requestPlatformId !== '0') {
+            return MagicAI::setPlatformId((int) $requestPlatformId);
+        }
+
+        // Otherwise use translation config setting
+        $translationPlatformId = core()->getConfigData('general.magic_ai.translation.ai_platform');
+
+        if ($translationPlatformId && $translationPlatformId !== '0') {
+            return MagicAI::setPlatformId((int) $translationPlatformId);
+        }
+
+        return MagicAI::useDefault();
     }
 }

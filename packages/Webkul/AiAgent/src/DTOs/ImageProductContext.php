@@ -20,14 +20,14 @@ namespace Webkul\AiAgent\DTOs;
 final class ImageProductContext
 {
     /**
-     * @param  string|null                  $imagePath        Resolved local path or remote URL of the image.
-     * @param  string|null                  $detectedProduct  Product type / name inferred by the vision AI.
-     * @param  array<string, mixed>         $attributes       PIM attribute map (code → value) after mapping stage.
-     * @param  string|null                  $category         Primary PIM category code suggested for the product.
-     * @param  array<string, mixed>         $enrichment       AI-generated fields added during the enrichment stage.
-     * @param  array<string, float>         $confidence       Per-attribute confidence scores (0.0 – 1.0).
-     * @param  string|null                  $rawAiResponse    Raw text response returned by the vision AI call.
-     * @param  int|string|null              $productId        ID of the product draft created in the final stage.
+     * @param  string|null  $imagePath  Resolved local path or remote URL of the image.
+     * @param  string|null  $detectedProduct  Product type / name inferred by the vision AI.
+     * @param  array<string, mixed>  $attributes  PIM attribute map (code → value) after mapping stage.
+     * @param  string|null  $category  Primary PIM category code suggested for the product.
+     * @param  array<string, mixed>  $enrichment  AI-generated fields added during the enrichment stage.
+     * @param  array<string, float>  $confidence  Per-attribute confidence scores (0.0 – 1.0).
+     * @param  string|null  $rawAiResponse  Raw text response returned by the vision AI call.
+     * @param  int|string|null  $productId  ID of the product draft created in the final stage.
      */
     public function __construct(
         public readonly ?string $imagePath = null,
@@ -172,8 +172,6 @@ final class ImageProductContext
 
     /**
      * Set the persisted product draft ID.
-     *
-     * @param  int|string  $productId
      */
     public function withProductId(int|string $productId): self
     {

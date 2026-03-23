@@ -4,12 +4,13 @@ namespace Webkul\AiAgent\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 use Webkul\AiAgent\Contracts\AgentExecution as AgentExecutionContract;
 use Webkul\HistoryControl\Interfaces\PresentableHistoryInterface;
 use Webkul\HistoryControl\Traits\HistoryTrait;
 
-class AgentExecution extends Model implements AuditableContract, AgentExecutionContract, PresentableHistoryInterface
+class AgentExecution extends Model implements AgentExecutionContract, AuditableContract, PresentableHistoryInterface
 {
     use HasFactory, HistoryTrait;
 
@@ -76,7 +77,7 @@ class AgentExecution extends Model implements AuditableContract, AgentExecutionC
     /**
      * Get the agent that owns this execution.
      */
-    public function agent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function agent(): BelongsTo
     {
         return $this->belongsTo(Agent::class, 'agentId');
     }
@@ -84,7 +85,7 @@ class AgentExecution extends Model implements AuditableContract, AgentExecutionC
     /**
      * Get the credential used for this execution.
      */
-    public function credential(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function credential(): BelongsTo
     {
         return $this->belongsTo(Credential::class, 'credentialId');
     }

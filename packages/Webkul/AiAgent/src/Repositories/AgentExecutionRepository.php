@@ -19,7 +19,6 @@ class AgentExecutionRepository extends Repository
      * Log a new execution record.
      *
      * @param  array<string, mixed>  $data
-     * @return AgentExecution
      */
     public function logExecution(array $data): AgentExecution
     {

@@ -74,16 +74,16 @@ class CreateProductDraftStep implements PipelineStageContract
      */
     protected function buildDraft(AgentPayload $payload, array $enriched): array
     {
-        $requiresReview    = (bool) ($payload->metadata['requiresReview'] ?? false);
-        $lowConfidence     = (array) ($payload->metadata['lowConfidenceFields'] ?? []);
+        $requiresReview = (bool) ($payload->metadata['requiresReview'] ?? false);
+        $lowConfidence = (array) ($payload->metadata['lowConfidenceFields'] ?? []);
         $overallConfidence = (float) ($payload->metadata['overallConfidence'] ?? 0.0);
 
         $callerStatus = $payload->context['draftStatus'] ?? null;
-        $status       = $callerStatus ?? ($requiresReview ? 'pending_review' : 'draft');
+        $status = $callerStatus ?? ($requiresReview ? 'pending_review' : 'draft');
 
-        $sku         = $payload->context['sku'] ?? $this->generateSku($enriched);
+        $sku = $payload->context['sku'] ?? $this->generateSku($enriched);
         $channelCode = $payload->context['channelCode'] ?? 'default';
-        $localeCode  = $payload->context['localeCode'] ?? 'en_US';
+        $localeCode = $payload->context['localeCode'] ?? 'en_US';
 
         return [
             'sku'         => $sku,
@@ -94,15 +94,15 @@ class CreateProductDraftStep implements PipelineStageContract
             'imageSource' => $payload->metadata['imageSource'] ?? null,
             'attributes'  => $enriched,
             'aiMeta'      => [
-                'agentId'          => $payload->agentId,
-                'credentialId'     => $payload->credentialId,
-                'overallConfidence'=> $overallConfidence,
+                'agentId'             => $payload->agentId,
+                'credentialId'        => $payload->credentialId,
+                'overallConfidence'   => $overallConfidence,
                 'lowConfidenceFields' => $lowConfidence,
-                'confidenceScores' => $payload->metadata['confidenceScores'] ?? [],
-                'visionModel'      => $payload->metadata['visionModel'] ?? null,
-                'enrichedKeys'     => $payload->metadata['enrichedKeys'] ?? [],
-                'requiresReview'   => $requiresReview,
-                'createdAt'        => now()->toISOString(),
+                'confidenceScores'    => $payload->metadata['confidenceScores'] ?? [],
+                'visionModel'         => $payload->metadata['visionModel'] ?? null,
+                'enrichedKeys'        => $payload->metadata['enrichedKeys'] ?? [],
+                'requiresReview'      => $requiresReview,
+                'createdAt'           => now()->toISOString(),
             ],
         ];
     }
@@ -116,14 +116,13 @@ class CreateProductDraftStep implements PipelineStageContract
      * ProductDraftRepository should override this method.
      *
      * @param  array<string, mixed>  $draft
-     * @return int|string
      */
     protected function persist(array $draft): int|string
     {
         // Primary path: resolve a Webkul product draft repository if bound
         if (app()->bound('Webkul\Product\Repositories\ProductDraftRepository')) {
             /** @var object $repo */
-            $repo  = app('Webkul\Product\Repositories\ProductDraftRepository');
+            $repo = app('Webkul\Product\Repositories\ProductDraftRepository');
             $model = $repo->create($draft);
 
             return $model->id;
@@ -131,7 +130,7 @@ class CreateProductDraftStep implements PipelineStageContract
 
         // Fallback: persist inside wk_ai_agent_executions.extras
         // (recorded by LogExecutionStage) — return a deterministic pseudo-ID
-        return 'draft_' . md5($draft['sku'] . ($draft['aiMeta']['createdAt'] ?? ''));
+        return 'draft_'.md5($draft['sku'].($draft['aiMeta']['createdAt'] ?? ''));
     }
 
     /**
@@ -146,6 +145,6 @@ class CreateProductDraftStep implements PipelineStageContract
         $slug = strtolower(preg_replace('/[^A-Za-z0-9]+/', '-', (string) $base) ?? 'product');
         $slug = trim($slug, '-');
 
-        return substr($slug, 0, 40) . '-' . strtoupper(substr(md5(uniqid('', true)), 0, 6));
+        return substr($slug, 0, 40).'-'.strtoupper(substr(md5(uniqid('', true)), 0, 6));
     }
 }

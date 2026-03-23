@@ -52,6 +52,8 @@
 
                         <p v-html="record.type"></p>
 
+                        <p v-html="record.purpose"></p>
+
                         <p v-html="record.created_at"></p>
                         <p v-html="record.updated_at"></p>
 
@@ -116,7 +118,25 @@
                                     <x-admin::form.control-group.error control-name="title" />
                                 </x-admin::form.control-group>
 
-                                <!-- Type Input -->
+                                <!-- Purpose (Action) -->
+                                <x-admin::form.control-group>
+                                    <x-admin::form.control-group.label class="required">
+                                        @lang('admin::app.configuration.prompt.create.purpose')
+                                    </x-admin::form.control-group.label>
+
+                                    <select
+                                        id="purpose"
+                                        name="purpose"
+                                        v-model="purpose"
+                                        class="w-full py-2.5 px-3 border rounded-md text-sm text-gray-600 dark:text-gray-300 transition-all hover:border-gray-400 dark:bg-cherry-800 dark:border-cherry-800 dark:hover:border-gray-400"
+                                    >
+                                        <option value="text_generation">Text Generation</option>
+                                        <option value="image_generation">Image Generation</option>
+                                    </select>
+                                    <x-admin::form.control-group.error control-name="purpose" />
+                                </x-admin::form.control-group>
+
+                                <!-- Entity Type (Product/Category) -->
                                 <x-admin::form.control-group>
                                     <x-admin::form.control-group.label class="required">
                                     @lang('admin::app.configuration.prompt.create.type')
@@ -133,7 +153,7 @@
                                         }
                                         $optionsInJson = json_encode($options);
                                     @endphp
-                                    
+
                                     <x-admin::form.control-group.control
                                         type="select"
                                         id="type"
@@ -148,7 +168,7 @@
                                     >
                                     </x-admin::form.control-group.control>
 
-                                    <x-admin::form.control-group.error control-name="section" />
+                                    <x-admin::form.control-group.error control-name="type" />
                                 </x-admin::form.control-group>
 
 
@@ -252,6 +272,7 @@
                         selectedPrompt: 0,
                         title: null,
                         type: null,
+                        purpose: 'text_generation',
                         id: null,
                         entityName: null,
                         tone: @json($defaultPrompt),
@@ -365,6 +386,7 @@
                                 this.title = data.title;
                                 this.ai.prompt = data.prompt;
                                 this.type = data.type;
+                                this.purpose = data.purpose || 'text_generation';
                                 this.tone = data.tone;
                                 this.$refs.promptUpdateOrCreateModal.toggle();
                                 this.toggleMagicAIModal();
@@ -374,6 +396,7 @@
                     resetForm() {
                         this.title = null;
                         this.type = "product";
+                        this.purpose = "text_generation";
                         this.ai.prompt = '';
                         this.id = null;
                         this.entityName = null;

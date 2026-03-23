@@ -58,6 +58,15 @@ class ProductCompletenessJob implements ShouldQueue
             ->findWhereIn('id', $this->productIds)
             ->keyBy('id');
 
+        if (app()->environment('testing')) {
+            \Log::debug('CompletenessJob', [
+                'productIds'    => $this->productIds,
+                'productsFound' => $products->keys()->toArray(),
+                'channelCount'  => count($this->channels),
+                'channels'      => collect($this->channels)->map(fn ($c) => ['id' => $c['id'], 'code' => $c['code'], 'locales' => count($c['locales'])])->toArray(),
+            ]);
+        }
+
         $scoreRows = [];
         $avgScores = [];
         $deleteQueue = [];

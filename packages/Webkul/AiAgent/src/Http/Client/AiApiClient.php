@@ -25,12 +25,28 @@ class AiApiClient
      */
     public function configure(CredentialConfig $config): static
     {
-        $this->baseUrl  = preg_replace('#/v\d+/?$#', '', rtrim($config->apiUrl, '/'));
-        $this->apiKey   = $config->apiKey;
-        $this->model    = $config->model;
+        $this->baseUrl = preg_replace('#/v\d+/?$#', '', rtrim($config->apiUrl, '/'));
+        $this->apiKey = $config->apiKey;
+        $this->model = $config->model;
         $this->provider = $config->provider;
 
         return $this;
+    }
+
+    /**
+     * Get the configured provider name.
+     */
+    public function getProvider(): string
+    {
+        return $this->provider;
+    }
+
+    /**
+     * Get the configured model name.
+     */
+    public function getModel(): string
+    {
+        return $this->model;
     }
 
     /**
@@ -86,7 +102,7 @@ class AiApiClient
         $headers = [
             'Content-Type: application/json',
             'Accept: application/json',
-            'Authorization: Bearer ' . $this->apiKey,
+            'Authorization: Bearer '.$this->apiKey,
         ];
 
         $options = [
@@ -98,21 +114,21 @@ class AiApiClient
         ];
 
         if ($method === 'POST' && $data !== null) {
-            $options[CURLOPT_POST]       = true;
+            $options[CURLOPT_POST] = true;
             $options[CURLOPT_POSTFIELDS] = json_encode($data);
         }
 
         curl_setopt_array($ch, $options);
 
-        $response   = curl_exec($ch);
-        $httpCode   = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $curlError  = curl_error($ch);
-        $curlErrno  = curl_errno($ch);
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
+        $curlErrno = curl_errno($ch);
 
         curl_close($ch);
 
         if ($curlErrno) {
-            throw new ApiException('cURL error: ' . $curlError, $curlErrno);
+            throw new ApiException('cURL error: '.$curlError, $curlErrno);
         }
 
         $decoded = json_decode($response, true);
@@ -120,7 +136,7 @@ class AiApiClient
         if ($httpCode >= 400) {
             $errorMsg = $decoded['error']['message'] ?? $decoded['message'] ?? 'Unknown API error';
 
-            throw new ApiException('AI API error (' . $httpCode . '): ' . $errorMsg, $httpCode);
+            throw new ApiException('AI API error ('.$httpCode.'): '.$errorMsg, $httpCode);
         }
 
         return $decoded ?? [];
@@ -132,8 +148,8 @@ class AiApiClient
     protected function getChatEndpoint(): string
     {
         return match ($this->provider) {
-            'anthropic' => $this->baseUrl . '/v1/messages',
-            default     => $this->baseUrl . '/v1/chat/completions',
+            'anthropic' => $this->baseUrl.'/v1/messages',
+            default     => $this->baseUrl.'/v1/chat/completions',
         };
     }
 
@@ -153,10 +169,10 @@ class AiApiClient
                 'system'     => $this->extractSystemMessage($messages),
             ],
             default => [
-                'model'                => $this->model,
-                'messages'             => $messages,
+                'model'                 => $this->model,
+                'messages'              => $messages,
                 'max_completion_tokens' => $maxTokens,
-                'temperature'          => $temperature,
+                'temperature'           => $temperature,
             ],
         };
     }

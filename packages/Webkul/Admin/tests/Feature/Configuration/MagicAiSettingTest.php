@@ -23,10 +23,7 @@ it('should save and update the settings for magic ai', function () {
     $configData = json_encode(current($configData));
 
     $fields = [
-        'enabled'      => '1',
-        'api_key'      => 'test-saved-value',
-        'organization' => 'org-9',
-        'api_domain'   => 'demo.demo.com',
+        'enabled' => '1',
     ];
 
     $data['general']['magic_ai']['settings'] = $fields;
@@ -42,8 +39,8 @@ it('should save and update the settings for magic ai', function () {
     $response->assertSessionHas('success', trans('admin::app.configuration.index.save-message'));
 
     $this->assertDatabaseHas('core_config', [
-        'code'  => 'general.magic_ai.settings.api_key',
-        'value' => 'test-saved-value',
+        'code'  => 'general.magic_ai.settings.enabled',
+        'value' => '1',
     ]);
 });
 
@@ -61,10 +58,11 @@ it('should save and update the translation settings for magic ai', function () {
     $configData = json_encode(current($configData));
 
     $fields = [
-        'enabled'             => '1',
-        'source_channel'      => 'default',
-        'source_locale'       => 'af_ZA',
-        'ai_model'            => 'deepseek-r1-distill-llama-70b',
+        'enabled'        => '1',
+        'source_channel' => 'default',
+        'source_locale'  => 'af_ZA',
+        'ai_platform'    => '0',
+        'ai_model'       => '0',
     ];
 
     $data['general']['magic_ai']['translation'] = $fields;
@@ -83,7 +81,6 @@ it('should save and update the translation settings for magic ai', function () {
         ['code' => 'general.magic_ai.translation.enabled', 'value' => '1'],
         ['code' => 'general.magic_ai.translation.source_channel', 'value' => 'default'],
         ['code' => 'general.magic_ai.translation.source_locale', 'value' => 'af_ZA'],
-        ['code' => 'general.magic_ai.translation.ai_model', 'value' => 'deepseek-r1-distill-llama-70b'],
     ];
 
     foreach ($records as $record) {

@@ -45,7 +45,7 @@ class AgentService implements AgentServiceContract
         $payload = $payload->withMetadata(['executionId' => $execution->id]);
 
         try {
-            $agent  = $this->agentRepository->findOrFail($payload->agentId);
+            $agent = $this->agentRepository->findOrFail($payload->agentId);
             $stages = $this->resolveStages($agent->pipeline ?? []);
 
             $result = $this->pipeline

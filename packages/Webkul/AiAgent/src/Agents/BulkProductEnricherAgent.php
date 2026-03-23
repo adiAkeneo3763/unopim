@@ -40,17 +40,14 @@ class BulkProductEnricherAgent extends BaseAgent
             ? json_encode($input, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
             : (string) $input;
 
-        return "Enrich this product data batch:\n\n" . $products;
+        return "Enrich this product data batch:\n\n".$products;
     }
 
     /**
      * Execute enrichment on a batch of products.
      *
      * @param  array<int, array<string, mixed>>  $products  Array of product data
-     * @param  int  $agentId
-     * @param  int  $credentialId
      * @param  array<string, mixed>  $context
-     * @return AgentResult
      */
     public function enrichBatch(
         array $products,

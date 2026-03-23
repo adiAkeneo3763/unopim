@@ -10,12 +10,12 @@ namespace Webkul\AiAgent\DTOs;
 final class AgentPayload
 {
     /**
-     * @param  int                        $agentId       The agent configuration ID
-     * @param  int                        $credentialId  The AI provider credential ID
-     * @param  string                     $instruction   User-provided instruction/prompt
-     * @param  array<string, mixed>       $context       Contextual data (product IDs, filters, etc.)
+     * @param  int  $agentId  The agent configuration ID
+     * @param  int  $credentialId  The AI provider credential ID
+     * @param  string  $instruction  User-provided instruction/prompt
+     * @param  array<string, mixed>  $context  Contextual data (product IDs, filters, etc.)
      * @param  array<int, array{role: string, content: string}>  $messages  Accumulated messages for the AI API
-     * @param  array<string, mixed>       $metadata      Pipeline-enriched metadata
+     * @param  array<string, mixed>  $metadata  Pipeline-enriched metadata
      */
     public function __construct(
         public readonly int $agentId,

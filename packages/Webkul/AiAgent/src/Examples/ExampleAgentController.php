@@ -2,11 +2,11 @@
 
 namespace Webkul\AiAgent\Examples;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Controller;
 use Webkul\AiAgent\Agents\ImageProductAgent;
-use Webkul\AiAgent\Agents\TextDescriptionAgent;
 use Webkul\AiAgent\Agents\ProductCategorizerAgent;
+use Webkul\AiAgent\Agents\TextDescriptionAgent;
 
 /**
  * Example controller demonstrating agent usage with dependency injection.
@@ -33,10 +33,10 @@ class ExampleAgentController extends Controller
     public function analyzeImage(
         ImageProductAgent $agent,
     ): JsonResponse {
-        $imageUrl     = request('imageUrl');
-        $agentId      = (int) request('agentId');
+        $imageUrl = request('imageUrl');
+        $agentId = (int) request('agentId');
         $credentialId = (int) request('credentialId');
-        $async        = (bool) request('async', false);
+        $async = (bool) request('async', false);
 
         try {
             if ($async) {
@@ -86,7 +86,7 @@ class ExampleAgentController extends Controller
             'specifications' => request('specifications', []),
         ];
 
-        $agentId      = (int) request('agentId');
+        $agentId = (int) request('agentId');
         $credentialId = (int) request('credentialId');
 
         $result = $agent->execute(
@@ -112,8 +112,8 @@ class ExampleAgentController extends Controller
     public function categorizeProduct(
         ProductCategorizerAgent $agent,
     ): JsonResponse {
-        $productData  = request('productData', []);
-        $agentId      = (int) request('agentId');
+        $productData = request('productData', []);
+        $agentId = (int) request('agentId');
         $credentialId = (int) request('credentialId');
 
         $result = $agent->execute(

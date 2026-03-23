@@ -2,8 +2,6 @@
 
 namespace Webkul\AiAgent\Agents;
 
-use Webkul\AiAgent\DTOs\AgentResult;
-
 /**
  * Concrete agent for categorizing and tagging products.
  *
@@ -48,6 +46,6 @@ class ProductCategorizerAgent extends BaseAgent
             ? json_encode($input, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
             : (string) $input;
 
-        return "Categorize and tag this product:\n\n" . $details;
+        return "Categorize and tag this product:\n\n".$details;
     }
 }

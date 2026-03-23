@@ -2,6 +2,10 @@ name: Pest Tests
 
 on: [push, pull_request]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -10,9 +14,10 @@ jobs:
     runs-on: ${{ matrix.operating-systems }}
 
     strategy:
+      fail-fast: false
       matrix:
         operating-systems: [ubuntu-latest]
-        php-versions: ['8.2']
+        php-versions: ['8.3']
 
     name: PHP ${{ matrix.php-versions }} test on ${{ matrix.operating-systems }}
 
@@ -37,9 +42,21 @@ jobs:
           extensions: curl, fileinfo, gd, intl, mbstring, openssl, pdo, pdo_mysql, tokenizer, zip
           ini-values: error_reporting=E_ALL
           tools: composer:v2
+          coverage: none
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
 
       - name: Running Composer Install
-        run: composer install
+        run: composer install --no-interaction --prefer-dist
 
       - name: Setting Environment
         run: |

@@ -96,7 +96,7 @@ class CategoryController extends ApiController
     /**
      * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function store()
     {
@@ -134,7 +134,7 @@ class CategoryController extends ApiController
     /**
      * Update the specified resource in storage.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function update(string $code)
     {
@@ -268,8 +268,12 @@ class CategoryController extends ApiController
      *
      * @return int|null The ID of the category if found, otherwise null.
      */
-    private function getParentIdByCode(string $code)
+    private function getParentIdByCode(?string $code)
     {
+        if ($code === null || $code === '') {
+            return null;
+        }
+
         return $this->categoryRepository->findOneByField('code', $code)?->id;
     }
 }

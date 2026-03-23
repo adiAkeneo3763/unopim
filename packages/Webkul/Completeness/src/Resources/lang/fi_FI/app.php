@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => 'Save',
                     'back-btn'            => 'Back',
                     'mass-update-success' => 'Compeleteness updated successfully',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => 'Code',
                         'name'             => 'Name',
                         'channel-required' => 'Required in Channels',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => 'Change Completeness Requirement',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => 'Täydellinen',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => 'Completeness',
                     'subtitle' => 'Average completeness',
                 ],
-
                 'required-attributes' => 'missing required attributes',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => 'Täydellisyyslaskenta suoritettu',
+        'completeness-calculated'        => 'Täydellisyys laskettu :count tuotteelle.',
+        'completeness-calculated-family' => 'Täydellisyys laskettu :count tuotteelle perheessä ":family".',
+        'email-subject'                  => 'Täydellisyyslaskenta suoritettu',
+        'email-greeting'                 => 'Hei,',
+        'email-body'                     => 'Täydellisyyslaskenta on suoritettu :count tuotteelle.',
+        'email-body-family'              => 'Täydellisyyslaskenta on suoritettu :count tuotteelle attribuuttiperheessä ":family".',
+        'email-footer'                   => 'Voit tarkastella täydellisyystietoja hallintapaneelissasi.',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Calculated products',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => 'Low completeness, add details to improve.',
                     'medium'  => 'Keep going, continue adding information.',
                     'high'    => 'Almost complete, just a few details left.',

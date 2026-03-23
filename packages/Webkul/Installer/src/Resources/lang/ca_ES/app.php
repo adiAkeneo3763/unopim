@@ -6,15 +6,13 @@ return [
             'attribute-families' => [
                 'default' => 'Default',
             ],
-
             'attribute-groups' => [
                 'description'      => 'Descripció',
                 'general'          => 'General',
                 'meta-description' => 'Meta descripció',
                 'price'            => 'Preu',
-                'media'            => 'Mitjans',
+                'media'            => 'Multimèdia',
             ],
-
             'attributes' => [
                 'brand'                => 'Brand',
                 'color'                => 'Color',
@@ -45,7 +43,6 @@ return [
                 'weight'               => 'Weight',
                 'width'                => 'Width',
             ],
-
             'attribute-options' => [
                 'black'  => 'Black',
                 'green'  => 'Green',
@@ -58,19 +55,16 @@ return [
                 'yellow' => 'Yellow',
             ],
         ],
-
         'category' => [
             'categories' => [
                 'description' => 'Root Category Description',
                 'name'        => 'Root',
             ],
-
             'category_fields' => [
                 'name'        => 'Name',
                 'description' => 'Description',
             ],
         ],
-
         'core' => [
             'channels' => [
                 'meta-title'       => 'Demo store',
@@ -78,7 +72,6 @@ return [
                 'meta-description' => 'Demo store meta description',
                 'name'             => 'Default',
             ],
-
             'currencies' => [
                 'AED' => 'Dirham',
                 'AFN' => 'Israeli Shekel',
@@ -95,19 +88,16 @@ return [
                 'USD' => 'US Dollar',
             ],
         ],
-
         'user' => [
             'roles' => [
                 'description' => 'This role users will have all the access',
                 'name'        => 'Administrator',
             ],
-
             'users' => [
                 'name' => 'Example',
             ],
         ],
     ],
-
     'installer' => [
         'index' => [
             'create-administrator' => [
@@ -119,7 +109,6 @@ return [
                 'password'         => 'Contrasenya',
                 'title'            => 'Crea administrador',
             ],
-
             'environment-configuration' => [
                 'allowed-currencies'  => 'Monedes permeses',
                 'allowed-locales'     => 'Idiomes permesos',
@@ -157,13 +146,11 @@ return [
                 'usd'                 => 'Dòlar estatunidenc (USD)',
                 'warning-message'     => 'Atenció! Els ajustos per als idiomes predeterminats i la moneda són permanents i no es poden canviar mai més.',
             ],
-
             'installation-processing' => [
                 'unopim'      => 'Instal·lació d’UnoPim',
                 'unopim-info' => 'Creant les taules de la base de dades, aquest procés pot trigar uns instants',
                 'title'       => 'Instal·lació',
             ],
-
             'installation-completed' => [
                 'admin-panel'               => 'Panell d’administració',
                 'unopim-forums'             => 'Fòrum UnoPim',
@@ -171,7 +158,6 @@ return [
                 'title-info'                => 'UnoPim s’ha instal·lat correctament al sistema.',
                 'title'                     => 'Instal·lació completada',
             ],
-
             'ready-for-installation' => [
                 'create-databsae-table'   => 'Crea la taula de la base de dades',
                 'install-info-button'     => 'Fes clic al botó següent per',
@@ -181,7 +167,6 @@ return [
                 'start-installation'      => 'Comença la instal·lació',
                 'title'                   => 'Llest per a la instal·lació',
             ],
-
             'start' => [
                 'locale'        => 'Idioma',
                 'main'          => 'Començar',
@@ -189,7 +174,6 @@ return [
                 'title'         => 'La teva instal·lació d’UnoPim',
                 'welcome-title' => 'Benvingut a UnoPim :version',
             ],
-
             'server-requirements' => [
                 'calendar'    => 'Calendari',
                 'ctype'       => 'cType',
@@ -212,7 +196,6 @@ return [
                 'tokenizer'   => 'Tokenitzador',
                 'xml'         => 'XML',
             ],
-
             'back'                     => 'Enrere',
             'unopim-info'              => 'Un projecte comunitari de',
             'unopim-logo'              => 'Logotip UnoPim',

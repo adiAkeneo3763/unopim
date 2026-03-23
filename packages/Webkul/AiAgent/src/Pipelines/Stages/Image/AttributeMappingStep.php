@@ -78,7 +78,7 @@ class AttributeMappingStep implements PipelineStageContract
         );
 
         $mappedAttributes = [];
-        $unmappedFields   = [];
+        $unmappedFields = [];
 
         foreach ($detections as $detectionKey => $value) {
             if (isset($map[$detectionKey])) {
@@ -114,9 +114,6 @@ class AttributeMappingStep implements PipelineStageContract
     /**
      * Cast a detection value to the appropriate scalar or simple type
      * expected by the PIM attribute.
-     *
-     * @param  mixed  $value
-     * @return mixed
      */
     protected function castValue(string $detectionKey, mixed $value): mixed
     {

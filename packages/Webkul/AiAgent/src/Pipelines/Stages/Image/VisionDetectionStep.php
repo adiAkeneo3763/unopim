@@ -52,10 +52,10 @@ class VisionDetectionStep implements PipelineStageContract
         }
 
         $options = [
-            'systemPrompt' => $payload->context['visionPrompt']      ?? null,
-            'locale'       => $payload->context['detectionLocale']    ?? 'en',
-            'maxAttempts'  => $payload->context['visionMaxAttempts']  ?? 3,
-            'temperature'  => $payload->context['visionTemperature']  ?? 0.2,
+            'systemPrompt' => $payload->context['visionPrompt'] ?? null,
+            'locale'       => $payload->context['detectionLocale'] ?? 'en',
+            'maxAttempts'  => $payload->context['visionMaxAttempts'] ?? 3,
+            'temperature'  => $payload->context['visionTemperature'] ?? 0.2,
             'maxTokens'    => 2048,
         ];
 

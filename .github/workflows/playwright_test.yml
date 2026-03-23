@@ -2,6 +2,9 @@ name: Playwright Tests
 
 on: [push, pull_request]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -12,9 +15,10 @@ jobs:
     runs-on: ${{ matrix.operating-systems }}
 
     strategy:
+      fail-fast: false
       matrix:
         operating-systems: [ubuntu-latest]
-        php-versions: ['8.2']
+        php-versions: ['8.3']
 
     services:
       mysql:
@@ -50,9 +54,21 @@ jobs:
           extensions: curl, fileinfo, gd, intl, mbstring, openssl, pdo, pdo_mysql, tokenizer, zip
           ini-values: error_reporting=E_ALL
           tools: composer:v2
+          coverage: none
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
 
       - name: Running Composer Install
-        run: composer install
+        run: composer install --no-interaction --prefer-dist
 
       - name: Setting Environment
         run: |
@@ -68,7 +84,6 @@ jobs:
       - name: Running UnoPim Installer
         run: |
           php artisan unopim:install --skip-env-check --skip-admin-creation
-          php artisan migrate --force
           php artisan migrate:fresh --seed
           php artisan serve --host=0.0.0.0 --port=8000 &
 
@@ -76,9 +91,9 @@ jobs:
         run: npx wait-on http://localhost:8000
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install Playwright dependencies
         run: |
@@ -91,7 +106,6 @@ jobs:
         run: php artisan queue:work &
 
       - name: Run Playwright tests
-        if: ${{ success() }}
         run: |
           cd tests/e2e-pw
           npx playwright test --reporter=list

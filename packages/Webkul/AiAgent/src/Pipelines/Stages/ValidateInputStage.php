@@ -24,7 +24,7 @@ class ValidateInputStage implements PipelineStageContract
         $agent = $this->agentRepository->findOrFail($payload->agentId);
 
         if (! $agent->status) {
-            throw new \RuntimeException('Agent is disabled: ' . $agent->name);
+            throw new \RuntimeException('Agent is disabled: '.$agent->name);
         }
 
         $enriched = $payload->withMetadata([

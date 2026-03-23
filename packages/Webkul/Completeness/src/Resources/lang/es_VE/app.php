@@ -8,7 +8,6 @@ return [
             ],
         ],
     ],
-
     'catalog' => [
         'families' => [
             'edit' => [
@@ -20,20 +19,17 @@ return [
                     'save-btn'            => 'Save',
                     'back-btn'            => 'Back',
                     'mass-update-success' => 'Compeleteness updated successfully',
-
-                    'datagrid' => [
+                    'datagrid'            => [
                         'code'             => 'Code',
                         'name'             => 'Name',
                         'channel-required' => 'Required in Channels',
-
-                        'actions' => [
+                        'actions'          => [
                             'change-requirement' => 'Change Completeness Requirement',
                         ],
                     ],
                 ],
             ],
         ],
-
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -41,24 +37,30 @@ return [
                     'completeness'                 => 'Completo',
                 ],
             ],
-
             'edit' => [
                 'completeness' => [
                     'title'    => 'Completeness',
                     'subtitle' => 'Average completeness',
                 ],
-
                 'required-attributes' => 'missing required attributes',
             ],
         ],
     ],
-
+    'notifications' => [
+        'completeness-title'             => 'Cálculo de completitud finalizado',
+        'completeness-calculated'        => 'Completitud calculada para :count productos.',
+        'completeness-calculated-family' => 'Completitud calculada para :count productos en la familia ":family".',
+        'email-subject'                  => 'Cálculo de completitud finalizado',
+        'email-greeting'                 => 'Hola,',
+        'email-body'                     => 'El cálculo de completitud se ha completado para :count productos.',
+        'email-body-family'              => 'El cálculo de completitud se ha completado para :count productos en la familia de atributos ":family".',
+        'email-footer'                   => 'Puede ver los detalles de completitud en su panel de control.',
+    ],
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Calculated products',
-
-                'suggestion' => [
+                'suggestion'          => [
                     'low'     => 'Low completeness, add details to improve.',
                     'medium'  => 'Keep going, continue adding information.',
                     'high'    => 'Almost complete, just a few details left.',

@@ -40,10 +40,10 @@ class AnalyzeProductImageCommand extends Command
         AgentRepository $agentRepository,
         CredentialRepository $credentialRepository,
     ): int {
-        $imageUrl     = $this->argument('imageUrl');
-        $agentId      = (int) $this->option('agent-id');
+        $imageUrl = $this->argument('imageUrl');
+        $agentId = (int) $this->option('agent-id');
         $credentialId = (int) $this->option('credential-id');
-        $async        = $this->option('async');
+        $async = $this->option('async');
 
         // Validate agent and credential exist
         $agent = $agentRepository->find($agentId);
@@ -92,7 +92,7 @@ class AnalyzeProductImageCommand extends Command
 
             return self::SUCCESS;
         } catch (\Throwable $e) {
-            $this->error('❌ Analysis failed: ' . $e->getMessage());
+            $this->error('❌ Analysis failed: '.$e->getMessage());
 
             return self::FAILURE;
         }

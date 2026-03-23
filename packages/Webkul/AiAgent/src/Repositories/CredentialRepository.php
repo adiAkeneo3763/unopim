@@ -2,6 +2,7 @@
 
 namespace Webkul\AiAgent\Repositories;
 
+use Illuminate\Support\Collection;
 use Webkul\AiAgent\Models\Credential;
 use Webkul\Core\Eloquent\Repository;
 
@@ -18,7 +19,7 @@ class CredentialRepository extends Repository
     /**
      * Get active credentials list for dropdowns.
      *
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
     public function getActiveList()
     {

@@ -2,6 +2,7 @@
 
 namespace Webkul\AiAgent\DataGrids\Credential;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Webkul\DataGrid\DataGrid;
 
@@ -10,7 +11,7 @@ class CredentialDataGrid extends DataGrid
     /**
      * Prepare query builder.
      *
-     * @return \Illuminate\Database\Query\Builder
+     * @return Builder
      */
     public function prepareQueryBuilder()
     {
@@ -67,8 +68,8 @@ class CredentialDataGrid extends DataGrid
             'filterable' => true,
             'sortable'   => true,
             'closure'    => fn ($row) => $row->status
-                ? '<span class="label-active">' . trans('ai-agent::app.common.yes') . '</span>'
-                : '<span class="label-info text-gray-600 dark:text-gray-300">' . trans('ai-agent::app.common.no') . '</span>',
+                ? '<span class="label-active">'.trans('ai-agent::app.common.yes').'</span>'
+                : '<span class="label-info text-gray-600 dark:text-gray-300">'.trans('ai-agent::app.common.no').'</span>',
         ]);
     }
 

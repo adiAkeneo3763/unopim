@@ -11,7 +11,6 @@ return [
             'powered-by'             => '由 :unopim 提供支持,',
             'open-source-project-by' => '由 :webkul 开源项目提供。',
         ],
-
         'forget-password' => [
             'create' => [
                 'email'                  => '注册的电子邮件',
@@ -26,7 +25,6 @@ return [
                 'open-source-project-by' => '由 :webkul 开源项目提供。',
             ],
         ],
-
         'reset-password' => [
             'back-link-title'        => '返回登录？',
             'confirm-password'       => '确认密码',
@@ -38,7 +36,6 @@ return [
             'open-source-project-by' => '由 :webkul 开源项目提供。',
         ],
     ],
-
     'notifications' => [
         'description-text' => '列出所有通知',
         'marked-success'   => '通知成功地标记了',
@@ -55,7 +52,6 @@ return [
             'processing' => '加工',
         ],
     ],
-
     'account' => [
         'edit' => [
             'back-btn'          => '后退',
@@ -76,25 +72,75 @@ return [
             'user-timezone'     => '时区',
         ],
     ],
-
     'dashboard' => [
         'index' => [
-            'title'            => '仪表板',
-            'user-info'        => '快速监视，什么\'s count in your PIM',
-            'user-name'        => '你好！:user_name',
-            'catalog-details'  => '目录',
-            'total-families'   => '总家庭',
-            'total-attributes' => '总属性',
-            'total-groups'     => '总组',
-            'total-categories' => '总类别',
-            'total-products'   => '总产品',
-            'settings-details' => '目录结构',
-            'total-locales'    => '总体总体',
-            'total-currencies' => '总货币',
-            'total-channels'   => '总渠道',
+            'title'                => '仪表板',
+            'user-info'            => '快速监视，什么\'s count in your PIM',
+            'user-name'            => '你好！:user_name',
+            'catalog-details'      => '目录',
+            'total-families'       => '总家庭',
+            'total-attributes'     => '总属性',
+            'total-groups'         => '总组',
+            'total-categories'     => '总类别',
+            'total-products'       => '总产品',
+            'settings-details'     => '目录结构',
+            'total-locales'        => '总体总体',
+            'total-currencies'     => '总货币',
+            'total-channels'       => '总渠道',
+            'completeness'         => '完整度',
+            'active'               => '启用',
+            'inactive'             => '禁用',
+            'simple'               => '简单',
+            'configurable'         => '可配置',
+            'product-stats'        => '产品统计',
+            'product-type-dist'    => '产品类型分布',
+            'products-by-status'   => '按状态统计',
+            'products-over-time'   => '产品活动（最近7天）',
+            'legend-created'       => '已创建',
+            'legend-updated'       => '已更新',
+            'recent-activity'      => '最近活动',
+            'no-activity'          => '未找到最近活动。',
+            'updated'              => '已更新',
+            'created'              => '已创建',
+            'deleted'              => '已删除',
+            'ago'                  => '前',
+            'just-now'             => '刚刚',
+            'data-transfer'        => '数据传输',
+            'no-jobs'              => '未找到最近的导入/导出任务。',
+            'job-type-import'      => '导入',
+            'job-type-export'      => '导出',
+            'job-state-completed'  => '已完成',
+            'job-state-failed'     => '失败',
+            'job-state-processing' => '处理中',
+            'job-state-pending'    => '待处理',
+            'job-state-validated'  => '已验证',
+            'rows-processed'       => '已处理行数',
+            'errors'               => '错误',
+            'quick-links'          => '快速链接',
+            'create-product'       => '创建产品',
+            'import-data'          => '导入数据',
+            'export-data'          => '导出数据',
+            'manage-attributes'    => '管理属性',
+            'view-all-activity'    => '查看全部',
+            'view-all-jobs'        => '查看所有任务',
+            'new-this-week'        => '本周新增',
+            'with-variants'        => '含变体',
+            'avg-completeness'     => '平均完整度',
+            'enriched'             => '已充实',
+            'analytics-section'    => '分析',
+            'operations-section'   => '运营',
+            'needs-attention'      => '需要关注',
+            'unenriched-products'  => '未充实产品',
+            'failed-jobs-24h'      => '失败任务（24h）',
+            'low-completeness'     => '低完整度',
+            'all-good'             => '一切正常！',
+            'channel-readiness'    => '渠道就绪度',
+            'ready-to-publish'     => '可发布',
+            'of'                   => '/',
+            'products-ready'       => '产品就绪',
+            'no-readiness-data'    => '暂无完整度数据。',
         ],
     ],
-
     'catalog' => [
         'products' => [
             'index' => [
@@ -104,8 +150,7 @@ return [
                 'magic-ai-error'            => '请验证 Magic AI 凭证并确保选择了正确的模型。',
                 'magic-ai-validate-error'   => '请验证 Magic AI 凭据。',
                 'magic-ai-validate-success' => 'Magic AI 凭据验证成功。',
-
-                'create' => [
+                'create'                    => [
                     'back-btn'                          => '后退',
                     'configurable-attributes'           => '可配置的属性',
                     'create-btn'                        => '创建产品',
@@ -118,11 +163,10 @@ return [
                     'not-config-super-attributes-error' => '无法找到值为“:super_attributes”的超级属性',
                     'sku-exists-error'                  => '值为“:sku”的 SKU 已存在',
                 ],
-
                 'datagrid' => [
                     'active'                 => '积极的',
                     'attribute-family'       => '属性家庭',
-                    'attribute-family-value' => '属性系列 - ：attribute_family',
+                    'attribute-family-value' => 'Attribute Family - :attribute_family',
                     'category'               => '类别',
                     'copy-of'                => ':value 的副本',
                     'copy-of-slug'           => ':value 的副本',
@@ -148,58 +192,51 @@ return [
                     'update-status'          => '更新状态',
                     'parent'                 => '父母',
                     'parent-identifier'      => '父母： :sku',
+                    'created-at'             => 'Created At',
+                    'updated-at'             => 'Updated At',
                 ],
             ],
-
             'edit' => [
-                'preview'  => '预览',
-                'remove'   => '消除',
-                'save-btn' => '保存产品',
-                'title'    => '编辑产品',
-
+                'preview'    => '预览',
+                'remove'     => '消除',
+                'save-btn'   => '保存产品',
+                'title'      => '编辑产品',
                 'categories' => [
                     'title' => '类别',
                 ],
-
                 'images' => [
                     'info'  => '图像分辨率应像560px x 609px',
                     'title' => '图片',
                 ],
-
                 'videos' => [
                     'error' => ':attribute 不得大于 :max 千字节。请选择较小的文件。',
-                    'info'  => '最大视频尺寸应为：size',
+                    'info'  => 'Maximum video size should be like :size',
                     'title' => '视频',
                 ],
-
                 'links' => [
                     'related-products' => [
                         'empty-info' => '添加相关关联产品。',
                         'info'       => '除了客户正在查看的产品外，它们还会出现相关产品。',
                         'title'      => '相关产品',
                     ],
-
                     'up-sells' => [
                         'empty-info' => '添加卖协会产品。',
                         'info'       => '向客户提供了上销售产品，该产品是他们目前正在查看的产品的高级或高质量替代品。',
                         'title'      => '向上销售产品',
                     ],
-
                     'cross-sells' => [
                         'empty-info' => '添加交叉卖协会产品。',
                         'info'       => '与购物车相邻，您\'ll find these \"impulse-buy\" products positioned as cross-sells to complement the items already added to your cart.',
                         'title'      => '交叉销售产品',
                     ],
-
                     'add-btn'           => '添加',
                     'delete'            => '删除',
-                    'empty-info'        => '立即添加：type 输入产品。',
+                    'empty-info'        => 'To add :type products on a go.',
                     'empty-title'       => '添加产品',
                     'image-placeholder' => '产品图像',
                     'sku'               => '滑雪 - :sku',
                     'title'             => '协会',
                 ],
-
                 'types' => [
                     'configurable' => [
                         'add-btn'                            => '添加变体',
@@ -216,15 +253,13 @@ return [
                         'variant-attribute-option-not-found' => '未找到值为“:attributes”的变体属性或选项',
                         'supper-attribute-not-found'         => '未找到值为“:attribute”的附加属性',
                         'variant-given-exists'               => '值为“:variants”的变体已存在',
-
-                        'create' => [
+                        'create'                             => [
                             'description'            => '描述',
                             'name'                   => '姓名',
                             'save-btn'               => '添加',
                             'title'                  => '添加变体',
                             'variant-already-exists' => '这个变体已经存在',
                         ],
-
                         'edit' => [
                             'disabled'        => '禁用',
                             'edit-info'       => '如果要详细更新产品信息，请转到',
@@ -240,7 +275,6 @@ return [
                             'title'           => '产品',
                             'weight'          => '重量',
                         ],
-
                         'mass-edit' => [
                             'add-images'          => '添加图像',
                             'apply-to-all-btn'    => '全部应用',
@@ -267,23 +301,31 @@ return [
                         ],
                     ],
                 ],
-
                 'translate' => [
-                    'translate-btn'            => '翻译',
-                    'title'                    => '翻译',
-                    'source-channel'           => '源频道',
-                    'locale'                   => '源语言区域',
-                    'translated-content'       => '翻译内容',
-                    'translating'              => '正在翻译',
-                    'apply'                    => '应用',
-                    'cancel'                   => '取消',
-                    'target-locales'           => '目标语言区域',
-                    'target-channel'           => '目标频道',
-                    'attributes'               => '属性',
-                    'source-content'           => '源内容',
-                    'tranlated-job-processed'  => '翻译内容存储任务已完成。',
+                    'translate-btn'               => '翻译',
+                    'title'                       => '翻译',
+                    'source-channel'              => '源频道',
+                    'locale'                      => '源语言区域',
+                    'translated-content'          => '翻译内容',
+                    'translating'                 => '正在翻译',
+                    'apply'                       => '应用',
+                    'back'                        => 'Back',
+                    'cancel'                      => '取消',
+                    'target-locales'              => '目标语言区域',
+                    'target-channel'              => '目标频道',
+                    'attributes'                  => '属性',
+                    'source-content'              => '源内容',
+                    'tranlated-job-processed'     => '翻译内容存储任务已完成。',
+                    'step'                        => 'Step',
+                    'select-source'               => 'Select Source',
+                    'select-target'               => 'Select Target',
+                    'first-step-title'            => 'Step 1: Select Source Channel, Language and Attributes',
+                    'first-step-title-attributes' => 'Step 1: Select Source Channel and Language',
+                    'second-step-title'           => 'Step 2: Select Target Channel and Languages',
+                    'target-content'              => 'Target Content',
+                    'next'                        => 'Next',
+                    'empty-translation-data'      => 'Data not available for translation on the basis of source channel and locale',
                 ],
-
                 'product-info' => [
                     'title'        => '产品信息',
                     'status'       => '状态',
@@ -293,6 +335,7 @@ return [
                     'created-at'   => '创建日期',
                     'product-type' => '产品类型',
                 ],
+                'more-actions' => 'More Actions',
             ],
             'bulk-edit' => [
                 'validation' => [
@@ -305,27 +348,22 @@ return [
                     'select-attribute-or-family' => '请选择至少一个属性或一个属性族。',
                     'failed'                     => '验证失败。',
                 ],
-
-                'modal'                      => [
+                'modal' => [
                     'title'            => '批量编辑的属性',
                     'btn-cancel'       => '取消',
                     'btn-proceed'      => '继续',
                     'attribute-family' => '选择属性族',
                 ],
-
                 'index' => [
-                    'no-product'    => '未选择要批量编辑的产品。',
+                    'no-product' => '未选择要批量编辑的产品。',
                 ],
-
                 'filter' => [
-                    'many-product'      => '选择的产品过多。',
-                    'redirect-message'  => '正在跳转到批量编辑视图。',
+                    'many-product'     => '选择的产品过多。',
+                    'redirect-message' => '正在跳转到批量编辑视图。',
                 ],
-
                 'handle-save' => [
-                    'edit-success'  => '批量编辑成功。',
+                    'edit-success' => '批量编辑成功。',
                 ],
-
                 'id'              => 'ID',
                 'no-changes'      => '没有可保存的更改。',
                 'success'         => '任务已成功执行。',
@@ -335,9 +373,8 @@ return [
                 'img-preview'     => '图片预览',
                 'no-image'        => '无图片',
                 'img-fail'        => '图片上传失败',
-                'no-opton'        => '无选项',
+                'no-option'       => 'No Options',
             ],
-
             'create-success'          => '成功创建的产品',
             'delete-failed'           => '产品删除失败',
             'delete-success'          => '产品成功删除',
@@ -351,13 +388,11 @@ return [
             'upload-success'          => '产品文件成功上传。',
             'update-failure'          => '无法更新产品。',
         ],
-
         'attributes' => [
             'index' => [
                 'create-btn' => '创建属性',
                 'title'      => '属性',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'            => '基于渠道',
                     'code'                     => '代码',
                     'created-at'               => '创建在',
@@ -375,7 +410,6 @@ return [
                     'delete-attribute-failure' => '无法删除此属性，因为它正在用于可配置产品',
                 ],
             ],
-
             'create' => [
                 'add-attribute-options' => '添加属性选项',
                 'add-option'            => '添加选项',
@@ -398,12 +432,13 @@ return [
                 'enable-wysiwyg'        => '启用Wysiwyg编辑器',
                 'file'                  => '文件',
                 'general'               => '一般的',
+                'gallery'               => 'Gallery',
                 'image'                 => '图像',
                 'input-options'         => '输入选项',
                 'input-validation'      => '输入验证',
                 'is-comparable'         => '属性是可比的',
                 'is-configurable'       => '用于创建可配置的产品',
-                'is-filterable'         => '用于分层导航',
+                'is-filterable'         => '可筛选',
                 'is-required'           => '是必须的',
                 'is-unique'             => '是独特的',
                 'is-visible-on-front'   => '在前端的产品查看页面上可见',
@@ -431,10 +466,9 @@ return [
                 'yes'                   => '是的',
                 'same-code-error'       => '选项代码必须是唯一的。',
                 'usable-in-grid'        => '可在网格中使用',
-                'is-filterable'         => '可筛选',
                 'ai-translate'          => 'AI翻译',
-
-                'option' => [
+                'invalid-swatch-type'   => 'The :attribute is not allowed for attribute type :type with swatch type :swatch_type.',
+                'option'                => [
                     'color'    => '色板',
                     'dropdown' => '落下',
                     'image'    => '图像色板',
@@ -442,7 +476,6 @@ return [
                     'text'     => '文字色板',
                 ],
             ],
-
             'edit' => [
                 'add-attribute-options' => '添加属性选项',
                 'add-option'            => '添加选项',
@@ -470,7 +503,7 @@ return [
                 'input-validation'      => '输入验证',
                 'is-comparable'         => '属性是可比的',
                 'is-configurable'       => '用于创建可配置的产品',
-                'is-filterable'         => '用于分层导航',
+                'is-filterable'         => '可筛选',
                 'is-required'           => '是必须的',
                 'is-unique'             => '是独特的',
                 'is-visible-on-front'   => '在前端的产品查看页面上可见',
@@ -498,24 +531,20 @@ return [
                 'yes'                   => '是的',
                 'same-code-error'       => '选项代码必须是唯一的。',
                 'usable-in-grid'        => '可在网格中使用',
-                'is-filterable'         => '可筛选',
                 'ai-translate'          => 'AI翻译',
-                'invalid-swatch-type'   => ':attribute 不允许用于属性类型 :type，Swatch 类型 :swatch_type。',
-
-                'option' => [
-                    'create-success'       => '属性选项创建成功',
-                    'delete-success'       => '属性选项删除成功',
-                    'save-btn'             => '保存选项',
-                    'sort-update-failure'  => '排序更新失败',
-                    'sort-update-success'  => '排序更新成功',
-                    'update-success'       => '属性选项更新成功',
-                    'color'                => '色板',
-                    'dropdown'             => '落下',
-                    'image'                => '图像色板',
-                    'text'                 => '文字色板',
+                'option'                => [
+                    'save-btn'            => '保存选项',
+                    'create-success'      => '属性选项创建成功',
+                    'update-success'      => '属性选项更新成功',
+                    'sort-update-success' => '排序更新成功',
+                    'sort-update-failure' => '排序更新失败',
+                    'delete-success'      => '属性选项删除成功',
+                    'color'               => '色板',
+                    'dropdown'            => '落下',
+                    'image'               => '图像色板',
+                    'text'                => '文字色板',
                 ],
             ],
-
             'create-success'    => '成功创建的属性',
             'delete-failed'     => '属性删除的失败',
             'delete-success'    => '属性成功删除',
@@ -523,19 +552,16 @@ return [
             'user-define-error' => '无法删除系统属性',
             'not-found'         => '无法找到代码为“:code”的属性',
         ],
-
         'attribute-options' => [
             'create-success'       => '属性选项成功创建了',
             'update-success'       => '属性选项成功更新',
             'usable-in-grid-error' => '仅在启用网格中可以使用4个属性。',
         ],
-
         'attribute-groups' => [
             'index' => [
                 'create-btn' => '创建属性组',
                 'title'      => '属性组',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'code'                => '代码',
                     'delete'              => '删除',
                     'mass-delete-success' => '选定的属性组成功删除',
@@ -547,7 +573,6 @@ return [
                     'update-status'       => '更新状态',
                 ],
             ],
-
             'create' => [
                 'title'    => '添加属性组',
                 'save-btn' => '保存属性组',
@@ -556,7 +581,6 @@ return [
                 'code'     => '代码',
                 'label'    => '标签',
             ],
-
             'edit' => [
                 'title'    => '编辑属性组',
                 'back-btn' => '后退',
@@ -565,7 +589,6 @@ return [
                 'code'     => '代码',
                 'label'    => '标签',
             ],
-
             'create-success'        => '属性组成功创建了',
             'delete-failed'         => '属性组删除失败',
             'delete-success'        => '属性组成功删除',
@@ -574,12 +597,10 @@ return [
             'attribute-group-error' => '小组用于家庭。',
             'not-found'             => '找不到代码为“:code”的属性组',
         ],
-
         'categories' => [
             'index' => [
-                'add-btn' => '创建类别',
-                'title'   => '类别',
-
+                'add-btn'  => '创建类别',
+                'title'    => '类别',
                 'datagrid' => [
                     'active'         => '积极的',
                     'code'           => '代码',
@@ -589,14 +610,13 @@ return [
                     'id'             => 'ID',
                     'inactive'       => '不活动',
                     'name'           => '显示名称',
+                    'category-name'  => '名称',
                     'no-of-products' => '产品数量',
                     'position'       => '位置',
-                    'category-name'  => '名称',
                     'status'         => '在菜单中可见',
                     'update-status'  => '更新状态',
                 ],
             ],
-
             'create' => [
                 'back-btn'            => '后退',
                 'code'                => '代码',
@@ -617,7 +637,6 @@ return [
                 'right-section'       => '配置部分',
                 'left-section'        => '一般部分',
             ],
-
             'edit' => [
                 'back-btn'               => '后退',
                 'code'                   => '代码',
@@ -636,7 +655,6 @@ return [
                 'right-section'          => '配置部分',
                 'left-section'           => '一般部分',
             ],
-
             'category'             => '类别',
             'create-success'       => '类别成功创建。',
             'delete-category-root' => '您无法删除与通道关联的根类别。',
@@ -651,14 +669,12 @@ return [
             'create-failure'       => '无法创建类别。',
             'update-failure'       => '无法更新类别。',
         ],
-
         'category_fields' => [
             'index' => [
                 'create-btn' => '创建类别字段',
                 'add-btn'    => '创建类别字段',
                 'title'      => '类别字段',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'channel-based'       => '基于渠道',
                     'code'                => '代码',
                     'created-at'          => '创建在',
@@ -683,7 +699,6 @@ return [
                     'mass-delete-failed'  => '所选类别字段无法删除。',
                 ],
             ],
-
             'create' => [
                 'add-field-options'   => '添加类别字段选项',
                 'add-option'          => '添加选项',
@@ -738,8 +753,7 @@ return [
                 'set-section-right'   => '配置部分',
                 'settings'            => '设置',
                 'same-code-error'     => '选项代码必须是唯一的。',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => '落下',
                     'save-btn' => '保存选项',
                     'color'    => '色板',
@@ -747,7 +761,6 @@ return [
                     'text'     => '文字色板',
                 ],
             ],
-
             'edit' => [
                 'add-field-options'   => '添加类别字段选项',
                 'add-option'          => '添加选项',
@@ -803,8 +816,7 @@ return [
                 'set-section-right'   => '配置部分',
                 'settings'            => '设置',
                 'same-code-error'     => '选项代码必须是唯一的。',
-
-                'option' => [
+                'option'              => [
                     'dropdown' => '落下',
                     'save-btn' => '保存选项',
                     'color'    => '色板',
@@ -812,7 +824,6 @@ return [
                     'text'     => '文字色板',
                 ],
             ],
-
             'create-success'    => '类别字段成功创建了',
             'delete-failed'     => '类别字段删除失败',
             'delete-success'    => '类别字段成功删除',
@@ -820,17 +831,14 @@ return [
             'user-define-error' => '无法删除系统类别字段',
             'not-found'         => '无法找到代码为“:code”的类别字段',
         ],
-
         'category-fields-options' => [
             'create-success' => '类别字段选项成功创建了',
             'update-success' => '类别字段选项成功更新',
         ],
-
         'families' => [
             'index' => [
-                'add'   => '创建属性家庭',
-                'title' => '家庭',
-
+                'add'      => '创建属性家庭',
+                'title'    => '家庭',
                 'datagrid' => [
                     'code'           => '代码',
                     'delete'         => '删除',
@@ -845,11 +853,9 @@ return [
                     'update-success' => '所选 :resource 已成功更新',
                 ],
             ],
-
             'create' => [
                 'assign-group-btn'                 => '分配属性组',
                 'assign-group-title'               => '分配属性组',
-                'assign-group-btn'                 => '分配属性组',
                 'back-btn'                         => '后退',
                 'code'                             => '代码',
                 'label'                            => '标签',
@@ -877,11 +883,9 @@ return [
                 'unassigned-attribute-groups'      => '未分配的属性组',
                 'assign-first-attribute-group'     => '将小组分配给家庭。',
             ],
-
             'edit' => [
                 'assign-group-btn'                 => '分配属性组',
                 'assign-group-title'               => '分配属性组',
-                'assign-group-btn'                 => '分配属性组',
                 'back-btn'                         => '后退',
                 'code'                             => '代码',
                 'label'                            => '标签',
@@ -912,7 +916,6 @@ return [
                 'variant-options-label'            => '可配置的选项',
                 'select-variant'                   => '选择属性',
             ],
-
             'attribute-family'               => '属性家庭',
             'attribute-product-error'        => '家庭用于产品。',
             'create-success'                 => '一家人成功创造了。',
@@ -925,7 +928,6 @@ return [
             'not-found'                      => '无法找到代码为“:code”的属性系列',
             'can-not-update-variant-options' => '无法更新可配置的选项，因为该家族已经拥有变体产品。',
         ],
-
         'history' => [
             'index' => [
                 'datagrid' => [
@@ -936,7 +938,6 @@ return [
             ],
         ],
     ],
-
     'settings' => [
         'locales' => [
             'index' => [
@@ -945,8 +946,7 @@ return [
                 'title'                 => '地区',
                 'can-not-delete-error'  => '您无法删除链接到频道或用户的语言环境',
                 'can-not-disable-error' => '您无法禁用链接到频道或用户的语言环境',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'     => '动作',
                     'code'        => '代码',
                     'delete'      => '删除',
@@ -957,14 +957,12 @@ return [
                     'name'        => '显示名称',
                     'rtl'         => 'RTL',
                     'mass-update' => '更新状态',
-
-                    'status' => [
+                    'status'      => [
                         'title'    => '地位',
                         'active'   => '使能够',
                         'inactive' => '禁用',
                     ],
                 ],
-
                 'create' => [
                     'code'             => '代码',
                     'direction'        => '方向',
@@ -975,11 +973,9 @@ return [
                     'title'            => '创建语言环境',
                     'status'           => '地位',
                 ],
-
                 'edit' => [
                     'title' => '编辑语言环境',
                 ],
-
                 'create-success'    => 'LOCALE成功创建了。',
                 'delete-failed'     => '区域删除失败',
                 'delete-success'    => '语言环境成功删除了。',
@@ -988,7 +984,6 @@ return [
                 'update-success'    => '语言环境成功更新。',
             ],
         ],
-
         'currencies' => [
             'index' => [
                 'create-btn'            => '创建货币',
@@ -996,8 +991,7 @@ return [
                 'title'                 => '货币',
                 'can-not-delete-error'  => '您无法删除链接到频道的货币',
                 'can-not-disable-error' => '您不能禁用链接到渠道的货币',
-
-                'datagrid' => [
+                'datagrid'              => [
                     'actions'        => '动作',
                     'code'           => '代码',
                     'delete'         => '删除',
@@ -1006,17 +1000,15 @@ return [
                     'method-error'   => '错误！检测到错误的方法，请检查质量动作配置',
                     'name'           => '显示名称',
                     'no-resource'    => '提供的资源不足以进行操作',
-                    'partial-action' => '由于系统限制，部分操作未能执行：resource',
+                    'partial-action' => 'Some actions were not performed due restricted system constraints on :resource',
                     'update-success' => '所选 :resource 已成功更新',
                     'mass-update'    => '更新状态',
-
-                    'status' => [
+                    'status'         => [
                         'title'    => '地位',
                         'active'   => '使能够',
                         'inactive' => '禁用',
                     ],
                 ],
-
                 'create' => [
                     'code'           => '代码',
                     'create-btn'     => '创建货币',
@@ -1029,11 +1021,9 @@ return [
                     'title'          => '创建新货币',
                     'status'         => '地位',
                 ],
-
                 'edit' => [
                     'title' => '编辑货币',
                 ],
-
                 'create-success'    => '成功创建的货币。',
                 'delete-failed'     => '货币删除失败',
                 'delete-success'    => '货币成功删除。',
@@ -1042,7 +1032,6 @@ return [
                 'cannot-delete'     => '货币无法删除。',
             ],
         ],
-
         'data-transfer' => [
             'tracker' => [
                 'index' => [
@@ -1060,34 +1049,34 @@ return [
                         'user'                 => '用户',
                         'created_at'           => '创建在',
                         'updated_at'           => '更新在',
-
-                        'pending'    => '待办的',
-                        'validated'  => '经过验证',
-                        'processing' => '加工',
-                        'processed'  => '处理',
-                        'linking'    => '链接',
-                        'linked'     => '链接',
-
-                        'indexing'  => '索引',
-                        'indexed'   => '索引',
-                        'completed' => '完全的',
-                        'failed'    => '失败的',
+                        'pending'              => '待办的',
+                        'validating'           => 'Validating',
+                        'validated'            => '经过验证',
+                        'processing'           => '加工',
+                        'processed'            => '处理',
+                        'linking'              => '链接',
+                        'linked'               => '链接',
+                        'indexing'             => '索引',
+                        'indexed'              => '索引',
+                        'completed'            => '完全的',
+                        'paused'               => 'Paused',
+                        'cancelled'            => 'Cancelled',
+                        'failed'               => '失败的',
                     ],
                 ],
-
                 'import' => [
                     'back-btn'                => '后退',
                     'completed-batches'       => '总批次完成：',
                     'download-error-report'   => '下载完整报告',
                     'edit-btn'                => '编辑',
                     'imported-info'           => '恭喜！您的进口是成功的。',
-                    'importing-info'          => '流程导出',
+                    'exporting-info'          => 'Export In Process',
                     'indexing-info'           => '资源索引（价格，弹性搜索）正在进行中',
                     'linking-info'            => '链接正在进行的资源',
                     'progress'                => '进步：',
                     'title'                   => '出口',
                     'total-batches'           => '总批量：',
-                    'total-created'           => '创建的总记录：',
+                    'created'                 => 'Total Records Created:',
                     'total-deleted'           => '总记录已删除：',
                     'total-errors'            => '总错误：',
                     'total-invalid-rows'      => '总无效行：',
@@ -1099,7 +1088,6 @@ return [
                     'validation-failed-info'  => '您的导入无效。请修复以下错误，然后重试。',
                     'validation-success-info' => '您的导入是有效的。单击导出以开始导入过程。',
                 ],
-
                 'summary' => [
                     'total-batches' => '总批次:',
                     'created'       => '已创建记录总数:',
@@ -1110,36 +1098,74 @@ return [
                     'updated'       => '更新记录总数:',
                     'skipped'       => '跳过的记录总数:',
                 ],
-
-                'create-success'    => '导出成功创建。',
-                'delete-failed'     => '导出删除意外失败。',
-                'delete-success'    => '导出成功删除。',
-                'not-valid'         => '导出无效',
-                'nothing-to-import' => '没有资源可以进口。',
-                'setup-queue-error' => '请将您的队列驱动程序更改为“数据库”或“ Redis”以开始导入过程。',
-                'update-success'    => '导出成功更新。',
-                'failed-info'       => '作业失败了。请修复以下错误并重试。',
-                'download-log-file' => '下载日志',
+                'info'                  => 'Congratulations! Your job was executed successfully.',
+                'running-time'          => 'Running time',
+                'estimated-remaining'   => 'Est. remaining',
+                'total-duration'        => 'Total Duration',
+                'status'                => 'Status',
+                'waiting'               => 'Waiting',
+                'total-records'         => 'Total records',
+                'job-id'                => 'Job ID',
+                'records-created'       => 'Records Created',
+                'records-updated'       => 'Records Updated',
+                'records-deleted'       => 'Records deleted',
+                'run-again'             => 'Run Again',
+                'completed-success'     => 'job completed successfully',
+                'completed-info-sub'    => 'All records have been processed and indexed. Your catalog is up to date.',
+                'create-success'        => '导出成功创建。',
+                'delete-failed'         => '导出删除意外失败。',
+                'delete-success'        => '导出成功删除。',
+                'not-valid'             => '导出无效',
+                'nothing-to-import'     => '没有资源可以进口。',
+                'setup-queue-error'     => '请将您的队列驱动程序更改为“数据库”或“ Redis”以开始导入过程。',
+                'update-success'        => '导出成功更新。',
+                'failed-info'           => '作业失败了。请修复以下错误并重试。',
+                'download-log-file'     => '下载日志',
+                'pause'                 => 'Pause',
+                'resume'                => 'Resume',
+                'cancel'                => 'Cancel',
+                'paused'                => 'Import has been paused.',
+                'resumed'               => 'Import has been resumed.',
+                'cancelled'             => 'Import has been cancelled.',
+                'paused-info'           => 'Import is paused. Remaining batches are on hold.',
+                'paused-info-export'    => 'Export is paused. Remaining batches are on hold.',
+                'cancelled-info'        => 'Import was cancelled. Partial results are shown below.',
+                'cancelled-info-export' => 'Export was cancelled. Partial results are shown below.',
+                'cancel-confirm'        => 'Are you sure you want to cancel this job? This action cannot be undone.',
+                'live'                  => 'Live',
+                'import-progress'       => 'Import progress',
+                'export-progress'       => 'Export progress',
+                'linking-progress'      => 'Linking progress',
+                'indexing-progress'     => 'Indexing progress',
+                'job-label'             => 'Job',
             ],
-
             'imports' => [
                 'create' => [
                     'code'                => '代码',
                     'action'              => '行动',
                     'allowed-errors'      => '允许错误',
+                    'allowed-file-types'  => 'Allowed file types (CSV, XLSX, XLS)',
                     'back-btn'            => '后退',
                     'create-update'       => '创建/更新',
                     'delete'              => '删除',
                     'media'               => '文件 /图像',
                     'images'              => '图片',
-                    'download-sample'     => '下载：resource 示例 CSV',
+                    'download-sample'     => 'Download :resource Sample CSV',
                     'field-separator'     => '场分离器',
+                    'separator-info'      => 'Only use for CSV files',
                     'file-info-example'   => '例如，如果产品图像，则应将文件放入/project-root/storage/app/import/intim-import/product-images文件夹中。',
                     'file-info'           => '使用/project-root/storage/app/导入的相对路径，例如产品形象，进口图像。',
                     'file'                => '文件',
                     'general'             => '一般的',
                     'upload_images'       => '上传图像设置路径',
                     'download-sample-zip' => '下载示例图像拉链',
+                    'zip-uploading'       => 'Uploading and extracting ZIP...',
+                    'zip-upload-success'  => 'ZIP uploaded and extracted successfully.',
+                    'zip-upload-error'    => 'Failed to upload ZIP. Please try again.',
+                    'invalid-zip'         => 'The uploaded file is not a valid ZIP archive.',
+                    'zip-upload-or'       => 'or upload a ZIP of images',
+                    'zip-click-upload'    => 'Click to upload a ZIP of images',
+                    'zip-files-extracted' => 'files extracted',
                     'zip-drop-hint'       => '点击或将ZIP文件拖放至此处',
                     'images-directory'    => '小路',
                     'process-in-queue'    => '队列中的过程',
@@ -1152,7 +1178,6 @@ return [
                     'type'                => '类型',
                     'validation-strategy' => '验证策略',
                 ],
-
                 'edit' => [
                     'images'              => '图片',
                     'action'              => '行动',
@@ -1163,6 +1188,7 @@ return [
                     'delete'              => '删除',
                     'download-sample'     => '下载样本',
                     'field-separator'     => '场分离器',
+                    'separator-info'      => 'Only use for CSV files',
                     'file-info-example'   => '例如，如果产品图像，则应将文件放入/project-root/storage/app/import/intim-import/product-images文件夹中。',
                     'file-info'           => '使用/project-root/storage/app/导入的相对路径，例如产品形象，进口图像。',
                     'file'                => '文件',
@@ -1178,16 +1204,13 @@ return [
                     'type'                => '类型',
                     'validation-strategy' => '验证策略',
                 ],
-
                 'batch' => [
                     'title' => '在队列中添加导入',
                 ],
-
                 'index' => [
                     'button-title' => '创建导入',
                     'title'        => '进口',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => '动作',
                         'completed-at'          => '完成',
                         'created'               => '创建',
@@ -1208,20 +1231,33 @@ return [
                         'import'                => '进口',
                     ],
                 ],
-
                 'import' => [
+                    'action'                  => '动作模式',
                     'back-btn'                => '后退',
                     'completed-batches'       => '总批次完成：',
                     'download-error-report'   => '下载完整报告',
                     'edit-btn'                => '编辑',
-                    'imported-info'           => '恭喜！您的进口是成功的。',
-                    'importing-info'          => '在过程中导入',
                     'exporting-info'          => '正在导出',
+                    'exporting-info-sub'      => 'Generating export file and writing records. Please wait.',
+                    'file_path'               => '文件路径',
+                    'imported-info'           => '恭喜！您的进口是成功的。',
+                    'import-now'              => '现在导入',
+                    'importing-info'          => '在过程中导入',
+                    'importing-info-sub'      => 'Processing batches and writing records to the database.',
                     'indexing-info'           => '资源索引（价格，弹性搜索）正在进行中',
+                    'indexing-info-sub'       => 'Rebuilding search indices and price caches after import. This step runs automatically.',
+                    'indexing-type'           => 'Price + ES',
                     'linking-info'            => '链接正在进行的资源',
-                    'progress'                => '进步：',
+                    'linking-info-sub'        => 'Linking related resources and associations between records.',
                     'pending-info'            => '等待队列中的工作处理',
+                    'pending-info-sub'        => 'Your job has been added to the processing queue. A worker will pick it up shortly.',
+                    'pending-step-complete'   => 'Complete',
                     'pending-step-export'     => '正在导出',
+                    'pending-step-import'     => 'Importing',
+                    'pending-step-queue'      => 'Queued',
+                    'pending-step-validate'   => 'Validating',
+                    'profile'                 => '导入配置文件',
+                    'progress'                => '进步：',
                     'title'                   => '进口',
                     'total-batches'           => '总批量：',
                     'total-created'           => '创建的总记录：',
@@ -1230,26 +1266,23 @@ return [
                     'total-invalid-rows'      => '总无效行：',
                     'total-rows-processed'    => '处理总排：',
                     'total-updated'           => '总记录更新：',
-                    'validate-info'           => '单击验证数据以检查您的导入。',
                     'validate'                => '证实',
-                    'file_path'               => '文件路径',
-                    'import-now'              => '现在导入',
-                    'action'                  => '动作模式',
-                    'profile'                 => '导入配置文件',
+                    'validate-info'           => '单击验证数据以检查您的导入。',
                     'validating-info'         => '数据开始读取和验证',
+                    'validating-info-sub'     => 'Checking schema integrity, field mappings, and data types before the import begins.',
                     'validation-failed-info'  => '您的导入无效。请修复以下错误，然后重试。',
                     'validation-success-info' => '您的导入有效。正在自动开始导入...',
                 ],
-
-                'create-success'    => '导入成功创建。',
-                'delete-failed'     => '导入删除意外失败。',
-                'delete-success'    => '导入成功删除。',
-                'not-valid'         => '导入无效',
-                'nothing-to-import' => '没有资源可以进口。',
-                'setup-queue-error' => '请将您的队列驱动程序更改为“数据库”或“ Redis”以开始导入过程。',
-                'update-success'    => '导入成功更新。',
+                'create-success'     => '导入成功创建。',
+                'delete-failed'      => '导入删除意外失败。',
+                'delete-success'     => '导入成功删除。',
+                'invalid-zip'        => 'The uploaded file is not a valid ZIP archive.',
+                'not-valid'          => '导入无效',
+                'nothing-to-import'  => '没有资源可以进口。',
+                'setup-queue-error'  => '请将您的队列驱动程序更改为“数据库”或“ Redis”以开始导入过程。',
+                'update-success'     => '导入成功更新。',
+                'zip-upload-success' => 'ZIP uploaded and extracted successfully.',
             ],
-
             'exports' => [
                 'create' => [
                     'code'                => '代码',
@@ -1260,7 +1293,7 @@ return [
                     'delete'              => '删除',
                     'media'               => '文件 /图像',
                     'images'              => '图片',
-                    'download-sample'     => '下载：资源样本',
+                    'download-sample'     => 'Download :resource Sample',
                     'field-separator'     => '场分离器',
                     'file-info-example'   => '例如，如果产品图像，则应将文件放入/project-root/storage/app/export/forder-imimimages文件夹中。',
                     'file-info'           => '使用/project-root/storage/app/导出的相对路径，例如产品图像，出口图像。',
@@ -1280,7 +1313,6 @@ return [
                     'type'                => '类型',
                     'validation-strategy' => '验证策略',
                 ],
-
                 'edit' => [
                     'action'              => '行动',
                     'allowed-errors'      => '允许错误',
@@ -1304,16 +1336,13 @@ return [
                     'type'                => '类型',
                     'validation-strategy' => '验证策略',
                 ],
-
                 'batch' => [
                     'title' => '队列中添加的导出',
                 ],
-
                 'index' => [
                     'button-title' => '创建导出',
                     'title'        => '出口',
-
-                    'datagrid' => [
+                    'datagrid'     => [
                         'actions'               => '动作',
                         'completed-at'          => '完成',
                         'created'               => '创建',
@@ -1334,7 +1363,6 @@ return [
                         'export'                => '出口',
                     ],
                 ],
-
                 'export' => [
                     'back-btn'                => '后退',
                     'completed-batches'       => '总批次完成：',
@@ -1360,12 +1388,10 @@ return [
                     'validating-info'         => '数据开始读取和验证',
                     'validation-failed-info'  => '您的出口无效。请修复以下错误，然后重试。',
                     'validation-success-info' => '您的导出是有效的。单击导出以开始导出过程。',
-                    'action'                  => '动作模式',
                     'profile'                 => '导出配置文件',
                     'file-format'             => '文件格式',
                     'with-media'              => '与媒体',
                 ],
-
                 'create-success'    => '导出成功创建。',
                 'delete-failed'     => '导出删除意外失败。',
                 'delete-success'    => '导出成功删除。',
@@ -1375,7 +1401,6 @@ return [
                 'update-success'    => '导出成功更新。',
             ],
         ],
-
         'channels' => [
             'index' => [
                 'create-btn'           => '创建频道',
@@ -1394,7 +1419,6 @@ return [
                     'root-category' => '根类',
                 ],
             ],
-
             'create' => [
                 'allowed-ips'            => '允许IPS',
                 'cancel'                 => '后退',
@@ -1429,7 +1453,6 @@ return [
                 'theme'                  => '主题',
                 'title'                  => '创建频道',
             ],
-
             'edit' => [
                 'allowed-ips'            => '允许IPS',
                 'back-btn'               => '后退',
@@ -1467,13 +1490,11 @@ return [
                 'update-success'         => '成功更新频道',
             ],
         ],
-
         'users' => [
             'index' => [
-                'admin' => '行政',
-                'title' => '用户',
-                'user'  => '用户',
-
+                'admin'  => '行政',
+                'title'  => '用户',
+                'user'   => '用户',
                 'create' => [
                     'confirm-password'  => '确认密码',
                     'email'             => '电子邮件',
@@ -1487,7 +1508,6 @@ return [
                     'user-timezone'     => '时区',
                     'select'            => '选择',
                 ],
-
                 'datagrid' => [
                     'actions'  => '动作',
                     'active'   => '积极的',
@@ -1501,12 +1521,10 @@ return [
                     'status'   => '地位',
                     'image'    => '图像',
                 ],
-
                 'edit' => [
                     'title' => '编辑用户',
                 ],
             ],
-
             'edit' => [
                 'back-btn'         => '后退',
                 'confirm-password' => '确认密码',
@@ -1519,7 +1537,6 @@ return [
                 'status'           => '地位',
                 'title'            => '编辑用户',
             ],
-
             'activate-warning'          => '您的帐户尚未激活，请联系管理员。',
             'cannot-change'             => '用户无法更改',
             'create-success'            => '用户成功创建了。',
@@ -1532,13 +1549,11 @@ return [
             'update-success'            => '用户成功更新了。',
             'current-user-delete-error' => '已登录用户无法删除',
         ],
-
         'roles' => [
             'index' => [
                 'create-btn' => '创建角色',
                 'title'      => '角色',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => '删除',
                     'edit'            => '编辑',
                     'id'              => 'ID',
@@ -1546,7 +1561,6 @@ return [
                     'permission-type' => '权限类型',
                 ],
             ],
-
             'create' => [
                 'access-control' => '访问控制',
                 'all'            => '全部',
@@ -1559,7 +1573,6 @@ return [
                 'save-btn'       => '保存角色',
                 'title'          => '创建角色',
             ],
-
             'edit' => [
                 'access-control' => '访问控制',
                 'all'            => '全部',
@@ -1572,7 +1585,6 @@ return [
                 'save-btn'       => '保存角色',
                 'title'          => '编辑角色',
             ],
-
             'being-used'        => '角色已经在管理用户中使用',
             'being-used-by'     => '角色已被 :name 用户使用',
             'create-success'    => '成功创建了角色',
@@ -1582,7 +1594,6 @@ return [
             'update-success'    => '角色已成功更新',
         ],
     ],
-
     'configuration' => [
         'index' => [
             'delete'          => '删除',
@@ -1591,56 +1602,51 @@ return [
             'save-message'    => '配置成功保存',
             'search'          => '搜索',
             'title'           => '配置',
-
-            'general' => [
-                'info'  => '',
-                'title' => '一般的',
-
+            'general'         => [
+                'info'    => '',
+                'title'   => '一般的',
                 'general' => [
                     'info'  => '',
                     'title' => '一般的',
                 ],
-
                 'magic-ai' => [
-                    'info'  => '设置魔术AI选项。',
-                    'title' => '你有魔术',
-
+                    'info'     => '设置魔术AI选项。',
+                    'title'    => '你有魔术',
                     'settings' => [
-                        'api-key'        => 'API键',
-                        'enabled'        => '启用',
-                        'llm-api-domain' => 'LLM API域',
-                        'organization'   => '组织ID',
-                        'title'          => '常规设置',
-                        'title-info'     => '通过输入您的独家API密钥并指示相关的毫不费力集成组织，从而增强您使用魔术AI功能的体验。抓住您的OpenAI凭据，并根据您的特定需求自定义设置。',
+                        'enabled'     => '启用',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => '常规设置',
+                        'title-info'  => '通过输入您的独家API密钥并指示相关的毫不费力集成组织，从而增强您使用魔术AI功能的体验。抓住您的OpenAI凭据，并根据您的特定需求自定义设置。',
                     ],
-
                     'image-generation' => [
-                        'enabled'    => '啟用',
-                        'title'      => '影像生成',
-                        'title-info' => '此功能將為每次圖像上傳啟用 Magic AI，您希望使用 DALL-E 生成圖像。',
+                        'enabled'     => '啟用',
+                        'ai-platform' => 'Default Platform',
+                        'ai-model'    => 'Default Model',
+                        'title'       => '影像生成',
+                        'title-info'  => '此功能將為每次圖像上傳啟用 Magic AI，您希望使用 DALL-E 生成圖像。',
                     ],
-
-                    'translation'   => [
-                        'title'                  => '翻译',
-                        'enabled'                => '启用',
-                        'title-info'             => '此功能将启用 Magic AI 来翻译文本，使您能够轻松地将文本从一种语言转换为另一种语言。',
-                        'global-source-channel'  => '源频道',
-                        'global-source-locale'   => '源语言环境',
-                        'translation-model'      => '翻译模型',
-                        'replace-existing-value' => '替换现有值',
-                        'target-channel'         => '目标频道',
-                        'target-locales'         => '目标语言环境',
+                    'translation' => [
+                        'title'                       => '翻译',
+                        'enabled'                     => '启用',
+                        'title-info'                  => '此功能将启用 Magic AI 来翻译文本，使您能够轻松地将文本从一种语言转换为另一种语言。',
+                        'ai-platform'                 => 'Default Platform',
+                        'global-source-channel'       => '源频道',
+                        'global-source-locale'        => '源语言环境',
+                        'translation-model'           => '翻译模型',
+                        'replace-existing-value'      => '替换现有值',
+                        'target-channel'              => '目标频道',
+                        'target-locales'              => '目标语言环境',
+                        'replace-existing-value-info' => 'Replace the existing value if it already exists.',
                     ],
                 ],
             ],
         ],
-
         'integrations' => [
             'index' => [
                 'create-btn' => '创造',
                 'title'      => '集成',
-
-                'datagrid' => [
+                'datagrid'   => [
                     'delete'          => '删除',
                     'edit'            => '编辑',
                     'id'              => 'ID',
@@ -1650,7 +1656,6 @@ return [
                     'permission-type' => '权限类型',
                 ],
             ],
-
             'create' => [
                 'access-control' => '访问控制',
                 'all'            => '全部',
@@ -1663,7 +1668,6 @@ return [
                 'save-btn'       => '节省',
                 'title'          => '新集成',
             ],
-
             'edit' => [
                 'access-control' => '访问控制',
                 'all'            => '全部',
@@ -1681,7 +1685,6 @@ return [
                 'save-btn'       => '节省',
                 'title'          => '编辑集成',
             ],
-
             'being-used'                     => 'API集成已在管理用户中使用',
             'create-success'                 => 'API集成成功创建了',
             'delete-failed'                  => 'API集成被删除失败',
@@ -1692,40 +1695,143 @@ return [
             're-generate-secret-key-success' => 'API秘密密钥已成功再生',
             'client-not-found'               => '未找到客户',
         ],
-
         'prompt' => [
             'datagrid' => [
-                'id'            => 'ID',
-                'title'         => '标题',
-                'prompt'        => '提示',
-                'type'          => '类型',
-                'created-at'    => '创建时间',
-                'updated-at'    => '更新时间',
-                'actions'       => '操作',
-                'edit'          => '编辑',
-                'delete'        => '删除',
-                'product'       => '产品',
-                'category'      => '分类',
+                'id'               => 'ID',
+                'title'            => '标题',
+                'prompt'           => '提示',
+                'type'             => '类型',
+                'purpose'          => 'Purpose',
+                'text-generation'  => 'Text Generation',
+                'image-generation' => 'Image Generation',
+                'translation'      => 'Translation',
+                'created-at'       => '创建时间',
+                'updated-at'       => '更新时间',
+                'actions'          => '操作',
+                'edit'             => '编辑',
+                'delete'           => '删除',
+                'product'          => '产品',
+                'category'         => '分类',
             ],
             'create' => [
-                'title'         => '提示',
-                'create-btn'    => '创建提示',
-                'edit-title'    => '编辑提示',
-                'create-title'  => '创建新提示',
-                'label-title'   => '标题',
-                'type'          => '类型',
-                'prompt'        => '提示',
-                'save-btn'      => '保存提示',
+                'title'        => '提示',
+                'create-btn'   => '创建提示',
+                'edit-title'   => '编辑提示',
+                'create-title' => '创建新提示',
+                'label-title'  => '标题',
+                'purpose'      => 'Purpose',
+                'type'         => '类型',
+                'prompt'       => '提示',
+                'save-btn'     => '保存提示',
             ],
             'message' => [
-                'save-success'      => '提示已成功保存。',
-                'update-success'    => '提示已成功更新。',
-                'delete-success'    => '提示已成功删除。',
-                'delete-fail'       => '删除提示失败。',
+                'save-success'   => '提示已成功保存。',
+                'update-success' => '提示已成功更新。',
+                'delete-success' => '提示已成功删除。',
+                'delete-fail'    => '删除提示失败。',
+            ],
+        ],
+        'system-prompt' => [
+            'datagrid' => [
+                'id'          => 'ID',
+                'title'       => 'Title',
+                'tone'        => 'Tone',
+                'max-tokens'  => 'Max Tokens',
+                'temperature' => 'Temperature',
+                'status'      => 'Status',
+                'created-at'  => 'Created At',
+                'updated-at'  => 'Updated At',
+                'actions'     => 'Actions',
+                'save'        => 'Save',
+                'edit'        => 'Edit',
+                'delete'      => 'delete',
+            ],
+            'create' => [
+                'title'        => 'System Prompt',
+                'create-btn'   => 'Create System Prompt',
+                'edit-title'   => 'Edit System Prompt',
+                'create-title' => 'Create New System Prompt',
+                'label-title'  => 'Title',
+                'max-tokens'   => 'Max Output Tokens',
+                'temperature'  => 'Temperature',
+                'type'         => 'Type',
+                'prompt'       => 'Prompt',
+                'save-btn'     => 'Save Prompt',
+                'prompt-tone'  => 'Prompt Tone',
+            ],
+            'message' => [
+                'save-success'   => 'System Prompt saved successfully.',
+                'update-success' => 'System Prompt updated successfully.',
+                'delete-success' => 'System Prompt deleted successfully.',
+                'delete-fail'    => 'System Prompt deletion failed.',
+            ],
+        ],
+        'platform' => [
+            'title'           => 'AI Platforms',
+            'create-btn'      => 'Add Platform',
+            'create-title'    => 'Add AI Platform',
+            'edit-title'      => 'Edit AI Platform',
+            'save-btn'        => 'Save',
+            'saving'          => 'Saving',
+            'test-connection' => 'Test Connection',
+            'setup'           => [
+                'title'              => 'Get Started with Magic AI',
+                'description'        => 'Connect your AI provider to unlock content generation, image creation, and translation powered by AI. Add your first platform to begin.',
+                'step-1'             => 'Choose a provider',
+                'step-2'             => 'Enter your API key',
+                'step-3'             => 'Select models & save',
+                'add-first'          => 'Add Your First Platform',
+                'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
+                'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+            ],
+            'testing'         => 'Testing',
+            'fetch-models'    => 'Fetch Models',
+            'fetching-models' => 'Fetching',
+            'set-default'     => 'Set as Default',
+            'datagrid'        => [
+                'label'      => 'Label',
+                'provider'   => 'Provider',
+                'models'     => 'Models',
+                'default'    => 'Default',
+                'status'     => 'Status',
+                'created-at' => 'Created At',
+                'edit'       => 'Edit',
+                'delete'     => 'Delete',
+            ],
+            'fields' => [
+                'label'                    => 'Label',
+                'provider'                 => 'Provider',
+                'select-provider'          => '-- Select Provider --',
+                'api-url'                  => 'API URL',
+                'api-url-hint'             => 'Pre-filled with the default endpoint. Edit only if using a proxy or custom deployment.',
+                'api-key'                  => 'API Key',
+                'models'                   => 'Models',
+                'custom-model-placeholder' => 'Type custom model ID...',
+                'add'                      => 'Add',
+                'enter-key-to-fetch'       => 'Enter your API key above to automatically fetch available models.',
+                'search-models'            => 'Search models...',
+                'no-models-match'          => 'No models match your search.',
+                'azure-deployment'         => 'Deployment Name',
+                'azure-api-version'        => 'API Version',
+                'is-default'               => 'Set as Default',
+                'status'                   => 'Status',
+                'use-default'              => '-- Use Default Platform --',
+                'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
+                'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
+                'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+            ],
+            'message' => [
+                'save-success'          => 'Platform saved successfully.',
+                'update-success'        => 'Platform updated successfully.',
+                'delete-success'        => 'Platform deleted successfully.',
+                'delete-fail'           => 'Platform deletion failed.',
+                'cannot-delete-default' => 'Cannot delete the only default platform.',
+                'set-default-success'   => 'Platform set as default successfully.',
+                'test-success'          => 'Connection verified successfully!',
+                'test-fail'             => 'Connection test failed',
             ],
         ],
     ],
-
     'components' => [
         'layouts' => [
             'header' => [
@@ -1736,17 +1842,18 @@ return [
                 'notifications' => '通知',
                 'visit-shop'    => '访问商店',
             ],
-
             'sidebar' => [
                 'attribute-families' => '属性家庭',
                 'attribute-groups'   => '属性组',
                 'attributes'         => '属性',
                 'history'            => '历史',
+                'edit-section'       => 'Data',
                 'general'            => '一般的',
                 'catalog'            => '目录',
                 'categories'         => '类别',
                 'category_fields'    => '类别字段',
                 'channels'           => '频道',
+                'collapse'           => 'Collapse',
                 'configure'          => '配置',
                 'currencies'         => '货币',
                 'dashboard'          => '仪表板',
@@ -1761,50 +1868,44 @@ return [
                 'products'           => '产品',
                 'roles'              => '角色',
                 'settings'           => '设置',
+                'themes'             => 'Themes',
                 'users'              => '用户',
                 'integrations'       => '集成',
                 'prompt'             => '提示',
                 'general-tab'        => '配置',
             ],
         ],
-
         'datagrid' => [
             'index' => [
                 'no-records-selected'              => '没有选择记录。',
                 'must-select-a-mass-action-option' => '您必须选择质量行动\'s option.',
                 'must-select-a-mass-action'        => '您必须选择质量行动。',
             ],
-
             'toolbar' => [
-                'length-of'    => '：length 的',
+                'length-of'    => ':length of',
                 'of'           => '的',
                 'per-page'     => '每页',
-                'results'      => '：total 结果',
-                'selected'     => '：total 选定',
+                'results'      => ':total Results',
+                'selected'     => ':total Selected',
                 'mass-actions' => [
                     'submit'        => '提交',
                     'select-option' => '选择选项',
                     'select-action' => '选择动作',
                 ],
-
                 'filter' => [
                     'title' => '筛选',
                 ],
-
                 'search_by' => [
                     'code'       => '通过代码搜索',
                     'code_or_id' => '通过代码或ID搜索',
                 ],
-
                 'search' => [
                     'title' => '搜索',
                 ],
-
                 'manage-columns' => [
                     'title' => '列',
                 ],
             ],
-
             'filters' => [
                 'select'   => '选择',
                 'title'    => '应用过滤器',
@@ -1815,17 +1916,14 @@ return [
                         'no-results'        => '找不到结果...',
                     ],
                 ],
-
                 'custom-filters' => [
                     'clear-all' => '清除全部',
                     'title'     => '自定义过滤器',
                 ],
-
                 'boolean-options' => [
                     'false' => '错误的',
                     'true'  => '真的',
                 ],
-
                 'date-options' => [
                     'last-month'        => '上个月',
                     'last-six-months'   => '最近6个月',
@@ -1837,12 +1935,10 @@ return [
                     'yesterday'         => '昨天',
                 ],
             ],
-
             'table' => [
                 'actions'              => '动作',
                 'no-records-available' => '没有可用的记录。',
             ],
-
             'manage-columns' => [
                 'title'             => '管理列',
                 'available-columns' => '可用列',
@@ -1850,7 +1946,6 @@ return [
                 'apply-btn'         => '应用',
             ],
         ],
-
         'modal' => [
             'confirm' => [
                 'agree-btn'    => '同意',
@@ -1858,14 +1953,12 @@ return [
                 'message'      => '您确定要执行此操作吗？',
                 'title'        => '你确定吗？',
             ],
-
             'delete' => [
                 'agree-btn'    => '删除',
                 'disagree-btn' => '取消',
                 'message'      => '你确定你要删除？',
                 'title'        => '确认删除',
             ],
-
             'history' => [
                 'title'           => '历史预览',
                 'subtitle'        => '快速查看您的更新和更改。',
@@ -1879,7 +1972,6 @@ return [
                 'no-history'      => '找不到历史',
             ],
         ],
-
         'products' => [
             'search' => [
                 'add-btn'       => '添加选定的产品',
@@ -1891,7 +1983,6 @@ return [
                 'title'         => '选择产品',
             ],
         ],
-
         'media' => [
             'images' => [
                 'add-image-btn'      => '添加图片',
@@ -1903,8 +1994,7 @@ return [
                 'allowed-types'      => 'PNG，JPEG，JPG',
                 'not-allowed-error'  => '仅允许图像文件（.jpeg，.jpg，.png，..）。',
                 'upload-media-btn'   => '上传媒体',
-
-                'ai-generation' => [
+                'ai-generation'      => [
                     '1024x1024'        => '1024x1024',
                     '1024x1792'        => '1024x1792',
                     '1792x1024'        => '1792x1024',
@@ -1924,7 +2014,6 @@ return [
                     'standard'         => '标准',
                     'title'            => 'AI图像生成',
                 ],
-
                 'placeholders' => [
                     'front'     => '正面',
                     'next'      => '下一个',
@@ -1933,23 +2022,22 @@ return [
                     'zoom'      => '飞涨',
                 ],
             ],
-
+            'gallery' => [
+                'not-allowed-error' => 'Only image and video files are allowed. (.mp4, .jpg ..)',
+            ],
             'videos' => [
                 'add-video-btn'     => '添加视频',
                 'allowed-types'     => 'MP4，WebM，MKV',
                 'not-allowed-error' => '仅允许视频文件（.mp4，.mov，.ogg ..）。',
             ],
-
             'files' => [
                 'add-file-btn'      => '添加文件',
                 'allowed-types'     => 'PDF',
                 'not-allowed-error' => '仅允许PDF文件',
             ],
         ],
-
         'tinymce' => [
-            'ai-btn-tile' => '你有魔术',
-
+            'ai-btn-tile'   => '你有魔术',
             'ai-generation' => [
                 'apply'                  => '申请',
                 'generate'               => '产生',
@@ -1958,7 +2046,14 @@ return [
                 'generating'             => '生成...',
                 'prompt'                 => '迅速的',
                 'title'                  => 'AI协助',
+                'platform'               => 'Platform',
                 'model'                  => '模型',
+                'rich-preview'           => 'Rich Preview',
+                'system-prompt'          => 'System Prompt',
+                'select-system-prompt'   => 'Select System Prompt',
+                'tone-instructions'      => 'Tone / Instructions',
+                'max-tokens'             => 'Max Tokens',
+                'temperature'            => 'Temperature',
                 'gpt-3-5-turbo'          => 'Openai GPT-3.5-Turbo',
                 'llama2'                 => '美洲驼2',
                 'mistral'                => 'Mistral',
@@ -1975,27 +2070,20 @@ return [
             ],
         ],
     ],
-
     'acl' => [
         'addresses'                => '地址',
         'attribute-families'       => '属性家庭',
         'attribute-groups'         => '属性组',
         'attributes'               => '属性',
-        'campaigns'                => '广告系列',
         'cancel'                   => 'Cancel',
-        'cart-rules'               => '购物车规则',
-        'catalog-rules'            => '目录规则',
         'catalog'                  => '目录',
         'categories'               => '类别',
         'channels'                 => '频道',
-        'cms'                      => 'CMS',
-        'communications'           => '通讯',
         'configure'                => '配置',
         'configuration'            => '配置',
         'copy'                     => '复制',
         'create'                   => '创造',
         'currencies'               => '货币',
-        'customers'                => '顾客',
         'dashboard'                => '仪表板',
         'data-transfer'            => '数据传输',
         'delete'                   => '删除',
@@ -2004,10 +2092,13 @@ return [
         'events'                   => '事件',
         'groups'                   => '组',
         'import'                   => '进口',
-        'imports'                  => '进口',
+        'imports'                  => '导入',
         'invoices'                 => '发票',
         'locales'                  => '地区',
         'magic-ai'                 => '你有魔术',
+        'magic-ai-general'         => '通用',
+        'magic-ai-prompt'          => '提示词',
+        'magic-ai-system-prompt'   => '系统提示词',
         'marketing'                => '营销',
         'newsletter-subscriptions' => '新闻通讯订阅',
         'note'                     => '笔记',
@@ -2041,54 +2132,44 @@ return [
         'integrations'             => '集成',
         'api'                      => '应用程序编程接口',
         'tracker'                  => '工作追踪',
-        'imports'                  => '导入',
         'exports'                  => '出口',
         'mass-update'              => '批量更新',
         'mass-delete'              => '批量删除',
     ],
-
     'errors' => [
         'dashboard' => '仪表板',
         'go-back'   => '回去',
         'support'   => '如果问题仍然存在，请通过 <a href=":link" class=":class">:email</a> 联系我们寻求帮助。',
-
-        '404' => [
+        '404'       => [
             'description' => '哎呀！您要查找的页面正在休假。我们似乎找不到您要搜索的内容。',
             'title'       => '404页面不存在',
         ],
-
         '401' => [
             'description' => '哎呀！您似乎无权访问此页面。您似乎缺少必要的凭据。',
             'title'       => '401 未经授权',
             'message'     => '由于凭据无效或令牌过期，身份验证失败。',
         ],
-
         '403' => [
             'description' => '哎呀！此页面是禁止访问的。您似乎没有查看此内容所需的权限。',
             'title'       => '403 禁忌',
         ],
-
         '413' => [
             'description' => '哎呀！您似乎正在尝试上传太大的文件。如果您想上传相同的内容，请相应地更新 PHP 配置。',
             'title'       => '413 内容太大',
         ],
-
         '419' => [
             'description' => '哎呀！您的会话已过期。请刷新页面并重新登录以继续。',
             'title'       => '419 会话已过期',
         ],
-
         '500' => [
             'description' => '哎呀！出了些问题。我们似乎无法加载您正在查找的页面。',
             'title'       => '500内部服务器错误',
         ],
-
         '503' => [
             'description' => '哎呀！看来我们暂时停止维护。请稍后再回来查看。',
             'title'       => '503服务不可用',
         ],
     ],
-
     'export' => [
         'csv'                  => 'CSV',
         'download'             => '下载',
@@ -2101,22 +2182,18 @@ return [
         'error'                => '发生了一些错误！',
         'product-not-selected' => '未选择要快速导出的产品',
     ],
-
     'validations' => [
         'slug-being-used' => '该 slug 正在类别或产品中使用。',
         'slug-reserved'   => '该段已被保留。',
         'invalid-locale'  => '无效区域设置 :locales',
     ],
-
     'footer' => [
         'copy-right' => '由 <a href="https://unopim.com/" target="_blank">UnoPim</a> 提供支持，这是 <a href="https://webkul.com/" target="_blank 的社区项目">Webkul</a>',
     ],
-
     'emails' => [
-        'dear'   => '亲爱的：admin_name',
+        'dear'   => 'Dear :admin_name',
         'thanks' => '如果您需要任何帮助，请通过<a href=":link" style=":style">:email</a>与我们联系。<br/>谢谢！',
-
-        'admin' => [
+        'admin'  => [
             'forgot-password' => [
                 'description'    => '您收到这封电子邮件是因为我们收到了您帐户的密码重置请求。',
                 'greeting'       => '忘记密码！',
@@ -2125,16 +2202,15 @@ return [
             ],
         ],
     ],
-
     'common' => [
-        'yes'     => '是的',
-        'no'      => '不',
-        'true'    => '真的',
-        'false'   => '错误的',
-        'enable'  => '启用',
-        'disable' => '残疾人',
+        'yes'            => '是的',
+        'no'             => '不',
+        'true'           => '真的',
+        'false'          => '错误的',
+        'enable'         => '启用',
+        'disable'        => '残疾人',
+        'no-match-found' => '未找到匹配项！',
     ],
-
     'default-prompt' => [
         'detailed' => [
             'title'  => '产品详细描述',

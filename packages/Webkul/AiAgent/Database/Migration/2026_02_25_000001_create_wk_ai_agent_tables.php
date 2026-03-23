@@ -37,9 +37,9 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('credentialId')
-                  ->references('id')
-                  ->on('ai_agent_credentials')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('ai_agent_credentials')
+                ->onDelete('cascade');
         });
 
         Schema::create('ai_agent_executions', function (Blueprint $table) {
@@ -56,14 +56,14 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('agentId')
-                  ->references('id')
-                  ->on('ai_agent_agents')
-                  ->onDelete('set null');
+                ->references('id')
+                ->on('ai_agent_agents')
+                ->onDelete('set null');
 
             $table->foreign('credentialId')
-                  ->references('id')
-                  ->on('ai_agent_credentials')
-                  ->onDelete('set null');
+                ->references('id')
+                ->on('ai_agent_credentials')
+                ->onDelete('set null');
 
             $table->index('status');
         });

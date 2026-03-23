@@ -8,12 +8,12 @@ namespace Webkul\AiAgent\DTOs;
 final class AgentResult
 {
     /**
-     * @param  bool                   $success     Whether the execution succeeded
-     * @param  string                 $output      Final AI-generated output
-     * @param  array<string, mixed>   $data        Structured response data (parsed JSON, etc.)
-     * @param  array<string, mixed>   $metadata    Pipeline metadata collected during execution
-     * @param  int                    $tokensUsed  Total tokens consumed
-     * @param  string|null            $error       Error message if failed
+     * @param  bool  $success  Whether the execution succeeded
+     * @param  string  $output  Final AI-generated output
+     * @param  array<string, mixed>  $data  Structured response data (parsed JSON, etc.)
+     * @param  array<string, mixed>  $metadata  Pipeline metadata collected during execution
+     * @param  int  $tokensUsed  Total tokens consumed
+     * @param  string|null  $error  Error message if failed
      */
     public function __construct(
         public readonly bool $success,

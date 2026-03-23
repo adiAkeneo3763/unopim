@@ -10,13 +10,13 @@ namespace Webkul\AiAgent\DTOs;
 final class CredentialConfig
 {
     /**
-     * @param  int                    $id        Credential record ID
-     * @param  string                 $label     Human-readable label
-     * @param  string                 $provider  AI provider name (openai, anthropic, etc.)
-     * @param  string                 $apiUrl    Base API URL
-     * @param  string                 $apiKey    API key / token
-     * @param  string                 $model     Model identifier (gpt-4, claude-3, etc.)
-     * @param  array<string, mixed>   $extras    Provider-specific configuration
+     * @param  int  $id  Credential record ID
+     * @param  string  $label  Human-readable label
+     * @param  string  $provider  AI provider name (openai, anthropic, etc.)
+     * @param  string  $apiUrl  Base API URL
+     * @param  string  $apiKey  API key / token
+     * @param  string  $model  Model identifier (gpt-4, claude-3, etc.)
+     * @param  array<string, mixed>  $extras  Provider-specific configuration
      */
     public function __construct(
         public readonly int $id,
