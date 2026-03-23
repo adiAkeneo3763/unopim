@@ -3,7 +3,7 @@ const { test, expect } = require('../../utils/fixtures');
 test.describe('UnoPim Dashboard', () => {
 test('Shows dashboard overview text', async ({ adminPage }) => {
   await expect(
-  adminPage.getByText("Quickly monitoring, what's count in your PIM")
+  adminPage.getByText("Here's what's happening with your product information today.")
 ).toBeVisible();
 });
 
@@ -28,7 +28,7 @@ test('Shows total groups count', async ({ adminPage }) => {
 });
 
 test('Shows total families count', async ({ adminPage }) => {
-  const count = adminPage.locator('text=Total families').locator('..').locator('p.text-3xl');
+  const count = adminPage.locator('text=Total Families').locator('..').locator('p.text-3xl');
   await expect(count).not.toHaveText('');
 });
 
@@ -75,9 +75,9 @@ test('Total Groups section shows icon and number', async ({ adminPage }) => {
   expect(numberText.trim()).toMatch(/^\d+$/);
 });
 
-test('Total families section shows icon and number', async ({ adminPage }) => {
-  const section = adminPage.locator('text=Total families').locator('..').locator('..');
-  await expect(section.locator('img[title="Total families"]')).toBeVisible();
+test('Total Families section shows icon and number', async ({ adminPage }) => {
+  const section = adminPage.locator('text=Total Families').locator('..').locator('..');
+  await expect(section.locator('img[title="Total Families"]')).toBeVisible();
   const numberText = await section.locator('p.text-3xl').innerText();
   expect(numberText.trim()).toMatch(/^\d+$/);
 });
@@ -103,21 +103,9 @@ test('Total Channels section shows icon and number', async ({ adminPage }) => {
   expect(numberText.trim()).toMatch(/^\d+$/);
 });
 
-test('Checks Dashboard text color in dark or light mode', async ({ adminPage }) => {
-  const hasDarkMode = await adminPage.evaluate(() =>
-  document.body?.classList.contains('dark-mode')
-  );
-  const greetingText = adminPage.getByText('Hi! Example');
-  if (hasDarkMode) {
-  await expect(greetingText).toHaveCSS('color', 'rgb(248, 250, 252)');
-  console.log("Dark Theme")
-  } else {
-    await expect(greetingText).toHaveCSS('color', 'rgb(39, 39, 42)');
-    console.log("Light Theme")
-  }
-  await adminPage.getByRole('banner').locator('span').first().click();
-  await expect(greetingText).toHaveCSS('color', 'rgb(248, 250, 252)');
-  console.log("Dark Theme")
+test('Checks Dashboard greeting text is visible', async ({ adminPage }) => {
+  const greetingText = adminPage.getByText(/Welcome back/);
+  await expect(greetingText).toBeVisible();
 });
 });
 

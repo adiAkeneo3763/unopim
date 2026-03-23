@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   translation_tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Translation Integrity Audit
 
     steps:
@@ -27,8 +27,21 @@ jobs:
           tools: composer:v2
           coverage: none
 
-      - name: Install Composer Dependencies
-        run: composer install --no-interaction --prefer-dist
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v5
+        with:
+          path: |
+            vendor
+            ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader --no-progress
 
       - name: Prepare environment
         run: |

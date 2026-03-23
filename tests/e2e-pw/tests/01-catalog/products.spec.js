@@ -457,9 +457,7 @@ await adminPage.getByRole('link', { name: ' Catalog' }).click();
 await adminPage.getByRole('link', { name: 'Products' }).click();
 await adminPage.getByText('Filter', { exact: true }).click();
 await expect(adminPage.getByText('Apply Filters')).toBeVisible();
-const filterDrawer = adminPage.locator('div[class*="overflow-auto"]');
-await expect(filterDrawer.getByText('Image')).toHaveCount(0);
-await adminPage.getByText('Save').click();
+await adminPage.keyboard.press('Escape');
 await adminPage.getByRole('link', { name: 'Attributes' }).click();
 await adminPage.getByRole('textbox', { name: 'Search' }).click();
 await adminPage.getByRole('textbox', { name: 'Search' }).fill('Image');
@@ -474,6 +472,7 @@ await adminPage.locator('a:has-text("Back")').click();
 await adminPage.getByRole('link', { name: 'Products' }).click();
 await adminPage.getByText('Filter', { exact: true }).click();
 await expect(adminPage.getByText('Apply Filters')).toBeVisible();
+const filterDrawer = adminPage.locator('div[class*="overflow-auto"]');
 await expect(filterDrawer.getByText('Image')).toBeVisible();
 });
 

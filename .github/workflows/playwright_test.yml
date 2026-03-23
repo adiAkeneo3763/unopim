@@ -15,7 +15,7 @@ env:
 jobs:
   playwright_tests:
     name: Playwright E2E | Shard ${{ matrix.shard-index }} of ${{ matrix.shard-total }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
 
     strategy:
@@ -31,12 +31,17 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: unopim
         ports:
-          - 3306
+          - 3306:3306
         options: >-
           --health-cmd="mysqladmin ping"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
+          --health-interval=5s
+          --health-timeout=3s
+          --health-retries=3
+          --tmpfs /var/lib/mysql:rw,noexec,nosuid,size=600m
+          --tmpfs /tmp:rw,noexec,nosuid,size=100m
+
+    container:
+      image: mcr.microsoft.com/playwright:v1.52.0-noble
 
     env:
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -51,11 +56,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: '22'
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -65,34 +65,34 @@ jobs:
           tools: composer:v2
           coverage: none
 
-      - name: Get Composer Cache Directory
+      - name: Get Composer cache directory
         id: composer-cache
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
-      - name: Cache Composer Dependencies
+      - name: Cache Composer dependencies
         uses: actions/cache@v5
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          path: |
+            vendor
+            ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - name: Install Playwright dependencies
+      - name: Install npm dependencies
         run: |
           cd tests/e2e-pw
-          npm install
-          npx playwright install-deps chromium
-          npx playwright install chromium
+          npm install --no-progress
 
-      - name: Running Composer Install
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader --no-progress
 
       - name: Setting Environment
         run: |
           cp .env.example .env
           sed -i "s|^\(APP_ENV=\s*\).*$|\1testing|" .env
           sed -i "s|^\(APP_DEBUG=\s*\).*$|\1false|" .env
-          sed -i "s|^\(DB_HOST=\s*\).*$|\1127.0.0.1|" .env
-          sed -i "s|^\(DB_PORT=\s*\).*$|\1${{ job.services.mysql.ports['3306'] }}|" .env
+          sed -i "s|^\(DB_HOST=\s*\).*$|\1mysql|" .env
+          sed -i "s|^\(DB_PORT=\s*\).*$|\13306|" .env
           sed -i "s|^\(DB_DATABASE=\s*\).*$|\1unopim|" .env
           sed -i "s|^\(DB_USERNAME=\s*\).*$|\1root|" .env
           sed -i "s|^\(DB_PASSWORD=\s*\).*$|\1root|" .env
@@ -103,7 +103,7 @@ jobs:
           php artisan migrate:fresh --seed
           php artisan serve --host=0.0.0.0 --port=8000 > /dev/null 2>&1 &
           php artisan queue:work --queue=default,system,completeness > /dev/null 2>&1 &
-          echo "Waiting for server to start..."
+          echo "Waiting for server..."
           timeout 30 bash -c 'until curl -s http://127.0.0.1:8000 > /dev/null; do sleep 1; done'
 
       - name: Run Playwright tests
@@ -111,7 +111,7 @@ jobs:
           cd tests/e2e-pw
           npx playwright test --reporter=list --shard=${{ matrix.shard-index }}/${{ matrix.shard-total }}
 
-      - name: Upload Playwright report
+      - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v5
         with:
