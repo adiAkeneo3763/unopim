@@ -33,7 +33,7 @@ jobs:
 
     steps:
       - name: Pull source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Bootstrap PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
@@ -49,7 +49,7 @@ jobs:
         run: echo "path=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Restore Composer cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ steps.cache-dir.outputs.path }}
           key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
@@ -72,7 +72,7 @@ jobs:
 
       - name: Upload audit report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: translation-audit-report
           path: translation-audit.json
