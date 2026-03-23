@@ -1,62 +1,33 @@
-name: Locale Integrity Audit
+name: Translation Tests
 
-on:
-  push:
-    paths:
-      - 'packages/**/Resources/lang/**'
-      - 'packages/Webkul/Core/src/Console/Commands/TranslationsChecker.php'
-      - 'packages/Webkul/Core/src/Console/TranslationAudit/**'
-      - '.github/workflows/translation_tests.yml'
-  pull_request:
-    paths:
-      - 'packages/**/Resources/lang/**'
-      - 'packages/Webkul/Core/src/Console/Commands/TranslationsChecker.php'
-      - 'packages/Webkul/Core/src/Console/TranslationAudit/**'
-      - '.github/workflows/translation_tests.yml'
-  workflow_dispatch:
+on: [push, pull_request]
 
 concurrency:
-  group: locale-audit-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
   contents: read
 
 jobs:
-  audit-translations:
-    name: Verify locale parity (PHP ${{ matrix.php }})
+  translation_tests:
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: true
-      matrix:
-        php: ['8.3']
+    name: Translation Integrity Audit
 
     steps:
-      - name: Pull source
+      - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Bootstrap PHP ${{ matrix.php }}
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: '8.3'
           extensions: curl, fileinfo, gd, intl, mbstring, openssl, pdo, pdo_mysql, tokenizer, zip
           ini-values: error_reporting=E_ALL
           tools: composer:v2
           coverage: none
 
-      - name: Resolve Composer cache path
-        id: cache-dir
-        run: echo "path=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
-
-      - name: Restore Composer cache
-        uses: actions/cache@v5
-        with:
-          path: ${{ steps.cache-dir.outputs.path }}
-          key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
-          restore-keys: composer-${{ runner.os }}-
-
-      - name: Install dependencies
+      - name: Install Composer Dependencies
         run: composer install --no-interaction --prefer-dist
 
       - name: Prepare environment
@@ -64,17 +35,5 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
-      - name: Run locale integrity audit
+      - name: Run Translation Checker
         run: php artisan unopim:translations:check
-
-      - name: Generate full quality report (JSON artifact)
-        if: always()
-        run: php artisan unopim:translations:check --coverage --json > translation-audit.json || true
-
-      - name: Upload audit report
-        if: always()
-        uses: actions/upload-artifact@v5
-        with:
-          name: translation-audit-report
-          path: translation-audit.json
-          retention-days: 30
