@@ -1,3 +1,36 @@
+# v2.0.x
+
+## v2.0.0
+
+### Framework Upgrade
+- Upgraded from **Laravel 10** to **Laravel 12** with modernized bootstrap architecture.
+- Upgraded minimum **PHP** requirement from `8.2` to `8.3`.
+- Migrated application bootstrap to Laravel 12's `Application::configure()` fluent API in `bootstrap/app.php`.
+- Moved service provider registration to `bootstrap/providers.php`.
+- Removed `Kernel.php` classes, individual middleware files, and legacy service providers (replaced by `bootstrap/app.php`).
+
+### Features
+- Added **AI Agent Chat** interface for conversational product management with 27+ PIM tool actions accessible via natural language (search, create, update, delete, bulk edit, export, categorize, generate content/images, etc.).
+- Added **Multi-Platform MagicAI** with support for 10+ AI providers (OpenAI, Anthropic, Gemini, Groq, Ollama, XAI, Mistral, DeepSeek, Azure, OpenRouter) with database-backed credential management and encrypted API key storage.
+- Added **AI-Powered Search** with `EmbeddingSimilarityService` and `SemanticRankingService` for intelligent product discovery.
+- Added **Enhanced Dashboard** with channel readiness, product trends, recent activity, needs-attention, product stats, and data transfer status widgets.
+- Added **Import/Export Tracker UI** with real-time step pipeline visualization, job-specific logging, and ZIP image upload modal with drag-and-drop support.
+- Added **Completeness Queue** as separate queue with dedicated provider support.
+
+### Improvements
+- Optimized **Export Pipeline**: eager loading of `super_attributes`/`parent`/`attribute_family`, cached `initialize()` per export ID, increased `BATCH_SIZE` to 200.
+- Optimized **Import Pipeline**: deferred indexing, field processor improvements, and batch state tracking for high-volume CSV/XLSX processing.
+- Replaced `ImageManager` with new **ImageCache** system featuring deferred execution, closure hashing, and ETag support.
+- Replaced individual MagicAI provider service classes with unified `LaravelAiAdapter`.
+- Added **CI/CD improvements**: translation auditing workflow, Composer caching, concurrency groups, PHP 8.3 and Node.js 20 across all workflows.
+
+### Dependency Updates
+- Upgraded `laravel/framework` to `^12.0`, `laravel/sanctum` to `^4.0`, `diglactic/laravel-breadcrumbs` to `^10.0`.
+- Upgraded `pestphp/pest` to `^3.0`, `phpunit/phpunit` to `^11.0`, `nunomaduro/collision` to `^8.0`.
+- Added `laravel/ai` `^0.3.2` and `laravel/boost` `^2.1` as new dependencies.
+
+---
+
 # v1.1.x
 
 ## v1.1.0
