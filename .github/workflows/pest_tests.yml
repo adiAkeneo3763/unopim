@@ -147,20 +147,17 @@ jobs:
           sed -i "s|^\(DB_DATABASE=\s*\).*$|\1unopim|" .env
           sed -i "s|^\(DB_USERNAME=\s*\).*$|\1root|" .env
           sed -i "s|^\(DB_PASSWORD=\s*\).*$|\1root|" .env
-          sed -i "s|^\(ELASTICSEARCH_ENABLED=\s*\).*$|\1true|" .env
-          sed -i "s|^\(ELASTICSEARCH_HOST=\s*\).*$|\1http://127.0.0.1:9200|" .env
-          sed -i "s|^\(ELASTICSEARCH_INDEX_PREFIX=\s*\).*$|\1unopim_test|" .env
-
-      - name: Verify Elasticsearch
-        run: |
-          curl -s http://127.0.0.1:9200 | python3 -m json.tool
-          curl -s http://127.0.0.1:9200/_cluster/health | python3 -m json.tool
 
       - name: Running UnoPim Installer
         run: php artisan unopim:install --skip-env-check --skip-admin-creation
 
-      - name: Build Elasticsearch indexes
+      - name: Enable Elasticsearch and build indexes
         run: |
+          sed -i "s|^\(ELASTICSEARCH_ENABLED=\s*\).*$|\1true|" .env
+          sed -i "s|^\(ELASTICSEARCH_HOST=\s*\).*$|\1http://127.0.0.1:9200|" .env
+          sed -i "s|^\(ELASTICSEARCH_INDEX_PREFIX=\s*\).*$|\1unopim_test|" .env
+          php artisan config:clear
+          curl -s http://127.0.0.1:9200/_cluster/health | python3 -m json.tool
           php artisan unopim:product:index
           php artisan unopim:category:index
 

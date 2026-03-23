@@ -40,9 +40,6 @@ jobs:
           --tmpfs /var/lib/mysql:rw,noexec,nosuid,size=600m
           --tmpfs /tmp:rw,noexec,nosuid,size=100m
 
-    container:
-      image: mcr.microsoft.com/playwright:v1.52.0-noble
-
     env:
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       GROQ_INVALID_KEY: ${{ secrets.GROQ_INVALID_KEY }}
@@ -55,6 +52,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -78,10 +80,11 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - name: Install npm dependencies
+      - name: Install Playwright browsers
         run: |
           cd tests/e2e-pw
           npm install --no-progress
+          npx playwright install --with-deps chromium
 
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader --no-progress
@@ -91,7 +94,7 @@ jobs:
           cp .env.example .env
           sed -i "s|^\(APP_ENV=\s*\).*$|\1testing|" .env
           sed -i "s|^\(APP_DEBUG=\s*\).*$|\1false|" .env
-          sed -i "s|^\(DB_HOST=\s*\).*$|\1mysql|" .env
+          sed -i "s|^\(DB_HOST=\s*\).*$|\1127.0.0.1|" .env
           sed -i "s|^\(DB_PORT=\s*\).*$|\13306|" .env
           sed -i "s|^\(DB_DATABASE=\s*\).*$|\1unopim|" .env
           sed -i "s|^\(DB_USERNAME=\s*\).*$|\1root|" .env
