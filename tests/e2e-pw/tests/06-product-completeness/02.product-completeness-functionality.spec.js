@@ -32,7 +32,7 @@ test.describe('Verify the behvaiour of Product Completenss feature', () => {
     const itemRow = adminPage.locator('div', { hasText: 'Default'});
     await itemRow.locator('span[title="Edit"]').first().click();
     await adminPage.getByRole('link', { name: 'Completeness' }).click();
-    await adminPage.getByRole('button', { name: '' }).click();
+    await adminPage.getByRole('button', { name: 'Per Page' }).click();
     await adminPage.getByText('50', { exact: true }).first().click();
     await expect(adminPage.getByText('16 Results')).toBeVisible();
     await adminPage.locator(`input[name="channel_requirements"]`).locator('..').locator('.multiselect__tags').nth(10).click();
@@ -66,7 +66,7 @@ test.describe('Verify the behvaiour of Product Completenss feature', () => {
     const itemRow = adminPage.locator('div', { hasText: 'Default'});
     await itemRow.locator('span[title="Edit"]').first().click();
     await adminPage.getByRole('link', { name: 'Completeness' }).click();
-    await adminPage.getByRole('button', { name: '' }).click();
+    await adminPage.getByRole('button', { name: 'Per Page' }).click();
     await adminPage.getByText('50', { exact: true }).click();
     await adminPage.click('label[for="mass_action_select_all_records"]');
     await expect(adminPage.locator('#mass_action_select_all_records')).toBeChecked();

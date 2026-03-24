@@ -3,13 +3,13 @@
 set -e
 
 # ============================================================================
-# UnoPim Upgrade Script: v1.0.0 -> v2.0.0
+# UnoPim Upgrade Script: v1.0.0 -> v2.0.0-beta.1
 # ============================================================================
-# This script automates the upgrade process from UnoPim v1.0.0 to v2.0.0.
+# This script automates the upgrade process from UnoPim v1.0.0 to v2.0.0-beta.1.
 # It will:
 #   1. Check PHP version (requires 8.3+)
 #   2. Backup your project and database
-#   3. Download the v2.0.0 release
+#   3. Download the v2.0.0-beta.1 release
 #   4. Copy new files (preserving .env, storage, backups)
 #   5. Remove files deleted in Laravel 12 upgrade
 #   6. Install Composer dependencies
@@ -175,11 +175,11 @@ GITHUB_REPO="unopim"
 BACKUP_DIR="./backups"
 ROOT_PATH="$(pwd)"
 CURRENT_VERSION=$(php artisan unopim:version 2>/dev/null || echo "unknown")
-UPGRADE_TO_VERSION_TAG="v2.0.0"
+UPGRADE_TO_VERSION_TAG="v2.0.0-beta.1"
 
 echo ""
 echo "============================================"
-echo "  UnoPim Upgrade: v1.0.0 -> v2.0.0"
+echo "  UnoPim Upgrade: v1.0.0 -> v2.0.0-beta.1"
 echo "============================================"
 echo ""
 

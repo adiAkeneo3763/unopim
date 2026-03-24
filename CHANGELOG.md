@@ -1,6 +1,6 @@
 # v2.0.x
 
-## v2.0.0
+## v2.0.0-beta.1
 
 ### Framework Upgrade
 - Upgraded from **Laravel 10** to **Laravel 12** with modernized bootstrap architecture.
@@ -13,6 +13,22 @@
 - Added **AI Agent Chat** interface for conversational product management with 32+ PIM tool actions accessible via natural language (search, create, update, delete, bulk edit, export, categorize, generate content/images, memory, planning, quality reports, etc.).
 - Added **Multi-Platform MagicAI** with support for 10+ AI providers (OpenAI, Anthropic, Gemini, Groq, Ollama, XAI, Mistral, DeepSeek, Azure, OpenRouter) with database-backed credential management and encrypted API key storage.
 - Added **AI-Powered Search** with `EmbeddingSimilarityService` and `SemanticRankingService` for intelligent product discovery.
+- Added **Configurable Product Support** in AI Agent — create configurable products with variants (color, size) via natural language with `super_attributes` and `variants_json` parameters.
+- Added **Auto-Translation** on product create/update — text fields are automatically translated to all configured locales via queued AI translation job.
+- Added **Approval Queue** for AI changes — configurable `approval_mode` (auto/review/suggest) with `QueuesForApproval` trait on write tools and `ApprovalController` for approve/reject workflow.
+- Added **Agent Memory System** — `RememberFact` and `RecallMemory` tools with keyword-relevant injection into system prompt for persistent catalog knowledge.
+- Added **Catalog Quality Monitor** — `php artisan ai-agent:quality-monitor` scheduled command with health scoring and proactive notifications.
+- Added **Auto-Enrichment** — event-driven `AutoEnrichProductJob` dispatched on product creation to fill missing descriptions and SEO fields.
+- Added **Content Feedback Loop** — `RateContent` tool captures user preferences; style feedback injected into system prompt for improved future generations.
+- Added **Bulk Transform** support in `bulk_edit` tool — append, prepend, and replace operations on existing attribute values (e.g., append "-webkul" to all URL keys).
+- Added **Data Quality Report** tool — catalog-wide scan for missing names, descriptions, images, categories with health score.
+- Added **Product Verification** tool — quality scoring (0-100) for self-checking after create/update operations.
+- Added **Task Planning** tool — multi-step goal decomposition for complex catalog operations.
+- Added **SSE Streaming** for AI Agent Chat — real-time tool-call progress and text streaming with `StreamedResponse`.
+- Added **Token Budget Tracking** — per-user daily token usage tracking with configurable budget limits.
+- Added **Conversation Persistence** — database-backed chat sessions with API endpoints and localStorage fallback.
+- Added **AI Agent Analytics Dashboard** — token usage analytics, daily breakdown, audit trail, and rollback capability.
+- Added **Agentic PIM Configuration** section in admin — enable/disable toggle, max steps, daily token budget, auto-enrichment, quality monitor, confidence threshold, and approval mode settings.
 - Added **Swatch Types** for select and multiselect attributes with support for color, image, and text swatches, including datagrid preview, product page display, and API endpoints.
 - Added **Enhanced Dashboard** with channel readiness, product trends, recent activity, needs-attention, product stats, and data transfer status widgets.
 - Added **Import/Export Tracker UI** with real-time step pipeline visualization, job-specific logging, and ZIP image upload modal with drag-and-drop support.
@@ -34,6 +50,15 @@
 - Added **CI/CD improvements**: translation auditing workflow, Composer caching, concurrency groups, PHP 8.3 and Node.js 20 across all workflows.
 
 ### Bug Fixes
+- Fixed **API ACL missing permissions** — 15 API routes (DELETE, PATCH, media uploads, attribute/category field options) had no ACL protection and were accessible without authorization. All 48 API routes now have proper ACL enforcement.
+- Fixed **AI Agent status toggle bug** — `(bool) "inactive"` evaluated to `true` in PHP, causing bulk status changes to never actually set products to inactive. Replaced with strict `in_array()` matching.
+- Fixed **AI Agent locale-keyed value corruption** — LLM passing `{"ar_AE": "text"}` objects for locale content overwrote English values with arrays, causing 500 errors on product edit page. Added locale-map detection and type guards.
+- Fixed **AI Agent image not attached on confirmation** — uploaded images were lost between the analysis request and the "yes, proceed" confirmation because the second HTTP request had no files. Added session-based image persistence across conversation turns.
+- Fixed **AI Agent daily token budget misconfiguration** — `default_value` in config is a form hint only, not a runtime default. `core()->getConfigData()` returned `"1"` (from enabled toggle), giving a 1-token budget. Fixed to treat falsy values as unlimited.
+- Fixed **AI Agent session locking** — streaming responses held the PHP session lock for 30-120 seconds, blocking all other admin requests. Added `session()->save()` before LLM calls to release the lock immediately.
+- Fixed **AI Agent hardcoded `en_US` locale** in 6 search/list tools — replaced with `$context->locale` for proper multi-locale support.
+- Fixed **AI Agent LIKE wildcard injection** — LLM-provided search queries with `%` or `_` characters could match unintended patterns. Added wildcard escaping.
+- Fixed **PostgreSQL migration compatibility** — MagicAI migrations used MySQL-only `MODIFY COLUMN ... ENUM()` syntax. Added driver detection with PostgreSQL-compatible `ALTER COLUMN ... TYPE` + `CHECK` constraints.
 - Fixed category export job failing due to loading all products into memory for count queries.
 - Fixed import tracker 500 error caused by incorrect route name.
 - Fixed export step pipeline showing "Importing" instead of "Exporting" labels.
@@ -48,10 +73,25 @@
 - Fixed pause/resume for import and export jobs — paused batches are now re-dispatched on resume.
 - Fixed export pause/cancel not stopping running batch jobs (added `shouldStop()` check).
 
+### Security
+- Added **ACL authorization** to all 32 AI Agent tools via `ChecksPermission` trait — tools check user permissions before executing write operations.
+- Added **rate limiting** (`throttle:30,1`) on AI Agent chat endpoints.
+- Added **input validation** in `ChatContext` — locale and channel codes validated against `[a-zA-Z0-9_-]` pattern to prevent injection in JSON path expressions.
+- Fixed **15 unprotected API routes** — DELETE, PATCH, media upload, and option management endpoints now require proper ACL permissions.
+
+### Breaking Changes
+- **PHP 8.3 required** — PHP 8.2 is no longer supported.
+- **Laravel 12** — removed `Kernel.php`, individual middleware files, and legacy service providers. Custom middleware must be registered in `bootstrap/app.php`.
+- **MagicAI provider classes removed** — `Webkul\MagicAI\Services\OpenAI`, `Gemini`, `Groq`, `Ollama` replaced by `Webkul\MagicAI\Services\LaravelAiAdapter`.
+- **ImageManager replaced** — `Webkul\Core\ImageCache\ImageManager` replaced by `Webkul\Core\ImageCache\ImageCache`.
+- **New database tables** — 8 new tables for AI Agent infrastructure: `ai_agent_token_usage`, `ai_agent_conversations`, `ai_agent_messages`, `ai_agent_memories`, `ai_agent_changesets`, `ai_agent_tasks`, `magic_ai_platforms`.
+- **API ACL expanded** — new `api.catalog.products.delete` and `api.catalog.categories.delete` permission nodes added. Existing API integrations with `permission_type=custom` may need updated scopes.
+
 ### Dependency Updates
 - Upgraded `laravel/framework` to `^12.0`, `laravel/sanctum` to `^4.0`, `diglactic/laravel-breadcrumbs` to `^10.0`.
 - Upgraded `pestphp/pest` to `^3.0`, `phpunit/phpunit` to `^11.0`, `nunomaduro/collision` to `^8.0`.
 - Added `laravel/ai` `^0.3.2` and `laravel/boost` `^2.1` as new dependencies.
+- Added `prism-php/prism` for AI Agent tool calling with multi-provider support.
 
 ---
 

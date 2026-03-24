@@ -47,9 +47,10 @@ test('should open the filter menu when clicked', async ({ adminPage }) => {
 test('should allow setting items per adminPage', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: ' Catalog' }).click();
   await adminPage.getByRole('link', { name: 'Attribute Groups' }).click();
-  await adminPage.getByRole('button', { name: '' }).click();
+  const perPageBtn = adminPage.getByRole('button', { name: 'Per Page' });
+  await perPageBtn.click();
   await adminPage.getByText('20', { exact: true }).click();
-  await expect(adminPage.getByRole('button', { name: '' })).toContainText('20');
+  await expect(perPageBtn).toContainText('20');
 });
 
 test('should perform actions on a attribute group (Edit, Delete)', async ({ adminPage }) => {

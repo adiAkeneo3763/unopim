@@ -80,9 +80,10 @@ test.describe('UnoPim Attribute', () => {
   test('should allow setting items per adminPage', async ({ adminPage }) => {
     await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
-    await adminPage.getByRole('button', { name: '' }).click();
+    const perPageBtn = adminPage.getByRole('button', { name: 'Per Page' });
+    await perPageBtn.click();
     await adminPage.getByText('20', { exact: true }).click();
-    await expect(adminPage.getByRole('button', { name: '' })).toContainText('20');
+    await expect(perPageBtn).toContainText('20');
   });
 
   test('should perform actions on a attribute (Edit, Delete)', async ({ adminPage }) => {
@@ -230,9 +231,10 @@ test.describe('Checkbox Type Attribute Option Grid', () => {
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'in_the_box' });
     await itemRow.locator('span[title="Edit"]').first().click();
-    await adminPage.getByRole('button', { name: '' }).click();
+    const perPageBtn = adminPage.getByRole('button', { name: 'Per Page' });
+    await perPageBtn.click();
     await adminPage.getByText('20', { exact: true }).click();
-    await expect(adminPage.getByRole('button', { name: '' })).toContainText('20');
+    await expect(perPageBtn).toContainText('20');
   });
 
   test('should perform actions on a attribute option (Edit, Delete)', async ({ adminPage }) => {
@@ -377,9 +379,10 @@ test.describe('Multiselect Type Attribute Options Grid', () => {
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'featuresFeatures' });
     await itemRow.locator('span[title="Edit"]').first().click();
-    await adminPage.getByRole('button', { name: '' }).click();
+    const perPageBtn = adminPage.getByRole('button', { name: 'Per Page' });
+    await perPageBtn.click();
     await adminPage.getByText('20', { exact: true }).click();
-    await expect(adminPage.getByRole('button', { name: '' })).toContainText('20');
+    await expect(perPageBtn).toContainText('20');
   });
 
   test('should perform actions on a attribute option (Edit, Delete)', async ({ adminPage }) => {
@@ -531,9 +534,10 @@ test.describe('Select Type Attribute', () => {
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'materialMaterial' });
     await itemRow.locator('span[title="Edit"]').first().click();
-    await adminPage.getByRole('button', { name: '' }).click();
+    const perPageBtn = adminPage.getByRole('button', { name: 'Per Page' });
+    await perPageBtn.click();
     await adminPage.getByText('20', { exact: true }).click();
-    await expect(adminPage.getByRole('button', { name: '' })).toContainText('20');
+    await expect(perPageBtn).toContainText('20');
   });
 
   test('should perform actions on a attribute option (Edit, Delete)', async ({ adminPage }) => {

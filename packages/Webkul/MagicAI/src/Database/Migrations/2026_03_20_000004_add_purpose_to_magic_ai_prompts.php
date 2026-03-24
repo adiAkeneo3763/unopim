@@ -29,7 +29,15 @@ return new class extends Migration
 
         // Revert type enum back to only product/category
         $table = DB::getTablePrefix().'magic_ai_prompts';
-        DB::statement("ALTER TABLE {$table} MODIFY COLUMN type ENUM('product', 'category') NOT NULL DEFAULT 'product'");
+
+        if ($this->isPostgres()) {
+            DB::statement("ALTER TABLE {$table} DROP CONSTRAINT IF EXISTS magic_ai_prompts_type_check");
+            DB::statement("ALTER TABLE {$table} ALTER COLUMN type TYPE VARCHAR(20)");
+            DB::statement("ALTER TABLE {$table} ADD CONSTRAINT magic_ai_prompts_type_check CHECK (type IN ('product', 'category'))");
+            DB::statement("ALTER TABLE {$table} ALTER COLUMN type SET DEFAULT 'product'");
+        } else {
+            DB::statement("ALTER TABLE {$table} MODIFY COLUMN type ENUM('product', 'category') NOT NULL DEFAULT 'product'");
+        }
     }
 
     public function down(): void
@@ -37,5 +45,10 @@ return new class extends Migration
         Schema::table('magic_ai_prompts', function (Blueprint $table) {
             $table->dropColumn('purpose');
         });
+    }
+
+    protected function isPostgres(): bool
+    {
+        return Schema::getConnection()->getDriverName() === 'pgsql';
     }
 };

@@ -1,8 +1,8 @@
-# UPGRADE GUIDE: UnoPim `v1.0.0` -> `v2.0.0`
+# UPGRADE GUIDE: UnoPim `v1.0.0` -> `v2.0.0-beta.1`
 
-> This guide helps you safely upgrade your UnoPim installation from `v1.0.0` to `v2.0.0`. You can follow the **manual** steps or use the **automated upgrade script**.
+> This guide helps you safely upgrade your UnoPim installation from `v1.0.0` to `v2.0.0-beta.1`. You can follow the **manual** steps or use the **automated upgrade script**.
 
-> **This is a major upgrade.** UnoPim v2.0.0 upgrades the underlying framework from Laravel 10 to Laravel 12 and introduces significant new features including AI Agent Chat and multi-platform MagicAI support. Please read this guide carefully before proceeding.
+> **This is a major upgrade.** UnoPim v2.0.0-beta.1 upgrades the underlying framework from Laravel 10 to Laravel 12 and introduces significant new features including AI Agent Chat and multi-platform MagicAI support. Please read this guide carefully before proceeding.
 
 ---
 
@@ -10,7 +10,7 @@
 
 Before upgrading, ensure your environment meets the new requirements:
 
-| Requirement | v1.0.0 | v2.0.0 |
+| Requirement | v1.0.0 | v2.0.0-beta.1 |
 |---|---|---|
 | PHP | >= 8.2 | **>= 8.3** |
 | MySQL | >= 8.0 | >= 8.0 |
@@ -26,7 +26,7 @@ Before upgrading, ensure your environment meets the new requirements:
 
 ### 1. Laravel 12 Framework Upgrade
 
-UnoPim v2.0.0 upgrades from Laravel 10 to Laravel 12. This is the most significant change and affects the application's bootstrap architecture.
+UnoPim v2.0.0-beta.1 upgrades from Laravel 10 to Laravel 12. This is the most significant change and affects the application's bootstrap architecture.
 
 #### Removed Files
 
@@ -67,7 +67,7 @@ protected $middleware = [
 ];
 ```
 
-**After (v2.0.0):**
+**After (v2.0.0-beta.1):**
 ```php
 // bootstrap/app.php
 ->withMiddleware(function (Middleware $middleware) {
@@ -90,7 +90,7 @@ protected function schedule(Schedule $schedule)
 }
 ```
 
-**After (v2.0.0):**
+**After (v2.0.0-beta.1):**
 ```php
 // bootstrap/app.php
 ->withSchedule(function (Schedule $schedule) {
@@ -111,7 +111,7 @@ If you registered custom service providers in `config/app.php`, move them to `bo
 ];
 ```
 
-**After (v2.0.0):**
+**After (v2.0.0-beta.1):**
 ```php
 // bootstrap/providers.php
 return [
@@ -157,7 +157,7 @@ PHP 8.2 is no longer supported. Ensure your server runs **PHP 8.3 or higher** be
 
 ### 5. Dependency Version Changes
 
-| Package | v1.0.0 | v2.0.0 |
+| Package | v1.0.0 | v2.0.0-beta.1 |
 |---|---|---|
 | `laravel/framework` | ^10.0 | **^12.0** |
 | `laravel/sanctum` | ^3.2 | **^4.0** |
@@ -187,7 +187,7 @@ The following tables are created during migration:
 
 ### 7. Queue Configuration
 
-UnoPim v2.0.0 continues to use the `system`, `completeness`, and `default` queues introduced in v1.0.0. No changes required if you already have these configured.
+UnoPim v2.0.0-beta.1 continues to use the `system`, `completeness`, and `default` queues introduced in v1.0.0. No changes required if you already have these configured.
 
 ### 8. Scheduled Commands
 
@@ -290,8 +290,8 @@ If not, upgrade PHP before proceeding.
 
 ### 3. **Download the Release**
 
-* Visit the [UnoPim GitHub releases page for v2.0.0](https://github.com/unopim/unopim/archive/refs/tags/v2.0.0.zip)
-* Download the `.zip` file for release `v2.0.0`
+* Visit the [UnoPim GitHub releases page for v2.0.0-beta.1](https://github.com/unopim/unopim/archive/refs/tags/v2.0.0-beta.1.zip)
+* Download the `.zip` file for release `v2.0.0-beta.1`
 * Extract the contents to a folder on your system.
 
 ### 4. **Copy Necessary Files**
@@ -383,7 +383,7 @@ sudo supervisorctl restart unopim-worker
 
 ## Upgrade Complete!
 
-After following these steps, your UnoPim should be successfully upgraded to version `v2.0.0`. Test your application thoroughly to make sure everything works as expected.
+After following these steps, your UnoPim should be successfully upgraded to version `v2.0.0-beta.1`. Test your application thoroughly to make sure everything works as expected.
 
 ### Post-Upgrade Checklist
 
