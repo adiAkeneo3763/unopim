@@ -10,21 +10,28 @@ return new class extends Migration
     /**
      * Fix index names that exceed MySQL's 64-character identifier limit
      * when a DB table prefix is configured.
+     *
+     * On fresh installs the original migrations already use short names,
+     * so this migration is a safe no-op. On upgrades with a prefix, it
+     * renames the long auto-generated names to shorter ones.
      */
     public function up(): void
     {
         $prefix = DB::getTablePrefix();
 
-        $this->fixUniqueIndex(
+        // Only needed when a table prefix is configured
+        if (empty($prefix)) {
+            return;
+        }
+
+        $this->safeRenameIndex(
             'attribute_option_translations',
-            ['attribute_option_id', 'locale'],
             $prefix.'attribute_option_translations_attribute_option_id_locale_unique',
             'attr_opt_translations_opt_id_locale_unique'
         );
 
-        $this->fixUniqueIndex(
+        $this->safeRenameIndex(
             'attribute_group_translations',
-            ['attribute_group_id', 'locale'],
             $prefix.'attribute_group_translations_attribute_group_id_locale_unique',
             'attr_grp_translations_grp_id_locale_unique'
         );
@@ -35,76 +42,38 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $prefix = DB::getTablePrefix();
-
-        $this->renameIndexIfExists(
-            'attribute_option_translations',
-            'attr_opt_translations_opt_id_locale_unique',
-            $prefix.'attribute_option_translations_attribute_option_id_locale_unique'
-        );
-
-        $this->renameIndexIfExists(
-            'attribute_group_translations',
-            'attr_grp_translations_grp_id_locale_unique',
-            $prefix.'attribute_group_translations_attribute_group_id_locale_unique'
-        );
+        // No-op: reversing short names back to long names would re-introduce the problem
     }
 
     /**
-     * Fix a unique index by renaming it if it exists with the old name,
-     * or creating it with the new name if it doesn't exist at all.
+     * Safely rename an index only if the old name exists and the new name doesn't.
      */
-    private function fixUniqueIndex(string $table, array $columns, string $oldName, string $newName): void
+    private function safeRenameIndex(string $table, string $oldName, string $newName): void
     {
         if (! Schema::hasTable($table)) {
             return;
         }
 
-        $existingIndexes = $this->getIndexNames($table);
+        try {
+            $prefix = DB::getTablePrefix();
+            $indexes = Schema::getIndexes($prefix.$table);
+            $indexNames = array_column($indexes, 'name');
 
-        if (in_array($newName, $existingIndexes)) {
-            return;
+            // New name already exists — nothing to do
+            if (in_array($newName, $indexNames)) {
+                return;
+            }
+
+            // Old long name exists — rename it
+            if (in_array($oldName, $indexNames)) {
+                Schema::table($table, function (Blueprint $t) use ($oldName, $newName) {
+                    $t->renameIndex($oldName, $newName);
+                });
+            }
+
+            // If neither exists, the original migration used a different name — leave it alone
+        } catch (\Throwable) {
+            // Silently skip — index naming is non-critical
         }
-
-        if (in_array($oldName, $existingIndexes)) {
-            Schema::table($table, function (Blueprint $table) use ($oldName, $newName) {
-                $table->renameIndex($oldName, $newName);
-            });
-
-            return;
-        }
-
-        Schema::table($table, function (Blueprint $table) use ($columns, $newName) {
-            $table->unique($columns, $newName);
-        });
-    }
-
-    /**
-     * Rename an index back to its original name if it exists.
-     */
-    private function renameIndexIfExists(string $table, string $currentName, string $originalName): void
-    {
-        if (! Schema::hasTable($table)) {
-            return;
-        }
-
-        $existingIndexes = $this->getIndexNames($table);
-
-        if (in_array($currentName, $existingIndexes)) {
-            Schema::table($table, function (Blueprint $table) use ($currentName, $originalName) {
-                $table->renameIndex($currentName, $originalName);
-            });
-        }
-    }
-
-    /**
-     * Get all index names for a table.
-     */
-    private function getIndexNames(string $table): array
-    {
-        $prefix = DB::getTablePrefix();
-        $indexes = Schema::getIndexes($prefix.$table);
-
-        return array_column($indexes, 'name');
     }
 };
