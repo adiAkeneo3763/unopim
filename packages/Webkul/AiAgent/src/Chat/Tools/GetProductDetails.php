@@ -5,10 +5,13 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Support\Facades\DB;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class GetProductDetails implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -16,7 +19,11 @@ class GetProductDetails implements PimTool
             ->for('Get full product details by SKU or ID.')
             ->withStringParameter('sku', 'Product SKU (preferred)')
             ->withNumberParameter('product_id', 'Product ID (alternative to SKU)')
-            ->using(function (?string $sku = null, ?int $product_id = null): string {
+            ->using(function (?string $sku = null, ?int $product_id = null) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.products')) {
+                    return $denied;
+                }
+
                 $product = null;
 
                 if ($sku) {

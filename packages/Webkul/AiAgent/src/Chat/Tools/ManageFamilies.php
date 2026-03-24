@@ -6,10 +6,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class ManageFamilies implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -19,6 +22,10 @@ class ManageFamilies implements PimTool
             ->withStringParameter('code', 'Family code (for create/details)')
             ->withStringParameter('name', 'Family name (for create)')
             ->using(function (string $action = 'list', ?string $code = null, ?string $name = null) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.families')) {
+                    return $denied;
+                }
+
                 if ($action === 'list') {
                     $families = DB::table('attribute_families as af')
                         ->leftJoin('attribute_family_translations as aft', function ($join) use ($context) {

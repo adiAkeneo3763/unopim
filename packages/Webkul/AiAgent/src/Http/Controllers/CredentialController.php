@@ -16,7 +16,15 @@ class CredentialController extends Controller
     public function __construct(
         protected CredentialRepository $credentialRepository,
         protected AiApiClient $apiClient,
-    ) {}
+    ) {
+        $this->middleware(function ($request, $next) {
+            if (! bouncer()->hasPermission('ai-agent.credentials')) {
+                abort(401, trans('ai-agent::app.common.unauthorized'));
+            }
+
+            return $next($request);
+        });
+    }
 
     /**
      * Display a listing of credentials.

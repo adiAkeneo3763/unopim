@@ -8,12 +8,15 @@ use Laravel\Ai\Files\Image as AiImage;
 use Laravel\Ai\Image;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 use Webkul\Core\Filesystem\FileStorer;
 use Webkul\MagicAI\Enums\AiProvider;
 
 class EditImage implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -23,6 +26,10 @@ class EditImage implements PimTool
             ->withStringParameter('sku', 'Optional: Product SKU to attach the edited image to')
             ->withEnumParameter('size', 'Output image size/aspect ratio', ['1024x1024', '1024x1792', '1792x1024'])
             ->using(function (string $instruction, ?string $sku = null, string $size = '1024x1024') use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.products.edit')) {
+                    return $denied;
+                }
+
                 if (! $context->hasImages()) {
                     return json_encode(['error' => 'No image was uploaded. Ask the user to upload an image first.']);
                 }
@@ -82,6 +89,12 @@ class EditImage implements PimTool
                     $storagePath = 'ai-agent/edited/'.$filename;
                     $fullPath = storage_path('app/public/'.$storagePath);
 
+                    // Validate path stays within allowed directory.
+                    $baseDir = storage_path('app/public/ai-agent/');
+                    if (! str_starts_with($fullPath, $baseDir)) {
+                        return json_encode(['error' => trans('ai-agent::app.common.invalid-file-path')]);
+                    }
+
                     $dir = \dirname($fullPath);
                     if (! is_dir($dir)) {
                         mkdir($dir, 0755, true);
@@ -137,19 +150,48 @@ class EditImage implements PimTool
 
     /**
      * Resolve an image-editing capable model for the provider.
+     *
+     * Priority: user-selected model (if image-capable) → known valid models
+     * from the platform list → fallback defaults.
      */
     protected function resolveImageModel(ChatContext $context): string
     {
         $provider = $context->platform->provider;
-        $models = $context->platform->model_list ?? [];
 
         $imageModelPatterns = match ($provider) {
-            'openai' => ['gpt-image', 'dall-e', 'gpt-4o'],
+            'openai' => ['dall-e', 'gpt-image'],
             'gemini' => ['gemini-2', 'imagen'],
             'xai'    => ['grok'],
             default  => [],
         };
 
+        // 1. If the user explicitly selected an image-capable model, use it
+        if ($context->model) {
+            foreach ($imageModelPatterns as $pattern) {
+                if (stripos($context->model, $pattern) !== false) {
+                    return $context->model;
+                }
+            }
+        }
+
+        // 2. Scan the platform's model list — prefer known valid image models
+        $knownImageModels = match ($provider) {
+            'openai' => ['gpt-image-1', 'gpt-image-1-mini', 'gpt-image-1.5', 'dall-e-3', 'dall-e-2'],
+            'gemini' => ['gemini-2.0-flash-preview-image-generation', 'gemini-2.5-flash-image'],
+            'xai'    => ['grok-2-image'],
+            default  => [],
+        };
+
+        $models = $context->platform->model_list ?? [];
+
+        // First pass: prefer known valid models
+        foreach ($knownImageModels as $known) {
+            if (in_array($known, $models, true)) {
+                return $known;
+            }
+        }
+
+        // Second pass: any model matching image patterns
         foreach ($models as $model) {
             foreach ($imageModelPatterns as $pattern) {
                 if (stripos($model, $pattern) !== false) {
@@ -158,6 +200,7 @@ class EditImage implements PimTool
             }
         }
 
+        // 3. Fallback defaults
         return match ($provider) {
             'openai' => 'gpt-image-1',
             'gemini' => 'gemini-2.0-flash-preview-image-generation',

@@ -139,6 +139,20 @@ return [
             'of'                   => 'of',
             'products-ready'       => 'products ready',
             'no-readiness-data'    => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => 'Tuote',
+                'category'         => 'Kategoria',
+                'attribute'        => 'Attribuutti',
+                'attribute-family' => 'Perhe',
+                'attribute-group'  => 'Ryhmä',
+                'category-field'   => 'Kategoriakenttä',
+                'channel'          => 'Kanava',
+                'role'             => 'Rooli',
+                'job-instance'     => 'Työ',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API-avain',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Varoitus',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Poista malli :model',
+                'invalid-model-name'       => 'Virheellinen mallin nimi. Käytä vain kirjaimia, numeroita, väliviivoja, pisteitä, kaksoispisteitä ja kauttaviivoja (esim. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Virheelliset mallien nimet: :names. Mallien nimien on alettava kirjaimella tai numerolla ja sisällettävä vain kirjaimia, numeroita, väliviivoja, pisteitä, kaksoispisteitä ja kauttaviivoja.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Sarakkeita',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Ensimmäinen sivu',
+                    'previous-page' => 'Edellinen sivu',
+                    'next-page'     => 'Seuraava sivu',
+                    'last-page'     => 'Viimeinen sivu',
+                    'page-number'   => 'Sivunumero',
                 ],
             ],
             'filters' => [

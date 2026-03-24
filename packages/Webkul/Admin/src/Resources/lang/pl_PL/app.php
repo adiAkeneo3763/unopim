@@ -139,6 +139,20 @@ return [
             'of'                   => 'z',
             'products-ready'       => 'produktów gotowych',
             'no-readiness-data'    => 'Brak danych o kompletności.',
+
+            'entity-types' => [
+                'product'          => 'Produkt',
+                'category'         => 'Kategoria',
+                'attribute'        => 'Atrybut',
+                'attribute-family' => 'Rodzina',
+                'attribute-group'  => 'Grupa',
+                'category-field'   => 'Pole kategorii',
+                'channel'          => 'Kanał',
+                'role'             => 'Rola',
+                'job-instance'     => 'Zadanie',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'Klucz API',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Ostrzeżenie',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Usuń model :model',
+                'invalid-model-name'       => 'Nieprawidłowa nazwa modelu. Używaj tylko liter, cyfr, myślników, kropek, dwukropków i ukośników (np. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Nieprawidłowe nazwy modeli: :names. Nazwy modeli muszą zaczynać się od litery lub cyfry i zawierać tylko litery, cyfry, myślniki, kropki, dwukropki i ukośniki.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'kolumnami',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Pierwsza strona',
+                    'previous-page' => 'Poprzednia strona',
+                    'next-page'     => 'Następna strona',
+                    'last-page'     => 'Ostatnia strona',
+                    'page-number'   => 'Numer strony',
                 ],
             ],
             'filters' => [

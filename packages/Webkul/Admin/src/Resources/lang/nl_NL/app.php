@@ -139,6 +139,20 @@ return [
             'of'                   => 'van',
             'products-ready'       => 'producten gereed',
             'no-readiness-data'    => 'Nog geen volledigheidsgegevens beschikbaar.',
+
+            'entity-types' => [
+                'product'          => 'Product',
+                'category'         => 'Categorie',
+                'attribute'        => 'Attribuut',
+                'attribute-family' => 'Familie',
+                'attribute-group'  => 'Groep',
+                'category-field'   => 'Categorieveld',
+                'channel'          => 'Kanaal',
+                'role'             => 'Rol',
+                'job-instance'     => 'Taak',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API-sleutel',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Waarschuwing',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Model :model verwijderen',
+                'invalid-model-name'       => 'Ongeldige modelnaam. Gebruik alleen letters, cijfers, koppeltekens, punten, dubbele punten en schuine strepen (bijv. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Ongeldige modelnamen: :names. Modelnamen moeten beginnen met een letter of cijfer en mogen alleen letters, cijfers, koppeltekens, punten, dubbele punten en schuine strepen bevatten.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Kolommen',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Eerste pagina',
+                    'previous-page' => 'Vorige pagina',
+                    'next-page'     => 'Volgende pagina',
+                    'last-page'     => 'Laatste pagina',
+                    'page-number'   => 'Paginanummer',
                 ],
             ],
             'filters' => [

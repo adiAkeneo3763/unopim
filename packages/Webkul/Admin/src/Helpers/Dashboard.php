@@ -261,17 +261,20 @@ class Dashboard
             ->select(
                 'audits.id',
                 'audits.tags as entity_type',
+                'audits.auditable_type',
                 'audits.event',
                 'admins.name as user_name',
                 'audits.updated_at',
                 'audits.history_id',
             )
             ->orderByDesc('audits.updated_at')
-            ->groupBy('audits.updated_at', 'audits.user_id', 'audits.version_id', 'admins.name', 'audits.id', 'audits.tags', 'audits.event', 'audits.history_id')
+            ->groupBy('audits.updated_at', 'audits.user_id', 'audits.version_id', 'admins.name', 'audits.id', 'audits.tags', 'audits.auditable_type', 'audits.event', 'audits.history_id')
             ->limit(10)
             ->get()
             ->map(function ($activity) {
                 $activity->time_ago = $this->calculateTimeAgo($activity->updated_at);
+                $activity->entity_type = $this->resolveEntityType($activity->entity_type, $activity->auditable_type);
+                unset($activity->auditable_type);
 
                 return $activity;
             });
@@ -320,6 +323,24 @@ class Dashboard
             'recentJobs' => $recentJobs,
             'jobSummary' => $jobSummary,
         ];
+    }
+
+    /**
+     * Resolve the entity type from audit tags or fallback to auditable_type.
+     */
+    protected function resolveEntityType(?string $tags, ?string $auditableType): ?string
+    {
+        if (! empty($tags)) {
+            return $tags;
+        }
+
+        if (empty($auditableType)) {
+            return null;
+        }
+
+        $classBasename = class_basename($auditableType);
+
+        return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $classBasename));
     }
 
     /**

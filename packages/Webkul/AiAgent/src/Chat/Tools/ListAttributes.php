@@ -5,10 +5,13 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Support\Facades\DB;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class ListAttributes implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -16,7 +19,11 @@ class ListAttributes implements PimTool
             ->for('List attributes for a product family with types and options.')
             ->withStringParameter('sku', 'Product SKU to get attributes for (uses its attribute family)')
             ->withNumberParameter('family_id', 'Attribute family ID (alternative to SKU)')
-            ->using(function (?string $sku = null, ?int $family_id = null): string {
+            ->using(function (?string $sku = null, ?int $family_id = null) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.attributes')) {
+                    return $denied;
+                }
+
                 $familyId = $family_id;
 
                 if ($sku && ! $familyId) {
@@ -41,7 +48,7 @@ class ListAttributes implements PimTool
                     ->orderBy('a.code')
                     ->get();
 
-                $result = $attributes->map(function ($attr) {
+                $result = $attributes->map(function ($attr) use ($context) {
                     $info = [
                         'code'              => $attr->code,
                         'type'              => $attr->type,
@@ -53,9 +60,9 @@ class ListAttributes implements PimTool
                     // Include options for select/multiselect attributes
                     if (\in_array($attr->type, ['select', 'multiselect'])) {
                         $options = DB::table('attribute_options as ao')
-                            ->leftJoin('attribute_option_translations as aot', function ($join) {
+                            ->leftJoin('attribute_option_translations as aot', function ($join) use ($context) {
                                 $join->on('aot.attribute_option_id', '=', 'ao.id')
-                                    ->where('aot.locale', '=', 'en_US');
+                                    ->where('aot.locale', '=', $context->locale);
                             })
                             ->where('ao.attribute_id', $attr->id)
                             ->select('ao.code', 'aot.label')

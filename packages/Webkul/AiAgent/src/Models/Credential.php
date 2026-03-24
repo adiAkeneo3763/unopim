@@ -48,9 +48,24 @@ class Credential extends Model implements AuditableContract, CredentialContract,
      *
      * @var array
      */
+    /**
+     * Attributes hidden from JSON serialization — prevent API key leakage.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'apiKey',
+    ];
+
+    /**
+     * Casts.
+     *
+     * @var array
+     */
     protected $casts = [
         'extras' => 'array',
         'status' => 'boolean',
+        'apiKey' => 'encrypted',
     ];
 
     /**

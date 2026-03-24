@@ -139,6 +139,20 @@ return [
             'of'                   => 'de',
             'products-ready'       => 'produtos prontos',
             'no-readiness-data'    => 'Nenhum dado de completude disponível.',
+
+            'entity-types' => [
+                'product'          => 'Produto',
+                'category'         => 'Categoria',
+                'attribute'        => 'Atributo',
+                'attribute-family' => 'Família',
+                'attribute-group'  => 'Grupo',
+                'category-field'   => 'Campo de categoria',
+                'channel'          => 'Canal',
+                'role'             => 'Função',
+                'job-instance'     => 'Tarefa',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'Chave API',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Aviso',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Remover modelo :model',
+                'invalid-model-name'       => 'Nome de modelo inválido. Use apenas letras, números, hifens, pontos, dois pontos e barras (ex. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Nomes de modelo inválidos: :names. Os nomes de modelo devem começar com uma letra ou número e conter apenas letras, números, hifens, pontos, dois pontos e barras.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'colunas',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Primeira página',
+                    'previous-page' => 'Página anterior',
+                    'next-page'     => 'Próxima página',
+                    'last-page'     => 'Última página',
+                    'page-number'   => 'Número da página',
                 ],
             ],
             'filters' => [

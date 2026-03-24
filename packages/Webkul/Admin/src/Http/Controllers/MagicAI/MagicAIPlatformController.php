@@ -4,6 +4,7 @@ namespace Webkul\Admin\Http\Controllers\MagicAI;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
 use Prism\Prism\Facades\Prism;
 use Webkul\Admin\DataGrids\MagicAI\MagicAIPlatformDataGrid;
 use Webkul\Admin\Http\Controllers\Controller;
@@ -45,6 +46,8 @@ class MagicAIPlatformController extends Controller
         ]);
 
         $data = request()->only(['label', 'provider', 'api_url', 'api_key', 'models', 'is_default', 'status']);
+
+        $this->validateModelNames($data['models']);
 
         if (! isset($data['status'])) {
             $data['status'] = true;
@@ -98,6 +101,8 @@ class MagicAIPlatformController extends Controller
         ]);
 
         $data = request()->only(['label', 'provider', 'api_url', 'models', 'is_default', 'status']);
+
+        $this->validateModelNames($data['models']);
 
         if (! isset($data['status'])) {
             $data['status'] = false;
@@ -282,6 +287,31 @@ class MagicAIPlatformController extends Controller
         }
 
         return array_values(array_unique($recommended));
+    }
+
+    /**
+     * Validate each model name in the comma-separated models string.
+     *
+     * @throws ValidationException
+     */
+    protected function validateModelNames(string $models): void
+    {
+        $modelList = array_map('trim', explode(',', $models));
+        $invalid = [];
+
+        foreach ($modelList as $model) {
+            if ($model === '' || ! preg_match('/^[a-zA-Z0-9][a-zA-Z0-9\-._:\/@]+$/', $model)) {
+                $invalid[] = $model;
+            }
+        }
+
+        if (! empty($invalid)) {
+            throw ValidationException::withMessages([
+                'models' => trans('admin::app.configuration.platform.message.invalid-model-names', [
+                    'names' => implode(', ', $invalid),
+                ]),
+            ]);
+        }
     }
 
     /**

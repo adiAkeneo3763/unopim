@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Webkul\AiAgent\Http\Controllers\AgentController;
 use Webkul\AiAgent\Http\Controllers\ChatController;
+use Webkul\AiAgent\Http\Controllers\ConversationController;
+use Webkul\AiAgent\Http\Controllers\DashboardController;
 use Webkul\AiAgent\Http\Controllers\ExecutionController;
 use Webkul\AiAgent\Http\Controllers\GenerateController;
 
@@ -50,10 +52,47 @@ Route::group(['middleware' => ['admin'], 'prefix' => config('app.admin_url')], f
 
         // ── Chat Widget ──────────────────────────────────────
         Route::post('chat', [ChatController::class, 'send'])
+            ->middleware('throttle:30,1')
             ->name('chat.send');
+
+        Route::post('chat/stream', [ChatController::class, 'stream'])
+            ->middleware('throttle:30,1')
+            ->name('chat.stream');
 
         Route::get('chat/magic-ai-config', [ChatController::class, 'magicAiConfig'])
             ->name('chat.magic-ai-config');
+
+        // ── Conversations (persistent sessions) ────────────
+        Route::get('conversations', [ConversationController::class, 'index'])
+            ->name('conversations.index');
+
+        Route::get('conversations/{id}', [ConversationController::class, 'show'])
+            ->name('conversations.show');
+
+        Route::post('conversations', [ConversationController::class, 'store'])
+            ->name('conversations.store');
+
+        Route::delete('conversations/{id}', [ConversationController::class, 'destroy'])
+            ->name('conversations.destroy');
+
+        // ── Dashboard & Analytics ──────────────────────────
+        Route::middleware('throttle:60,1')->group(function () {
+            Route::get('dashboard/analytics', [DashboardController::class, 'analytics'])
+                ->name('dashboard.analytics');
+
+            Route::get('dashboard/audit-trail', [DashboardController::class, 'auditTrail'])
+                ->name('dashboard.audit-trail');
+
+            Route::post('dashboard/rollback/{id}', [DashboardController::class, 'rollback'])
+                ->name('dashboard.rollback');
+
+            Route::get('dashboard/notifications', [DashboardController::class, 'notifications'])
+                ->name('dashboard.notifications');
+
+            Route::post('dashboard/notifications/{id}/dismiss', [DashboardController::class, 'dismissNotification'])
+                ->name('dashboard.notifications.dismiss');
+        });
+
     });
 
 });

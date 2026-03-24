@@ -139,6 +139,20 @@ return [
             'of'                   => 'of',
             'products-ready'       => 'products ready',
             'no-readiness-data'    => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => '產品',
+                'category'         => '分類',
+                'attribute'        => '屬性',
+                'attribute-family' => '屬性族',
+                'attribute-group'  => '屬性組',
+                'category-field'   => '分類欄位',
+                'channel'          => '頻道',
+                'role'             => '角色',
+                'job-instance'     => '任務',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API 金鑰',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => '魔法 AI',
+                'warning-icon'       => '警告',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => '移除模型 :model',
+                'invalid-model-name'       => '無效的模型名稱。僅可使用字母、數字、連字號、點、冒號和斜線（如 gpt-4o、claude-3-sonnet）。',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => '無效的模型名稱：:names。模型名稱必須以字母或數字開頭，且僅包含字母、數字、連字號、點、冒號和斜線。',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => '列',
+                ],
+
+                'pagination' => [
+                    'first-page'    => '第一頁',
+                    'previous-page' => '上一頁',
+                    'next-page'     => '下一頁',
+                    'last-page'     => '最後一頁',
+                    'page-number'   => '頁碼',
                 ],
             ],
             'filters' => [

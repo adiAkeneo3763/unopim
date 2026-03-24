@@ -35,7 +35,7 @@
                 <div class="mt-4 p-6 bg-gradient-to-r from-violet-50 to-blue-50 dark:from-cherry-900 dark:to-cherry-800 rounded-lg border border-violet-200 dark:border-cherry-700">
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0 w-12 h-12 bg-violet-100 dark:bg-violet-900 rounded-lg flex items-center justify-center">
-                            <span class="text-2xl">&#9889;</span>
+                            <span class="text-2xl" role="img" aria-label="@lang('admin::app.configuration.platform.setup.lightning-icon')" title="@lang('admin::app.configuration.platform.setup.lightning-icon')">&#9889;</span>
                         </div>
                         <div class="flex-1">
                             <h3 class="text-lg font-semibold text-gray-800 dark:text-slate-50 mb-1">
@@ -73,7 +73,7 @@
             <!-- Warning: No default platform -->
             @if($platformCount > 0 && !$hasDefault)
                 <div class="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-700 flex items-center gap-3">
-                    <span class="text-xl">&#9888;</span>
+                    <span class="text-xl" role="img" aria-label="@lang('admin::app.configuration.platform.setup.warning-icon')" title="@lang('admin::app.configuration.platform.setup.warning-icon')">&#9888;</span>
                     <p class="text-sm text-amber-800 dark:text-amber-200">
                         @lang('admin::app.configuration.platform.setup.no-default-warning')
                     </p>
@@ -98,10 +98,10 @@
                             <a @click="setAsDefault(record)" v-if="!record.is_default_raw" title="@lang('admin::app.configuration.platform.set-default')">
                                 <span class="icon-star cursor-pointer rounded-md p-1.5 text-2xl transition-all hover:bg-violet-100 dark:hover:bg-gray-800"></span>
                             </a>
-                            <a @click="editModal(record.actions.find(a => a.index === 'action_1')?.url)">
+                            <a @click="editModal(record.actions.find(a => a.index === 'action_1')?.url)" title="@lang('admin::app.configuration.platform.datagrid.edit')" aria-label="@lang('admin::app.configuration.platform.datagrid.edit')">
                                 <span :class="record.actions.find(a => a.index === 'action_1')?.icon" class="cursor-pointer rounded-md p-1.5 text-2xl transition-all hover:bg-violet-100 dark:hover:bg-gray-800"></span>
                             </a>
-                            <a @click="performAction(record.actions.find(a => a.index === 'action_2'))">
+                            <a @click="performAction(record.actions.find(a => a.index === 'action_2'))" title="@lang('admin::app.configuration.platform.datagrid.delete')" aria-label="@lang('admin::app.configuration.platform.datagrid.delete')">
                                 <span :class="record.actions.find(a => a.index === 'action_2')?.icon" class="cursor-pointer rounded-md p-1.5 text-2xl transition-all hover:bg-violet-100 dark:hover:bg-gray-800"></span>
                             </a>
                         </div>
@@ -218,7 +218,7 @@
                                             class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-200"
                                         >
                                             @{{ model }}
-                                            <button type="button" @click="removeModel(index)" class="hover:text-red-600">&times;</button>
+                                            <button type="button" @click="removeModel(index)" class="hover:text-red-600" :aria-label="'@lang('admin::app.configuration.platform.fields.remove-model')'.replace(':model', model)" :title="'@lang('admin::app.configuration.platform.fields.remove-model')'.replace(':model', model)">&times;</button>
                                         </span>
                                     </div>
 
@@ -439,9 +439,23 @@
 
                     addCustomModel() {
                         let model = this.customModel.trim();
-                        if (model && !this.selectedModels.includes(model)) {
+
+                        if (! model) {
+                            return;
+                        }
+
+                        if (! /^[a-zA-Z0-9][a-zA-Z0-9\-._:\/@]+$/.test(model)) {
+                            this.$emitter.emit('add-flash', {
+                                type: 'error',
+                                message: '@lang("admin::app.configuration.platform.fields.invalid-model-name")',
+                            });
+                            return;
+                        }
+
+                        if (! this.selectedModels.includes(model)) {
                             this.selectedModels.push(model);
                         }
+
                         this.customModel = '';
                     },
 

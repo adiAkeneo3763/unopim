@@ -5,10 +5,13 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Support\Facades\DB;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class UpdateCategory implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -18,6 +21,10 @@ class UpdateCategory implements PimTool
             ->withStringParameter('name', 'New category name')
             ->withStringParameter('parent_code', 'New parent category code')
             ->using(function (string $code, ?string $name = null, ?string $parent_code = null) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.categories.edit')) {
+                    return $denied;
+                }
+
                 $category = DB::table('categories')->where('code', $code)->first();
                 if (! $category) {
                     return json_encode(['error' => "Category '{$code}' not found"]);

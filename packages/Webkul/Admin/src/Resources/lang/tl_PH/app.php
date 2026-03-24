@@ -139,6 +139,20 @@ return [
             'of'                   => 'of',
             'products-ready'       => 'products ready',
             'no-readiness-data'    => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => 'Produkto',
+                'category'         => 'Kategorya',
+                'attribute'        => 'Katangian',
+                'attribute-family' => 'Pamilya',
+                'attribute-group'  => 'Grupo',
+                'category-field'   => 'Field ng Kategorya',
+                'channel'          => 'Channel',
+                'role'             => 'Tungkulin',
+                'job-instance'     => 'Trabaho',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API Key',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Babala',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Alisin ang modelo :model',
+                'invalid-model-name'       => 'Hindi wastong pangalan ng modelo. Gumamit lamang ng mga titik, numero, gitling, tuldok, tutuldok, at pahilis (hal. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Hindi wastong mga pangalan ng modelo: :names. Ang mga pangalan ng modelo ay dapat magsimula sa titik o numero at maglaman lamang ng mga titik, numero, gitling, tuldok, tutuldok, at pahilis.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Columns',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Unang Pahina',
+                    'previous-page' => 'Nakaraang Pahina',
+                    'next-page'     => 'Susunod na Pahina',
+                    'last-page'     => 'Huling Pahina',
+                    'page-number'   => 'Numero ng Pahina',
                 ],
             ],
             'filters' => [

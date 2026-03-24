@@ -139,6 +139,20 @@ return [
             'of'                   => '/',
             'products-ready'       => 'ürün hazır',
             'no-readiness-data'    => 'Henüz tamlık verisi yok.',
+
+            'entity-types' => [
+                'product'          => 'Ürün',
+                'category'         => 'Kategori',
+                'attribute'        => 'Özellik',
+                'attribute-family' => 'Aile',
+                'attribute-group'  => 'Grup',
+                'category-field'   => 'Kategori Alanı',
+                'channel'          => 'Kanal',
+                'role'             => 'Rol',
+                'job-instance'     => 'Görev',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API Anahtarı',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Uyarı',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => ':model modelini kaldır',
+                'invalid-model-name'       => 'Geçersiz model adı. Yalnızca harf, rakam, tire, nokta, iki nokta üst üste ve eğik çizgi kullanın (ör. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Geçersiz model adları: :names. Model adları bir harf veya rakamla başlamalı ve yalnızca harf, rakam, tire, nokta, iki nokta üst üste ve eğik çizgi içermelidir.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Sütunları',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'İlk Sayfa',
+                    'previous-page' => 'Önceki Sayfa',
+                    'next-page'     => 'Sonraki Sayfa',
+                    'last-page'     => 'Son Sayfa',
+                    'page-number'   => 'Sayfa Numarası',
                 ],
             ],
             'filters' => [

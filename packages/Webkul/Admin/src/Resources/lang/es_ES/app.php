@@ -44,10 +44,10 @@ return [
         'title'            => 'Notificaciones',
         'view-all'         => 'Ver todo',
         'status'           => [
-            'all'        => 'All',
-            'canceled'   => 'Canceled',
-            'closed'     => 'Closed',
-            'completed'  => 'Completed',
+            'all'        => 'Todos',
+            'canceled'   => 'Cancelado',
+            'closed'     => 'Cerrado',
+            'completed'  => 'Completado',
             'pending'    => 'Pendiente',
             'processing' => 'Procesando',
         ],
@@ -75,7 +75,7 @@ return [
     'dashboard' => [
         'index' => [
             'title'                => 'Panel',
-            'user-info'            => 'Monitoreo rápidamente, que \'s count in your PIM',
+            'user-info'            => 'Monitorea rápidamente lo que hay en tu PIM',
             'user-name'            => '¡Hola!:user_name',
             'catalog-details'      => 'Catalogar',
             'total-families'       => 'Familias totales',
@@ -139,6 +139,20 @@ return [
             'of'                   => 'de',
             'products-ready'       => 'productos listos',
             'no-readiness-data'    => 'Aún no hay datos de completitud.',
+
+            'entity-types' => [
+                'product'          => 'Producto',
+                'category'         => 'Categoría',
+                'attribute'        => 'Atributo',
+                'attribute-family' => 'Familia',
+                'attribute-group'  => 'Grupo',
+                'category-field'   => 'Campo de categoría',
+                'channel'          => 'Canal',
+                'role'             => 'Rol',
+                'job-instance'     => 'Tarea',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'Clave API',
+            ],
         ],
     ],
     'catalog' => [
@@ -1055,13 +1069,13 @@ return [
                         'processing'           => 'Procesando',
                         'processed'            => 'Procesada',
                         'linking'              => 'Enlace',
-                        'linked'               => 'Linked',
+                        'linked'               => 'Vinculado',
                         'indexing'             => 'Indexación',
-                        'indexed'              => 'Indexed',
-                        'completed'            => 'Completed',
-                        'paused'               => 'Paused',
-                        'cancelled'            => 'Cancelled',
-                        'failed'               => 'Failed',
+                        'indexed'              => 'Indexado',
+                        'completed'            => 'Completado',
+                        'paused'               => 'Pausado',
+                        'cancelled'            => 'Cancelado',
+                        'failed'               => 'Fallido',
                     ],
                 ],
                 'import' => [
@@ -1563,7 +1577,7 @@ return [
             ],
             'create' => [
                 'access-control' => 'Control de acceso',
-                'all'            => 'All',
+                'all'            => 'Todos',
                 'back-btn'       => 'Atrás',
                 'custom'         => 'Costumbre',
                 'description'    => 'Descripción',
@@ -1575,7 +1589,7 @@ return [
             ],
             'edit' => [
                 'access-control' => 'Control de acceso',
-                'all'            => 'All',
+                'all'            => 'Todos',
                 'back-btn'       => 'Atrás',
                 'custom'         => 'Costumbre',
                 'description'    => 'Descripción',
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Advertencia',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Eliminar modelo :model',
+                'invalid-model-name'       => 'Nombre de modelo no válido. Use solo letras, números, guiones, puntos, dos puntos y barras (p. ej. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Nombres de modelo no válidos: :names. Los nombres de modelo deben comenzar con una letra o número y contener solo letras, números, guiones, puntos, dos puntos y barras.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Columnas',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Primera página',
+                    'previous-page' => 'Página anterior',
+                    'next-page'     => 'Página siguiente',
+                    'last-page'     => 'Última página',
+                    'page-number'   => 'Número de página',
                 ],
             ],
             'filters' => [

@@ -5,11 +5,14 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Support\Facades\DB;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 use Webkul\AiAgent\Services\SemanticRankingService;
 
 class SearchProducts implements PimTool
 {
+    use ChecksPermission;
+
     public function __construct(
         protected SemanticRankingService $semanticRankingService,
     ) {}
@@ -22,7 +25,11 @@ class SearchProducts implements PimTool
             ->withStringParameter('query', 'Search term: SKU pattern, product name keyword, or leave empty for all')
             ->withEnumParameter('status', 'Filter by product status', ['active', 'inactive', 'all'])
             ->withNumberParameter('limit', 'Maximum results to return (default 10, max 50)')
-            ->using(function (?string $query = null, string $status = 'all', int $limit = 10): string {
+            ->using(function (?string $query = null, string $status = 'all', int $limit = 10) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.products')) {
+                    return $denied;
+                }
+
                 $limit = min(max($limit, 1), 50);
                 $candidateLimit = min(max($limit * 5, $limit), 200);
 
@@ -30,15 +37,16 @@ class SearchProducts implements PimTool
                     ->leftJoin('attribute_families as af', 'af.id', '=', 'p.attribute_family_id')
                     ->select(
                         'p.id', 'p.sku', 'p.type', 'p.status', 'af.code as family_code',
-                        DB::raw("JSON_UNQUOTE(JSON_EXTRACT(p.values, '$.channel_locale_specific.default.en_US.name')) as product_name"),
+                        DB::raw("JSON_UNQUOTE(JSON_EXTRACT(p.values, '$.channel_locale_specific.{$context->channel}.{$context->locale}.name')) as product_name"),
                         DB::raw("JSON_UNQUOTE(JSON_EXTRACT(p.values, '$.common.url_key')) as url_key"),
                     );
 
                 if ($query) {
-                    $qb->where(function ($q) use ($query) {
-                        $q->where('p.sku', 'like', "%{$query}%")
-                            ->orWhere('p.values->common->url_key', 'like', "%{$query}%")
-                            ->orWhereRaw("JSON_EXTRACT(p.values, '$.channel_locale_specific.default.en_US.name') LIKE ?", ["%{$query}%"]);
+                    $escaped = str_replace(['%', '_'], ['\%', '\_'], $query);
+                    $qb->where(function ($q) use ($escaped, $context) {
+                        $q->where('p.sku', 'like', "%{$escaped}%")
+                            ->orWhere('p.values->common->url_key', 'like', "%{$escaped}%")
+                            ->orWhereRaw("JSON_EXTRACT(p.values, '$.channel_locale_specific.{$context->channel}.{$context->locale}.name') LIKE ?", ["%{$escaped}%"]);
                     });
                 }
 

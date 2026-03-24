@@ -4,6 +4,7 @@ namespace Webkul\AiAgent\Chat\Tools;
 
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 use Webkul\AiAgent\DTOs\CredentialConfig;
 use Webkul\AiAgent\Http\Client\AiApiClient;
@@ -12,6 +13,8 @@ use Webkul\MagicAI\Enums\AiProvider;
 
 class AnalyzeImage implements PimTool
 {
+    use ChecksPermission;
+
     public function __construct(
         protected VisionService $visionService,
     ) {}
@@ -23,6 +26,10 @@ class AnalyzeImage implements PimTool
             ->for('Analyze an uploaded image to detect product attributes.')
             ->withStringParameter('instruction', 'Optional instructions for the analysis (e.g. "This is a laptop", "Focus on the fabric material")')
             ->using(function (?string $instruction = null) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.products')) {
+                    return $denied;
+                }
+
                 if (! $context->hasImages()) {
                     return json_encode(['error' => 'No image was uploaded. Ask the user to upload an image first.']);
                 }

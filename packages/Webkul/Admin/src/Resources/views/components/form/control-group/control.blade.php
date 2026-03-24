@@ -440,8 +440,9 @@
             },
             
             data() {
+                const parsed = this.parseValue();
                 return {
-                    selectedValue: this.parseValue() ? this.parseOptions().find(option => option[this.trackBy] === this.parseValue()) : null,
+                    selectedValue: parsed != null ? this.parseOptions().find(option => String(option[this.trackBy]) === String(parsed)) : null,
                 }
             },
 

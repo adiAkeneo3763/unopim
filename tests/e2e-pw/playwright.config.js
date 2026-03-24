@@ -17,7 +17,7 @@ module.exports = defineConfig({
   expect: { timeout: 10_000 },
   globalSetup: require.resolve('./global-setup.js'),
   use: {
-    baseURL: 'http://127.0.0.1:8000',
+    baseURL: process.env.BASE_URL || 'http://127.0.0.1:8000',
     storageState: STORAGE_STATE,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',

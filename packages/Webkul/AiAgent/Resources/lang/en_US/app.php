@@ -9,6 +9,10 @@ return [
         'system-prompt'         => 'System Prompt',
         'execute'               => 'Execute',
         'generate'              => 'Generate',
+        'credentials'           => 'Credentials',
+        'agents'                => 'Agents',
+        'dashboard'             => 'Dashboard',
+        'approvals'             => 'Approvals',
     ],
 
     'menu' => [
@@ -21,10 +25,22 @@ return [
     ],
 
     'common' => [
-        'yes'  => 'Yes',
-        'no'   => 'No',
-        'save' => 'Save',
-        'back' => 'Back',
+        'yes'                       => 'Yes',
+        'no'                        => 'No',
+        'save'                      => 'Save',
+        'back'                      => 'Back',
+        'unauthorized'              => 'This action is unauthorized.',
+        'error-generic'             => 'An unexpected error occurred. Please try again.',
+        'invalid-file-path'         => 'Invalid file path.',
+        'invalid-locale-code'       => 'Invalid locale code.',
+        'invalid-channel-code'      => 'Invalid channel code.',
+        'bulk-delete-limit'         => 'Maximum 20 products can be deleted per request. Please split into smaller batches.',
+        'invalid-file-type'         => 'File must be of type: :types.',
+        'import-no-file'            => 'No spreadsheet file uploaded. Please attach a CSV or XLSX file.',
+        'chat-disabled'             => 'AI Agent Chat is disabled. Enable it in Configuration > Magic AI > Agentic PIM.',
+        'no-platform'               => 'No AI platform configured. Please set up a platform in Magic AI settings.',
+        'process-attached-files'    => 'Process the attached file(s).',
+        'token-budget-exhausted'    => 'Daily AI token budget exhausted (:used/:budget tokens). Budget resets tomorrow. Contact your administrator to increase the limit.',
     ],
 
     'credentials' => [
@@ -129,10 +145,12 @@ return [
         'view-product'            => 'View Product',
 
         'validation' => [
-            'images-required'    => 'Please upload at least one image.',
-            'image-invalid'      => 'Each file must be a valid image (JPG, PNG, WebP, GIF).',
-            'image-too-large'    => 'Each image must be under 10 MB.',
-            'credential-required'=> 'Please select an AI credential.',
+            'images-required'     => 'Please upload at least one image.',
+            'image-invalid'       => 'Each file must be a valid image (JPG, PNG, WebP, GIF).',
+            'image-too-large'     => 'Each image must be under 10 MB.',
+            'credential-required' => 'Please select an AI credential.',
+            'unsupported-type'    => '":name" is not a supported image type.',
+            'file-too-large'      => '":name" exceeds 10 MB limit.',
         ],
     ],
 

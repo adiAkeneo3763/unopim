@@ -139,6 +139,20 @@ return [
             'of'                   => 'di',
             'products-ready'       => 'prodotti pronti',
             'no-readiness-data'    => 'Nessun dato di completezza disponibile.',
+
+            'entity-types' => [
+                'product'          => 'Prodotto',
+                'category'         => 'Categoria',
+                'attribute'        => 'Attributo',
+                'attribute-family' => 'Famiglia',
+                'attribute-group'  => 'Gruppo',
+                'category-field'   => 'Campo categoria',
+                'channel'          => 'Canale',
+                'role'             => 'Ruolo',
+                'job-instance'     => 'Attività',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'Chiave API',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Avviso',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Rimuovi modello :model',
+                'invalid-model-name'       => 'Nome del modello non valido. Utilizzare solo lettere, numeri, trattini, punti, due punti e barre (es. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Nomi del modello non validi: :names. I nomi del modello devono iniziare con una lettera o un numero e contenere solo lettere, numeri, trattini, punti, due punti e barre.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Colonne',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Prima pagina',
+                    'previous-page' => 'Pagina precedente',
+                    'next-page'     => 'Pagina successiva',
+                    'last-page'     => 'Ultima pagina',
+                    'page-number'   => 'Numero di pagina',
                 ],
             ],
             'filters' => [

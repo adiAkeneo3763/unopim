@@ -281,7 +281,7 @@
                             if (! allowed.includes(file.type)) {
                                 this.$emitter.emit('add-flash', {
                                     type: 'warning',
-                                    message: `"${file.name}" is not a supported image type.`,
+                                    message: "{{ trans('ai-agent::app.generate.validation.unsupported-type') }}".replace(':name', file.name),
                                 });
                                 return;
                             }
@@ -289,7 +289,7 @@
                             if (file.size > 10 * 1024 * 1024) {
                                 this.$emitter.emit('add-flash', {
                                     type: 'warning',
-                                    message: `"${file.name}" exceeds 10 MB limit.`,
+                                    message: "{{ trans('ai-agent::app.generate.validation.file-too-large') }}".replace(':name', file.name),
                                 });
                                 return;
                             }

@@ -5,11 +5,14 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Http\File;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 use Webkul\Core\Filesystem\FileStorer;
 
 class AttachImage implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -17,6 +20,10 @@ class AttachImage implements PimTool
             ->for('Attach an uploaded image to a product by SKU.')
             ->withStringParameter('sku', 'Product SKU to attach the image to')
             ->using(function (string $sku) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.products.edit')) {
+                    return $denied;
+                }
+
                 if (! $context->hasImages()) {
                     return json_encode(['error' => 'No image was uploaded in this session. Ask the user to upload an image first.']);
                 }

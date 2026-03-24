@@ -75,7 +75,7 @@ return [
     'dashboard' => [
         'index' => [
             'title'                => 'Панель приборов',
-            'user-info'            => 'Быстро мониторинг, что \'s count in your PIM',
+            'user-info'            => 'Быстрый мониторинг данных в вашей системе PIM',
             'user-name'            => 'Привет! :user_name',
             'catalog-details'      => 'Каталог',
             'total-families'       => 'Всего семей',
@@ -139,6 +139,20 @@ return [
             'of'                   => 'из',
             'products-ready'       => 'товаров готово',
             'no-readiness-data'    => 'Данных о полноте пока нет.',
+
+            'entity-types' => [
+                'product'          => 'Продукт',
+                'category'         => 'Категория',
+                'attribute'        => 'Атрибут',
+                'attribute-family' => 'Семейство',
+                'attribute-group'  => 'Группа',
+                'category-field'   => 'Поле категории',
+                'channel'          => 'Канал',
+                'role'             => 'Роль',
+                'job-instance'     => 'Задание',
+                'webhook'          => 'Вебхук',
+                'api-key'          => 'API-ключ',
+            ],
         ],
     ],
     'catalog' => [
@@ -226,7 +240,7 @@ return [
                     ],
                     'cross-sells' => [
                         'empty-info' => 'Добавить продукты Association Cross Sell.',
-                        'info'       => 'Рядом с корзиной, вы \'ll find these \"impulse-buy\" products positioned as cross-sells to complement the items already added to your cart.',
+                        'info'       => 'Рядом с корзиной вы найдёте товары «импульсной покупки», расположенные как перекрёстные продажи для дополнения товаров, уже добавленных в вашу корзину.',
                         'title'      => 'Продукты перекрестных продаж',
                     ],
                     'add-btn'           => 'Добавлять',
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Предупреждение',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Удалить модель :model',
+                'invalid-model-name'       => 'Недопустимое имя модели. Используйте только буквы, цифры, дефисы, точки, двоеточия и косые черты (напр. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Недопустимые имена моделей: :names. Имена моделей должны начинаться с буквы или цифры и содержать только буквы, цифры, дефисы, точки, двоеточия и косые черты.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'столбцами',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Первая страница',
+                    'previous-page' => 'Предыдущая страница',
+                    'next-page'     => 'Следующая страница',
+                    'last-page'     => 'Последняя страница',
+                    'page-number'   => 'Номер страницы',
                 ],
             ],
             'filters' => [

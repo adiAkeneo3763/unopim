@@ -139,6 +139,20 @@ return [
             'of'                   => 'of',
             'products-ready'       => 'products ready',
             'no-readiness-data'    => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => 'Produkt',
+                'category'         => 'Kategori',
+                'attribute'        => 'Attribut',
+                'attribute-family' => 'Familj',
+                'attribute-group'  => 'Grupp',
+                'category-field'   => 'Kategorifält',
+                'channel'          => 'Kanal',
+                'role'             => 'Roll',
+                'job-instance'     => 'Jobb',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API-nyckel',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Varning',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Ta bort modell :model',
+                'invalid-model-name'       => 'Ogiltigt modellnamn. Använd endast bokstäver, siffror, bindestreck, punkter, kolon och snedstreck (t.ex. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Ogiltiga modellnamn: :names. Modellnamn måste börja med en bokstav eller siffra och får bara innehålla bokstäver, siffror, bindestreck, punkter, kolon och snedstreck.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'kolumner',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Första sidan',
+                    'previous-page' => 'Föregående sida',
+                    'next-page'     => 'Nästa sida',
+                    'last-page'     => 'Sista sidan',
+                    'page-number'   => 'Sidnummer',
                 ],
             ],
             'filters' => [

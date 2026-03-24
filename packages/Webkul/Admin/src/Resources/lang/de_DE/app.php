@@ -139,6 +139,20 @@ return [
             'of'                   => 'von',
             'products-ready'       => 'Produkte bereit',
             'no-readiness-data'    => 'Noch keine Vollständigkeitsdaten verfügbar.',
+
+            'entity-types' => [
+                'product'          => 'Produkt',
+                'category'         => 'Kategorie',
+                'attribute'        => 'Attribut',
+                'attribute-family' => 'Familie',
+                'attribute-group'  => 'Gruppe',
+                'category-field'   => 'Kategoriefeld',
+                'channel'          => 'Kanal',
+                'role'             => 'Rolle',
+                'job-instance'     => 'Auftrag',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API-Schlüssel',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Warnung',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Modell :model entfernen',
+                'invalid-model-name'       => 'Ungültiger Modellname. Verwenden Sie nur Buchstaben, Zahlen, Bindestriche, Punkte, Doppelpunkte und Schrägstriche (z. B. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Ungültige Modellnamen: :names. Modellnamen müssen mit einem Buchstaben oder einer Zahl beginnen und dürfen nur Buchstaben, Zahlen, Bindestriche, Punkte, Doppelpunkte und Schrägstriche enthalten.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Kolonne',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Erste Seite',
+                    'previous-page' => 'Vorherige Seite',
+                    'next-page'     => 'Nächste Seite',
+                    'last-page'     => 'Letzte Seite',
+                    'page-number'   => 'Seitenzahl',
                 ],
             ],
             'filters' => [

@@ -139,6 +139,20 @@ return [
             'of'                   => 'of',
             'products-ready'       => 'products ready',
             'no-readiness-data'    => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => 'Produs',
+                'category'         => 'Categorie',
+                'attribute'        => 'Atribut',
+                'attribute-family' => 'Familie',
+                'attribute-group'  => 'Grup',
+                'category-field'   => 'Câmp categorie',
+                'channel'          => 'Canal',
+                'role'             => 'Rol',
+                'job-instance'     => 'Sarcină',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'Cheie API',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Avertisment',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Elimină modelul :model',
+                'invalid-model-name'       => 'Nume de model invalid. Folosiți doar litere, cifre, cratime, puncte, două puncte și bare oblice (ex. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Nume de model invalide: :names. Numele de model trebuie să înceapă cu o literă sau un număr și să conțină doar litere, cifre, cratime, puncte, două puncte și bare oblice.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'coloanele',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Prima pagină',
+                    'previous-page' => 'Pagina anterioară',
+                    'next-page'     => 'Pagina următoare',
+                    'last-page'     => 'Ultima pagină',
+                    'page-number'   => 'Numărul paginii',
                 ],
             ],
             'filters' => [

@@ -6,10 +6,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class AssignCategories implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -17,7 +20,11 @@ class AssignCategories implements PimTool
             ->for('Assign categories to products by SKU.')
             ->withStringParameter('skus', 'Comma-separated product SKUs')
             ->withStringParameter('categories', 'Comma-separated category codes or paths')
-            ->using(function (string $skus, string $categories): string {
+            ->using(function (string $skus, string $categories) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.products.edit')) {
+                    return $denied;
+                }
+
                 $skuList = array_map('trim', explode(',', $skus));
                 $categoryInputs = array_map('trim', explode(',', $categories));
 

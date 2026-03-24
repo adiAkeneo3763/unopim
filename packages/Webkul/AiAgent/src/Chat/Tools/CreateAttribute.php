@@ -6,10 +6,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class CreateAttribute implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -31,6 +34,10 @@ class CreateAttribute implements PimTool
                 bool $value_per_channel = false,
                 ?string $options = null,
             ) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.attributes')) {
+                    return $denied;
+                }
+
                 if (! $name) {
                     return json_encode(['error' => 'Attribute name is required']);
                 }

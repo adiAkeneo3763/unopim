@@ -63,6 +63,30 @@ class ChannelRepository extends Repository
      */
     public function update(array $data, $id, $attribute = 'id')
     {
+        $model = $this->getModel();
+
+        foreach (core()->getAllActiveLocales() as $locale) {
+            $localeCode = $locale->code;
+
+            if (! isset($data[$localeCode])) {
+                continue;
+            }
+
+            $allEmpty = true;
+
+            foreach ($model->translatedAttributes as $field) {
+                if (! empty($data[$localeCode][$field])) {
+                    $allEmpty = false;
+
+                    break;
+                }
+            }
+
+            if ($allEmpty) {
+                unset($data[$localeCode]);
+            }
+        }
+
         $channel = parent::update($data, $id, $attribute);
 
         // Sync the Channel Locales

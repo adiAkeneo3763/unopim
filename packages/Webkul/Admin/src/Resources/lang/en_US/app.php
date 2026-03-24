@@ -144,6 +144,20 @@ return [
             'of'                    => 'of',
             'products-ready'        => 'products ready',
             'no-readiness-data'     => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => 'Product',
+                'category'         => 'Category',
+                'attribute'        => 'Attribute',
+                'attribute-family' => 'Family',
+                'attribute-group'  => 'Group',
+                'category-field'   => 'Category Field',
+                'channel'          => 'Channel',
+                'role'             => 'Role',
+                'job-instance'     => 'Job',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API Key',
+            ],
         ],
     ],
 
@@ -1753,6 +1767,25 @@ return [
                         'target-locales'              => 'Target Locales',
                         'replace-existing-value-info' => 'Replace the existing value if it already exists.',
                     ],
+
+                    'agentic-pim' => [
+                        'title'                     => 'Agentic PIM',
+                        'title-info'                => 'Configure the AI Agent Chat, autonomous enrichment workflows, and quality monitoring. These features enable conversational product management and proactive catalog maintenance.',
+                        'enabled'                   => 'Enable AI Agent Chat',
+                        'enabled-info'              => 'Enable the floating AI chat widget for conversational product management with 27+ tool actions.',
+                        'max-steps'                 => 'Max Agent Steps Per Turn',
+                        'max-steps-info'            => 'Maximum number of tool-call iterations the AI agent can perform per user message. Higher values allow more complex multi-step operations.',
+                        'daily-token-budget'        => 'Daily Token Budget',
+                        'daily-token-budget-info'   => 'Maximum AI tokens (input + output) that can be consumed per day across all users. Set to 0 for unlimited. Helps control API costs.',
+                        'auto-enrichment'           => 'Auto-Enrichment on Product Create',
+                        'auto-enrichment-info'      => 'Automatically generate missing descriptions, categories, and SEO content when new products are created or imported.',
+                        'quality-monitor'           => 'Catalog Quality Monitor',
+                        'quality-monitor-info'      => 'Run scheduled scans to detect incomplete products, missing translations, duplicate entries, and pricing anomalies.',
+                        'confidence-threshold'      => 'Confidence Threshold',
+                        'confidence-threshold-info' => 'Minimum confidence score (0-1) for AI-generated changes to be auto-applied. Below this threshold, changes are queued for human review.',
+                        'approval-mode'             => 'Change Approval Mode',
+                        'approval-mode-info'        => 'Controls how the AI agent handles write operations. "Confirm & apply": agent proposes values in chat, waits for confirmation, then executes. "Strict confirm": same but also verifies after every change. "Suggest only": describes changes but never executes (read-only).',
+                    ],
                 ],
             ],
         ],
@@ -1906,6 +1939,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Warning',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1944,6 +1979,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Remove model :model',
+                'invalid-model-name'       => 'Invalid model name. Use only letters, numbers, hyphens, dots, colons, and slashes (e.g. gpt-4o, claude-3-sonnet).',
             ],
 
             'message' => [
@@ -1955,6 +1992,7 @@ return [
                 'set-default-success'    => 'Platform set as default successfully.',
                 'test-success'           => 'Connection verified successfully!',
                 'test-fail'              => 'Connection test failed',
+                'invalid-model-names'    => 'Invalid model names: :names. Model names must start with a letter or number and contain only letters, numbers, hyphens, dots, colons, and slashes.',
             ],
         ],
     ],
@@ -2039,6 +2077,14 @@ return [
 
                 'manage-columns' => [
                     'title' => 'Columns',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'First Page',
+                    'previous-page' => 'Previous Page',
+                    'next-page'     => 'Next Page',
+                    'last-page'     => 'Last Page',
+                    'page-number'   => 'Page Number',
                 ],
             ],
 

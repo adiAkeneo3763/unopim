@@ -139,6 +139,20 @@ return [
             'of'                   => 'of',
             'products-ready'       => 'products ready',
             'no-readiness-data'    => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => 'Proizvod',
+                'category'         => 'Kategorija',
+                'attribute'        => 'Atribut',
+                'attribute-family' => 'Obitelj',
+                'attribute-group'  => 'Grupa',
+                'category-field'   => 'Polje kategorije',
+                'channel'          => 'Kanal',
+                'role'             => 'Uloga',
+                'job-instance'     => 'Zadatak',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API ključ',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Upozorenje',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Ukloni model :model',
+                'invalid-model-name'       => 'Nevažeći naziv modela. Koristite samo slova, brojeve, crtice, točke, dvotočke i kose crte (npr. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Nevažeći nazivi modela: :names. Nazivi modela moraju započinjati slovom ili brojem i sadržavati samo slova, brojeve, crtice, točke, dvotočke i kose crte.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Stupcima',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Prva stranica',
+                    'previous-page' => 'Prethodna stranica',
+                    'next-page'     => 'Sljedeća stranica',
+                    'last-page'     => 'Posljednja stranica',
+                    'page-number'   => 'Broj stranice',
                 ],
             ],
             'filters' => [

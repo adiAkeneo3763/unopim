@@ -5,6 +5,7 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Support\Facades\DB;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 use Webkul\AiAgent\DTOs\CredentialConfig;
 use Webkul\AiAgent\DTOs\ImageProductContext;
@@ -14,6 +15,8 @@ use Webkul\MagicAI\Enums\AiProvider;
 
 class GenerateContent implements PimTool
 {
+    use ChecksPermission;
+
     public function __construct(
         protected EnrichmentService $enrichmentService,
     ) {}
@@ -26,6 +29,10 @@ class GenerateContent implements PimTool
             ->withStringParameter('sku', 'Product SKU to generate content for')
             ->withStringParameter('instruction', 'Optional instructions for content generation style or focus')
             ->using(function (string $sku, ?string $instruction = null) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.products.edit')) {
+                    return $denied;
+                }
+
                 $product = DB::table('products')->where('sku', $sku)->first();
 
                 if (! $product) {

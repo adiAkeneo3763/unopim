@@ -139,6 +139,20 @@ return [
             'of'                   => 'of',
             'products-ready'       => 'products ready',
             'no-readiness-data'    => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => 'Бүтээгдэхүүн',
+                'category'         => 'Ангилал',
+                'attribute'        => 'Шинж чанар',
+                'attribute-family' => 'Гэр бүл',
+                'attribute-group'  => 'Бүлэг',
+                'category-field'   => 'Ангиллын талбар',
+                'channel'          => 'Суваг',
+                'role'             => 'Үүрэг',
+                'job-instance'     => 'Ажил',
+                'webhook'          => 'Вэбхүүк',
+                'api-key'          => 'API түлхүүр',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Анхааруулга',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => ':model загварыг устгах',
+                'invalid-model-name'       => 'Загварын нэр буруу байна. Зөвхөн үсэг, тоо, зураас, цэг, хос цэг, налуу зураас ашиглана уу (жнь. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Буруу загварын нэрс: :names. Загварын нэр үсэг эсвэл тоогоор эхлэх ёстой бөгөөд зөвхөн үсэг, тоо, зураас, цэг, хос цэг, налуу зураас агуулж болно.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Багануудыг',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Эхний хуудас',
+                    'previous-page' => 'Өмнөх хуудас',
+                    'next-page'     => 'Дараагийн хуудас',
+                    'last-page'     => 'Сүүлийн хуудас',
+                    'page-number'   => 'Хуудасны дугаар',
                 ],
             ],
             'filters' => [

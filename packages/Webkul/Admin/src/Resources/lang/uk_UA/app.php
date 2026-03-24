@@ -139,6 +139,20 @@ return [
             'of'                   => 'з',
             'products-ready'       => 'товарів готово',
             'no-readiness-data'    => 'Даних про повноту ще немає.',
+
+            'entity-types' => [
+                'product'          => 'Продукт',
+                'category'         => 'Категорія',
+                'attribute'        => 'Атрибут',
+                'attribute-family' => 'Сімейство',
+                'attribute-group'  => 'Група',
+                'category-field'   => 'Поле категорії',
+                'channel'          => 'Канал',
+                'role'             => 'Роль',
+                'job-instance'     => 'Завдання',
+                'webhook'          => 'Вебхук',
+                'api-key'          => 'API-ключ',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Попередження',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Видалити модель :model',
+                'invalid-model-name'       => 'Недійсна назва моделі. Використовуйте лише літери, цифри, дефіси, крапки, двокрапки та скісні риски (напр. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Недійсні назви моделей: :names. Назви моделей повинні починатися з літери або цифри та містити лише літери, цифри, дефіси, крапки, двокрапки та скісні риски.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'колонками',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Перша сторінка',
+                    'previous-page' => 'Попередня сторінка',
+                    'next-page'     => 'Наступна сторінка',
+                    'last-page'     => 'Остання сторінка',
+                    'page-number'   => 'Номер сторінки',
                 ],
             ],
             'filters' => [

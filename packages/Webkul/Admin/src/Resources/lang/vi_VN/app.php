@@ -139,6 +139,20 @@ return [
             'of'                   => '/',
             'products-ready'       => 'sản phẩm sẵn sàng',
             'no-readiness-data'    => 'Chưa có dữ liệu hoàn thiện.',
+
+            'entity-types' => [
+                'product'          => 'Sản phẩm',
+                'category'         => 'Danh mục',
+                'attribute'        => 'Thuộc tính',
+                'attribute-family' => 'Nhóm thuộc tính',
+                'attribute-group'  => 'Nhóm',
+                'category-field'   => 'Trường danh mục',
+                'channel'          => 'Kênh',
+                'role'             => 'Vai trò',
+                'job-instance'     => 'Công việc',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'Khóa API',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Cảnh báo',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Xóa mô hình :model',
+                'invalid-model-name'       => 'Tên mô hình không hợp lệ. Chỉ sử dụng chữ cái, số, dấu gạch ngang, dấu chấm, dấu hai chấm và dấu gạch chéo (ví dụ: gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Tên mô hình không hợp lệ: :names. Tên mô hình phải bắt đầu bằng chữ cái hoặc số và chỉ chứa chữ cái, số, dấu gạch ngang, dấu chấm, dấu hai chấm và dấu gạch chéo.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Cột',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'Trang đầu',
+                    'previous-page' => 'Trang trước',
+                    'next-page'     => 'Trang tiếp',
+                    'last-page'     => 'Trang cuối',
+                    'page-number'   => 'Số trang',
                 ],
             ],
             'filters' => [

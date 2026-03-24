@@ -220,7 +220,7 @@
                                     setErrors(error.response.data.errors);
                                 }
 
-                                this.$emitter.emit('add-flash', { type: 'error', message: error.response?.data?.message || 'Something went wrong.' });
+                                this.$emitter.emit('add-flash', { type: 'error', message: error.response?.data?.message || "{{ trans('ai-agent::app.common.error-generic') }}" });
                             })
                             .finally(() => {
                                 this.isLoading = false;

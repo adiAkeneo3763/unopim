@@ -5,16 +5,23 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Support\Facades\DB;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class CatalogSummary implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
             ->as('catalog_summary')
             ->for('Get catalog statistics: product counts, categories, attributes, imports/exports, users.')
-            ->using(function (): string {
+            ->using(function () use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'dashboard')) {
+                    return $denied;
+                }
+
                 $totalProducts = DB::table('products')->count();
                 $activeProducts = DB::table('products')->where('status', 1)->count();
                 $inactiveProducts = $totalProducts - $activeProducts;

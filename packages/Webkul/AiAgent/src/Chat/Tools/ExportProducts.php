@@ -5,10 +5,13 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Support\Facades\DB;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class ExportProducts implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -18,6 +21,10 @@ class ExportProducts implements PimTool
             ->withEnumParameter('status', 'Filter by status', ['active', 'inactive', 'all'])
             ->withStringParameter('category', 'Filter by category code')
             ->using(function (?string $skus = null, string $status = 'all', ?string $category = null) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'data_transfer.export')) {
+                    return $denied;
+                }
+
                 $qb = DB::table('products as p')
                     ->select('p.id', 'p.sku', 'p.type', 'p.status', 'p.values');
 
@@ -56,7 +63,7 @@ class ExportProducts implements PimTool
 
                 foreach ($products as $p) {
                     $values = json_decode($p->values, true) ?? [];
-                    $cl = $values['channel_locale_specific']['default'][$context->locale] ?? [];
+                    $cl = $values['channel_locale_specific'][$context->channel][$context->locale] ?? [];
                     $common = $values['common'] ?? [];
 
                     $price = '';
@@ -78,6 +85,12 @@ class ExportProducts implements PimTool
                 // Write CSV file
                 $filename = 'export-'.date('Y-m-d-His').'.csv';
                 $path = storage_path('app/public/ai-agent/exports/'.$filename);
+
+                // Validate path stays within allowed directory.
+                $baseDir = storage_path('app/public/ai-agent/');
+                if (! str_starts_with($path, $baseDir)) {
+                    return json_encode(['error' => trans('ai-agent::app.common.invalid-file-path')]);
+                }
 
                 if (! is_dir(\dirname($path))) {
                     mkdir(\dirname($path), 0755, true);

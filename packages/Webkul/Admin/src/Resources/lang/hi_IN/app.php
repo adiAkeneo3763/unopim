@@ -139,6 +139,20 @@ return [
             'of'                   => 'में से',
             'products-ready'       => 'उत्पाद तैयार',
             'no-readiness-data'    => 'अभी तक कोई पूर्णता डेटा उपलब्ध नहीं।',
+
+            'entity-types' => [
+                'product'          => 'उत्पाद',
+                'category'         => 'श्रेणी',
+                'attribute'        => 'गुण',
+                'attribute-family' => 'परिवार',
+                'attribute-group'  => 'समूह',
+                'category-field'   => 'श्रेणी फ़ील्ड',
+                'channel'          => 'चैनल',
+                'role'             => 'भूमिका',
+                'job-instance'     => 'कार्य',
+                'webhook'          => 'वेबहुक',
+                'api-key'          => 'API कुंजी',
+            ],
         ],
     ],
     'catalog' => [
@@ -226,7 +240,7 @@ return [
                     ],
                     'cross-sells' => [
                         'empty-info' => 'क्रॉस सेल एसोसिएशन उत्पादों को जोड़ें।',
-                        'info'       => 'शॉपिंग कार्ट से सटे, आप \'ll find these \"impulse-buy\" products positioned as cross-sells to complement the items already added to your cart.',
+                        'info'       => 'शॉपिंग कार्ट के पास, आपको क्रॉस-सेल के रूप में रखे गए "इम्पल्स-बाय" उत्पाद मिलेंगे जो आपकी कार्ट में पहले से जोड़ी गई वस्तुओं को पूरक बनाते हैं।',
                         'title'      => 'क्रॉस-सेल उत्पाद',
                     ],
                     'add-btn'           => 'जोड़ना',
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'मैजिक AI',
+                'warning-icon'       => 'चेतावनी',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'मॉडल :model हटाएं',
+                'invalid-model-name'       => 'अमान्य मॉडल नाम। केवल अक्षर, संख्याएँ, हाइफ़न, बिंदु, कोलन और स्लैश का उपयोग करें (जैसे gpt-4o, claude-3-sonnet)।',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'अमान्य मॉडल नाम: :names। मॉडल नाम अक्षर या संख्या से शुरू होने चाहिए और केवल अक्षर, संख्याएँ, हाइफ़न, बिंदु, कोलन और स्लैश शामिल हो सकते हैं।',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'कॉलम',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'पहला पृष्ठ',
+                    'previous-page' => 'पिछला पृष्ठ',
+                    'next-page'     => 'अगला पृष्ठ',
+                    'last-page'     => 'अंतिम पृष्ठ',
+                    'page-number'   => 'पृष्ठ संख्या',
                 ],
             ],
             'filters' => [

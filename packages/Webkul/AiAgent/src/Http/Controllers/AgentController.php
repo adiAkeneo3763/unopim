@@ -15,7 +15,15 @@ class AgentController extends Controller
     public function __construct(
         protected AgentRepository $agentRepository,
         protected CredentialRepository $credentialRepository,
-    ) {}
+    ) {
+        $this->middleware(function ($request, $next) {
+            if (! bouncer()->hasPermission('ai-agent.agents')) {
+                abort(401, trans('ai-agent::app.common.unauthorized'));
+            }
+
+            return $next($request);
+        });
+    }
 
     /**
      * Display a listing of agents.

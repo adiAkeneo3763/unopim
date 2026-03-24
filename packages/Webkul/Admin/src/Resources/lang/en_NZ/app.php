@@ -139,6 +139,20 @@ return [
             'of'                   => 'of',
             'products-ready'       => 'products ready',
             'no-readiness-data'    => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => 'Product',
+                'category'         => 'Category',
+                'attribute'        => 'Attribute',
+                'attribute-family' => 'Family',
+                'attribute-group'  => 'Group',
+                'category-field'   => 'Category Field',
+                'channel'          => 'Channel',
+                'role'             => 'Role',
+                'job-instance'     => 'Job',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API Key',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'Magic AI',
+                'warning-icon'       => 'Warning',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'Remove model :model',
+                'invalid-model-name'       => 'Invalid model name. Use only letters, numbers, hyphens, dots, colons, and slashes (e.g. gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'Invalid model names: :names. Model names must start with a letter or number and contain only letters, numbers, hyphens, dots, colons, and slashes.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'Columns',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'First Page',
+                    'previous-page' => 'Previous Page',
+                    'next-page'     => 'Next Page',
+                    'last-page'     => 'Last Page',
+                    'page-number'   => 'Page Number',
                 ],
             ],
             'filters' => [

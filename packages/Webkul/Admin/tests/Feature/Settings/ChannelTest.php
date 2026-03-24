@@ -216,6 +216,43 @@ it('should not delete the default channel', function () {
     ]);
 });
 
+it('should update channel when adding a new locale without providing translation name', function () {
+    $this->loginAsAdmin();
+
+    $category = Category::factory()->create(['parent_id' => null]);
+
+    $existingLocale = Locale::where('code', 'en_US')->first()
+        ?? Locale::factory()->create(['code' => 'en_US', 'status' => 1]);
+
+    $newLocale = Locale::factory()->create(['status' => 1]);
+
+    $demoChannel = Channel::factory()->create([
+        'root_category_id' => $category->id,
+    ]);
+
+    $demoChannel->locales()->sync([$existingLocale->id]);
+
+    $currency = $demoChannel->currencies->first()
+        ?? Currency::factory()->create();
+
+    $response = putJson(route('admin.settings.channels.update', ['id' => $demoChannel->id]), [
+        'id'               => $demoChannel->id,
+        'code'             => $demoChannel->code,
+        'root_category_id' => $demoChannel->root_category_id,
+        'en_US'            => ['name' => 'Test Channel'],
+        'locales'          => implode(',', [$existingLocale->id, $newLocale->id]),
+        'currencies'       => $currency->id,
+    ]);
+
+    $response->assertStatus(302);
+    $response->assertSessionHas('success');
+
+    $this->assertDatabaseHas('channel_locales', [
+        'channel_id' => $demoChannel->id,
+        'locale_id'  => $newLocale->id,
+    ]);
+});
+
 it('should not delete the last channel', function () {
     $this->loginAsAdmin();
 

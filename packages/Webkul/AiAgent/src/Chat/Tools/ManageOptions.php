@@ -6,10 +6,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class ManageOptions implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -19,6 +22,10 @@ class ManageOptions implements PimTool
             ->withEnumParameter('action', 'Action to perform', ['list', 'add'])
             ->withStringParameter('options', 'Comma-separated option labels to add (e.g. "Purple,Orange")')
             ->using(function (string $attribute_code, string $action = 'list', ?string $options = null) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.attributes')) {
+                    return $denied;
+                }
+
                 $attribute = DB::table('attributes')->where('code', $attribute_code)->first();
                 if (! $attribute) {
                     return json_encode(['error' => "Attribute '{$attribute_code}' not found"]);

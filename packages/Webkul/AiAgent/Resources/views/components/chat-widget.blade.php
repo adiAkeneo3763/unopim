@@ -110,7 +110,7 @@
                         <button v-for="cap in filteredCapabilities" :key="cap.key" @click="activateCapability(cap)"
                             class="flex flex-col items-start gap-2 p-3 rounded-lg border border-gray-200 dark:border-cherry-700 hover:border-violet-300 dark:hover:border-violet-600 hover:bg-violet-50 dark:hover:bg-cherry-800 transition-all text-left group">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center" :style="{ background: cap.color + '15' }">
-                                <span v-html="cap.iconSvg" :style="{ color: cap.color }"></span>
+                                <span v-html="sanitizeSvg(cap.iconSvg)" :style="{ color: cap.color }"></span>
                             </div>
                             <div>
                                 <p class="text-xs font-semibold text-gray-700 dark:text-gray-200 group-hover:text-violet-700 dark:group-hover:text-violet-400 leading-tight" v-text="cap.label"></p>
@@ -208,7 +208,7 @@
                         </button>
                     </div>
 
-                    <div ref="messagesEl" style="flex:1;overflow-y:auto;padding:12px 16px;display:flex;flex-direction:column;gap:16px;min-height:0;">
+                    <div ref="messagesEl" style="flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:18px;min-height:0;">
                         {{-- Empty state --}}
                         <div v-if="messages.length === 0 && !isLoading" class="flex flex-col items-center justify-center h-full text-center py-8">
                             <svg class="w-10 h-10 text-violet-200 dark:text-violet-800 mb-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
@@ -238,54 +238,94 @@
                             </div>
 
                             {{-- Assistant --}}
-                            <div v-else class="flex gap-2.5 items-start">
-                                <div class="w-7 h-7 rounded-lg flex-shrink-0 flex items-center justify-center mt-0.5" style="background:linear-gradient(135deg,#6d28d9,#8b5cf6);box-shadow:0 2px 6px rgba(124,58,237,0.25);">
-                                    <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-                                </div>
-                                <div class="flex-1 min-w-0 space-y-2.5">
-                                    {{-- Response card --}}
-                                    <div class="rounded-xl border border-violet-100 dark:border-cherry-700 bg-violet-50/50 dark:bg-cherry-800/50 px-3.5 py-3">
-                                        <div class="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed ap-ai-response" v-html="renderMarkdown(msg.content)"></div>
+                            <div v-else>
+                                <div class="space-y-2.5">
+                                    {{-- Response --}}
+                                    <div style="padding:2px 0;">
+                                        <div class="text-[13px] text-gray-700 dark:text-gray-300 leading-[1.75] ap-ai-response" v-html="renderMarkdown(renderContent(msg, idx))"></div>
                                     </div>
 
                                     {{-- Result details card --}}
                                     <div v-if="msg.result && Object.keys(msg.result).length" class="rounded-xl border border-violet-200 dark:border-cherry-700 overflow-hidden">
-                                        <div class="px-3.5 py-2 border-b border-violet-100 dark:border-cherry-700" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);">
+                                        <div class="px-4 py-2 border-b border-violet-100 dark:border-cherry-700" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);">
                                             <p class="text-[10px] font-bold text-violet-500 dark:text-violet-400 uppercase tracking-wider" v-text="trans.result"></p>
                                         </div>
-                                        <div class="px-3.5 py-2.5 space-y-1.5 bg-white dark:bg-cherry-800">
-                                            <div v-for="(val, key) in msg.result" :key="key" class="flex gap-2 text-xs">
-                                                <span class="text-violet-400 dark:text-violet-500 flex-shrink-0 capitalize font-medium" v-text="String(key).replace(/_/g, ' ') + ':'"></span>
-                                                <span class="text-gray-700 dark:text-gray-300 font-semibold" v-text="val"></span>
-                                            </div>
+                                        <div class="px-4 py-3 space-y-2 bg-white dark:bg-cherry-800">
+                                            <template v-for="(val, key) in msg.result" :key="key">
+                                                <div v-if="val !== null && val !== ''" class="text-xs leading-relaxed">
+                                                    <span class="text-violet-400 dark:text-violet-500 capitalize font-semibold" v-text="String(key).replace(/_/g, ' ') + ': '"></span>
+                                                    {{-- Boolean --}}
+                                                    <span v-if="typeof val === 'boolean'" class="inline-flex items-center gap-1 font-semibold" :class="val ? 'text-emerald-600' : 'text-red-400'">
+                                                        <span v-text="val ? '✓ Yes' : '✗ No'"></span>
+                                                    </span>
+                                                    {{-- Array --}}
+                                                    <template v-else-if="Array.isArray(val)">
+                                                        <div v-if="val.length === 0" class="mt-0.5 text-gray-400 italic">None</div>
+                                                        <div v-else class="mt-1 flex flex-wrap gap-1">
+                                                            <span v-for="(item, i) in val" :key="i" class="inline-block px-2 py-0.5 rounded-md text-[11px] font-medium bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400 border border-violet-100 dark:border-violet-800" v-text="item"></span>
+                                                        </div>
+                                                    </template>
+                                                    {{-- Number --}}
+                                                    <span v-else-if="typeof val === 'number'" class="font-bold text-gray-800 dark:text-gray-200" v-text="val"></span>
+                                                    {{-- String --}}
+                                                    <span v-else class="text-gray-700 dark:text-gray-300 font-medium" v-text="val"></span>
+                                                </div>
+                                            </template>
                                         </div>
                                     </div>
 
                                     {{-- Action buttons --}}
-                                    <div class="flex gap-2 flex-wrap">
-                                        <a v-if="msg.product_url" :href="msg.product_url" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white px-3.5 py-1.5 rounded-lg transition-all hover:shadow-md" style="background:linear-gradient(135deg,#7c3aed,#8b5cf6);">
+                                    <div class="flex gap-2.5 flex-wrap mt-3 mb-1">
+                                        <a v-if="msg.product_url" :href="msg.product_url" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white px-4 py-2 rounded-lg transition-all hover:shadow-md" style="background:linear-gradient(135deg,#7c3aed,#8b5cf6);">
                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                                             @lang('ai-agent::app.widget.view-product')
                                         </a>
-                                        <a v-if="msg.download_url" :href="msg.download_url" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white px-3.5 py-1.5 rounded-lg transition-all hover:shadow-md" style="background:linear-gradient(135deg,#059669,#10b981);">
+                                        <a v-if="msg.download_url" :href="msg.download_url" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white px-4 py-2 rounded-lg transition-all hover:shadow-md" style="background:linear-gradient(135deg,#059669,#10b981);">
                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                                             @lang('ai-agent::app.widget.download')
                                         </a>
+                                    </div>
+
+                                    {{-- Message actions: retry, copy, helpful, not helpful — shown AFTER result card --}}
+                                    <div v-if="!msg.isStreaming && !msg.isRedirect" class="flex items-center gap-0.5 ap-msg-actions" style="margin-top:2px;">
+                                        <button @click="retryFrom(idx)" title="Retry" class="ap-action-btn">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                                        </button>
+                                        <button @click="copyMessage(idx)" :title="msg._copied ? 'Copied!' : 'Copy'" class="ap-action-btn">
+                                            <svg v-if="!msg._copied" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                            <svg v-else width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                        </button>
+                                        <button @click="rateMessage(idx, 'helpful')" title="Helpful" class="ap-action-btn" :class="{ 'ap-action-active': msg._rating === 'helpful' }">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                                        </button>
+                                        <button @click="rateMessage(idx, 'not_helpful')" title="Not helpful" class="ap-action-btn" :class="{ 'ap-action-active': msg._rating === 'not_helpful' }">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                                        </button>
+                                    </div>
+
+                                    {{-- Confirmation buttons — at the very bottom --}}
+                                    <div v-if="needsConfirmation(msg, idx)" class="flex gap-2 mt-1">
+                                        <button @click="confirmAction('yes', idx)" :disabled="isLoading" class="inline-flex items-center gap-1.5 text-xs font-semibold text-white px-4 py-2 rounded-lg transition-all hover:shadow-md" style="background:linear-gradient(135deg,#7c3aed,#8b5cf6);">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                            Yes, proceed
+                                        </button>
+                                        <button @click="confirmAction('no', idx)" :disabled="isLoading" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-cherry-800 transition-all">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                            No
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </template>
 
-                        {{-- Typing --}}
-                        <div v-if="isLoading" class="flex gap-2 items-start">
-                            <div class="w-6 h-6 rounded-md flex-shrink-0 flex items-center justify-center" style="background:linear-gradient(135deg,#7c3aed,#8b5cf6);">
-                                <svg class="w-3 h-3 text-white animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>
-                            </div>
-                            <div class="bg-gray-100 dark:bg-cherry-800 px-3.5 py-2.5 rounded-xl rounded-bl-sm">
-                                <div class="flex items-center gap-1.5">
+                        {{-- Typing / Streaming indicator --}}
+                        <div v-if="isLoading">
+                            <div style="padding:2px 0;">
+                                <div class="flex items-center gap-2">
                                     <span class="w-1.5 h-1.5 bg-violet-400 rounded-full animate-bounce" style="animation-delay:0ms"></span>
                                     <span class="w-1.5 h-1.5 bg-violet-400 rounded-full animate-bounce" style="animation-delay:150ms"></span>
                                     <span class="w-1.5 h-1.5 bg-violet-400 rounded-full animate-bounce" style="animation-delay:300ms"></span>
+                                    <span v-if="streamingStatus" class="text-xs text-violet-500 dark:text-violet-400 ml-1 font-medium" v-text="streamingStatus"></span>
                                 </div>
                             </div>
                         </div>
@@ -397,13 +437,34 @@
 .ap-slide-enter-from, .ap-slide-leave-to { transform: translateX(100%); }
 
 /* AI response text styling */
+.ap-ai-response { word-break: break-word; }
 .ap-ai-response strong { color: #5b21b6; font-weight: 700; }
 .dark .ap-ai-response strong { color: #c4b5fd; }
-.ap-ai-response code { background: #ede9fe; color: #6d28d9; padding: 1px 5px; border-radius: 4px; font-size: 0.8em; }
+.ap-ai-response code { background: #ede9fe; color: #6d28d9; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; font-weight: 500; }
 .dark .ap-ai-response code { background: rgba(139,92,246,0.15); color: #a78bfa; }
 .ap-ai-response a { color: #7c3aed; text-decoration: underline; text-underline-offset: 2px; }
 .ap-ai-response a:hover { color: #6d28d9; text-decoration: none; }
+
+/* Bullet and numbered list spacing */
+.ap-ai-response p { margin-bottom: 2px; }
+.ap-ai-response br + br { display: block; content: ''; margin-top: 6px; }
+
+/* Message action buttons */
+.ap-action-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 6px; border: none;
+    background: transparent; color: #9ca3af; cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.ap-action-btn:hover { background: #f3f4f6; color: #6b7280; }
+.dark .ap-action-btn:hover { background: rgba(255,255,255,0.08); color: #d1d5db; }
+.ap-action-btn.ap-action-active { color: #7c3aed; }
+.dark .ap-action-btn.ap-action-active { color: #a78bfa; }
+.ap-msg-actions { opacity: 0.4; transition: opacity 0.2s; }
+.ap-msg-actions:hover { opacity: 1; }
 </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.0/purify.min.js" integrity="sha384-/knAMB4gMqm3mPGf8xMfFjCF0Fw3GMdmF6Bj25kjGp9TzFKGefvtsYzn/7BNEUU" crossorigin="anonymous"></script>
 
 <script type="module">
 app.component('v-agenting-pim', {
@@ -461,6 +522,7 @@ app.component('v-agenting-pim', {
             inputText: '',
             pendingFiles: [],
             isLoading: false,
+            streamingStatus: '',
             productContext: null,
             noTransition: false,
             capabilitySearch: '',
@@ -676,6 +738,7 @@ app.component('v-agenting-pim', {
 
         createNewSession() {
             if (this.messages.length > 0) {
+                // Save current session to localStorage only (not DB — avoids duplicates)
                 this.saveCurrentSession();
             }
             this.activeSessionId = this.generateSessionId();
@@ -688,14 +751,23 @@ app.component('v-agenting-pim', {
             this.$nextTick(() => this.$refs.textInput?.focus());
         },
 
-        saveCurrentSession() {
+        saveCurrentSession(persistToDb = false) {
             if (!this.activeSessionId || this.messages.length === 0) return;
 
-            // Find first meaningful user message for session name
             const firstUserMsg = this.messages.find(m => m.role === 'user');
             const name = firstUserMsg
                 ? firstUserMsg.content.substring(0, 50) + (firstUserMsg.content.length > 50 ? '…' : '')
                 : this.trans.sessionDefaultName;
+
+            // Limit stored messages to prevent excessive localStorage usage.
+            const recentMessages = this.messages.slice(-50);
+            const sessionMessages = recentMessages.map(m => ({
+                role: m.role,
+                content: m.content || '',
+                result: m.result || null,
+                product_url: m.product_url || null,
+                download_url: m.download_url || null,
+            }));
 
             const existingIdx = this.sessions.findIndex(s => s.id === this.activeSessionId);
             const sessionData = {
@@ -703,13 +775,7 @@ app.component('v-agenting-pim', {
                 name: name,
                 messageCount: this.messages.filter(m => m.role === 'user').length,
                 lastActive: new Date().toLocaleDateString(),
-                messages: this.messages.map(m => ({
-                    role: m.role,
-                    content: m.content,
-                    result: m.result || null,
-                    product_url: m.product_url || null,
-                    download_url: m.download_url || null,
-                })),
+                messages: sessionMessages,
                 capability: this.activeCapability?.key || null,
             };
 
@@ -719,7 +785,6 @@ app.component('v-agenting-pim', {
                 this.sessions.unshift(sessionData);
             }
 
-            // Keep max 20 sessions
             if (this.sessions.length > 20) {
                 this.sessions = this.sessions.slice(0, 20);
             }
@@ -727,13 +792,28 @@ app.component('v-agenting-pim', {
             this.persistSessions();
         },
 
-        switchToSession(sessionId) {
-            // Save current first
+        async switchToSession(sessionId) {
             if (this.messages.length > 0 && this.activeSessionId) {
-                this.saveCurrentSession();
+                await this.saveCurrentSession();
             }
 
-            const session = this.sessions.find(s => s.id === sessionId);
+            // Try loading from local sessions first (fast)
+            let session = this.sessions.find(s => s.id === sessionId);
+
+            // If it's a DB-backed session (numeric ID), load from API
+            if (!session && typeof sessionId === 'number') {
+                try {
+                    const res = await this.$axios.get("{{ url(config('app.admin_url') . '/ai-agent/conversations') }}/" + sessionId);
+                    const data = res.data;
+                    session = {
+                        id: data.conversation.id,
+                        name: data.conversation.title,
+                        messages: data.messages.map(m => ({ role: m.role, content: m.content })),
+                        capability: null,
+                    };
+                } catch (e) { return; }
+            }
+
             if (!session) return;
 
             this.activeSessionId = session.id;
@@ -746,9 +826,16 @@ app.component('v-agenting-pim', {
             this.$nextTick(() => { this.scrollBottom(); this.$refs.textInput?.focus(); });
         },
 
-        deleteSession(sessionId) {
+        async deleteSession(sessionId) {
             this.sessions = this.sessions.filter(s => s.id !== sessionId);
             this.persistSessions();
+
+            // Also delete from DB if numeric ID
+            if (typeof sessionId === 'number') {
+                try {
+                    await this.$axios.delete("{{ url(config('app.admin_url') . '/ai-agent/conversations') }}/" + sessionId);
+                } catch (e) { /* ignore */ }
+            }
         },
 
         persistSessions() {
@@ -761,7 +848,14 @@ app.component('v-agenting-pim', {
             try {
                 const raw = localStorage.getItem('agenting_pim_sessions');
                 if (raw) {
-                    this.sessions = JSON.parse(raw) || [];
+                    const parsed = JSON.parse(raw) || [];
+                    // Deduplicate by session ID
+                    const seen = new Set();
+                    this.sessions = parsed.filter(s => {
+                        if (seen.has(s.id)) return false;
+                        seen.add(s.id);
+                        return true;
+                    });
                 }
             } catch (e) { this.sessions = []; }
         },
@@ -862,11 +956,11 @@ app.component('v-agenting-pim', {
             const userMsg = { role: 'user', content: text || (files.length ? '📎 ' + files.map(f => f.name).join(', ') : ''), files: files.map(f => ({ type: f.type, preview: f.preview, name: f.name })) };
             this.messages.push(userMsg);
             this.inputText = ''; this.resetTextarea(); this.scrollBottom(); this.isLoading = true;
+            this.streamingStatus = files.length > 0 ? 'Analyzing uploaded files...' : 'Thinking...';
 
             try {
                 const fd = new FormData();
-                // Always send message field (even empty string) to avoid validation issues
-                fd.append('message', text || (files.length > 0 ? 'Process the attached file(s): ' + files.map(f => f.name).join(', ') : ''));
+                fd.append('message', text || (files.length > 0 ? "{{ trans('ai-agent::app.common.process-attached-files') }} " + files.map(f => f.name).join(', ') : ''));
                 if (this.activeCapability) fd.append('action_type', this.activeCapability.key);
                 if (this.selectedPlatformId) fd.append('platform_id', this.selectedPlatformId);
                 if (this.selectedModel) fd.append('model', this.selectedModel);
@@ -878,9 +972,39 @@ app.component('v-agenting-pim', {
                     if (this.productContext.sku) fd.append('context[product_sku]', this.productContext.sku);
                     if (this.productContext.name) fd.append('context[product_name]', this.productContext.name);
                 }
-                const res = await this.$axios.post("{{ route('ai-agent.chat.send') }}", fd, { headers: { 'Content-Type': 'multipart/form-data' } });
-                const data = res.data;
-                // Clear pending files only on success
+                // Try SSE streaming first, fallback to blocking JSON endpoint
+                let data = null;
+                try {
+                    const streamRes = await fetch("{{ route('ai-agent.chat.stream') }}", {
+                        method: 'POST',
+                        body: fd,
+                        credentials: 'same-origin',
+                        headers: {
+                            'Accept': 'text/event-stream',
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content || '',
+                        },
+                    });
+
+                    const ct = streamRes.headers.get('content-type') || '';
+
+                    if (streamRes.ok && ct.includes('text/event-stream')) {
+                        // SSE streaming works — process the stream
+                        await this.processStream(streamRes, files);
+                        return; // processStream handles everything
+                    } else if (streamRes.ok && ct.includes('application/json')) {
+                        data = await streamRes.json();
+                    } else {
+                        throw new Error('stream-fallback');
+                    }
+                } catch (streamErr) {
+                    // Streaming failed — fallback to blocking JSON endpoint
+                    this.streamingStatus = 'Processing...';
+                    const res = await this.$axios.post("{{ route('ai-agent.chat.send') }}", fd, { headers: { 'Content-Type': 'multipart/form-data' } });
+                    data = res.data;
+                }
+
+                // Handle JSON response (from either stream JSON or blocking fallback)
                 this.pendingFiles = [];
                 this.messages.push({ role: 'assistant', content: data.reply || this.trans.noResponse, action: data.action || null, result: data.result || null, product_url: data.product_url || null, download_url: data.download_url || null });
 
@@ -895,23 +1019,197 @@ app.component('v-agenting-pim', {
                     setTimeout(() => { window.location.reload(); }, 1200);
                 }
             } catch (err) {
-                // Restore pending files so user can retry
                 if (files.length > 0 && this.pendingFiles.length === 0) this.pendingFiles = files;
                 this.messages.push({ role: 'assistant', content: err.response?.data?.reply || err.response?.data?.message || this.trans.errorGeneric });
             } finally {
                 this.isLoading = false;
+                this.streamingStatus = '';
                 this.scrollBottom();
                 this.focusInput();
             }
+        },
+
+        async processStream(response, files) {
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
+            let streamedText = '';
+            let resultData = {};
+
+            // Add a placeholder message for streaming
+            const msgIndex = this.messages.length;
+            this.messages.push({ role: 'assistant', content: '', isStreaming: true });
+
+            try {
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+                    buffer = lines.pop() || '';
+
+                    let currentEvent = null;
+                    for (const line of lines) {
+                        if (line.startsWith('event: ')) {
+                            currentEvent = line.substring(7).trim();
+                        } else if (line.startsWith('data: ') && currentEvent) {
+                            try {
+                                const eventData = JSON.parse(line.substring(6));
+                                switch (currentEvent) {
+                                    case 'status':
+                                        this.streamingStatus = eventData.message || 'Processing...';
+                                        break;
+                                    case 'tool_call':
+                                        this.streamingStatus = this.toolStatusLabel(eventData.tool, eventData.step);
+                                        break;
+                                    case 'text_delta':
+                                        streamedText += eventData.chunk || '';
+                                        this.messages[msgIndex].content = streamedText;
+                                        this.scrollBottom();
+                                        break;
+                                    case 'complete':
+                                        resultData = eventData;
+                                        break;
+                                    case 'error':
+                                        streamedText = eventData.message || this.trans.errorGeneric;
+                                        this.messages[msgIndex].content = streamedText;
+                                        break;
+                                }
+                            } catch (e) { /* skip malformed JSON */ }
+                            currentEvent = null;
+                        }
+                    }
+                }
+            } catch (e) {
+                if (!streamedText) streamedText = this.trans.errorGeneric;
+            }
+
+            // Finalize the message
+            this.pendingFiles = [];
+            this.messages[msgIndex] = {
+                role: 'assistant',
+                content: streamedText || this.trans.noResponse,
+                action: resultData.action || 'agent_response',
+                result: resultData.result || null,
+                product_url: resultData.product_url || null,
+                download_url: resultData.download_url || null,
+                isStreaming: false,
+            };
+
+            // Auto-navigate/refresh handling
+            if (resultData.product_url && this.activeCapability?.key === 'create_from_image') {
+                this.messages.push({ role: 'assistant', content: this.trans.openingProduct, isRedirect: true });
+                this.saveState();
+                setTimeout(() => { window.location.href = resultData.product_url; }, 1500);
+            } else if (this.shouldAutoRefreshAfterAction(resultData)) {
+                this.messages.push({ role: 'assistant', content: 'Refreshing page to show latest changes...', isRedirect: true });
+                this.saveState();
+                setTimeout(() => { window.location.reload(); }, 1200);
+            }
+        },
+
+        copyMessage(idx) {
+            const text = this.messages[idx]?.content || '';
+            navigator.clipboard.writeText(text).then(() => {
+                // Use Vue.set-style reactivity by replacing the message object
+                this.messages[idx] = { ...this.messages[idx], _copied: true };
+                setTimeout(() => {
+                    if (this.messages[idx]) {
+                        this.messages[idx] = { ...this.messages[idx], _copied: false };
+                    }
+                }, 2000);
+            }).catch(() => {});
+        },
+
+        retryFrom(idx) {
+            // Find the user message right before this assistant message
+            let userIdx = idx - 1;
+            while (userIdx >= 0 && this.messages[userIdx].role !== 'user') { userIdx--; }
+            if (userIdx < 0) return;
+            const userText = this.messages[userIdx].content || '';
+            // Remove from that user message onwards and resend
+            this.messages.splice(userIdx);
+            this.inputText = userText;
+            this.$nextTick(() => this.send());
+        },
+
+        rateMessage(idx, rating) {
+            const current = this.messages[idx]?._rating;
+            const newRating = current === rating ? null : rating;
+            // Trigger Vue reactivity by replacing the object
+            this.messages[idx] = { ...this.messages[idx], _rating: newRating };
+        },
+
+        needsConfirmation(msg, idx) {
+            // Only show buttons for the LAST assistant message, not already confirmed, and not loading
+            if (msg.role !== 'assistant' || msg._confirmed || this.isLoading || msg.isStreaming || msg.isRedirect) return false;
+            if (idx !== this.messages.length - 1) return false;
+            const text = (msg.content || '').toLowerCase();
+            return /shall i proceed|do you want me to|should i (go ahead|proceed|create|update|delete|continue)|confirm.*(yes|no)|proceed\?|want me to (create|update|apply|execute)/i.test(text);
+        },
+
+        confirmAction(answer, idx) {
+            // Mark this message as confirmed so buttons disappear
+            this.messages[idx] = { ...this.messages[idx], _confirmed: true };
+            // Send the user's answer as a chat message
+            this.inputText = answer === 'yes' ? 'Yes, proceed' : 'No, cancel';
+            this.$nextTick(() => this.send());
+        },
+
+        toolStatusLabel(tool, step) {
+            const labels = {
+                search_products: 'Searching products...',
+                get_product_details: 'Reading product details...',
+                create_product: 'Creating product...',
+                update_product: 'Updating product...',
+                delete_products: 'Deleting products...',
+                bulk_edit: 'Applying bulk changes...',
+                export_products: 'Exporting products...',
+                analyze_image: 'Analyzing image...',
+                attach_image: 'Attaching image...',
+                edit_image: 'Editing image...',
+                generate_image: 'Generating image...',
+                generate_content: 'Generating content...',
+                list_categories: 'Loading categories...',
+                assign_categories: 'Assigning categories...',
+                create_category: 'Creating category...',
+                category_tree: 'Loading category tree...',
+                list_attributes: 'Loading attributes...',
+                create_attribute: 'Creating attribute...',
+                find_similar_products: 'Finding similar products...',
+                catalog_summary: 'Analyzing catalog...',
+                data_quality_report: 'Scanning data quality...',
+                verify_product: 'Verifying product...',
+                remember_fact: 'Saving to memory...',
+                recall_memory: 'Checking memory...',
+                plan_tasks: 'Planning steps...',
+                manage_users: 'Loading users...',
+                manage_roles: 'Loading roles...',
+                manage_channels: 'Loading channels...',
+                manage_families: 'Loading families...',
+                manage_attribute_options: 'Loading options...',
+                rate_content: 'Recording feedback...',
+            };
+            return labels[tool] || `Running ${tool.replace(/_/g, ' ')}...`;
         },
 
         scrollBottom() { this.$nextTick(() => { const el = this.$refs.messagesEl; if (el) el.scrollTop = el.scrollHeight; }); },
         autoResize() { const el = this.$refs.textInput; if (el) { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 160) + 'px'; } },
         resetTextarea() { this.$nextTick(() => { const el = this.$refs.textInput; if (el) { el.style.height = 'auto'; el.style.height = '72px'; } }); },
 
+        renderContent(msg, idx) {
+            let text = msg.content || '';
+            // If confirmation buttons are shown, strip the confirmation prompt text
+            if (this.needsConfirmation(msg, idx)) {
+                text = text.replace(/\n*(?:shall i proceed|do you want me to proceed|should i (?:go ahead|proceed|create|update|delete|continue)|confirm.*(?:yes|no)|proceed)\s*[\?\.]?\s*\(?\s*(?:yes\s*[\/\\|]\s*no)?\s*\)?\s*$/i, '').trimEnd();
+            }
+            return text;
+        },
+
         renderMarkdown(text) {
             if (!text) return '';
-            return text
+            const html = text
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\*(.*?)\*/g, '<em>$1</em>')
                 .replace(/`([^`]+)`/g, '<code class="bg-gray-100 dark:bg-cherry-800 px-1 py-0.5 rounded text-xs font-mono text-violet-700 dark:text-violet-400">$1</code>')
@@ -923,6 +1221,26 @@ app.component('v-agenting-pim', {
                 .replace(/^(\d+)\. (.+)$/gm, '<p class="flex gap-1.5 my-0.5"><span class="text-violet-400 font-bold flex-shrink-0">$1.</span><span>$2</span></p>')
                 .replace(/\n\n/g, '<br><br>')
                 .replace(/\n/g, '<br>');
+
+            // Sanitize HTML to prevent XSS from AI-generated or injected content.
+            if (typeof DOMPurify !== 'undefined') {
+                return DOMPurify.sanitize(html, {
+                    ALLOWED_TAGS: ['strong', 'em', 'code', 'a', 'p', 'br', 'span', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
+                    ALLOWED_ATTR: ['href', 'target', 'class', 'style'],
+                });
+            }
+            return html;
+        },
+
+        sanitizeSvg(svgHtml) {
+            if (!svgHtml) return '';
+            if (typeof DOMPurify !== 'undefined') {
+                return DOMPurify.sanitize(svgHtml, {
+                    ALLOWED_TAGS: ['svg', 'path', 'circle', 'rect', 'g', 'line', 'polyline', 'polygon', 'ellipse'],
+                    ALLOWED_ATTR: ['d', 'fill', 'stroke', 'viewBox', 'width', 'height', 'xmlns', 'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'cx', 'cy', 'r', 'x', 'y', 'rx', 'ry', 'points', 'x1', 'y1', 'x2', 'y2'],
+                });
+            }
+            return svgHtml;
         },
 
         saveState() {
@@ -982,6 +1300,12 @@ app.component('v-agenting-pim', {
     beforeUnmount() {
         const appEl = document.getElementById('app');
         if (appEl) appEl.style.marginRight = '';
+
+        // Clear sensitive AI chat data from browser storage on component teardown.
+        try {
+            localStorage.removeItem('agenting_pim_sessions');
+            sessionStorage.removeItem('agenting_pim_state');
+        } catch (e) {}
     },
 });
 </script>

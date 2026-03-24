@@ -139,6 +139,20 @@ return [
             'of'                   => '/',
             'products-ready'       => '제품 준비 완료',
             'no-readiness-data'    => '아직 완전성 데이터가 없습니다.',
+
+            'entity-types' => [
+                'product'          => '제품',
+                'category'         => '카테고리',
+                'attribute'        => '속성',
+                'attribute-family' => '패밀리',
+                'attribute-group'  => '그룹',
+                'category-field'   => '카테고리 필드',
+                'channel'          => '채널',
+                'role'             => '역할',
+                'job-instance'     => '작업',
+                'webhook'          => '웹훅',
+                'api-key'          => 'API 키',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => '매직 AI',
+                'warning-icon'       => '경고',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => '모델 :model 제거',
+                'invalid-model-name'       => '잘못된 모델 이름입니다. 문자, 숫자, 하이픈, 점, 콜론, 슬래시만 사용하세요 (예: gpt-4o, claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => '잘못된 모델 이름: :names. 모델 이름은 문자 또는 숫자로 시작해야 하며 문자, 숫자, 하이픈, 점, 콜론, 슬래시만 포함해야 합니다.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => '열',
+                ],
+
+                'pagination' => [
+                    'first-page'    => '첫 페이지',
+                    'previous-page' => '이전 페이지',
+                    'next-page'     => '다음 페이지',
+                    'last-page'     => '마지막 페이지',
+                    'page-number'   => '페이지 번호',
                 ],
             ],
             'filters' => [

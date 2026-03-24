@@ -5,10 +5,13 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Support\Facades\DB;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
 
 class ManageRoles implements PimTool
 {
+    use ChecksPermission;
+
     public function register(ChatContext $context): Tool
     {
         return (new Tool)
@@ -16,7 +19,11 @@ class ManageRoles implements PimTool
             ->for('List roles and their permissions.')
             ->withEnumParameter('action', 'Action', ['list', 'details'])
             ->withStringParameter('name', 'Role name (for details)')
-            ->using(function (string $action = 'list', ?string $name = null): string {
+            ->using(function (string $action = 'list', ?string $name = null) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'settings.roles')) {
+                    return $denied;
+                }
+
                 if ($action === 'list') {
                     $roles = DB::table('roles')
                         ->select('id', 'name', 'description', 'permission_type')

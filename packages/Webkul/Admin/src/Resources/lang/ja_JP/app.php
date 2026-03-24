@@ -139,6 +139,20 @@ return [
             'of'                   => '/',
             'products-ready'       => '製品準備完了',
             'no-readiness-data'    => '完全性データはまだありません。',
+
+            'entity-types' => [
+                'product'          => '製品',
+                'category'         => 'カテゴリ',
+                'attribute'        => '属性',
+                'attribute-family' => 'ファミリー',
+                'attribute-group'  => 'グループ',
+                'category-field'   => 'カテゴリフィールド',
+                'channel'          => 'チャネル',
+                'role'             => '役割',
+                'job-instance'     => 'ジョブ',
+                'webhook'          => 'ウェブフック',
+                'api-key'          => 'APIキー',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'マジック AI',
+                'warning-icon'       => '警告',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'モデル :model を削除',
+                'invalid-model-name'       => '無効なモデル名です。英数字、ハイフン、ドット、コロン、スラッシュのみ使用できます（例：gpt-4o、claude-3-sonnet）。',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => '無効なモデル名: :names。モデル名は英数字で始まり、英数字、ハイフン、ドット、コロン、スラッシュのみ使用できます。',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'カラム',
+                ],
+
+                'pagination' => [
+                    'first-page'    => '最初のページ',
+                    'previous-page' => '前のページ',
+                    'next-page'     => '次のページ',
+                    'last-page'     => '最後のページ',
+                    'page-number'   => 'ページ番号',
                 ],
             ],
             'filters' => [

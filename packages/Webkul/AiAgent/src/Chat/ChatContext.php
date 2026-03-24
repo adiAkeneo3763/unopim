@@ -3,6 +3,7 @@
 namespace Webkul\AiAgent\Chat;
 
 use Webkul\MagicAI\Models\MagicAIPlatform;
+use Webkul\User\Models\Admin;
 
 /**
  * Immutable request-scoped DTO that carries all context the agent needs.
@@ -26,6 +27,7 @@ final class ChatContext
      * @param  array<string>  $uploadedImagePaths  Stored paths of uploaded images
      * @param  array<string>  $uploadedFilePaths  Stored paths of uploaded CSV/XLSX files
      * @param  string|null  $currentPage  The URL path the user is on
+     * @param  Admin|null  $user  The authenticated admin user (for ACL checks)
      */
     public function __construct(
         public readonly string $message,
@@ -40,7 +42,33 @@ final class ChatContext
         public readonly array $uploadedImagePaths = [],
         public readonly array $uploadedFilePaths = [],
         public readonly ?string $currentPage = null,
-    ) {}
+        public readonly ?Admin $user = null,
+    ) {
+        // Validate locale and channel to prevent SQL injection in JSON_EXTRACT paths.
+        if (! preg_match('/^[a-zA-Z0-9_-]+$/', $locale)) {
+            throw new \InvalidArgumentException(trans('ai-agent::app.common.invalid-locale-code'));
+        }
+
+        if (! preg_match('/^[a-zA-Z0-9_-]+$/', $channel)) {
+            throw new \InvalidArgumentException(trans('ai-agent::app.common.invalid-channel-code'));
+        }
+    }
+
+    /**
+     * Check if the authenticated user has a specific ACL permission.
+     */
+    public function hasPermission(string $permission): bool
+    {
+        if (! $this->user) {
+            return false;
+        }
+
+        if ($this->user->role->permission_type === 'all') {
+            return true;
+        }
+
+        return $this->user->hasPermission($permission);
+    }
 
     /**
      * Whether the user is currently editing a specific product.

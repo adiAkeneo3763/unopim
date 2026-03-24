@@ -4,32 +4,36 @@ return [
     'components' => [
         'layouts' => [
             'sidebar' => [
-                'completeness' => 'Completeness',
+                'completeness' => 'Vollständigkeit',
             ],
         ],
     ],
+
     'catalog' => [
         'families' => [
             'edit' => [
                 'completeness' => [
-                    'update-success'      => 'Compeleteness updated successfully',
-                    'title'               => 'Completeness',
-                    'configure'           => 'Configure Completeness',
-                    'channel-required'    => 'Required in Channels',
-                    'save-btn'            => 'Save',
-                    'back-btn'            => 'Back',
-                    'mass-update-success' => 'Compeleteness updated successfully',
-                    'datagrid'            => [
+                    'update-success'      => 'Vollständigkeit erfolgreich aktualisiert',
+                    'title'               => 'Vollständigkeit',
+                    'configure'           => 'Vollständigkeit konfigurieren',
+                    'channel-required'    => 'In Kanälen erforderlich',
+                    'save-btn'            => 'Speichern',
+                    'back-btn'            => 'Zurück',
+                    'mass-update-success' => 'Vollständigkeit erfolgreich aktualisiert',
+
+                    'datagrid' => [
                         'code'             => 'Code',
                         'name'             => 'Name',
-                        'channel-required' => 'Required in Channels',
-                        'actions'          => [
-                            'change-requirement' => 'Change Completeness Requirement',
+                        'channel-required' => 'In Kanälen erforderlich',
+
+                        'actions' => [
+                            'change-requirement' => 'Vollständigkeitsanforderung ändern',
                         ],
                     ],
                 ],
             ],
         ],
+
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -37,15 +41,18 @@ return [
                     'completeness'                 => 'Vollständig',
                 ],
             ],
+
             'edit' => [
                 'completeness' => [
-                    'title'    => 'Completeness',
-                    'subtitle' => 'Average completeness',
+                    'title'    => 'Vollständigkeit',
+                    'subtitle' => 'Durchschnittliche Vollständigkeit',
                 ],
-                'required-attributes' => 'missing required attributes',
+
+                'required-attributes' => 'fehlende Pflichtattribute',
             ],
         ],
     ],
+
     'notifications' => [
         'completeness-title'             => 'Vollständigkeitsberechnung abgeschlossen',
         'completeness-calculated'        => 'Vollständigkeit für :count Produkte berechnet.',
@@ -56,15 +63,17 @@ return [
         'email-body-family'              => 'Die Vollständigkeitsberechnung wurde für :count Produkte in der Attributfamilie ":family" abgeschlossen.',
         'email-footer'                   => 'Sie können die Vollständigkeitsdetails auf Ihrem Dashboard einsehen.',
     ],
+
     'dashboard' => [
         'index' => [
             'completeness' => [
-                'calculated-products' => 'Calculated products',
-                'suggestion'          => [
-                    'low'     => 'Low completeness, add details to improve.',
-                    'medium'  => 'Keep going, continue adding information.',
-                    'high'    => 'Almost complete, just a few details left.',
-                    'perfect' => 'Product information is fully complete.',
+                'calculated-products' => 'Berechnete Produkte',
+
+                'suggestion' => [
+                    'low'     => 'Niedrige Vollständigkeit, fügen Sie Details hinzu, um sie zu verbessern.',
+                    'medium'  => 'Weiter so, fügen Sie weiter Informationen hinzu.',
+                    'high'    => 'Fast vollständig, nur noch wenige Details fehlen.',
+                    'perfect' => 'Produktinformationen sind vollständig.',
                 ],
             ],
         ],

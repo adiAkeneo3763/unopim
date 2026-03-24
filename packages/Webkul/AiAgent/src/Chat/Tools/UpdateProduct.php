@@ -5,11 +5,15 @@ namespace Webkul\AiAgent\Chat\Tools;
 use Illuminate\Support\Facades\DB;
 use Prism\Prism\Tool;
 use Webkul\AiAgent\Chat\ChatContext;
+use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
+use Webkul\AiAgent\Jobs\TranslateProductValuesJob;
 use Webkul\AiAgent\Services\ProductWriterService;
 
 class UpdateProduct implements PimTool
 {
+    use ChecksPermission;
+
     public function __construct(
         protected ProductWriterService $writerService,
     ) {}
@@ -22,12 +26,17 @@ class UpdateProduct implements PimTool
             ->withStringParameter('sku', 'Product SKU to update (can be comma-separated for bulk)')
             ->withStringParameter('changes_json', 'JSON string of attribute_code => new_value pairs to update (e.g. {"name": "New Name", "price": 29.99, "color": "Red"})')
             ->using(function (string $sku, string $changes_json) use ($context): string {
+                if ($denied = $this->denyUnlessAllowed($context, 'catalog.products.edit')) {
+                    return $denied;
+                }
+
                 $changes = json_decode($changes_json, true) ?? [];
 
                 if (empty($changes)) {
                     return json_encode(['error' => 'Invalid or empty changes JSON.']);
                 }
                 $skus = array_map('trim', explode(',', $sku));
+
                 $updated = 0;
                 $errors = [];
 
@@ -48,18 +57,58 @@ class UpdateProduct implements PimTool
                     $familyAttributes = $this->writerService->getFamilyAttributesPublic($familyId);
 
                     $values = $product->values ?? [];
+                    $translatableFields = [];
+                    $allChannels = core()->getAllChannels();
 
                     foreach ($changes as $code => $value) {
                         if ($code === 'status') {
-                            $product->status = (bool) $value;
+                            $product->status = \in_array(strtolower((string) $value), ['1', 'active', 'yes', 'on', 'enabled'], true) ? 1 : 0;
                             $product->save();
 
                             continue;
                         }
 
+                        // LLM sometimes passes locale-keyed objects like {"ar_AE": "text"}.
+                        // Detect and route each locale value to the correct bucket.
+                        if (is_array($value) && ! empty($value)) {
+                            $localeKeys = array_keys($value);
+                            $looksLikeLocaleMap = preg_match('/^[a-z]{2}_[A-Z]{2}$/', $localeKeys[0] ?? '');
+
+                            if ($looksLikeLocaleMap && isset($familyAttributes[$code])) {
+                                $meta = $familyAttributes[$code];
+
+                                foreach ($value as $localeCode => $localeValue) {
+                                    if (! is_string($localeValue) || empty($localeValue)) {
+                                        continue;
+                                    }
+
+                                    if ($meta['value_per_channel'] && $meta['value_per_locale']) {
+                                        foreach ($allChannels as $ch) {
+                                            $values['channel_locale_specific'][$ch->code][$localeCode][$code] = $localeValue;
+                                        }
+                                    } elseif ($meta['value_per_locale']) {
+                                        $values['locale_specific'][$localeCode][$code] = $localeValue;
+                                    }
+                                }
+
+                                continue;
+                            }
+                        }
+
+                        // Guard: ensure text/textarea values are strings, not arrays
+                        if (is_array($value) && isset($familyAttributes[$code])) {
+                            $attrType = $familyAttributes[$code]['type'] ?? '';
+                            if (\in_array($attrType, ['text', 'textarea'], true)) {
+                                $errors[] = "{$code}: expected string but got array on SKU {$s}";
+
+                                continue;
+                            }
+                        }
+
                         if (! isset($familyAttributes[$code])) {
-                            // Unknown attribute — store in common as fallback
-                            $values['common'][$code] = $value;
+                            if (is_string($value) || is_numeric($value) || is_bool($value)) {
+                                $values['common'][$code] = $value;
+                            }
 
                             continue;
                         }
@@ -86,13 +135,23 @@ class UpdateProduct implements PimTool
                             $value = $resolved;
                         }
 
-                        // Route to correct bucket
+                        // Route to correct bucket — source locale + translate others
                         if ($meta['value_per_channel'] && $meta['value_per_locale']) {
-                            $values['channel_locale_specific'][$context->channel][$context->locale][$code] = $value;
+                            foreach ($allChannels as $ch) {
+                                $values['channel_locale_specific'][$ch->code][$context->locale][$code] = $value;
+                            }
+                            if (\in_array($meta['type'], ['text', 'textarea'], true) && is_string($value)) {
+                                $translatableFields[$code] = $value;
+                            }
                         } elseif ($meta['value_per_channel']) {
-                            $values['channel_specific'][$context->channel][$code] = $value;
+                            foreach ($allChannels as $ch) {
+                                $values['channel_specific'][$ch->code][$code] = $value;
+                            }
                         } elseif ($meta['value_per_locale']) {
                             $values['locale_specific'][$context->locale][$code] = $value;
+                            if (\in_array($meta['type'], ['text', 'textarea'], true) && is_string($value)) {
+                                $translatableFields[$code] = $value;
+                            }
                         } else {
                             $values['common'][$code] = $value;
                         }
@@ -100,6 +159,16 @@ class UpdateProduct implements PimTool
 
                     $productRepo->updateWithValues(['values' => $values], $productId);
                     $updated++;
+
+                    // Dispatch translation for text fields
+                    if (! empty($translatableFields)) {
+                        TranslateProductValuesJob::dispatch(
+                            productId: $productId,
+                            sourceLocale: $context->locale,
+                            fieldsToTranslate: $translatableFields,
+                            channel: $context->channel,
+                        )->delay(now()->addSeconds(3));
+                    }
                 }
 
                 return json_encode([

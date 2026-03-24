@@ -75,7 +75,7 @@ return [
     'dashboard' => [
         'index' => [
             'title'                => '仪表板',
-            'user-info'            => '快速监视，什么\'s count in your PIM',
+            'user-info'            => '快速监控您的 PIM 中的数据概况',
             'user-name'            => '你好！:user_name',
             'catalog-details'      => '目录',
             'total-families'       => '总家庭',
@@ -139,6 +139,20 @@ return [
             'of'                   => '/',
             'products-ready'       => '产品就绪',
             'no-readiness-data'    => '暂无完整度数据。',
+
+            'entity-types' => [
+                'product'          => '产品',
+                'category'         => '分类',
+                'attribute'        => '属性',
+                'attribute-family' => '属性族',
+                'attribute-group'  => '属性组',
+                'category-field'   => '分类字段',
+                'channel'          => '渠道',
+                'role'             => '角色',
+                'job-instance'     => '任务',
+                'webhook'          => 'Webhook',
+                'api-key'          => 'API 密钥',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => '魔法 AI',
+                'warning-icon'       => '警告',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => '移除模型 :model',
+                'invalid-model-name'       => '无效的模型名称。仅可使用字母、数字、连字符、点、冒号和斜杠（如 gpt-4o、claude-3-sonnet）。',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => '无效的模型名称：:names。模型名称必须以字母或数字开头，且仅包含字母、数字、连字符、点、冒号和斜杠。',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => '列',
+                ],
+
+                'pagination' => [
+                    'first-page'    => '第一页',
+                    'previous-page' => '上一页',
+                    'next-page'     => '下一页',
+                    'last-page'     => '最后一页',
+                    'page-number'   => '页码',
                 ],
             ],
             'filters' => [

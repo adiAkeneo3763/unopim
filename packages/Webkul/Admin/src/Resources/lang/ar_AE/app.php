@@ -139,6 +139,20 @@ return [
             'of'                   => 'of',
             'products-ready'       => 'products ready',
             'no-readiness-data'    => 'No completeness data available yet.',
+
+            'entity-types' => [
+                'product'          => 'منتج',
+                'category'         => 'فئة',
+                'attribute'        => 'سمة',
+                'attribute-family' => 'عائلة',
+                'attribute-group'  => 'مجموعة',
+                'category-field'   => 'حقل الفئة',
+                'channel'          => 'قناة',
+                'role'             => 'دور',
+                'job-instance'     => 'مهمة',
+                'webhook'          => 'ويب هوك',
+                'api-key'          => 'مفتاح API',
+            ],
         ],
     ],
     'catalog' => [
@@ -1783,6 +1797,8 @@ return [
                 'add-first'          => 'Add Your First Platform',
                 'no-default-warning' => 'No default platform is set. Please set one platform as default to enable AI features across the application.',
                 'no-platform-hint'   => 'No platforms configured yet. Go to the Platforms tab to add your first AI provider.',
+                'lightning-icon'     => 'الذكاء الاصطناعي السحري',
+                'warning-icon'       => 'تحذير',
             ],
             'testing'         => 'Testing',
             'fetch-models'    => 'Fetch Models',
@@ -1819,6 +1835,8 @@ return [
                 'use-default-hint'         => 'Leave empty to use the platform marked as default. Platforms marked with * are default.',
                 'no-image-platform'        => 'No image-capable platform configured. Add an OpenAI, Gemini, or xAI platform first.',
                 'image-platform-hint'      => 'Only platforms supporting image generation are listed (OpenAI, Gemini, xAI).',
+                'remove-model'             => 'إزالة النموذج :model',
+                'invalid-model-name'       => 'اسم نموذج غير صالح. استخدم فقط الأحرف والأرقام والشرطات والنقاط والنقطتين والشرطات المائلة (مثل gpt-4o، claude-3-sonnet).',
             ],
             'message' => [
                 'save-success'          => 'Platform saved successfully.',
@@ -1829,6 +1847,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'invalid-model-names'   => 'أسماء نماذج غير صالحة: :names. يجب أن تبدأ أسماء النماذج بحرف أو رقم وتحتوي فقط على أحرف وأرقام وشرطات ونقاط ونقطتين وشرطات مائلة.',
             ],
         ],
     ],
@@ -1904,6 +1923,14 @@ return [
                 ],
                 'manage-columns' => [
                     'title' => 'إدارة الأعمدة',
+                ],
+
+                'pagination' => [
+                    'first-page'    => 'الصفحة الأولى',
+                    'previous-page' => 'الصفحة السابقة',
+                    'next-page'     => 'الصفحة التالية',
+                    'last-page'     => 'الصفحة الأخيرة',
+                    'page-number'   => 'رقم الصفحة',
                 ],
             ],
             'filters' => [

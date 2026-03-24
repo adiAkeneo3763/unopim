@@ -14,7 +14,7 @@ class AgentForm extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return bouncer()->hasPermission('ai-agent.agents');
     }
 
     /**
