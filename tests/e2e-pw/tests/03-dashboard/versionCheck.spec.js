@@ -14,7 +14,6 @@ test('1.1 - Admin profile button is visible in header', async ({ adminPage }) =>
 test('1.2 - Clicking profile button opens dropdown', async ({ adminPage }) => {
   const profileBtn = adminPage.locator('header').getByRole('button').last();
   await profileBtn.click();
-  await adminPage.waitForTimeout(500);
 
   // Dropdown should show version, My Account, and Logout
   await expect(adminPage.getByText(/Version/)).toBeVisible();
@@ -25,16 +24,16 @@ test('1.2 - Clicking profile button opens dropdown', async ({ adminPage }) => {
 test('1.3 - Profile dropdown shows version string in format "Version : vX.X.X"', async ({ adminPage }) => {
   const profileBtn = adminPage.locator('header').getByRole('button').last();
   await profileBtn.click();
-  await adminPage.waitForTimeout(500);
 
-  const versionText = await adminPage.getByText(/Version\s*:\s*v\d+\.\d+\.\d+/).innerText();
+  const versionLocator = adminPage.getByText(/Version\s*:\s*v\d+\.\d+\.\d+/);
+  await expect(versionLocator).toBeVisible();
+  const versionText = await versionLocator.innerText();
   expect(versionText).toMatch(/Version\s*:\s*v\d+\.\d+\.\d+/);
 });
 
 test('1.4 - Version displays v2.0.0-beta.1', async ({ adminPage }) => {
   const profileBtn = adminPage.locator('header').getByRole('button').last();
   await profileBtn.click();
-  await adminPage.waitForTimeout(500);
 
   await expect(adminPage.getByText(/Version\s*:\s*v2\.0\.0/)).toBeVisible();
 });
@@ -42,7 +41,6 @@ test('1.4 - Version displays v2.0.0-beta.1', async ({ adminPage }) => {
 test('1.5 - Profile dropdown shows UnoPim logo icon next to version', async ({ adminPage }) => {
   const profileBtn = adminPage.locator('header').getByRole('button').last();
   await profileBtn.click();
-  await adminPage.waitForTimeout(500);
 
   const logo = adminPage.locator('img[src*="unopim"]');
   await expect(logo.first()).toBeVisible();
@@ -55,7 +53,6 @@ test('1.5 - Profile dropdown shows UnoPim logo icon next to version', async ({ a
 test('2.1 - Profile dropdown shows My Account link with correct URL', async ({ adminPage }) => {
   const profileBtn = adminPage.locator('header').getByRole('button').last();
   await profileBtn.click();
-  await adminPage.waitForTimeout(500);
 
   const myAccountLink = adminPage.getByRole('link', { name: 'My Account' });
   await expect(myAccountLink).toBeVisible();
@@ -65,7 +62,6 @@ test('2.1 - Profile dropdown shows My Account link with correct URL', async ({ a
 test('2.2 - Profile dropdown shows Logout link', async ({ adminPage }) => {
   const profileBtn = adminPage.locator('header').getByRole('button').last();
   await profileBtn.click();
-  await adminPage.waitForTimeout(500);
 
   const logoutLink = adminPage.getByRole('link', { name: 'Logout' });
   await expect(logoutLink).toBeVisible();
@@ -74,9 +70,10 @@ test('2.2 - Profile dropdown shows Logout link', async ({ adminPage }) => {
 test('2.3 - My Account link navigates to account edit page', async ({ adminPage }) => {
   const profileBtn = adminPage.locator('header').getByRole('button').last();
   await profileBtn.click();
-  await adminPage.waitForTimeout(500);
 
-  await adminPage.getByRole('link', { name: 'My Account' }).click();
+  const myAccountLink = adminPage.getByRole('link', { name: 'My Account' });
+  await expect(myAccountLink).toBeVisible();
+  await myAccountLink.click();
   await expect(adminPage).toHaveURL(/\/admin\/account/);
 });
 
@@ -98,7 +95,6 @@ test('3.2 - Clicking dark mode toggle switches the icon', async ({ adminPage }) 
   // Click the toggle
   const toggle = adminPage.locator('.icon-dark, .icon-light').first();
   await toggle.click();
-  await adminPage.waitForTimeout(500);
 
   if (wasDark) {
     // Should now show light icon
@@ -111,7 +107,6 @@ test('3.2 - Clicking dark mode toggle switches the icon', async ({ adminPage }) 
   // Toggle back to restore original state
   const toggleBack = adminPage.locator('.icon-dark, .icon-light').first();
   await toggleBack.click();
-  await adminPage.waitForTimeout(500);
 });
 
 });

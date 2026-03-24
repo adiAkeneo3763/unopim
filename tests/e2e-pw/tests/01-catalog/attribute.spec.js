@@ -1,7 +1,7 @@
 const { test, expect } = require('../../utils/fixtures');
 test.describe('UnoPim Attribute', () => {
   test('Create attribute with empty code field', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -11,41 +11,36 @@ test.describe('UnoPim Attribute', () => {
     await adminPage.locator('input[name="en_US\\[name\\]"]').click();
     await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Product Name');
     await adminPage.getByRole('button', { name: 'Save Attribute' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('The Code field is required')).toBeVisible();
   });
 
   test('Create attribute with empty Type field', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).fill('product_name');
     await adminPage.locator('input[name="en_US\\[name\\]"]').click();
     await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Product Name');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Attribute' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('The Type field is required')).toBeVisible();
   });
 
   test('Create attribute with empty Code and Type field', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).fill('');
     await adminPage.locator('input[name="en_US\\[name\\]"]').click();
     await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Product Name');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Attribute' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('The Code field is required')).toBeVisible();
     await expect(adminPage.getByText('The Type field is required')).toBeVisible();
   });
 
   test('Create attribute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -54,31 +49,29 @@ test.describe('UnoPim Attribute', () => {
     await adminPage.getByRole('option', { name: 'Text' }).locator('span').first().click();
     await adminPage.locator('input[name="en_US\\[name\\]"]').click();
     await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Product Name');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Attribute' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText(/Attribute Created Successfully/i)).toBeVisible();
   });
 
   test('should allow attribute search', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('textbox', { name: 'Search' }).click();
     await adminPage.getByRole('textbox', { name: 'Search' }).type('product');
     await adminPage.keyboard.press('Enter');
-    await adminPage.waitForTimeout(500);
+    await adminPage.waitForLoadState('networkidle');
     await expect(adminPage.locator('text=product_name', { exact: true })).toBeVisible();
   });
 
   test('should open the filter menu when clicked', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByText('Filter', { exact: true }).click();
     await expect(adminPage.getByText('Apply Filters')).toBeVisible();
   });
 
   test('should allow setting items per adminPage', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const perPageBtn = adminPage.getByRole('button', { name: 'Per Page' });
     await perPageBtn.click();
@@ -87,51 +80,48 @@ test.describe('UnoPim Attribute', () => {
   });
 
   test('should perform actions on a attribute (Edit, Delete)', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'product_name' });
     await itemRow.locator('span[title="Edit"]').first().click();
     await expect(adminPage).toHaveURL(/\/admin\/catalog\/attributes\/edit/);
     await adminPage.goBack();
+    await adminPage.waitForLoadState('networkidle');
     await itemRow.locator('span[title="Delete"]').first().click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.locator('text=Are you sure you want to delete?')).toBeVisible();
   });
 
   test('should allow selecting all attribute with the mass action checkbox', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.click('label[for="mass_action_select_all_records"]');
     await expect(adminPage.locator('#mass_action_select_all_records')).toBeChecked();
   });
 
   test('Update attribute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'product_name' });
     await itemRow.locator('span[title="Edit"]').first().click();
     await adminPage.locator('input[name="en_US\\[name\\]"]').click();
     await adminPage.locator('input[name="en_US\\[name\\]"]').fill('prudact nem');
     await adminPage.locator('#is_required').nth(1).click();
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Attribute' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText(/Attribute Updated Successfully/i)).toBeVisible();
   });
 
   test('Delete Attribute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByText('product_nameprudact nem').getByTitle('Delete').click();
     await adminPage.getByRole('button', { name: 'Delete' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText(/Attribute Deleted Successfully/i)).toBeVisible();
   });
 });
 
 test.describe('Checkbox Type Attribute Option Grid', () => {
   test('Adding options should not be visible while creating the attribute (checkbox type)', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -147,7 +137,7 @@ test.describe('Checkbox Type Attribute Option Grid', () => {
   });
 
   test('create the checkbox type attibute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -165,7 +155,7 @@ test.describe('Checkbox Type Attribute Option Grid', () => {
   });
 
   test('Edit and add the options in the checkbox type attibute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'in_the_box' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -195,9 +185,7 @@ test.describe('Checkbox Type Attribute Option Grid', () => {
     await adminPage.locator('form').filter({ hasText: 'Add Option' }).getByPlaceholder('Code').fill('instruction_manual');
     await adminPage.locator('input[name="locales.en_US"]').click();
     await adminPage.locator('input[name="locales.en_US"]').fill('Instruction Manual');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Option' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Option Created Successfully')).toBeVisible();
     await adminPage.getByText('Close').click();
     await adminPage.getByText('Add Row').click();
@@ -206,15 +194,13 @@ test.describe('Checkbox Type Attribute Option Grid', () => {
     await adminPage.locator('form').filter({ hasText: 'Add Option' }).getByPlaceholder('Code').fill('phone_cover');
     await adminPage.locator('input[name="locales.en_US"]').click();
     await adminPage.locator('input[name="locales.en_US"]').fill('Phone Cover');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Option' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Option Created Successfully')).toBeVisible();
     await adminPage.getByText('Close').click();
   });
 
   test('check the search bar of attribute options datagrid', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'in_the_box' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -227,7 +213,7 @@ test.describe('Checkbox Type Attribute Option Grid', () => {
   });
 
   test('should allow setting items per adminPage', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'in_the_box' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -238,7 +224,7 @@ test.describe('Checkbox Type Attribute Option Grid', () => {
   });
 
   test('should perform actions on a attribute option (Edit, Delete)', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'in_the_box' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -246,14 +232,12 @@ test.describe('Checkbox Type Attribute Option Grid', () => {
     await itemRow1.locator('span[title="Edit"]').first().click();
     await expect(adminPage.getByText('Add Option')).toBeVisible();
     await adminPage.locator('span.icon-cancel.cursor-pointer').click();
-    await adminPage.waitForTimeout(500);
     await itemRow1.locator('span[title="Delete"]').first().click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.locator('text=Are you sure you want to delete?')).toBeVisible();
   });
 
   test('Pagination buttons should be visible, enabled, and clickable', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'in_the_box' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -263,25 +247,23 @@ test.describe('Checkbox Type Attribute Option Grid', () => {
       await expect(button).toBeVisible();
       await expect(button).toBeEnabled();
       await button.click();
-      await adminPage.waitForTimeout(300);
+      await adminPage.waitForLoadState('networkidle');
     }
   });
 
   test('Delete the checkbox type attibute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'in_the_box' });
     await itemRow.locator('span[title="Delete"]').first().click();
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Delete' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Deleted Successfully')).toBeVisible();
   });
 });
 
 test.describe('Multiselect Type Attribute Options Grid', () => {
   test('Adding options should not be visible while creating the attribute (multiselect type)', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -297,7 +279,7 @@ test.describe('Multiselect Type Attribute Options Grid', () => {
   });
 
   test('create the multiselect type attibute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -308,16 +290,14 @@ test.describe('Multiselect Type Attribute Options Grid', () => {
     await adminPage.getByRole('option', { name: 'Multiselect' }).locator('span').first().click();
     await adminPage.locator('input[name="en_US[name]"]').click();
     await adminPage.locator('input[name="en_US[name]"]').fill('Features');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Attribute' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText(/Attribute Created Successfully/i).first()).toBeVisible();
     await expect(adminPage.getByText('Options', { exact: true })).toBeVisible();
     await expect(adminPage.getByText('Add Row')).toBeVisible();
   });
 
   test('Edit and add the options in the multiselect type attibute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'featuresFeatures' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -362,7 +342,7 @@ test.describe('Multiselect Type Attribute Options Grid', () => {
   });
 
   test('check the search bar of attribute options datagrid', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'featuresFeatures' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -375,7 +355,7 @@ test.describe('Multiselect Type Attribute Options Grid', () => {
   });
 
   test('should allow setting items per adminPage', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'featuresFeatures' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -386,7 +366,7 @@ test.describe('Multiselect Type Attribute Options Grid', () => {
   });
 
   test('should perform actions on a attribute option (Edit, Delete)', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'featuresfeatures' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -394,14 +374,12 @@ test.describe('Multiselect Type Attribute Options Grid', () => {
     await itemRow1.locator('span[title="Edit"]').first().click();
     await expect(adminPage.getByText('Add Option')).toBeVisible();
     await adminPage.locator('span.icon-cancel.cursor-pointer').click();
-    await adminPage.waitForTimeout(500);
     await itemRow1.locator('span[title="Delete"]').first().click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.locator('text=Are you sure you want to delete?')).toBeVisible();
   });
 
   test('Pagination buttons should be visible, enabled, and clickable', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'featuresFeatures' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -411,18 +389,16 @@ test.describe('Multiselect Type Attribute Options Grid', () => {
       await expect(button).toBeVisible();
       await expect(button).toBeEnabled();
       await button.click();
-      await adminPage.waitForTimeout(300);
+      await adminPage.waitForLoadState('networkidle');
     }
   });
 
   test('Delete the multiselect type attibute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'featuresFeatures' });
     await itemRow.locator('span[title="Delete"]').first().click();
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Delete' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Deleted Successfully')).toBeVisible();
   });
 });
@@ -430,7 +406,7 @@ test.describe('Multiselect Type Attribute Options Grid', () => {
 
 test.describe('Select Type Attribute', () => {
   test('Adding options should not be visible while creating the attribute (select type)', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -446,7 +422,7 @@ test.describe('Select Type Attribute', () => {
   });
 
   test('create the Select type attibute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -464,7 +440,7 @@ test.describe('Select Type Attribute', () => {
   });
 
   test('Edit and add the options in the Select type attibute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'materialMaterial' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -476,9 +452,7 @@ test.describe('Select Type Attribute', () => {
     await adminPage.locator('form').filter({ hasText: 'Add Option' }).getByPlaceholder('Code').fill('cotton');
     await adminPage.locator('input[name="locales.en_US"]').click();
     await adminPage.locator('input[name="locales.en_US"]').fill('Cotton');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Option' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Option Created Successfully')).toBeVisible();
     await adminPage.getByText('Close').click();
     await adminPage.getByText('Add Row').click();
@@ -487,9 +461,7 @@ test.describe('Select Type Attribute', () => {
     await adminPage.locator('form').filter({ hasText: 'Add Option' }).getByPlaceholder('Code').fill('fabric');
     await adminPage.locator('input[name="locales.en_US"]').click();
     await adminPage.locator('input[name="locales.en_US"]').fill('Fabric');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Option' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Option Created Successfully')).toBeVisible();
     await adminPage.getByText('Close').click();
     await adminPage.getByText('Add Row').click();
@@ -498,9 +470,7 @@ test.describe('Select Type Attribute', () => {
     await adminPage.locator('form').filter({ hasText: 'Add Option' }).getByPlaceholder('Code').fill('leather');
     await adminPage.locator('input[name="locales.en_US"]').click();
     await adminPage.locator('input[name="locales.en_US"]').fill('Leather');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Option' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Option Created Successfully')).toBeVisible();
     await adminPage.getByText('Close').click();
     await adminPage.getByText('Add Row').click();
@@ -509,15 +479,13 @@ test.describe('Select Type Attribute', () => {
     await adminPage.locator('form').filter({ hasText: 'Add Option' }).getByPlaceholder('Code').fill('polyester');
     await adminPage.locator('input[name="locales.en_US"]').click();
     await adminPage.locator('input[name="locales.en_US"]').fill('Polyester');
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Save Option' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Option Created Successfully')).toBeVisible();
     await adminPage.getByText('Close').click();
   });
 
   test('check the search bar of attribute options datagrid', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'materialMaterial' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -530,7 +498,7 @@ test.describe('Select Type Attribute', () => {
   });
 
   test('should allow setting items per adminPage', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'materialMaterial' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -541,7 +509,7 @@ test.describe('Select Type Attribute', () => {
   });
 
   test('should perform actions on a attribute option (Edit, Delete)', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'materialMaterial' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -549,14 +517,12 @@ test.describe('Select Type Attribute', () => {
     await itemRow1.locator('span[title="Edit"]').first().click();
     await expect(adminPage.getByText('Add Option')).toBeVisible();
     await adminPage.locator('span.icon-cancel.cursor-pointer').click();
-    await adminPage.waitForTimeout(500);
     await itemRow1.locator('span[title="Delete"]').first().click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.locator('text=Are you sure you want to delete?')).toBeVisible();
   });
 
   test('Pagination buttons should be visible, enabled, and clickable', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'materialMaterial' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -566,18 +532,16 @@ test.describe('Select Type Attribute', () => {
       await expect(button).toBeVisible();
       await expect(button).toBeEnabled();
       await button.click();
-      await adminPage.waitForTimeout(300);
+      await adminPage.waitForLoadState('networkidle');
     }
   });
 
   test('Delete the Select type attibute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'materialMaterial' });
     await itemRow.locator('span[title="Delete"]').first().click();
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Delete' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Deleted Successfully')).toBeVisible();
   });
 });
@@ -585,7 +549,7 @@ test.describe('Select Type Attribute', () => {
 
 test.describe('Swatch Type Attribute Option', () => {
   test('Check swatch type visibility on Select attribute creation', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -599,7 +563,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Check the swatch type options for select type attribute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -617,7 +581,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Verify swatch type field have default value as Text Swatch', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -632,7 +596,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Create a select type attribute with swatch type as text swatch', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -651,7 +615,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Verify swatch type field is visible and selected swatch type is visible while editing the select type attribute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'text_swatchText Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -662,7 +626,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Edit and add the options in the Select type attibute with swatch type as text swatch', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'text_swatchText Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -689,20 +653,18 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Delete the text swatch attribute option', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'text_swatchText Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
     const itemRow1 = adminPage.locator('div', { hasText: 'redRed' });
     await itemRow1.locator('span[title="Delete"]').first().click();
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Delete' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Option Deleted Successfully')).toBeVisible();
   });
 
   test('Create the select type attribute with swatch type as color swatch', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -723,7 +685,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Verify swatch type field is visible and selected swatch type is visible while editing the select type attribute with color swatch', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'color_swatchColor Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -734,7 +696,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Edit and add the options in the Select type attibute with swatch type as color swatch', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'color_swatchColor Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -763,20 +725,18 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Delete the color swatch attribute option', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'color_swatchColor Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
     const itemRow1 = adminPage.locator('div', { hasText: 'redRed' });
     await itemRow1.locator('span[title="Delete"]').first().click();
-    await adminPage.waitForTimeout(500);
     await adminPage.getByRole('button', { name: 'Delete' }).click();
-    await adminPage.waitForTimeout(500);
     await expect(adminPage.getByText('Attribute Option Deleted Successfully')).toBeVisible();
   });
 
   test('Create the select type attribute with swatch type as image swatch', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     await adminPage.getByRole('link', { name: 'Create Attribute' }).click();
     await adminPage.getByRole('textbox', { name: 'Code' }).click();
@@ -797,7 +757,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Verify swatch type field is visible and selected swatch type is visible while editing the select type attribute with image swatch', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'image_swatchImage Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -808,7 +768,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Edit and add the options in the Select type attibute with swatch type as image swatch', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'image_swatchImage Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -816,7 +776,7 @@ test.describe('Swatch Type Attribute Option', () => {
     await expect(adminPage.getByText('Add Row')).toBeVisible();
     await adminPage.getByText('Add Row').click();
     const fileInput = adminPage.locator('label', { hasText: 'Add Image' }).nth(1).locator('input[type="file"]');
-    await fileInput.setInputFiles('assets/floral.jpg'); 
+    await fileInput.setInputFiles('assets/floral.jpg');
     const Code = adminPage.getByRole('textbox', { name: 'Code' }).nth(1);
     await (Code).fill('floral_pattern');
     await adminPage.locator('input[name="locales\\.en_US"]').click();
@@ -824,21 +784,21 @@ test.describe('Swatch Type Attribute Option', () => {
     await adminPage.getByRole('button', { name: 'Save Option' }).click();
     await expect(adminPage.getByText('Attribute Option Created Successfully').last()).toBeVisible();
     await adminPage.getByText('Add Row').click();
-    await fileInput.setInputFiles('assets/stripes.jpg'); 
+    await fileInput.setInputFiles('assets/stripes.jpg');
     await (Code).fill('stripes_pattern');
     await adminPage.locator('input[name="locales\\.en_US"]').click();
     await adminPage.locator('input[name="locales\\.en_US"]').fill('Stripes Pattern');
     await adminPage.getByRole('button', { name: 'Save Option' }).click();
     await expect(adminPage.getByText('Attribute Option Created Successfully').last()).toBeVisible();
     await adminPage.getByText('Add Row').click();
-    await fileInput.setInputFiles('assets/dotted.png'); 
+    await fileInput.setInputFiles('assets/dotted.png');
     await (Code).fill('dots_pattern');
     await adminPage.locator('input[name="locales\\.en_US"]').click();
     await adminPage.locator('input[name="locales\\.en_US"]').fill('Dots Pattern');
     await adminPage.getByRole('button', { name: 'Save Option' }).click();
     await expect(adminPage.getByText('Attribute Option Created Successfully').last()).toBeVisible();
     await adminPage.getByText('Add Row').click();
-    await fileInput.setInputFiles('assets/check.jpeg'); 
+    await fileInput.setInputFiles('assets/check.jpeg');
     await (Code).fill('checked_pattern');
     await adminPage.locator('input[name="locales\\.en_US"]').click();
     await adminPage.locator('input[name="locales\\.en_US"]').fill('Checked Pattern');
@@ -849,7 +809,7 @@ test.describe('Swatch Type Attribute Option', () => {
   });
 
   test('Delete the image swatch attribute option', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'image_swatchImage Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
@@ -859,15 +819,14 @@ test.describe('Swatch Type Attribute Option', () => {
     const itemRow1 = adminPage.locator('div', { hasText: 'dots_patternDots Pattern' });
     await itemRow1.locator('span[title="Delete"]').first().click();
     await adminPage.getByRole('button', { name: 'Delete' }).click();
-    await expect(adminPage.getByText('Attribute Option Deleted Successfully')).toBeVisible();   
+    await expect(adminPage.getByText('Attribute Option Deleted Successfully')).toBeVisible();
   });
 
   test('Check the search bar of attribute options datagrid for swatch type attribute', async ({ adminPage }) => {
-    await adminPage.getByRole('link', { name: ' Catalog' }).click();
+    await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attributes' }).click();
     const itemRow = adminPage.locator('div', { hasText: 'image_swatchImage Swatch' });
     await itemRow.locator('span[title="Edit"]').first().click();
-    await adminPage.waitForTimeout(100);
     await adminPage.getByRole('textbox', { name: 'Search', exact: true }).click();
     await adminPage.getByRole('textbox', { name: 'Search', exact: true }).fill('floral');
     await adminPage.getByRole('textbox', { name: 'Search', exact: true }).press('Enter');

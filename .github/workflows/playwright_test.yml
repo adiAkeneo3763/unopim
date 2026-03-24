@@ -81,10 +81,23 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - name: Install Playwright browsers
+      - name: Cache npm dependencies
+        uses: actions/cache@v5
+        with:
+          path: tests/e2e-pw/node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('tests/e2e-pw/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('tests/e2e-pw/package-lock.json') }}
+
+      - name: Install npm & Playwright browsers
         run: |
           cd tests/e2e-pw
-          npm install --no-progress
+          npm install --no-progress --prefer-offline
           npx playwright install --with-deps chromium
 
       - name: Install Composer dependencies

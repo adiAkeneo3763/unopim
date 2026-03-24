@@ -6,7 +6,7 @@ test('Delete Locale', async ({ adminPage }) => {
   await adminPage.getByRole('textbox', { name: 'Search by code' }).click();
   await adminPage.getByRole('textbox', { name: 'Search by code' }).type('af_ZA');
   await adminPage.keyboard.press('Enter');
-  await adminPage.waitForTimeout(100);
+  await adminPage.waitForLoadState('networkidle');
   const itemRow = adminPage.locator('div', { hasText: 'af_ZAAfrikaans (South Africa)' });
   await itemRow.locator('span[title="Delete"]').first().click();
   await adminPage.getByRole('button', { name: 'Delete' }).click();

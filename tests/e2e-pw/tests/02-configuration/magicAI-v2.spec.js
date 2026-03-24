@@ -7,23 +7,74 @@ const MAGIC_AI_PLATFORM_URL = '/admin/magic-ai/platform';
 test.describe('UnoPim Magic AI v2.0.0-beta.1 Configuration', () => {
 
 // ═════════════════════════════════════════════════
+// SETUP: Create OpenAI platform for tests that need it
+// ═════════════════════════════════════════════════
+
+test('0.1 - Setup: Create OpenAI platform for config tests', async ({ adminPage }) => {
+  test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — skipping platform setup');
+  test.setTimeout(60000);
+
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
+
+  // Check if platform already exists
+  await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
+  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+
+  const existingOpenAI = adminPage.locator('div').filter({ hasText: /OpenAI/i });
+  if (await existingOpenAI.first().isVisible().catch(() => false)) {
+    await adminPage.locator('.icon-cancel').click();
+    return;
+  }
+
+  // Close the initial modal
+  await adminPage.locator('.icon-cancel').click();
+  await expect(adminPage.locator('.icon-cancel')).not.toBeVisible();
+
+  // Create the platform
+  await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
+  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+
+  await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
+  await expect(adminPage.locator('input[name="label"]')).toBeVisible();
+  await adminPage.locator('input[name="label"]').fill('OpenAI Test Platform');
+  await adminPage.locator('input[name="api_key"]').fill(OPENAI_API_KEY);
+
+  // Wait for models to auto-fetch via API response
+  await adminPage.waitForResponse(
+    resp => resp.url().includes('models') || resp.url().includes('platform'),
+    { timeout: 15000 }
+  ).catch(() => {});
+
+  // Select first model checkbox if available
+  const modelCheckbox = adminPage.locator('input[type="checkbox"]').first();
+  if (await modelCheckbox.isVisible().catch(() => false)) {
+    if (!(await modelCheckbox.isChecked())) {
+      await modelCheckbox.check();
+    }
+  }
+
+  await adminPage.getByRole('button', { name: 'Save' }).click();
+  await expect(adminPage.getByText(/saved successfully|created successfully|updated successfully/i)).toBeVisible({ timeout: 15000 });
+});
+
+// ═════════════════════════════════════════════════
 // SECTION 1: Configuration Page Layout
 // ═════════════════════════════════════════════════
 
 test('1.1 - Magic AI config page loads with correct title', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Magic AI').first()).toBeVisible();
 });
 
 test('1.2 - Magic AI config page has Save Configuration button', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   const saveBtn = adminPage.getByRole('button', { name: 'Save Configuration' });
   await expect(saveBtn).toBeVisible();
   await expect(saveBtn).toBeEnabled();
 });
 
 test('1.3 - Config page shows all four v2.0.0-beta.1 sections', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
   await expect(adminPage.getByText('Agentic PIM', { exact: true })).toBeVisible();
   await expect(adminPage.getByText('Text Generation', { exact: true })).toBeVisible();
@@ -32,7 +83,7 @@ test('1.3 - Config page shows all four v2.0.0-beta.1 sections', async ({ adminPa
 });
 
 test('1.4 - Each section has a description paragraph', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
   await expect(adminPage.getByText(/Configure the AI Agent Chat/)).toBeVisible();
   await expect(adminPage.getByText(/Configure the default AI platform and model for generating product descriptions/)).toBeVisible();
@@ -45,52 +96,52 @@ test('1.4 - Each section has a description paragraph', async ({ adminPage }) => 
 // ═════════════════════════════════════════════════
 
 test('2.1 - Agentic PIM section description mentions autonomous enrichment', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText(/autonomous enrichment workflows/)).toBeVisible();
 });
 
 test('2.2 - Agentic PIM has Enable AI Agent Chat checkbox', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Enable AI Agent Chat')).toBeVisible();
   const checkbox = adminPage.getByRole('checkbox', { name: 'Enable AI Agent Chat' });
   await expect(checkbox).toBeVisible();
 });
 
 test('2.3 - Agentic PIM has Max Agent Steps Per Turn dropdown with default "5 (Default)"', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Max Agent Steps Per Turn')).toBeVisible();
   await expect(adminPage.getByText('5 (Default)')).toBeVisible();
 });
 
 test('2.4 - Agentic PIM has Daily Token Budget numeric input', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Daily Token Budget')).toBeVisible();
   const budgetInput = adminPage.getByRole('spinbutton', { name: 'Daily Token Budget' });
   await expect(budgetInput).toBeVisible();
 });
 
 test('2.5 - Agentic PIM has Auto-Enrichment on Product Create checkbox', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Auto-Enrichment on Product Create')).toBeVisible();
   const checkbox = adminPage.getByRole('checkbox', { name: 'Auto-Enrichment on Product Create' });
   await expect(checkbox).toBeVisible();
 });
 
 test('2.6 - Agentic PIM has Catalog Quality Monitor checkbox', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Catalog Quality Monitor')).toBeVisible();
   const checkbox = adminPage.getByRole('checkbox', { name: 'Catalog Quality Monitor' });
   await expect(checkbox).toBeVisible();
 });
 
 test('2.7 - Agentic PIM has Confidence Threshold dropdown with default "0.7 (Balanced)"', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Confidence Threshold')).toBeVisible();
   await expect(adminPage.getByText(/0\.7.*Balanced/)).toBeVisible();
 });
 
 test('2.8 - Agentic PIM has Change Approval Mode dropdown with default "Confirm & apply"', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Change Approval Mode')).toBeVisible();
   await expect(adminPage.getByText(/Confirm & apply/)).toBeVisible();
 });
@@ -100,7 +151,7 @@ test('2.8 - Agentic PIM has Change Approval Mode dropdown with default "Confirm 
 // ═════════════════════════════════════════════════
 
 test('3.1 - Text Generation has Enabled checkbox', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   // Find the Enabled checkbox within Text Generation section
   const textGenSection = adminPage.locator('div', { hasText: 'Text Generation' }).filter({ hasText: 'product descriptions' });
   const enabledCheckbox = textGenSection.locator('..').getByRole('checkbox', { name: 'Enabled' }).first();
@@ -108,7 +159,7 @@ test('3.1 - Text Generation has Enabled checkbox', async ({ adminPage }) => {
 });
 
 test('3.2 - Text Generation has Default Platform dropdown with "Use Default Platform" option', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
   const platformSelects = adminPage.locator('select').filter({ hasText: /Use Default Platform/ });
   await expect(platformSelects.first()).toBeVisible();
@@ -118,7 +169,8 @@ test('3.2 - Text Generation has Default Platform dropdown with "Use Default Plat
 });
 
 test('3.3 - Text Generation Default Platform lists configured platforms with provider names', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — no platforms available');
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
   const platformSelects = adminPage.locator('select').filter({ hasText: /Use Default Platform/ });
   const options = await platformSelects.first().locator('option').allTextContents();
@@ -128,13 +180,14 @@ test('3.3 - Text Generation Default Platform lists configured platforms with pro
 });
 
 test('3.4 - Text Generation shows help text about default platform with asterisk', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — no platforms available');
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText(/Leave empty to use the platform marked as default/).first()).toBeVisible();
   await expect(adminPage.getByText(/Platforms marked with \* are default/).first()).toBeVisible();
 });
 
 test('3.5 - Text Generation has Default Model dropdown with model options', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Default Model').first()).toBeVisible();
 
   const selects = adminPage.locator('select');
@@ -155,12 +208,12 @@ test('3.5 - Text Generation has Default Model dropdown with model options', asyn
 // ═════════════════════════════════════════════════
 
 test('4.1 - Image Generation section notes about supported providers', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText(/Only platforms that support image generation.*OpenAI.*Gemini.*xAI/)).toBeVisible();
 });
 
 test('4.2 - Image Generation has Enabled checkbox', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
   // Count all "Enabled" labels — at least 2 (Text Gen + Image Gen)
   const labels = adminPage.getByText('Enabled');
@@ -169,7 +222,7 @@ test('4.2 - Image Generation has Enabled checkbox', async ({ adminPage }) => {
 });
 
 test('4.3 - Image Generation has Default Platform dropdown', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
   // Should have at least 2 Default Platform dropdowns (Text + Image)
   const platformSelects = adminPage.locator('select').filter({ hasText: /Use Default Platform/ });
@@ -178,7 +231,8 @@ test('4.3 - Image Generation has Default Platform dropdown', async ({ adminPage 
 });
 
 test('4.4 - Image Generation Default Model only shows image-capable models', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — no platforms available');
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
   const selects = adminPage.locator('select');
   const count = await selects.count();
@@ -203,12 +257,12 @@ test('4.4 - Image Generation Default Model only shows image-capable models', asy
 // ═════════════════════════════════════════════════
 
 test('5.1 - Translation section mentions cheaper platform usage', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText(/potentially faster\/cheaper/)).toBeVisible();
 });
 
 test('5.2 - Translation has Enabled checkbox', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   const labels = adminPage.getByText('Enabled');
   const count = await labels.count();
   // Text Gen + Image Gen + Translation = at least 3
@@ -216,19 +270,19 @@ test('5.2 - Translation has Enabled checkbox', async ({ adminPage }) => {
 });
 
 test('5.3 - Translation has Default Platform dropdown', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   const platformSelects = adminPage.locator('select').filter({ hasText: /Use Default Platform/ });
   const count = await platformSelects.count();
   expect(count).toBeGreaterThanOrEqual(3);
 });
 
 test('5.4 - Translation has Translation Model dropdown', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Translation Model')).toBeVisible();
 });
 
 test('5.5 - Translation has Replace Existing Value checkbox with tooltip', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Replace Existing Value')).toBeVisible();
   // Tooltip text is in the title attribute
   const tooltipElement = adminPage.locator('[title*="Replace the existing value"]');
@@ -236,27 +290,27 @@ test('5.5 - Translation has Replace Existing Value checkbox with tooltip', async
 });
 
 test('5.6 - Translation has Source Channel dropdown', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Source Channel')).toBeVisible();
 });
 
 test('5.7 - Translation has Target Channel dropdown', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Target Channel')).toBeVisible();
 });
 
 test('5.8 - Translation has Source Locale dropdown', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Source Locale')).toBeVisible();
 });
 
 test('5.9 - Translation has Target Locales dropdown', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Target Locales')).toBeVisible();
 });
 
 test('5.10 - Translation channel and locale dropdowns have "Select option" placeholder', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   const selectOptions = adminPage.getByText('Select option');
   const count = await selectOptions.count();
   // Source Channel, Target Channel, Source Locale, Target Locales = at least 4
@@ -274,35 +328,35 @@ test('6.1 - AI Platforms page accessible from Configuration > Magic AI menu', as
 });
 
 test('6.2 - AI Platforms page shows title and Add Platform button', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('AI Platforms', { exact: true })).toBeVisible();
   await expect(adminPage.getByRole('button', { name: 'Add Platform' })).toBeVisible();
 });
 
 test('6.3 - AI Platforms datagrid has Search input', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   const searchInput = adminPage.getByPlaceholder('Search');
   await expect(searchInput).toBeVisible();
 });
 
 test('6.4 - AI Platforms datagrid shows results count', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText(/\d+ Results?/)).toBeVisible();
 });
 
 test('6.5 - AI Platforms datagrid has Filter button', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Filter')).toBeVisible();
 });
 
 test('6.6 - AI Platforms datagrid has Per Page selector and pagination', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.getByText('Per Page')).toBeVisible();
   await expect(adminPage.getByText(/of \d+/)).toBeVisible();
 });
 
 test('6.7 - AI Platforms datagrid has pagination arrows', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await expect(adminPage.locator('text="«"')).toBeVisible();
   await expect(adminPage.locator('text="‹"')).toBeVisible();
   await expect(adminPage.locator('text="›"')).toBeVisible();
@@ -310,12 +364,12 @@ test('6.7 - AI Platforms datagrid has pagination arrows', async ({ adminPage }) 
 });
 
 test('6.8 - AI Platforms datagrid shows all column headers', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   // Need to trigger datagrid load by clicking Add Platform then closing
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await adminPage.waitForTimeout(300);
+  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click().catch(() => {});
-  await adminPage.waitForTimeout(500);
+  await expect(adminPage.locator('.icon-cancel')).not.toBeVisible().catch(() => {});
 
   await expect(adminPage.getByText('Label').first()).toBeVisible();
   await expect(adminPage.getByText('Provider').first()).toBeVisible();
@@ -327,11 +381,11 @@ test('6.8 - AI Platforms datagrid shows all column headers', async ({ adminPage 
 });
 
 test('6.9 - Platform rows show edit and delete action icons', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await adminPage.waitForTimeout(300);
+  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click().catch(() => {});
-  await adminPage.waitForTimeout(500);
+  await expect(adminPage.locator('.icon-cancel')).not.toBeVisible().catch(() => {});
 
   const editIcons = adminPage.locator('span[title="Edit"]');
   const deleteIcons = adminPage.locator('span[title="Delete"]');
@@ -344,11 +398,11 @@ test('6.9 - Platform rows show edit and delete action icons', async ({ adminPage
 });
 
 test('6.10 - Non-default platform rows show "Set as Default" star icon', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await adminPage.waitForTimeout(300);
+  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click().catch(() => {});
-  await adminPage.waitForTimeout(500);
+  await expect(adminPage.locator('.icon-cancel')).not.toBeVisible().catch(() => {});
 
   // "Set as Default" title appears on the star icon for non-default platforms
   const starIcons = adminPage.locator('[title="Set as Default"]');
@@ -363,13 +417,13 @@ test('6.10 - Non-default platform rows show "Set as Default" star icon', async (
 // ═════════════════════════════════════════════════
 
 test('7.1 - Add Platform button opens modal with "Add AI Platform" title', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
 });
 
 test('7.2 - Add Platform modal has Provider dropdown with all provider options', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
 
   const providerSelect = adminPage.locator('select[name="provider"]');
@@ -389,10 +443,9 @@ test('7.2 - Add Platform modal has Provider dropdown with all provider options',
 });
 
 test('7.3 - Selecting OpenAI provider shows Label, API Key, API URL, Models, toggles', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   // Label field (pre-filled)
   await expect(adminPage.locator('input[name="label"]')).toBeVisible();
@@ -416,24 +469,23 @@ test('7.3 - Selecting OpenAI provider shows Label, API Key, API URL, Models, tog
 });
 
 test('7.4 - OpenAI API URL is pre-filled with https://api.openai.com/v1', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   const apiUrlInput = adminPage.locator('input[name="api_url"]');
   await expect(apiUrlInput).toHaveValue('https://api.openai.com/v1');
 });
 
 test('7.5 - Add Platform modal has Save button', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
 
   await expect(adminPage.getByRole('button', { name: 'Save' })).toBeVisible();
 });
 
 test('7.6 - Add Platform modal has close (X) button', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
 
   const closeBtn = adminPage.locator('.icon-cancel');
@@ -441,28 +493,25 @@ test('7.6 - Add Platform modal has close (X) button', async ({ adminPage }) => {
 });
 
 test('7.7 - Save platform without required fields shows validation errors', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.getByRole('button', { name: 'Save' }).click();
   await expect(adminPage.getByText(/provider.*required|required/i)).toBeVisible();
 });
 
 test('7.8 - Label field auto-fills when provider is selected', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'Groq' });
-  await adminPage.waitForTimeout(300);
 
   const labelInput = adminPage.locator('input[name="label"]');
-  const labelValue = await labelInput.inputValue();
-  expect(labelValue).toBe('Groq');
+  await expect(labelInput).toHaveValue('Groq');
 });
 
 test('7.9 - Status toggle is enabled by default when adding a new platform', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   // Find the Status checkbox — it should be checked by default
   const statusCheckboxes = adminPage.locator('input[type="checkbox"]');
@@ -486,18 +535,17 @@ test('7.9 - Status toggle is enabled by default when adding a new platform', asy
 
 test('8.1 - Save Configuration without changes succeeds', async ({ adminPage }) => {
   test.setTimeout(30000);
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
   await adminPage.getByRole('button', { name: 'Save Configuration' }).click();
   await adminPage.waitForLoadState('networkidle', { timeout: 20000 }).catch(() => {});
-  await adminPage.waitForTimeout(2000);
 
   // After save, page should still show config sections
   await expect(adminPage.getByText('Agentic PIM', { exact: true })).toBeVisible();
 });
 
 test('8.2 - Open Agenting PIM button is visible on Magic AI config page', async ({ adminPage }) => {
-  await adminPage.goto(MAGIC_AI_CONFIG_URL);
+  await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
   const agentBtn = adminPage.getByRole('button', { name: 'Open Agenting PIM' });
   await expect(agentBtn).toBeVisible();
 });
@@ -511,16 +559,20 @@ test('9.1 - Add Platform with valid OpenAI API key fetches models automatically'
   test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — skipping credential tests');
   test.setTimeout(60000);
 
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   // Fill API key
   await adminPage.locator('input[name="api_key"]').fill(OPENAI_API_KEY);
   // Trigger blur to start model fetch
   await adminPage.locator('input[name="label"]').click();
-  await adminPage.waitForTimeout(5000);
+
+  // Wait for models to be fetched via API
+  await adminPage.waitForResponse(
+    resp => resp.url().includes('models') || resp.url().includes('platform'),
+    { timeout: 15000 }
+  ).catch(() => {});
 
   // Models should auto-populate as checkbox options
   const modelCheckboxes = adminPage.locator('input[type="checkbox"]').filter({ hasNot: adminPage.locator('[name="is_default"]') });
@@ -535,14 +587,18 @@ test('9.2 - Fetched model list includes known OpenAI models', async ({ adminPage
   test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — skipping credential tests');
   test.setTimeout(60000);
 
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   await adminPage.locator('input[name="api_key"]').fill(OPENAI_API_KEY);
   await adminPage.locator('input[name="label"]').click();
-  await adminPage.waitForTimeout(5000);
+
+  // Wait for models to be fetched via API
+  await adminPage.waitForResponse(
+    resp => resp.url().includes('models') || resp.url().includes('platform'),
+    { timeout: 15000 }
+  ).catch(() => {});
 
   // Check that well-known models appear in the list
   await expect(adminPage.getByText('gpt-4o', { exact: true })).toBeVisible();
@@ -555,19 +611,22 @@ test('9.3 - Model search filters the model checkbox list', async ({ adminPage })
   test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — skipping credential tests');
   test.setTimeout(60000);
 
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   await adminPage.locator('input[name="api_key"]').fill(OPENAI_API_KEY);
   await adminPage.locator('input[name="label"]').click();
-  await adminPage.waitForTimeout(5000);
+
+  // Wait for models to be fetched via API
+  await adminPage.waitForResponse(
+    resp => resp.url().includes('models') || resp.url().includes('platform'),
+    { timeout: 15000 }
+  ).catch(() => {});
 
   // Search for "gpt-image" to filter models
   const searchInput = adminPage.getByPlaceholder('Search models...');
   await searchInput.fill('gpt-image');
-  await adminPage.waitForTimeout(500);
 
   // Only image models should be visible
   await expect(adminPage.getByText('gpt-image-1', { exact: true })).toBeVisible();
@@ -583,20 +642,23 @@ test('9.4 - Selecting a model adds it as a tag chip', async ({ adminPage }) => {
   test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — skipping credential tests');
   test.setTimeout(60000);
 
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   await adminPage.locator('input[name="api_key"]').fill(OPENAI_API_KEY);
   await adminPage.locator('input[name="label"]').click();
-  await adminPage.waitForTimeout(5000);
+
+  // Wait for models to be fetched via API
+  await adminPage.waitForResponse(
+    resp => resp.url().includes('models') || resp.url().includes('platform'),
+    { timeout: 15000 }
+  ).catch(() => {});
 
   // Click on gpt-4o checkbox to select it
   const gpt4oCheckbox = adminPage.getByRole('checkbox', { name: 'gpt-4o', exact: true });
   if (!(await gpt4oCheckbox.isChecked())) {
     await gpt4oCheckbox.check();
-    await adminPage.waitForTimeout(300);
   }
 
   // A tag chip with "gpt-4o" and remove button should appear
@@ -610,25 +672,27 @@ test('9.5 - Removing a model tag chip unchecks it in the list', async ({ adminPa
   test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — skipping credential tests');
   test.setTimeout(60000);
 
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   await adminPage.locator('input[name="api_key"]').fill(OPENAI_API_KEY);
   await adminPage.locator('input[name="label"]').click();
-  await adminPage.waitForTimeout(5000);
+
+  // Wait for models to be fetched via API
+  await adminPage.waitForResponse(
+    resp => resp.url().includes('models') || resp.url().includes('platform'),
+    { timeout: 15000 }
+  ).catch(() => {});
 
   // Select gpt-4o
   const gpt4oCheckbox = adminPage.getByRole('checkbox', { name: 'gpt-4o', exact: true });
   if (!(await gpt4oCheckbox.isChecked())) {
     await gpt4oCheckbox.check();
-    await adminPage.waitForTimeout(300);
   }
 
   // Remove the tag
   await adminPage.getByRole('button', { name: 'Remove model gpt-4o' }).click();
-  await adminPage.waitForTimeout(300);
 
   // Checkbox should now be unchecked
   await expect(gpt4oCheckbox).not.toBeChecked();
@@ -640,19 +704,22 @@ test('9.6 - Adding a custom model ID via the text input', async ({ adminPage }) 
   test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — skipping credential tests');
   test.setTimeout(60000);
 
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   await adminPage.locator('input[name="api_key"]').fill(OPENAI_API_KEY);
   await adminPage.locator('input[name="label"]').click();
-  await adminPage.waitForTimeout(5000);
+
+  // Wait for models to be fetched via API
+  await adminPage.waitForResponse(
+    resp => resp.url().includes('models') || resp.url().includes('platform'),
+    { timeout: 15000 }
+  ).catch(() => {});
 
   // Type a custom model ID and click "+ Add"
   await adminPage.getByPlaceholder('Type custom model ID...').fill('my-custom-ft-model');
   await adminPage.getByRole('button', { name: '+ Add' }).click();
-  await adminPage.waitForTimeout(300);
 
   // Should appear as a tag chip with remove button
   const removeBtn = adminPage.getByRole('button', { name: 'Remove model my-custom-ft-model' });
@@ -665,21 +732,20 @@ test('9.7 - Edit existing platform shows pre-populated fields with fetched model
   test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — skipping credential tests');
   test.setTimeout(60000);
 
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
 
   // Trigger datagrid load
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await adminPage.waitForTimeout(300);
+  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click();
-  await adminPage.waitForTimeout(500);
+  await expect(adminPage.locator('.icon-cancel')).not.toBeVisible();
 
   // Click edit on the first platform row
   const editBtn = adminPage.locator('[title="Edit"]').first();
   await editBtn.click();
-  await adminPage.waitForTimeout(2000);
 
   // Modal should show "Edit AI Platform"
-  await expect(adminPage.getByText('Edit AI Platform')).toBeVisible();
+  await expect(adminPage.getByText('Edit AI Platform')).toBeVisible({ timeout: 5000 });
 
   // Provider should be pre-selected
   const providerSelect = adminPage.locator('select[name="provider"]');
@@ -695,7 +761,6 @@ test('9.7 - Edit existing platform shows pre-populated fields with fetched model
   expect(apiKeyValue.length).toBeGreaterThan(0);
 
   // Models should be fetched — checkbox list should have many models
-  const modelCheckboxes = adminPage.locator('.icon-cancel').locator('..').locator('..').locator('input[type="checkbox"]');
   // Just check that the model list area has content
   const searchModelsInput = adminPage.getByPlaceholder('Search models...');
   await expect(searchModelsInput).toBeVisible();
@@ -712,10 +777,9 @@ test('9.8 - Save platform with valid API key and selected models succeeds', asyn
   test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — skipping credential tests');
   test.setTimeout(60000);
 
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   // Fill credentials
   const uniqueLabel = 'E2E Test Platform ' + Date.now().toString().slice(-5);
@@ -723,7 +787,12 @@ test('9.8 - Save platform with valid API key and selected models succeeds', asyn
   await adminPage.locator('input[name="label"]').fill(uniqueLabel);
   await adminPage.locator('input[name="api_key"]').fill(OPENAI_API_KEY);
   await adminPage.locator('input[name="label"]').click();
-  await adminPage.waitForTimeout(5000);
+
+  // Wait for models to be fetched via API
+  await adminPage.waitForResponse(
+    resp => resp.url().includes('models') || resp.url().includes('platform'),
+    { timeout: 15000 }
+  ).catch(() => {});
 
   // Select at least one model
   const gpt4oCheckbox = adminPage.getByRole('checkbox', { name: 'gpt-4o', exact: true });
@@ -732,36 +801,29 @@ test('9.8 - Save platform with valid API key and selected models succeeds', asyn
       await gpt4oCheckbox.check();
     }
   }
-  await adminPage.waitForTimeout(300);
 
   // Save
   await adminPage.getByRole('button', { name: 'Save' }).click();
-  await adminPage.waitForTimeout(3000);
 
   // Should see success message or be back on the platform list
   const successMsg = adminPage.getByText(/saved successfully|created successfully/i);
-  const successVisible = await successMsg.isVisible().catch(() => false);
-
-  if (successVisible) {
-    await expect(successMsg).toBeVisible();
-  }
+  await expect(successMsg).toBeVisible({ timeout: 10000 }).catch(() => {});
 
   // Clean up: delete the platform we just created
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await adminPage.waitForTimeout(300);
+  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click();
-  await adminPage.waitForTimeout(500);
+  await expect(adminPage.locator('.icon-cancel')).not.toBeVisible();
 
   const deleteBtn = adminPage.locator('div', { hasText: uniqueLabel }).locator('[title="Delete"]');
   if (await deleteBtn.first().isVisible().catch(() => false)) {
     await deleteBtn.first().click();
-    await adminPage.waitForTimeout(500);
     // Confirm deletion if dialog appears
     const confirmBtn = adminPage.getByRole('button', { name: /Agree|Confirm|Yes|Delete/i });
     if (await confirmBtn.isVisible().catch(() => false)) {
       await confirmBtn.click();
-      await adminPage.waitForTimeout(2000);
+      await adminPage.waitForLoadState('networkidle');
     }
   }
 });
@@ -769,10 +831,9 @@ test('9.8 - Save platform with valid API key and selected models succeeds', asyn
 test('9.9 - Invalid API key shows error when saving platform', async ({ adminPage }) => {
   test.setTimeout(30000);
 
-  await adminPage.goto(MAGIC_AI_PLATFORM_URL);
+  await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
-  await adminPage.waitForTimeout(300);
 
   await adminPage.locator('input[name="label"]').clear();
   await adminPage.locator('input[name="label"]').fill('Invalid Key Test');
@@ -781,14 +842,12 @@ test('9.9 - Invalid API key shows error when saving platform', async ({ adminPag
   // Add a custom model since auto-fetch won't work with bad key
   await adminPage.getByPlaceholder('Type custom model ID...').fill('gpt-4o');
   await adminPage.getByRole('button', { name: '+ Add' }).click();
-  await adminPage.waitForTimeout(300);
 
   await adminPage.getByRole('button', { name: 'Save' }).click();
-  await adminPage.waitForTimeout(3000);
 
   // Should show an error about invalid credentials
   const errorMsg = adminPage.getByText(/failed|error|invalid|could not|unable/i);
-  await expect(errorMsg.first()).toBeVisible();
+  await expect(errorMsg.first()).toBeVisible({ timeout: 10000 });
 
   await adminPage.locator('.icon-cancel').click().catch(() => {});
 });

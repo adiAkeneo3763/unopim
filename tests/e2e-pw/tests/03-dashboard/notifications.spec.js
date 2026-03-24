@@ -36,7 +36,6 @@ test('1.3 - Notification bell icon shows unread badge when unread notifications 
 
 test('2.1 - Clicking notification bell opens dropdown', async ({ adminPage }) => {
   await adminPage.locator('[title="Notifications"]').click();
-  await adminPage.waitForTimeout(500);
 
   await expect(adminPage.getByText('Notifications', { exact: true })).toBeVisible();
   await expect(adminPage.getByRole('link', { name: 'View All' })).toBeVisible();
@@ -44,7 +43,6 @@ test('2.1 - Clicking notification bell opens dropdown', async ({ adminPage }) =>
 
 test('2.2 - Notification dropdown has View All link pointing to notifications page', async ({ adminPage }) => {
   await adminPage.locator('[title="Notifications"]').click();
-  await adminPage.waitForTimeout(500);
 
   const viewAllLink = adminPage.getByRole('link', { name: 'View All' });
   await expect(viewAllLink).toBeVisible();
@@ -53,7 +51,6 @@ test('2.2 - Notification dropdown has View All link pointing to notifications pa
 
 test('2.3 - Notification dropdown shows Notifications heading in footer', async ({ adminPage }) => {
   await adminPage.locator('[title="Notifications"]').click();
-  await adminPage.waitForTimeout(500);
 
   // Dropdown header shows "Notifications"
   await expect(adminPage.getByText('Notifications', { exact: true })).toBeVisible();
@@ -63,7 +60,6 @@ test('2.3 - Notification dropdown shows Notifications heading in footer', async 
 
 test('2.4 - Notification dropdown shows Read All when notifications exist', async ({ adminPage }) => {
   await adminPage.locator('[title="Notifications"]').click();
-  await adminPage.waitForTimeout(500);
 
   // Read All only appears when there are notifications
   const readAll = adminPage.getByText('Read All');
@@ -80,7 +76,9 @@ test('2.4 - Notification dropdown shows Read All when notifications exist', asyn
 
 test('2.5 - Notification dropdown displays notification entries with title, description, and time', async ({ adminPage }) => {
   await adminPage.locator('[title="Notifications"]').click();
-  await adminPage.waitForTimeout(1000);
+
+  // Wait for the dropdown to be fully loaded
+  await expect(adminPage.getByText('Notifications', { exact: true })).toBeVisible();
 
   // Check if there are notification entries inside the dropdown
   const entries = adminPage.locator('[title="Notifications"]').locator('..').locator('a');
@@ -100,9 +98,10 @@ test('2.5 - Notification dropdown displays notification entries with title, desc
 
 test('3.1 - Navigate to Notification History page via View All link', async ({ adminPage }) => {
   await adminPage.locator('[title="Notifications"]').click();
-  await adminPage.waitForTimeout(500);
 
-  await adminPage.getByRole('link', { name: 'View All' }).click();
+  const viewAllLink = adminPage.getByRole('link', { name: 'View All' });
+  await expect(viewAllLink).toBeVisible();
+  await viewAllLink.click();
   await adminPage.waitForLoadState('networkidle');
 
   await expect(adminPage).toHaveURL(/\/admin\/notifications/);

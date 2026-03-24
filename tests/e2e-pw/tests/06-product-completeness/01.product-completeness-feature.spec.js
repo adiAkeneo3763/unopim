@@ -65,7 +65,7 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await adminPage.getByRole('combobox').locator('div').filter({ hasText: 'Select option' }).click();
     await adminPage.getByRole('option', { name: 'General' }).locator('span').first().click();
     await adminPage.getByRole('button', { name: 'Assign Attribute Group' }).click();
-    await adminPage.waitForTimeout(200);
+    await adminPage.waitForLoadState('networkidle');
     const attributes = ['sku', 'Name', 'price', 'Description'];
     for (const attr of attributes) {
     const dragHandle = await adminPage.locator(`#unassigned-attributes i.icon-drag:near(:text("${attr}"))`).first();
@@ -196,7 +196,7 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     const itemRow = adminPage.locator('div', { hasText: 'displaycompletensstab' });
     await itemRow.locator('span[title="Edit"]').first().click();
     await adminPage.waitForSelector('#assigned-attribute-groups', { state: 'visible' });
-    await adminPage.waitForTimeout(1000);
+    await adminPage.waitForLoadState('networkidle');
     const assignedCount = await adminPage
     .locator('#assigned-attribute-groups .ltr\\:ml-11 [data-draggable="true"]').count();
     console.log(`Number of assigned attributes (excluding groups): ${assignedCount}`);
@@ -211,7 +211,7 @@ test('Create a new channel and assigned multiple locale and currency', async ({ 
     await adminPage.getByRole('textbox', { name: 'Search by code' }).click();
     await adminPage.getByRole('textbox', { name: 'Search by code' }).fill('af_ZA');
     await adminPage.keyboard.press('Enter');
-    await adminPage.waitForTimeout(1000);
+    await adminPage.waitForLoadState('networkidle');
     const itemRow = adminPage.locator('div', { hasText: 'af_ZAAfrikaans (South Africa)' });
     await itemRow.locator('span[title="Edit"]').first().click();
     const statusCheckbox = adminPage.locator('input[name="status"]');
@@ -227,7 +227,7 @@ test('Create a new channel and assigned multiple locale and currency', async ({ 
     await adminPage.getByRole('textbox', { name: 'Search by code or id' }).click();
     await adminPage.getByRole('textbox', { name: 'Search by code or id' }).type('adp');
     await adminPage.keyboard.press('Enter');
-    await adminPage.waitForTimeout(1000);
+    await adminPage.waitForLoadState('networkidle');
     const itemRow1 = adminPage.locator('div', { hasText: 'ADPAndorran Peseta' });
     await itemRow1.locator('span[title="Edit"]').first().click();
     const currencyStatus = adminPage.locator('input[name="status"]');
