@@ -10,46 +10,28 @@
 - Removed `Kernel.php` classes, individual middleware files, and legacy service providers (replaced by `bootstrap/app.php`).
 
 ### Features
-- Added **AI Agent Chat** interface for conversational product management with 27+ PIM tool actions accessible via natural language (search, create, update, delete, bulk edit, export, categorize, generate content/images, etc.).
+- Added **AI Agent Chat** interface for conversational product management with 32+ PIM tool actions accessible via natural language (search, create, update, delete, bulk edit, export, categorize, generate content/images, memory, planning, quality reports, etc.).
 - Added **Multi-Platform MagicAI** with support for 10+ AI providers (OpenAI, Anthropic, Gemini, Groq, Ollama, XAI, Mistral, DeepSeek, Azure, OpenRouter) with database-backed credential management and encrypted API key storage.
 - Added **AI-Powered Search** with `EmbeddingSimilarityService` and `SemanticRankingService` for intelligent product discovery.
+- Added **Swatch Types** for select and multiselect attributes with support for color, image, and text swatches, including datagrid preview, product page display, and API endpoints.
 - Added **Enhanced Dashboard** with channel readiness, product trends, recent activity, needs-attention, product stats, and data transfer status widgets.
 - Added **Import/Export Tracker UI** with real-time step pipeline visualization, job-specific logging, and ZIP image upload modal with drag-and-drop support.
+- Added **Drag-and-Drop File Upload** support in import job file uploader for CSV, XLSX, and XLS files.
+- Added **Pause, Resume, and Cancel** controls for both import and export jobs during processing.
 - Added **Completeness Queue** as separate queue with dedicated provider support.
 
 ### Improvements
 - Optimized **Export Pipeline**: eager loading of `super_attributes`/`parent`/`attribute_family`, cached `initialize()` per export ID, increased `BATCH_SIZE` to 200.
-- Optimized **Import Pipeline**: deferred indexing, field processor improvements, and batch state tracking for high-volume CSV/XLSX processing.
+- Optimized **Import Pipeline**: deferred indexing, field processor improvements, batch state tracking, configurable batch sizes and bulk chunk sizes for high-volume CSV/XLSX processing.
+- Optimized **Category Export** performance by replacing in-memory product loading with direct count queries, preventing timeout on large catalogs.
 - Replaced `ImageManager` with new **ImageCache** system featuring deferred execution, closure hashing, and ETag support.
 - Replaced individual MagicAI provider service classes with unified `LaravelAiAdapter`.
-- Added **CI/CD improvements**: translation auditing workflow, Composer caching, concurrency groups, PHP 8.3 and Node.js 20 across all workflows.
-
-### Dependency Updates
-- Upgraded `laravel/framework` to `^12.0`, `laravel/sanctum` to `^4.0`, `diglactic/laravel-breadcrumbs` to `^10.0`.
-- Upgraded `pestphp/pest` to `^3.0`, `phpunit/phpunit` to `^11.0`, `nunomaduro/collision` to `^8.0`.
-- Added `laravel/ai` `^0.3.2` and `laravel/boost` `^2.1` as new dependencies.
-
----
-
-# v1.1.x
-
-## v1.1.0
-
-### Features
-- Added **Swatch Types** for select and multiselect attributes with support for color, image, and text swatches, including datagrid preview, product page display, and API endpoints.
-- Added **ZIP Image Upload** support for import jobs, allowing bulk media upload via ZIP files alongside CSV/XLSX.
-- Added **Import/Export Tracker UI** with real-time progress tracking, step pipeline visualization, and job-specific logging.
-- Added **Drag-and-Drop File Upload** support in import job file uploader for CSV, XLSX, and XLS files.
-- Added **Pause, Resume, and Cancel** controls for both import and export jobs during processing.
-
-### Improvements
-- Optimized **Import Pipeline** for high-volume CSV/XLSX processing with configurable batch sizes and bulk chunk sizes.
-- Optimized **Category Export** performance by replacing in-memory product loading with direct count queries, preventing timeout on large catalogs.
-- Added `$tries` and `$timeout` configuration to export batch jobs for improved queue reliability.
 - Updated **Magic AI** with latest OpenAI and Gemini text/image generation models.
 - Improved **Elasticsearch Filters** for SKU, text, and option filters with better array and CONTAINS handling.
 - Improved **Swatch Type** validation with dedicated `ValidSwatchValue` rule and attribute option validation.
+- Added `$tries` and `$timeout` configuration to export batch jobs for improved queue reliability.
 - Added translation strings for all tracker UI elements, removing hardcoded static text.
+- Added **CI/CD improvements**: translation auditing workflow, Composer caching, concurrency groups, PHP 8.3 and Node.js 20 across all workflows.
 
 ### Bug Fixes
 - Fixed category export job failing due to loading all products into memory for count queries.
@@ -65,6 +47,13 @@
 - Fixed attribute validation for swatch type fields in translation blocks.
 - Fixed pause/resume for import and export jobs — paused batches are now re-dispatched on resume.
 - Fixed export pause/cancel not stopping running batch jobs (added `shouldStop()` check).
+
+### Dependency Updates
+- Upgraded `laravel/framework` to `^12.0`, `laravel/sanctum` to `^4.0`, `diglactic/laravel-breadcrumbs` to `^10.0`.
+- Upgraded `pestphp/pest` to `^3.0`, `phpunit/phpunit` to `^11.0`, `nunomaduro/collision` to `^8.0`.
+- Added `laravel/ai` `^0.3.2` and `laravel/boost` `^2.1` as new dependencies.
+
+---
 
 # v1.0.x
 

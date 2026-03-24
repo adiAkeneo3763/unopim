@@ -8,6 +8,7 @@ return [
             ],
         ],
     ],
+
     'catalog' => [
         'families' => [
             'edit' => [
@@ -19,17 +20,20 @@ return [
                     'save-btn'            => 'Save',
                     'back-btn'            => 'Back',
                     'mass-update-success' => 'Completeness updated successfully',
-                    'datagrid'            => [
+
+                    'datagrid' => [
                         'code'             => 'Code',
                         'name'             => 'Name',
                         'channel-required' => 'Required in Channels',
-                        'actions'          => [
+
+                        'actions' => [
                             'change-requirement' => 'Change Completeness Requirement',
                         ],
                     ],
                 ],
             ],
         ],
+
         'products' => [
             'index' => [
                 'datagrid' => [
@@ -37,15 +41,18 @@ return [
                     'completeness'                 => 'Complete',
                 ],
             ],
+
             'edit' => [
                 'completeness' => [
                     'title'    => 'Completeness',
                     'subtitle' => 'Average completeness',
                 ],
+
                 'required-attributes' => 'missing required attributes',
             ],
         ],
     ],
+
     'notifications' => [
         'completeness-title'             => 'Completeness Calculation Completed',
         'completeness-calculated'        => 'Completeness calculated for :count products.',
@@ -56,11 +63,13 @@ return [
         'email-body-family'              => 'The completeness calculation has been completed for :count products in attribute family ":family".',
         'email-footer'                   => 'You can view the completeness details on your dashboard.',
     ],
+
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Calculated products',
-                'suggestion'          => [
+
+                'suggestion' => [
                     'low'     => 'Low completeness, add details to improve.',
                     'medium'  => 'Keep going, continue adding information.',
                     'high'    => 'Almost complete, just a few details left.',

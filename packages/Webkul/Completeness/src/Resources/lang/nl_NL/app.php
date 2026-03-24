@@ -8,6 +8,7 @@ return [
             ],
         ],
     ],
+
     'catalog' => [
         'families' => [
             'edit' => [
@@ -19,33 +20,39 @@ return [
                     'save-btn'            => 'Opslaan',
                     'back-btn'            => 'Terug',
                     'mass-update-success' => 'Volledigheid succesvol bijgewerkt',
-                    'datagrid'            => [
+
+                    'datagrid' => [
                         'code'             => 'Code',
                         'name'             => 'Naam',
                         'channel-required' => 'Vereist in kanalen',
-                        'actions'          => [
-                            'change-requirement' => 'Wijzig voltooiingsvereiste',
+
+                        'actions' => [
+                            'change-requirement' => 'Volledigheidsvereiste wijzigen',
                         ],
                     ],
                 ],
             ],
         ],
+
         'products' => [
             'index' => [
                 'datagrid' => [
-                    'missing-completeness-setting' => 'Geen instelling',
+                    'missing-completeness-setting' => 'N/A',
                     'completeness'                 => 'Volledig',
                 ],
             ],
+
             'edit' => [
                 'completeness' => [
                     'title'    => 'Volledigheid',
-                    'subtitle' => 'Gemiddelde voltooiing',
+                    'subtitle' => 'Gemiddelde volledigheid',
                 ],
+
                 'required-attributes' => 'ontbrekende verplichte attributen',
             ],
         ],
     ],
+
     'notifications' => [
         'completeness-title'             => 'Volledigheidsberekening voltooid',
         'completeness-calculated'        => 'Volledigheid berekend voor :count producten.',
@@ -56,14 +63,16 @@ return [
         'email-body-family'              => 'De volledigheidsberekening is voltooid voor :count producten in attribuutfamilie ":family".',
         'email-footer'                   => 'U kunt de volledigheidsdetails bekijken op uw dashboard.',
     ],
+
     'dashboard' => [
         'index' => [
             'completeness' => [
                 'calculated-products' => 'Berekende producten',
-                'suggestion'          => [
-                    'low'     => 'Lage voltooiing — voeg details toe om te verbeteren.',
+
+                'suggestion' => [
+                    'low'     => 'Lage volledigheid, voeg details toe om te verbeteren.',
                     'medium'  => 'Ga door, blijf informatie toevoegen.',
-                    'high'    => 'Bijna voltooid, er blijven nog een paar details over.',
+                    'high'    => 'Bijna volledig, nog maar een paar details over.',
                     'perfect' => 'Productinformatie is volledig compleet.',
                 ],
             ],

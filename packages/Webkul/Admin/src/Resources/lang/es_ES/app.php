@@ -1672,7 +1672,7 @@ return [
             ],
             'create' => [
                 'access-control' => 'Control de acceso',
-                'all'            => 'All',
+                'all'            => 'Todos',
                 'back-btn'       => 'Atrás',
                 'custom'         => 'Costumbre',
                 'assign-user'    => 'Asignar usuario',
@@ -1684,7 +1684,7 @@ return [
             ],
             'edit' => [
                 'access-control' => 'Control de acceso',
-                'all'            => 'All',
+                'all'            => 'Todos',
                 'back-btn'       => 'Atrás',
                 'custom'         => 'Costumbre',
                 'assign-user'    => 'Asignar usuario',
