@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => '無効なダッシュボードウィジェットタイプです。',
+
         'index' => [
             'title'                => 'ダッシュボード',
             'user-info'            => 'PIM で何がカウントされているかをすばやく監視',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'ジョブ',
             ],
             'imports' => [
+                'import-start-fail' => 'インポート処理を開始できませんでした。もう一度お試しください。',
+
                 'create' => [
                     'code'                => 'コード',
                     'action'              => 'アクション',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'プラットフォームがデフォルトに設定されました。',
                 'test-success'          => '接続が正常に確認されました！',
                 'test-fail'             => '接続テストに失敗しました',
+                'fetch-models-fail'     => 'モデルを取得できませんでした',
                 'invalid-model-names'   => '無効なモデル名: :names。モデル名は英数字で始まり、英数字、ハイフン、ドット、コロン、スラッシュのみ使用できます。',
             ],
         ],

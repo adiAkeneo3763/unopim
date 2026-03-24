@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => 'Tipe widget dasbor tidak valid.',
+
         'index' => [
             'title'                => 'Dasbor',
             'user-info'            => 'Pemantauan dengan cepat, apa \'s count in your PIM',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'Tugas',
             ],
             'imports' => [
+                'import-start-fail' => 'Gagal memulai proses impor. Silakan coba lagi.',
+
                 'create' => [
                     'code'                => 'Kode',
                     'action'              => 'Tindakan',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'Platform berhasil ditetapkan sebagai default.',
                 'test-success'          => 'Koneksi berhasil diverifikasi!',
                 'test-fail'             => 'Uji koneksi gagal',
+                'fetch-models-fail'     => 'Tidak dapat mengambil model',
                 'invalid-model-names'   => 'Nama model tidak valid: :names. Nama model harus dimulai dengan huruf atau angka dan hanya berisi huruf, angka, tanda hubung, titik, titik dua, dan garis miring.',
             ],
         ],

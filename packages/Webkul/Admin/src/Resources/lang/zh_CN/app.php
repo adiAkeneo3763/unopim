@@ -73,7 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
-        'index' => [
+        'invalid-type' => '无效的仪表板小部件类型。',
+        'index'        => [
             'title'                => '仪表板',
             'user-info'            => '快速监控您的 PIM 中的数据概况',
             'user-name'            => '你好！:user_name',
@@ -1153,7 +1154,8 @@ return [
                 'job-label'             => '任务',
             ],
             'imports' => [
-                'create' => [
+                'import-start-fail' => '无法启动导入流程，请重试。',
+                'create'            => [
                     'code'                => '代码',
                     'action'              => '行动',
                     'allowed-errors'      => '允许错误',
@@ -1864,6 +1866,7 @@ return [
                 'set-default-success'   => '平台已成功设为默认。',
                 'test-success'          => '连接验证成功！',
                 'test-fail'             => '连接测试失败',
+                'fetch-models-fail'     => '无法获取模型',
                 'invalid-model-names'   => '无效的模型名称：:names。模型名称必须以字母或数字开头，且仅包含字母、数字、连字符、点、冒号和斜杠。',
             ],
         ],

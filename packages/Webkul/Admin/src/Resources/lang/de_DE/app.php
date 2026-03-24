@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => 'Ungültiger Dashboard-Widget-Typ.',
+
         'index' => [
             'title'                => 'Dashboard',
             'user-info'            => 'Schnelle Überwachung, was in Ihrem PIM zählt',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'Auftrag',
             ],
             'imports' => [
+                'import-start-fail' => 'Der Importvorgang konnte nicht gestartet werden. Bitte versuchen Sie es erneut.',
+
                 'create' => [
                     'code'                => 'Code',
                     'action'              => 'Aktion',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'Plattform erfolgreich als Standard festgelegt.',
                 'test-success'          => 'Verbindung erfolgreich verifiziert!',
                 'test-fail'             => 'Verbindungstest fehlgeschlagen',
+                'fetch-models-fail'     => 'Modelle konnten nicht abgerufen werden',
                 'invalid-model-names'   => 'Ungültige Modellnamen: :names. Modellnamen müssen mit einem Buchstaben oder einer Zahl beginnen und dürfen nur Buchstaben, Zahlen, Bindestriche, Punkte, Doppelpunkte und Schrägstriche enthalten.',
             ],
         ],

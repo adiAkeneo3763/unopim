@@ -73,7 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
-        'index' => [
+        'invalid-type' => 'Nieprawidłowy typ widżetu pulpitu.',
+        'index'        => [
             'title'                => 'Panel sterowania',
             'user-info'            => 'Szybkie monitorowanie, co jest ważne w Twoim PIM',
             'user-name'            => 'Cześć! :user_name',
@@ -1153,7 +1154,8 @@ return [
                 'job-label'             => 'Zadanie',
             ],
             'imports' => [
-                'create' => [
+                'import-start-fail' => 'Nie udało się rozpocząć procesu importu. Spróbuj ponownie.',
+                'create'            => [
                     'code'                => 'Code',
                     'action'              => 'Action',
                     'allowed-errors'      => 'Allowed Errors',
@@ -1864,6 +1866,7 @@ return [
                 'set-default-success'   => 'Platforma została ustawiona jako domyślna pomyślnie.',
                 'test-success'          => 'Połączenie zweryfikowane pomyślnie!',
                 'test-fail'             => 'Test połączenia nie powiódł się',
+                'fetch-models-fail'     => 'Nie udało się pobrać modeli',
                 'invalid-model-names'   => 'Nieprawidłowe nazwy modeli: :names. Nazwy modeli muszą zaczynać się od litery lub cyfry i zawierać tylko litery, cyfry, myślniki, kropki, dwukropki i ukośniki.',
             ],
         ],

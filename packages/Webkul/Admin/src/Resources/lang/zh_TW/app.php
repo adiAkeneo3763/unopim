@@ -73,7 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
-        'index' => [
+        'invalid-type' => '無效的儀表板小工具類型。',
+        'index'        => [
             'title'                => '儀表板',
             'user-info'            => '快速監控，PIM 中的計數',
             'user-name'            => '你好！ :user_name',
@@ -1153,7 +1154,8 @@ return [
                 'job-label'             => '任務',
             ],
             'imports' => [
-                'create' => [
+                'import-start-fail' => '無法啟動匯入程序，請重試。',
+                'create'            => [
                     'code'                => 'Code',
                     'action'              => 'Action',
                     'allowed-errors'      => 'Allowed Errors',
@@ -1864,6 +1866,7 @@ return [
                 'set-default-success'   => '平台已成功設為預設。',
                 'test-success'          => '連線驗證成功！',
                 'test-fail'             => '連線測試失敗',
+                'fetch-models-fail'     => '無法取得模型',
                 'invalid-model-names'   => '無效的模型名稱：:names。模型名稱必須以字母或數字開頭，且僅包含字母、數字、連字號、點、冒號和斜線。',
             ],
         ],

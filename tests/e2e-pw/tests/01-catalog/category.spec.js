@@ -103,12 +103,10 @@ test.describe('UnoPim Category', () => {
     await adminPage.waitForTimeout(500);
     await adminPage.getByRole('link', { name: 'Categories' }).click();
     await adminPage.waitForTimeout(500);
-    await adminPage.getByRole('button', { name: '' }).click();
-    await adminPage.waitForTimeout(500);
+    const perPageBtn = adminPage.getByRole('button', { name: 'Per Page' });
+    await perPageBtn.click();
     await adminPage.getByText('20', { exact: true }).click();
-    await adminPage.waitForTimeout(500);
-    await expect(adminPage.getByRole('button', { name: '' })).toContainText('20');
-    await adminPage.waitForTimeout(500);
+    await expect(perPageBtn).toContainText('20');
   });
 
   test('should perform actions on a category (Edit, Delete)', async ({ adminPage }) => {

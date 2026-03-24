@@ -3,6 +3,7 @@
 namespace Webkul\Admin\Http\Controllers\MagicAI;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Prism\Prism\Facades\Prism;
@@ -161,7 +162,12 @@ class MagicAIPlatformController extends Controller
     {
         $platform = $this->platformRepository->findOrFail($id);
 
-        $this->platformRepository->update(['is_default' => true], $id);
+        DB::transaction(function () use ($id) {
+            // Unset all other defaults first
+            DB::table('magic_ai_platforms')->where('is_default', true)->update(['is_default' => false]);
+            // Set the chosen platform as default
+            $this->platformRepository->update(['is_default' => true], $id);
+        });
 
         return new JsonResponse([
             'message' => trans('admin::app.configuration.platform.message.set-default-success'),
@@ -229,7 +235,7 @@ class MagicAIPlatformController extends Controller
             ]);
         } catch (\Exception $e) {
             return new JsonResponse([
-                'message' => 'Could not fetch models: '.$e->getMessage(),
+                'message' => trans('admin::app.configuration.platform.message.fetch-models-fail').': '.$e->getMessage(),
             ], 400);
         }
     }

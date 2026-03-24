@@ -73,7 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
-        'index' => [
+        'invalid-type' => 'Geçersiz pano bileşen türü.',
+        'index'        => [
             'title'                => 'Gösterge Paneli',
             'user-info'            => 'Hızlı izleme, PIM\'nizde neyin sayıldığını',
             'user-name'            => 'Merhaba! :user_name',
@@ -1153,7 +1154,8 @@ return [
                 'job-label'             => 'İş',
             ],
             'imports' => [
-                'create' => [
+                'import-start-fail' => 'İçe aktarma işlemi başlatılamadı. Lütfen tekrar deneyin.',
+                'create'            => [
                     'code'                => 'Code',
                     'action'              => 'Action',
                     'allowed-errors'      => 'Allowed Errors',
@@ -1864,6 +1866,7 @@ return [
                 'set-default-success'   => 'Platform başarıyla varsayılan olarak ayarlandı.',
                 'test-success'          => 'Bağlantı başarıyla doğrulandı!',
                 'test-fail'             => 'Bağlantı testi başarısız oldu',
+                'fetch-models-fail'     => 'Modeller alınamadı',
                 'invalid-model-names'   => 'Geçersiz model adları: :names. Model adları bir harf veya rakamla başlamalı ve yalnızca harf, rakam, tire, nokta, iki nokta üst üste ve eğik çizgi içermelidir.',
             ],
         ],

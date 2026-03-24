@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => 'Nevaljan tip widgeta nadzorne ploče.',
+
         'index' => [
             'title'                => 'Nadzorna ploča',
             'user-info'            => 'Brzi pregled važnih podataka u vašem PIM-u',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'Zadatak',
             ],
             'imports' => [
+                'import-start-fail' => 'Pokretanje procesa uvoza nije uspjelo. Pokušajte ponovno.',
+
                 'create' => [
                     'code'                => 'Code',
                     'action'              => 'Action',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'Platforma uspješno postavljena kao zadana.',
                 'test-success'          => 'Veza uspješno provjerena!',
                 'test-fail'             => 'Test veze nije uspio',
+                'fetch-models-fail'     => 'Dohvaćanje modela nije uspjelo',
                 'invalid-model-names'   => 'Nevažeći nazivi modela: :names. Nazivi modela moraju započinjati slovom ili brojem i sadržavati samo slova, brojeve, crtice, točke, dvotočke i kose crte.',
             ],
         ],

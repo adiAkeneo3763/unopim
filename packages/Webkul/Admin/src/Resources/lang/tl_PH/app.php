@@ -73,7 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
-        'index' => [
+        'invalid-type' => 'Hindi wastong uri ng widget ng dashboard.',
+        'index'        => [
             'title'                => 'Dashboard',
             'user-info'            => 'Madaling pag-momonitor kung ano ang bilang sa iyong PIM',
             'user-name'            => 'Hi! :user_name',
@@ -1153,7 +1154,8 @@ return [
                 'job-label'             => 'Trabaho',
             ],
             'imports' => [
-                'create' => [
+                'import-start-fail' => 'Hindi masimulan ang proseso ng pag-import. Pakisubukan muli.',
+                'create'            => [
                     'code'                => 'Code',
                     'action'              => 'Action',
                     'allowed-errors'      => 'Allowed Errors',
@@ -1864,6 +1866,7 @@ return [
                 'set-default-success'   => 'Matagumpay na naitakda ang platform bilang default.',
                 'test-success'          => 'Matagumpay na na-verify ang koneksyon!',
                 'test-fail'             => 'Nabigo ang pagsubok sa koneksyon',
+                'fetch-models-fail'     => 'Hindi makuha ang mga modelo',
                 'invalid-model-names'   => 'Hindi wastong mga pangalan ng modelo: :names. Ang mga pangalan ng modelo ay dapat magsimula sa titik o numero at maglaman lamang ng mga titik, numero, gitling, tuldok, tutuldok, at pahilis.',
             ],
         ],

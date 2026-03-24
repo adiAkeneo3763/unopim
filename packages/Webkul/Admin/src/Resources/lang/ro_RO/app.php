@@ -73,7 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
-        'index' => [
+        'invalid-type' => 'Tip de widget al panoului de control invalid.',
+        'index'        => [
             'title'                => 'Tabloul de bord',
             'user-info'            => 'Monitorizare rapidă a ceea ce contează în PIM-ul tău',
             'user-name'            => 'Salut! :user_name',
@@ -1153,7 +1154,8 @@ return [
                 'job-label'             => 'Sarcină',
             ],
             'imports' => [
-                'create' => [
+                'import-start-fail' => 'Procesul de import nu a putut fi pornit. Vă rugăm să încercați din nou.',
+                'create'            => [
                     'code'                => 'Code',
                     'action'              => 'Action',
                     'allowed-errors'      => 'Allowed Errors',
@@ -1864,6 +1866,7 @@ return [
                 'set-default-success'   => 'Platforma a fost setată ca implicită cu succes.',
                 'test-success'          => 'Conexiunea a fost verificată cu succes!',
                 'test-fail'             => 'Testul conexiunii a eșuat',
+                'fetch-models-fail'     => 'Modelele nu au putut fi obținute',
                 'invalid-model-names'   => 'Nume de model invalide: :names. Numele de model trebuie să înceapă cu o literă sau un număr și să conțină doar litere, cifre, cratime, puncte, două puncte și bare oblice.',
             ],
         ],

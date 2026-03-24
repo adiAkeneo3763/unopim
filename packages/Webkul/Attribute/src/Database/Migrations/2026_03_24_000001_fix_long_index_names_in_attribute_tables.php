@@ -72,7 +72,7 @@ return new class extends Migration
             }
 
             // If neither exists, the original migration used a different name — leave it alone
-        } catch (\Throwable) {
+        } catch (Throwable) {
             // Silently skip — index naming is non-critical
         }
     }

@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => 'Tipus de widget del tauler no vàlid.',
+
         'index' => [
             'title'                => 'Tauler de control',
             'user-info'            => 'Monitorització ràpida, què compta al vostre PIM',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'Tasca',
             ],
             'imports' => [
+                'import-start-fail' => 'No s\'ha pogut iniciar el procés d\'importació. Torneu-ho a provar.',
+
                 'create' => [
                     'code'                => 'Codi',
                     'action'              => 'Acció',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'Plataforma establerta com a predeterminada correctament.',
                 'test-success'          => 'Connexió verificada correctament!',
                 'test-fail'             => 'La prova de connexió ha fallat',
+                'fetch-models-fail'     => 'No s\'han pogut obtenir els models',
                 'invalid-model-names'   => 'Noms de model no vàlids: :names. Els noms de model han de començar amb una lletra o un número i contenir només lletres, números, guions, punts, dos punts i barres.',
             ],
         ],

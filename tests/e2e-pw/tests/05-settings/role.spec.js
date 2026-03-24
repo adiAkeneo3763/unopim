@@ -107,8 +107,11 @@ test('Create Custom Roles', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: ' Settings' }).click();
   await adminPage.getByRole('link', { name: 'Roles' }).click();
   await adminPage.getByRole('link', { name: 'Create Role' }).click();
-  await adminPage.locator('label').filter({ hasText: 'Dashboard' }).locator('span').click();
-  await adminPage.locator('label').filter({ hasText: 'Catalog' }).locator('span').click();
+  await adminPage.waitForLoadState('networkidle');
+  const dashboardLabel = adminPage.locator('label').filter({ hasText: 'Dashboard' }).locator('span').first();
+  await dashboardLabel.waitFor({ state: 'visible', timeout: 10000 });
+  await dashboardLabel.click();
+  await adminPage.locator('label').filter({ hasText: 'Catalog' }).locator('span').first().click();
   await adminPage.getByRole('textbox', { name: 'Name' }).click();
   await adminPage.getByRole('textbox', { name: 'Name' }).fill('Catalog Manager');
   await adminPage.getByRole('textbox', { name: 'Description' }).click();
@@ -122,8 +125,10 @@ test('Update Custom Roles', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: 'Roles' }).click();
   const itemRow = adminPage.locator('div', { hasText: 'Catalog Manager' });
   await itemRow.locator('span[title="Edit"]').first().click();
-  await adminPage.waitForTimeout(500);
-  await adminPage.locator('label').filter({ hasText: 'Categories' }).locator('span').click();
+  await adminPage.waitForLoadState('networkidle');
+  const categoriesLabel = adminPage.locator('label').filter({ hasText: 'Categories' }).locator('span').first();
+  await categoriesLabel.waitFor({ state: 'visible', timeout: 10000 });
+  await categoriesLabel.click();
   await adminPage.getByRole('button', { name: 'Save Role' }).click();
   await expect(adminPage.getByText(/Roles is updated successfully./i).first()).toBeVisible();
 });

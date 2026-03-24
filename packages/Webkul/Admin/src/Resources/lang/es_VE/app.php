@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => 'Tipo de widget del panel no válido.',
+
         'index' => [
             'title'                => 'Tablero',
             'user-info'            => 'Monitoreo rápido, qué se cuenta en tu PIM',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'Trabajo',
             ],
             'imports' => [
+                'import-start-fail' => 'No se pudo iniciar el proceso de importación. Inténtelo de nuevo.',
+
                 'create' => [
                     'code'                => 'Code',
                     'action'              => 'Action',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'Plataforma establecida como predeterminada exitosamente.',
                 'test-success'          => '¡Conexión verificada exitosamente!',
                 'test-fail'             => 'La prueba de conexión falló',
+                'fetch-models-fail'     => 'No se pudieron obtener los modelos',
                 'invalid-model-names'   => 'Nombres de modelo no válidos: :names. Los nombres de modelo deben comenzar con una letra o número y contener solo letras, números, guiones, puntos, dos puntos y barras.',
             ],
         ],

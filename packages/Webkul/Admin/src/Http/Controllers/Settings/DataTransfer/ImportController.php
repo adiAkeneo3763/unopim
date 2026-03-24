@@ -301,8 +301,8 @@ class ImportController extends Controller
 
             $batchId = $jobTrackInstance?->id ?? $id;
 
-            return redirect()->route('admin.settings.data_transfer.tracker.view', ['batch_id' => $batchId])
-                ->with('error', 'Failed to start the import process. Please try again.');
+            return redirect()->route('admin.settings.data_transfer.tracker.view', $batchId)
+                ->with('error', trans('admin::app.settings.data-transfer.imports.import-start-fail'));
         }
     }
 

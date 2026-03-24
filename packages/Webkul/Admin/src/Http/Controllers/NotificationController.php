@@ -48,13 +48,10 @@ class NotificationController extends Controller
     }
 
     /**
-     * Update the notification is reade or not.
+     * Mark notification as read and redirect to its route.
      *
      * @param  int  $id
      * @return View
-     *              Returns a view for redirection if the notification has a route.//+
-     *              Returns a back redirect if no route is associated with the notification.//+
-     *              Returns a 404 error if the notification does not exist
      */
     public function viewedNotifications($id)
     {

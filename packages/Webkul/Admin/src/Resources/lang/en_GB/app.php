@@ -73,7 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
-        'index' => [
+        'invalid-type' => 'Invalid dashboard widget type.',
+        'index'        => [
             'title'                => 'Dashboard',
             'user-info'            => 'Quickly monitor what counts in your PIM',
             'user-name'            => 'Hi! :user_name',
@@ -1153,7 +1154,8 @@ return [
                 'job-label'             => 'Job',
             ],
             'imports' => [
-                'create' => [
+                'import-start-fail' => 'Failed to start the import process. Please try again.',
+                'create'            => [
                     'code'                => 'Code',
                     'action'              => 'Action',
                     'allowed-errors'      => 'Allowed Errors',
@@ -1864,6 +1866,7 @@ return [
                 'set-default-success'   => 'Platform set as default successfully.',
                 'test-success'          => 'Connection verified successfully!',
                 'test-fail'             => 'Connection test failed',
+                'fetch-models-fail'     => 'Could not fetch models',
                 'invalid-model-names'   => 'Invalid model names: :names. Model names must start with a letter or number and contain only letters, numbers, hyphens, dots, colons, and slashes.',
             ],
         ],

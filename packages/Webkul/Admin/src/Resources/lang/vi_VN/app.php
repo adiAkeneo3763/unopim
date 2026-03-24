@@ -73,7 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
-        'index' => [
+        'invalid-type' => 'Loại tiện ích bảng điều khiển không hợp lệ.',
+        'index'        => [
             'title'                => 'Bảng điều khiển',
             'user-info'            => 'Giám sát nhanh, những gì được tính trong PIM của bạn',
             'user-name'            => 'Xin chào! :user_name',
@@ -1153,7 +1154,8 @@ return [
                 'job-label'             => 'Công việc',
             ],
             'imports' => [
-                'create' => [
+                'import-start-fail' => 'Không thể bắt đầu quá trình nhập. Vui lòng thử lại.',
+                'create'            => [
                     'code'                => 'Code',
                     'action'              => 'Action',
                     'allowed-errors'      => 'Allowed Errors',
@@ -1864,6 +1866,7 @@ return [
                 'set-default-success'   => 'Nền tảng đã được đặt làm mặc định thành công.',
                 'test-success'          => 'Kết nối đã được xác minh thành công!',
                 'test-fail'             => 'Kiểm tra kết nối thất bại',
+                'fetch-models-fail'     => 'Không thể lấy danh sách mô hình',
                 'invalid-model-names'   => 'Tên mô hình không hợp lệ: :names. Tên mô hình phải bắt đầu bằng chữ cái hoặc số và chỉ chứa chữ cái, số, dấu gạch ngang, dấu chấm, dấu hai chấm và dấu gạch chéo.',
             ],
         ],

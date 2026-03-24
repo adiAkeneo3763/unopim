@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => 'Ugyldig dashboard-widgettype.',
+
         'index' => [
             'title'                => 'Dashboard',
             'user-info'            => 'Hurtigt overblik over din PIM',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'Job',
             ],
             'imports' => [
+                'import-start-fail' => 'Importen kunne ikke startes. Prøv igen.',
+
                 'create' => [
                     'code'                => 'Kode',
                     'action'              => 'Handling',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'Platform angivet som standard med succes.',
                 'test-success'          => 'Forbindelse bekræftet med succes!',
                 'test-fail'             => 'Forbindelsestest mislykkedes',
+                'fetch-models-fail'     => 'Kunne ikke hente modeller',
                 'invalid-model-names'   => 'Ugyldige modelnavne: :names. Modelnavne skal starte med et bogstav eller tal og kun indeholde bogstaver, tal, bindestreger, punktummer, koloner og skråstreger.',
             ],
         ],

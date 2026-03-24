@@ -52,7 +52,7 @@ class DashboardController extends Controller
         $type = request()->query('type');
 
         if (! isset($this->typeFunctions[$type])) {
-            return response()->json(['error' => 'Invalid type'], 400);
+            return response()->json(['message' => trans('admin::app.dashboard.invalid-type')], 400);
         }
 
         $stats = $this->dashboardHelper->{$this->typeFunctions[$type]}();

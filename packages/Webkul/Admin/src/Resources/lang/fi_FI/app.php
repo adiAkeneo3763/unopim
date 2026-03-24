@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => 'Virheellinen hallintapaneelin widget-tyyppi.',
+
         'index' => [
             'title'                => 'Kojelauta',
             'user-info'            => 'Seuraa nopeasti PIM:si tärkeimpiä avainlukuja',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'Työ',
             ],
             'imports' => [
+                'import-start-fail' => 'Tuontiprosessin käynnistäminen epäonnistui. Yritä uudelleen.',
+
                 'create' => [
                     'code'                => 'Koodi',
                     'action'              => 'Toiminto',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'Alusta asetettu oletukseksi onnistuneesti.',
                 'test-success'          => 'Yhteys vahvistettu onnistuneesti!',
                 'test-fail'             => 'Yhteystesti epäonnistui',
+                'fetch-models-fail'     => 'Mallien haku epäonnistui',
                 'invalid-model-names'   => 'Virheelliset mallien nimet: :names. Mallien nimien on alettava kirjaimella tai numerolla ja sisällettävä vain kirjaimia, numeroita, väliviivoja, pisteitä, kaksoispisteitä ja kauttaviivoja.',
             ],
         ],

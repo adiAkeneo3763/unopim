@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => 'Ongeldig dashboardwidgettype.',
+
         'index' => [
             'title'                => 'Dashboard',
             'user-info'            => 'Snel monitoren, wat \'s count in your PIM',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'Taak',
             ],
             'imports' => [
+                'import-start-fail' => 'Het importproces kon niet worden gestart. Probeer het opnieuw.',
+
                 'create' => [
                     'code'                => 'Code',
                     'action'              => 'Actie',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'Platform succesvol als standaard ingesteld.',
                 'test-success'          => 'Verbinding succesvol geverifieerd!',
                 'test-fail'             => 'Verbindingstest mislukt',
+                'fetch-models-fail'     => 'Modellen konden niet worden opgehaald',
                 'invalid-model-names'   => 'Ongeldige modelnamen: :names. Modelnamen moeten beginnen met een letter of cijfer en mogen alleen letters, cijfers, koppeltekens, punten, dubbele punten en schuine strepen bevatten.',
             ],
         ],

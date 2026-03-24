@@ -73,6 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
+        'invalid-type' => 'Type de widget du tableau de bord non valide.',
+
         'index' => [
             'title'                => 'Tableau de bord',
             'user-info'            => 'Aperçu rapide du contenu du PIM',
@@ -1153,6 +1155,8 @@ return [
                 'job-label'             => 'Tâche',
             ],
             'imports' => [
+                'import-start-fail' => 'Échec du démarrage du processus d\'importation. Veuillez réessayer.',
+
                 'create' => [
                     'code'                => 'Code',
                     'action'              => 'Action',
@@ -1864,6 +1868,7 @@ return [
                 'set-default-success'   => 'Plateforme définie par défaut avec succès.',
                 'test-success'          => 'Connexion vérifiée avec succès !',
                 'test-fail'             => 'Échec du test de connexion',
+                'fetch-models-fail'     => 'Impossible de récupérer les modèles',
                 'invalid-model-names'   => 'Noms de modèle invalides : :names. Les noms de modèle doivent commencer par une lettre ou un chiffre et ne contenir que des lettres, chiffres, tirets, points, deux-points et barres obliques.',
             ],
         ],

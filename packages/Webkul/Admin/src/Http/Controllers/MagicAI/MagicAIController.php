@@ -147,9 +147,16 @@ class MagicAIController extends Controller
                 $maxTokens = (int) ($maxTokens ?? 1054);
             } else {
                 $toneData = MagicAISystemPrompt::where('id', $tone)->first(['tone', 'temperature', 'max_tokens']);
-                $toneText = $toneData->tone;
-                $temperature = $toneData->temperature;
-                $maxTokens = $toneData->max_tokens;
+
+                if ($toneData !== null) {
+                    $toneText = $toneData->tone;
+                    $temperature = $toneData->temperature;
+                    $maxTokens = $toneData->max_tokens;
+                } else {
+                    $toneText = '';
+                    $temperature = (float) ($temperature ?? 0.7);
+                    $maxTokens = (int) ($maxTokens ?? 1054);
+                }
             }
 
             $prompt .= "\n\nGenerated content should be in {$locale}.";
@@ -264,7 +271,7 @@ class MagicAIController extends Controller
             'prompt'    => 'required',
             'title'     => 'required',
             'type'      => 'required',
-            'purpose'   => 'required|in:text_generation,image_generation',
+            'purpose'   => 'required|in:text_generation,image_generation,translation',
             'tone'      => 'nullable',
         ]);
 
@@ -298,7 +305,7 @@ class MagicAIController extends Controller
             'prompt'    => 'required',
             'title'     => 'required',
             'type'      => 'required',
-            'purpose'   => 'required|in:text_generation,image_generation',
+            'purpose'   => 'required|in:text_generation,image_generation,translation',
             'tone'      => 'nullable',
         ]);
 

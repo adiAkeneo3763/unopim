@@ -73,7 +73,8 @@ return [
         ],
     ],
     'dashboard' => [
-        'index' => [
+        'invalid-type' => 'Ogiltig instrumentpanelswidgettyp.',
+        'index'        => [
             'title'                => 'Instrumentbräda',
             'user-info'            => 'Snabbövervakning, vad är viktat i ditt PIM',
             'user-name'            => 'Hej! :user_name',
@@ -1153,7 +1154,8 @@ return [
                 'job-label'             => 'Jobb',
             ],
             'imports' => [
-                'create' => [
+                'import-start-fail' => 'Importprocessen kunde inte startas. Försök igen.',
+                'create'            => [
                     'code'                => 'Code',
                     'action'              => 'Action',
                     'allowed-errors'      => 'Allowed Errors',
@@ -1864,6 +1866,7 @@ return [
                 'set-default-success'   => 'Plattform angiven som standard framgångsrikt.',
                 'test-success'          => 'Anslutning verifierad framgångsrikt!',
                 'test-fail'             => 'Anslutningstest misslyckades',
+                'fetch-models-fail'     => 'Kunde inte hämta modeller',
                 'invalid-model-names'   => 'Ogiltiga modellnamn: :names. Modellnamn måste börja med en bokstav eller siffra och får bara innehålla bokstäver, siffror, bindestreck, punkter, kolon och snedstreck.',
             ],
         ],
