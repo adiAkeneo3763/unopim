@@ -275,9 +275,10 @@ await expect(adminPage.getByText('Apply Filters')).toBeVisible();
 test('should allow setting items per adminPage', async ({ adminPage }) => {
 await adminPage.getByRole('link', { name: ' Catalog' }).click();
 await adminPage.getByRole('link', { name: 'Products' }).click();
-await adminPage.getByRole('button', { name: '' }).click();
+const perPageButton = adminPage.locator('button:has(.icon-chevron-down)').first();
+await perPageButton.click();
 await adminPage.getByText('20', { exact: true }).click();
-await expect(adminPage.getByRole('button', { name: '' })).toContainText('20');
+await expect(perPageButton).toContainText('20');
 });
 
 test('should allow quick export', async ({ adminPage }) => {
@@ -464,8 +465,8 @@ await adminPage.getByRole('textbox', { name: 'Search' }).fill('Image');
 await adminPage.keyboard.press('Enter');
 const itemRow = adminPage.locator('div', { hasText: 'image' }).nth(1);
 await itemRow.locator('span[title="Edit"]').nth(1).click();
-await adminPage.getByText('Is Filterable').check();
-await expect(adminPage.getByText('Is Filterable')).toBeChecked();
+await adminPage.locator('label[for="is_filterable"]').click();
+await expect(adminPage.locator('#is_filterable')).toBeChecked();
 await adminPage.getByRole('button', { name: 'Save Attribute' }).click();
 await expect(adminPage.getByText(/Attribute Updated Successfully/)).toBeVisible();
 await adminPage.locator('a:has-text("Back")').click();
