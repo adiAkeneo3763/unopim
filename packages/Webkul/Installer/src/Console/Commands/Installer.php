@@ -441,6 +441,14 @@ class Installer extends Command
                 ]
             );
 
+            if (select(
+                label: 'Do you want sample products?',
+                options: ['yes', 'no'],
+                default: 'no'
+            ) === 'yes') {
+                $this->seedSampleProducts();
+            }
+
             $filePath = storage_path('installed');
 
             File::put($filePath, 'UnoPim installation completed successfully');
@@ -456,6 +464,22 @@ class Installer extends Command
             Event::dispatch('unopim.installed');
         } catch (\Exception $e) {
             return $this->error($e->getMessage());
+        }
+    }
+
+    protected function seedSampleProducts(): void
+    {
+        try {
+            $this->warn('Step: Seeding sample products...');
+
+            app(\Webkul\Installer\Database\Seeders\ProductTableSeeder::class)->run([
+                'default_locale'     => core()->getDefaultLocaleCodeFromDefaultChannel(),
+                'allowed_locales'    => [core()->getDefaultLocaleCodeFromDefaultChannel()],
+            ]);
+
+            $this->info('Sample products seeded successfully.');
+        } catch (\Exception $e) {
+            $this->error("Failed to seed sample products: {$e->getMessage()}");
         }
     }
 
