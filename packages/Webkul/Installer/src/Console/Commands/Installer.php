@@ -441,7 +441,6 @@ class Installer extends Command
                 ]
             );
 
-           // Ask for sample products
             if (select(
                 label: 'Do you want sample products?',
                 options: ['yes', 'no'],
@@ -449,7 +448,6 @@ class Installer extends Command
             ) === 'yes') {
                 $this->seedSampleProducts();
             }
-
 
             $filePath = storage_path('installed');
 
@@ -469,20 +467,10 @@ class Installer extends Command
         }
     }
 
-        /**
-     * Seed sample products without triggering ElasticSearch indexing.
-     *
-     * @return void
-     */
     protected function seedSampleProducts(): void
     {
         try {
             $this->warn('Step: Seeding sample products...');
-
-            // Disable ElasticSearch observer if available
-            if (class_exists(\Webkul\ElasticSearch\Observers\ProductObserver::class)) {
-                \Webkul\ElasticSearch\Observers\ProductObserver::disable();
-            }
 
             app(\Webkul\Installer\Database\Seeders\ProductTableSeeder::class)->run([
                 'default_locale'     => core()->getDefaultLocaleCodeFromDefaultChannel(),
@@ -494,7 +482,6 @@ class Installer extends Command
             $this->error("Failed to seed sample products: {$e->getMessage()}");
         }
     }
-
 
     /**
      * Loaded Env variables for config files.
