@@ -7,7 +7,6 @@
       "values": {
         "common": {
           "sku": "nike-air-max-270-cfg",
-          "brand": "Nike",
           "size": "L",
           "image": "products/nike-air-max-270-cfg.jpg",
           "url_key": "nike-air-max-270"
@@ -69,7 +68,6 @@
       "values": {
         "common": {
           "sku": "adidas-ultraboost-22-cfg",
-          "brand": "Adidas",
           "size": "L",
           "image": "products/product-1.jpg",
           "url_key": "adidas-ultraboost-22"
@@ -131,7 +129,6 @@
       "values": {
         "common": {
           "sku": "levi-501-jeans-cfg",
-          "brand": "Levi's",
           "size": "L",
           "image": "products/product-2.jpg",
           "url_key": "levis-501-original-jeans"
@@ -193,7 +190,6 @@
       "values": {
         "common": {
           "sku": "apple-airpods-pro-2",
-          "brand": "Apple",
           "image": "products/product-3.jpg",
           "color": "White",
           "width": "2.7",
@@ -260,7 +256,6 @@
       "values": {
         "common": {
           "sku": "samsung-galaxy-s24-ultra",
-          "brand": "Samsung",
           "image": "products/product-4.jpg",
           "url_key": "samsung-galaxy-s24-ultra"
         },
@@ -321,7 +316,6 @@
       "values": {
         "common": {
           "sku": "sony-wh1000xm5",
-          "brand": "Sony",
           "image": "products/product-5.jpg",
           "color": "Black",
           "width": "7.8",
@@ -388,7 +382,6 @@
       "values": {
         "common": {
           "sku": "apple-watch-series-9-cfg",
-          "brand": "Apple",
           "image": "products/product-6.jpg",
           "url_key": "apple-watch-series-9"
         },
@@ -449,7 +442,6 @@
       "values": {
         "common": {
           "sku": "yeti-rambler-30oz",
-          "brand": "YETI",
           "image": "products/product-7.jpg",
           "url_key": "yeti-rambler-30oz"
         },
@@ -510,7 +502,6 @@
       "values": {
         "common": {
           "sku": "instant-pot-duo-7in1",
-          "brand": "Instant Pot",
           "image": "products/product-8.jpg",
           "url_key": "instant-pot-duo-7in1"
         },
@@ -571,7 +562,6 @@
       "values": {
         "common": {
           "sku": "dyson-v15-detect",
-          "brand": "Dyson",
           "image": "products/product-9.jpg",
           "color": "Yellow",
           "width": "10",
@@ -638,7 +628,6 @@
       "values": {
         "common": {
           "sku": "theragun-pro-gen5",
-          "brand": "Therabody",
           "image": "products/product-10.jpg",
           "color": "Black",
           "width": "2.6",
@@ -705,7 +694,6 @@
       "values": {
         "common": {
           "sku": "patagonia-nano-puff-cfg",
-          "brand": "Patagonia",
           "size": "L",
           "image": "products/product-1.jpg",
           "url_key": "patagonia-nano-puff"
@@ -767,7 +755,6 @@
       "values": {
         "common": {
           "sku": "kindle-paperwhite-2023",
-          "brand": "Amazon",
           "image": "products/product-10.jpg",
           "color": "Black",
           "width": "4.9",
@@ -834,7 +821,6 @@
       "values": {
         "common": {
           "sku": "hydroflask-32oz-cfg",
-          "brand": "Hydro Flask",
           "image": "products/product-2.jpg",
           "url_key": "hydroflask-32oz"
         },
@@ -895,7 +881,6 @@
       "values": {
         "common": {
           "sku": "allbirds-tree-runners-cfg",
-          "brand": "Allbirds",
           "size": "L",
           "image": "products/product-3.jpg",
           "url_key": "allbirds-tree-runners"
@@ -957,7 +942,6 @@
       "values": {
         "common": {
           "sku": "lodge-cast-iron-skillet-12",
-          "brand": "Lodge",
           "image": "products/product-4.jpg",
           "url_key": "lodge-cast-iron-skillet-12"
         },
@@ -1018,7 +1002,6 @@
       "values": {
         "common": {
           "sku": "north-face-borealis-backpack",
-          "brand": "The North Face",
           "image": "products/product-1.jpg",
           "url_key": "north-face-borealis-backpack"
         },
@@ -1079,7 +1062,6 @@
       "values": {
         "common": {
           "sku": "anker-powercore-26800",
-          "brand": "Anker",
           "image": "products/product-5.jpg",
           "color": "Black",
           "width": "3.1",
@@ -1146,7 +1128,6 @@
       "values": {
         "common": {
           "sku": "vitamix-5200-blender",
-          "brand": "Vitamix",
           "image": "products/product-9.jpg",
           "color": "Black",
           "width": "7.25",
@@ -1213,7 +1194,6 @@
       "values": {
         "common": {
           "sku": "peloton-bike-plus",
-          "brand": "Peloton",
           "image": "products/product-1.jpg",
           "color": "Black",
           "width": "22",
@@ -1280,7 +1260,6 @@
       "values": {
         "common": {
           "sku": "bose-soundlink-flex",
-          "brand": "Bose",
           "image": "products/product-3.jpg",
           "color": "Black",
           "width": "3.6",
@@ -1347,7 +1326,6 @@
       "values": {
         "common": {
           "sku": "brooks-ghost-15-cfg",
-          "brand": "Brooks",
           "size": "L",
           "image": "products/product-6.jpg",
           "url_key": "brooks-ghost-15"
@@ -1409,7 +1387,6 @@
       "values": {
         "common": {
           "sku": "rawlings-heart-of-hide-glove",
-          "brand": "Rawlings",
           "image": "products/product-7.jpg",
           "url_key": "rawlings-heart-of-hide-glove"
         },
@@ -1470,7 +1447,6 @@
       "values": {
         "common": {
           "sku": "osprey-atmos-65-ag",
-          "brand": "Osprey",
           "image": "products/product-8.jpg",
           "url_key": "osprey-atmos-65-ag"
         },
@@ -1531,7 +1507,6 @@
       "values": {
         "common": {
           "sku": "fitbit-charge-6",
-          "brand": "Fitbit",
           "image": "products/product-10.jpg",
           "color": "Black",
           "width": "0.9",
@@ -1598,7 +1573,6 @@
       "values": {
         "common": {
           "sku": "coleman-sundome-tent-4p",
-          "brand": "Coleman",
           "image": "products/product-2.jpg",
           "url_key": "coleman-sundome-tent-4p"
         },
@@ -1659,7 +1633,6 @@
       "values": {
         "common": {
           "sku": "weber-spirit-e310-grill",
-          "brand": "Weber",
           "image": "products/product-4.jpg",
           "color": "Black",
           "width": "26",
@@ -1726,7 +1699,6 @@
       "values": {
         "common": {
           "sku": "champion-powerplus-hoodie-cfg",
-          "brand": "Champion",
           "size": "L",
           "image": "products/product-9.jpg",
           "url_key": "champion-powerblend-hoodie"
@@ -1788,7 +1760,6 @@
       "values": {
         "common": {
           "sku": "cuisinart-14cup-food-processor",
-          "brand": "Cuisinart",
           "image": "products/product-5.jpg",
           "url_key": "cuisinart-14cup-food-processor"
         },
@@ -1849,7 +1820,6 @@
       "values": {
         "common": {
           "sku": "under-armour-heatgear-tshirt-cfg",
-          "brand": "Under Armour",
           "size": "L",
           "image": "products/product-4.jpg",
           "url_key": "under-armour-heatgear-tshirt"
@@ -1911,7 +1881,6 @@
       "values": {
         "common": {
           "sku": "stanley-adventure-quencher-40oz",
-          "brand": "Stanley",
           "image": "products/product-1.jpg",
           "weight": "30",
           "url_key": "stanley-adventure-quencher-40oz"
@@ -1976,7 +1945,6 @@
       "values": {
         "common": {
           "sku": "garmin-forerunner-255",
-          "brand": "Garmin",
           "image": "products/product-10.jpg",
           "url_key": "garmin-forerunner-255"
         },
@@ -2037,7 +2005,6 @@
       "values": {
         "common": {
           "sku": "nikon-z50-mirrorless-kit",
-          "brand": "Nikon",
           "image": "products/product-5.jpg",
           "color": "Black",
           "width": "2.8",
@@ -2104,7 +2071,6 @@
       "values": {
         "common": {
           "sku": "owala-freesip-24oz-cfg",
-          "brand": "Owala",
           "image": "products/product-2.jpg",
           "url_key": "owala-freesip-24oz"
         },
@@ -2165,7 +2131,6 @@
       "values": {
         "common": {
           "sku": "hoka-clifton-9-cfg",
-          "brand": "HOKA",
           "size": "L",
           "image": "products/product-4.jpg",
           "url_key": "hoka-clifton-9"
@@ -2227,7 +2192,6 @@
       "values": {
         "common": {
           "sku": "roomba-j7plus",
-          "brand": "iRobot",
           "image": "products/product-1.jpg",
           "url_key": "roomba-j7plus"
         },
@@ -2288,7 +2252,6 @@
       "values": {
         "common": {
           "sku": "black-decker-handheld-vacuum",
-          "brand": "BLACK+DECKER",
           "image": "products/product-3.jpg",
           "url_key": "black-decker-handheld-vacuum"
         },
@@ -2349,7 +2312,6 @@
       "values": {
         "common": {
           "sku": "new-balance-990v6-cfg",
-          "brand": "New Balance",
           "size": "L",
           "image": "products/product-7.jpg",
           "url_key": "new-balance-990v6"
@@ -2411,7 +2373,6 @@
       "values": {
         "common": {
           "sku": "keurig-k-elite-coffee-maker",
-          "brand": "Keurig",
           "image": "products/product-6.jpg",
           "url_key": "keurig-k-elite-coffee-maker"
         },
@@ -2472,7 +2433,6 @@
       "values": {
         "common": {
           "sku": "patagonia-better-sweater-cfg",
-          "brand": "Patagonia",
           "size": "L",
           "image": "products/product-1.jpg",
           "url_key": "patagonia-better-sweater"

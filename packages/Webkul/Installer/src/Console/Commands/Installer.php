@@ -474,8 +474,8 @@ class Installer extends Command
             $this->warn('Step: Seeding sample products...');
 
             app(ProductTableSeeder::class)->run([
-                'default_locale'     => core()->getDefaultLocaleCodeFromDefaultChannel(),
-                'allowed_locales'    => [core()->getDefaultLocaleCodeFromDefaultChannel()],
+                'default_locale'  => core()->getDefaultLocaleCodeFromDefaultChannel(),
+                'allowed_locales' => [core()->getDefaultLocaleCodeFromDefaultChannel()],
             ]);
 
             $this->info('Sample products seeded successfully.');
