@@ -153,7 +153,7 @@
                                     type="multiselect"
                                     name="channel_requirements"
                                     v-model="selectedChannels"
-                                    :options="$allChannels"
+                                    :options="{{ json_encode($allChannels) }}"
                                     track-by="code"
                                 ></x-admin::form.control-group.control>
                             </x-admin::form.control-group>
