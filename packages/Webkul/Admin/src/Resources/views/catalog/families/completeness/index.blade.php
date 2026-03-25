@@ -118,7 +118,7 @@
                                         type="multiselect"
                                         :ref="'channel_requirements_multiselect_' + record.id"
                                         name="channel_requirements"
-                                        :options="{{ json_encode($allChannels) }}"
+                                        options='{!! $allChannels !!}'
                                         :value="record.channel_required
                                             ? record.channel_required.split(',').map(channel => channel.trim())
                                             : []"
@@ -153,7 +153,7 @@
                                     type="multiselect"
                                     name="channel_requirements"
                                     v-model="selectedChannels"
-                                    :options="{{ json_encode($allChannels) }}"
+                                    :options="$allChannels"
                                     track-by="code"
                                 ></x-admin::form.control-group.control>
                             </x-admin::form.control-group>

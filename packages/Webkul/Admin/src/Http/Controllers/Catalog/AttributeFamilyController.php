@@ -140,8 +140,8 @@ class AttributeFamilyController extends Controller
             : $this->normalize($attributeFamily);
 
         $allChannels = $isCompletenessTab
-            ? $this->channelRepository->getChannelAsOptions()->values()->toArray()
-            : [];
+            ? $this->channelRepository->getChannelAsOptions()->toJson()
+            : '[]';
 
         return view('admin::catalog.families.edit', [
             ...$normalizedData,
