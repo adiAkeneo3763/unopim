@@ -198,5 +198,5 @@ return new class extends Migration
 };
 ```
 
-Place migrations in `packages/Webkul/Example/src/Database/Migrations/`.
-Load in ServiceProvider: `$this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');`
+Place migrations in `packages/Webkul/Example/src/Database/Migration/`.
+Load in ServiceProvider: `$this->loadMigrationsFrom(__DIR__ . '/../Database/Migration');`

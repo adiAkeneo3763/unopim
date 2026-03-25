@@ -29,6 +29,11 @@ All DataGrid patterns are derived from the WooCommerce connector reference:
 - Use `bouncer()->hasPermission()` for action permission checks
 - Status badges: `class="label-active"` (true) and `class="label-info text-gray-600 dark:text-gray-300"` (false)
 
+**Admin UI rule (critical):**
+- If the listing page includes form/filter controls in Blade, use UnoPim form components.
+- Do not generate raw `<select>`, `<input>`, `<textarea>`, or `<label>` controls when `x-admin::form.*` components exist.
+- Keep labels/placeholders/messages in translations.
+
 ---
 
 ## 1. Class Structure

@@ -29,6 +29,12 @@ All patterns are derived from the WooCommerce connector reference implementation
 - Use dedicated `Http/Requests/CredentialForm.php` FormRequest — not inline `$request->validate()`
 - A `Services/{ModuleName}Service.php` wraps all API calls
 
+**Admin UI rule (critical):**
+- For admin forms, use UnoPim components: `x-admin::form.control-group`, `.label`, `.control`, `.error`.
+- Do not generate raw `<select>`, `<input>`, `<textarea>`, or `<label>` when component equivalents exist.
+- Use translations for all user-facing form text.
+- For dropdowns, use component select with `type="select"`, `:options="json_encode(...)"`, `track-by`, `label-by`, and Vue `@input` handling.
+
 ---
 
 ## 1. Migration

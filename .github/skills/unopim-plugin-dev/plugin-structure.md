@@ -15,7 +15,7 @@ packages/Webkul/Example/
     ├── Contracts/
     │   └── Example.php        # Model interface
     ├── Database/
-    │   ├── Migrations/        # Database migrations
+    │   ├── Migration/         # Database migrations (singular)
     │   └── Seeders/           # Database seeders (optional)
     ├── Helpers/
     │   ├── Importers/         # Custom importer classes (optional)
@@ -51,6 +51,7 @@ packages/Webkul/Example/
 
 namespace Webkul\Example\Providers;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class ExampleServiceProvider extends ServiceProvider
@@ -74,9 +75,9 @@ class ExampleServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadRoutesFrom(__DIR__ . '/../Routes/routes.php');
+        Route::middleware('web')->group(__DIR__ . '/../Routes/routes.php');
 
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migration');
 
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'example');
 
@@ -98,9 +99,9 @@ class ExampleServiceProvider extends ServiceProvider
 
 namespace Webkul\Example\Providers;
 
-use Konekt\Concord\BaseModuleServiceProvider;
+use Webkul\Core\Providers\CoreModuleServiceProvider;
 
-class ModuleServiceProvider extends BaseModuleServiceProvider
+class ModuleServiceProvider extends CoreModuleServiceProvider
 {
     protected $models = [
         \Webkul\Example\Models\Example::class,

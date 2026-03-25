@@ -29,13 +29,15 @@ public function register(): void
 ### `boot()` — Load resources
 
 ```php
+use Illuminate\Support\Facades\Route;
+
 public function boot(): void
 {
     // Load routes
-    $this->loadRoutesFrom(__DIR__ . '/../Routes/routes.php');
+    Route::middleware('web')->group(__DIR__ . '/../Routes/routes.php');
 
     // Load database migrations
-    $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+    $this->loadMigrationsFrom(__DIR__ . '/../Database/Migration');
 
     // Load translations (namespace: 'example')
     $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'example');

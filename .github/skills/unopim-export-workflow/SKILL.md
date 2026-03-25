@@ -29,6 +29,12 @@ All export/import patterns are derived from the WooCommerce connector reference.
 - All Exporter classes extend `Webkul\DataTransfer\Helpers\Exporters\AbstractExporter`
 - You must register a route `{module}.credentials.get` that returns `{id, label}` pairs
 
+**Admin UI rule (critical):**
+- Any admin Blade UI added for export/import configuration must use UnoPim form components.
+- Do not generate raw `<select>`, `<input>`, `<textarea>`, or `<label>` controls when component equivalents exist.
+- Use translated labels/placeholders/messages.
+- For dropdown controls, use component select with `:options="json_encode(...)"`, `track-by`, `label-by`, and Vue `@input` binding.
+
 ---
 
 ## 1. exporters.php

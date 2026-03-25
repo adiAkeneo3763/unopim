@@ -31,7 +31,7 @@ Invoke this skill when:
 
 ```bash
 # 1. Create directory structure
-mkdir -p packages/Webkul/Example/src/{Config,Contracts,Database/Migrations,Http/Controllers,Models,Providers,Repositories,Resources/views,Routes}
+mkdir -p packages/Webkul/Example/src/{Config,Contracts,Database/Migration,Http/Controllers,Models,Providers,Repositories,Resources/views,Routes}
 
 # 2. Add PSR-4 autoload to composer.json
 # "Webkul\\Example\\": "packages/Webkul/Example/src"
@@ -51,6 +51,6 @@ php artisan migrate
 - Always use the Concord proxy pattern for models
 - Extend `Webkul\Core\Eloquent\Repository` for data access
 - Register configs via `mergeConfigFrom()` in `register()`
-- Load routes, migrations, translations, views in `boot()`
+- Load routes via `Route::middleware('web')->group(...)` and migrations via `loadMigrationsFrom(.../Database/Migration)` in `boot()`
 - Follow existing package structure conventions
 - Add ACL entries for all new admin routes

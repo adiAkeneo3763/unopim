@@ -26,6 +26,9 @@ reference (`ApiClient.php` / `BasicAuth.php`).
 - An `ApiClient` class wraps all HTTP methods (get/post/put/delete)
 - A `Service` class uses `ApiClient` — controllers never call `ApiClient` directly
 
+**Admin UI compatibility rule:**
+- If this skill also generates admin Blade setup or credential forms, use UnoPim form components (`x-admin::form.control-group`, `.label`, `.control`, `.error`) instead of raw HTML controls.
+
 ---
 
 ## 1. Auth: BasicAuth

@@ -23,6 +23,12 @@ production reference implementation.
 **Vendor/Module convention:** `Webkul/{ModuleName}` where `{ModuleName}` is
 PascalCase (e.g. `WooCommerce`, `Shopify`, `module`, `ShopwareIntegration`).
 
+**Admin UI rule (critical):**
+- For admin Blade forms, always use UnoPim Blade components (`x-admin::form.control-group`, `.label`, `.control`, `.error`).
+- Do not generate raw `<select>`, `<input>`, `<textarea>`, or `<label>` controls when a component equivalent exists.
+- Keep all user-facing text in translation keys.
+- For select fields, use component select with `type="select"`, `:options="json_encode(...)"`, `track-by`, `label-by`, and Vue `@input`.
+
 ---
 
 ## 1. Directory Structure

@@ -24,6 +24,18 @@ package's source code.
 
 ## Prerequisites (15 min)
 
+## Admin UI Rule (CRITICAL)
+
+For all admin Blade forms in connector modules, use UnoPim Blade components first.
+
+- Use `x-admin::form.control-group` wrappers.
+- Use `x-admin::form.control-group.label` and `x-admin::form.control-group.error`.
+- Use `x-admin::form.control-group.control` for inputs/selects/textareas.
+- Do not generate raw `<select>`, `<input>`, `<textarea>`, or `<label>` markup when component equivalents are available.
+- Use translations for all labels/placeholders/messages.
+
+For select fields, use component select (`type="select"`) with `:options="json_encode(...)"`, `track-by`, `label-by`, and Vue `@input` binding.
+
 Before coding:
 1. Confirm the external API authentication type (Basic Auth / Bearer Token / OAuth)
 2. Note the API base URL pattern (e.g. `/wp-json/wc/v3/`, `/api/v1/`, etc.)
