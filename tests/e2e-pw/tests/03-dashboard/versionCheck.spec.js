@@ -16,7 +16,7 @@ test('1.2 - Clicking profile button opens dropdown', async ({ adminPage }) => {
   await profileBtn.click();
 
   // Dropdown should show version, My Account, and Logout
-  await expect(adminPage.getByText(/Version/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Version/)).toBeVisible();
   await expect(adminPage.getByRole('link', { name: 'My Account' })).toBeVisible();
   await expect(adminPage.getByRole('link', { name: 'Logout' })).toBeVisible();
 });
@@ -25,7 +25,7 @@ test('1.3 - Profile dropdown shows version string in format "Version : vX.X.X"',
   const profileBtn = adminPage.locator('header').getByRole('button').last();
   await profileBtn.click();
 
-  const versionLocator = adminPage.getByText(/Version\s*:\s*v\d+\.\d+\.\d+/);
+  const versionLocator = adminPage.locator('#app').getByText(/Version\s*:\s*v\d+\.\d+\.\d+/);
   await expect(versionLocator).toBeVisible();
   const versionText = await versionLocator.innerText();
   expect(versionText).toMatch(/Version\s*:\s*v\d+\.\d+\.\d+/);
@@ -35,7 +35,7 @@ test('1.4 - Version displays v2.0.0-beta.1', async ({ adminPage }) => {
   const profileBtn = adminPage.locator('header').getByRole('button').last();
   await profileBtn.click();
 
-  await expect(adminPage.getByText(/Version\s*:\s*v2\.0\.0/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Version\s*:\s*v2\.0\.0/)).toBeVisible();
 });
 
 test('1.5 - Profile dropdown shows UnoPim logo icon next to version', async ({ adminPage }) => {

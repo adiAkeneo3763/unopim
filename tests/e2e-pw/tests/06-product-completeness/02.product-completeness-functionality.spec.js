@@ -4,9 +4,9 @@ test.describe('Verify the behvaiour of Product Completenss feature', () => {
     await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('button', { name: 'Create Product' }).click();
     await adminPage.locator('input[name="type"]').locator('..').locator('.multiselect__tags').click();
-    await adminPage.getByRole('option', { name: 'Simple' }).locator('span').first().click();
+    await adminPage.getByRole('option', { name: 'Simple' }).first().click();
     await adminPage.locator('input[name="attribute_family_id"]').locator('..').locator('.multiselect__tags').click();
-    await adminPage.getByRole('option', { name: 'Default' }).locator('span').first().click();
+    await adminPage.getByRole('option', { name: 'Default' }).first().click();
     await adminPage.locator('input[name="sku"]').click();
     await adminPage.locator('input[name="sku"]').fill('NAScore');
     await adminPage.getByRole('button', { name: 'Save Product' }).click();
@@ -34,10 +34,10 @@ test.describe('Verify the behvaiour of Product Completenss feature', () => {
     await adminPage.getByRole('link', { name: 'Completeness' }).click();
     await adminPage.getByRole('button', { name: 'Per Page' }).click();
     await adminPage.getByText('50', { exact: true }).first().click();
-    await expect(adminPage.getByText('16 Results')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('16 Results')).toBeVisible();
     await adminPage.locator(`input[name="channel_requirements"]`).locator('..').locator('.multiselect__tags').nth(10).click();
-    await adminPage.getByRole('option', { name: 'Default' }).locator('span').first().click();
-    await expect(adminPage.getByText('Completeness updated successfully Close').first()).toBeVisible();
+    await adminPage.getByRole('option', { name: 'Default' }).first().click();
+    await expect(adminPage.locator('#app').getByText('Completeness updated successfully Close').first()).toBeVisible();
 });
 
   test('Verify all available channels are displayed when user clicks “Configure Completeness” option', async ({ adminPage }) => {
@@ -53,8 +53,8 @@ test.describe('Verify the behvaiour of Product Completenss feature', () => {
     await adminPage.getByRole('button', { name: 'Select Action ' }).click();
     await adminPage.getByRole('link', { name: 'Change Completeness' }).click();
     await adminPage.locator('.px-4 > .mb-4 > div > .multiselect > .multiselect__tags').click();
-    await expect(adminPage.getByRole('option', { name: 'Default' }).locator('span').first()).toBeVisible();
-    await expect(adminPage.getByRole('option', { name: 'channel3' }).locator('span').first()).toBeVisible();
+    await expect(adminPage.getByRole('option', { name: 'Default' }).first()).toBeVisible();
+    await expect(adminPage.getByRole('option', { name: 'channel3' }).first()).toBeVisible();
 });
 
   test('Verify bulk selection of attributes for required channel updates product completeness visibility', async ({ adminPage }) => {
@@ -73,9 +73,9 @@ test.describe('Verify the behvaiour of Product Completenss feature', () => {
     await adminPage.getByRole('button', { name: /Select Action/i }).click();
     await adminPage.locator('a', { hasText: 'Change Completeness Requirement' }).click();
     await adminPage.locator('.px-4 > .mb-4 > div > .multiselect > .multiselect__tags').click();
-    await adminPage.getByRole('option', { name: 'Default' }).locator('span').first().click();
+    await adminPage.getByRole('option', { name: 'Default' }).first().click();
     await adminPage.getByRole('button', { name: 'Save' }).click();
-    await expect(adminPage.getByText('Completeness updated successfully Close')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('Completeness updated successfully Close')).toBeVisible();
 });
 
   test('Verify channel can be deselected for specific attribute in completeness settings', async ({ adminPage }) => {
@@ -92,7 +92,7 @@ test.describe('Verify the behvaiour of Product Completenss feature', () => {
     await adminPage.getByText('50', { exact: true }).click();
     await adminPage.locator('.multiselect__tag-icon').first().click();
     //await adminPage.locator('div:nth-child(14) > div:nth-child(3) > .mb-4 > div > .multiselect > .multiselect__tags > .multiselect__tags-wrap > .multiselect__tag > .multiselect__tag-icon').click();
-    await expect(adminPage.getByText('Completeness updated successfully Close').first()).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('Completeness updated successfully Close').first()).toBeVisible();
 });
 
   test('Update the sku by filling all missing required attribute', async ({ adminPage }) => {
@@ -136,7 +136,7 @@ test.describe('Verify the behvaiour of Product Completenss feature', () => {
     await perPageBtn.click();
     await adminPage.getByText('50', { exact: true }).click();
     await adminPage.locator(`input[name="channel_requirements"]`).locator('..').locator('.multiselect__tags').first().click();
-    await adminPage.getByRole('option', { name: 'channel3' }).locator('span').first().click();
-    await expect(adminPage.getByText('Completeness updated successfully Close').first()).toBeVisible();
+    await adminPage.getByRole('option', { name: 'channel3' }).first().click();
+    await expect(adminPage.locator('#app').getByText('Completeness updated successfully Close').first()).toBeVisible();
 });
 });

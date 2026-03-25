@@ -9,7 +9,7 @@ test('Create Attribute Group with empty Code field', async ({ adminPage }) => {
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Product Description');
   await adminPage.getByRole('button', { name: 'Save Attribute Group' }).click();
-  await expect(adminPage.getByText('The Code field is required')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('The Code field is required')).toBeVisible();
 });
 
 test('Create Attribute Group', async ({ adminPage }) => {
@@ -21,7 +21,7 @@ test('Create Attribute Group', async ({ adminPage }) => {
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Product Description');
   await adminPage.getByRole('button', { name: 'Save Attribute Group' }).click();
-  await expect(adminPage.getByText(/Attribute Group Created Successfully/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Attribute Group Created Successfully/i)).toBeVisible();
 });
 
 test('should allow attribute group search', async ({ adminPage }) => {
@@ -37,7 +37,7 @@ test('should open the filter menu when clicked', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: ' Catalog' }).click();
   await adminPage.getByRole('link', { name: 'Attribute Groups' }).click();
   await adminPage.getByText('Filter', { exact: true }).click();
-  await expect(adminPage.getByText('Apply Filters')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Apply Filters')).toBeVisible();
 });
 
 test('should allow setting items per adminPage', async ({ adminPage }) => {
@@ -67,7 +67,7 @@ test('Update attribute group', async ({ adminPage }) => {
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('prudact discripsan');
   await adminPage.getByRole('button', { name: 'Save Attribute Group' }).click();
-  await expect(adminPage.getByText(/Attribute Group Updated Successfully/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Attribute Group Updated Successfully/i)).toBeVisible();
 });
 
 test('Delete Attribute Group', async ({ adminPage }) => {
@@ -75,6 +75,6 @@ test('Delete Attribute Group', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: 'Attribute Groups' }).click();
   await adminPage.getByText('product_descriptionprudact discripsan').getByTitle('Delete').click();
   await adminPage.getByRole('button', { name: 'Delete' }).click();
-  await expect(adminPage.getByText(/Attribute Group Deleted Successfully/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Attribute Group Deleted Successfully/i)).toBeVisible();
 });
 });

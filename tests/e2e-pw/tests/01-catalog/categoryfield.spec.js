@@ -5,11 +5,11 @@ test('Create category field with empty Code', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: 'Category Fields' }).click();
   await adminPage.getByRole('link', { name: 'Create Category Field' }).click();
   await adminPage.locator('#type').getByRole('combobox').locator('div').filter({ hasText: 'Select option' }).click();
-  await adminPage.getByRole('option', { name: 'Text' }).locator('span').first().click();
+  await adminPage.getByRole('option', { name: 'Text' }).first().click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Suggestion');
   await adminPage.getByRole('button', { name: 'Save Category Field' }).click();
-  await expect(adminPage.getByText('The Code field is required ')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('The Code field is required ')).toBeVisible();
 });
 
 test('Create category field with empty Type', async ({ adminPage }) => {
@@ -21,7 +21,7 @@ test('Create category field with empty Type', async ({ adminPage }) => {
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Suggestion');
   await adminPage.getByRole('button', { name: 'Save Category Field' }).click();
-  await expect(adminPage.getByText('The Type field is required ')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('The Type field is required ')).toBeVisible();
 });
 
 test('Create category field with empty Code and Type', async ({ adminPage }) => {
@@ -33,8 +33,8 @@ test('Create category field with empty Code and Type', async ({ adminPage }) => 
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Suggestion');
   await adminPage.getByRole('button', { name: 'Save Category Field' }).click();
-  await expect(adminPage.getByText('The Code field is required ')).toBeVisible();
-  await expect(adminPage.getByText('The Type field is required ')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('The Code field is required ')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('The Type field is required ')).toBeVisible();
 });
 
 test('Create category field', async ({ adminPage }) => {
@@ -44,11 +44,11 @@ test('Create category field', async ({ adminPage }) => {
   await adminPage.getByRole('textbox', { name: 'Code' }).click();
   await adminPage.getByRole('textbox', { name: 'Code' }).fill('test1');
   await adminPage.locator('#type').getByRole('combobox').locator('div').filter({ hasText: 'Select option' }).click();
-  await adminPage.getByRole('option', { name: 'Text' }).locator('span').first().click();
+  await adminPage.getByRole('option', { name: 'Text' }).first().click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Suggestion');
   await adminPage.getByRole('button', { name: 'Save Category Field' }).click();
-  await expect(adminPage.getByText(/Category Field Created Successfully/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Category Field Created Successfully/i)).toBeVisible();
 });
 
 test('should allow category field search', async ({ adminPage }) => {
@@ -65,7 +65,7 @@ test('should open the filter menu when clicked', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: ' Catalog' }).click();
   await adminPage.getByRole('link', { name: 'Category Fields' }).click();
   await adminPage.getByText('Filter', { exact: true }).click();
-  await expect(adminPage.getByText('Apply Filters')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Apply Filters')).toBeVisible();
 });
 
 test('should allow setting items per adminPage', async ({ adminPage }) => {
@@ -103,7 +103,7 @@ test('update category field', async ({ adminPage }) => {
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('soogesan');
   await adminPage.getByRole('button', { name: 'Save Category Field' }).click();
-  await expect(adminPage.getByText(/Category Field Updated Successfully/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Category Field Updated Successfully/i)).toBeVisible();
 });
 
 test('delete category field', async ({ adminPage }) => {
@@ -111,7 +111,7 @@ test('delete category field', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: 'Category Fields' }).click();
   await adminPage.getByText('test1soogesan').getByTitle('Delete').click();
   await adminPage.getByRole('button', { name: 'Delete' }).click();
-  await expect(adminPage.getByText(/Category Field Deleted Successfully/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Category Field Deleted Successfully/i)).toBeVisible();
 });
 
 test('delete default category field', async ({ adminPage }) => {
@@ -119,6 +119,6 @@ test('delete default category field', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: 'Category Fields' }).click();
   await adminPage.getByText('nameName').getByTitle('Delete').click();
   await adminPage.getByRole('button', { name: 'Delete' }).click();
-  await expect(adminPage.getByText(/This category field can not be deleted./i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/This category field can not be deleted./i)).toBeVisible();
 });
 });

@@ -17,11 +17,20 @@
 @pushOnce('scripts')
 <script type="text/x-template" id="v-agenting-pim-template">
     <div>
+        {{-- ── Backdrop (small screens: covers page behind panel) ── --}}
+        <transition name="ap-fade">
+            <div
+                v-if="isOpen"
+                class="ap-backdrop"
+                @click="close"
+            ></div>
+        </transition>
+
         {{-- ── Side Panel ──────────────────────────────────── --}}
         <transition :name="noTransition ? '' : 'ap-slide'">
             <div
                 v-if="isOpen"
-                style="position:fixed;top:0;right:0;height:100vh;display:flex;flex-direction:column;background:#fff;border-left:1px solid #e5e7eb;width:420px;max-width:100vw;z-index:10000;"
+                class="ap-panel"
             >
                 {{-- Header --}}
                 <div class="flex items-center justify-between px-4 py-2.5 flex-shrink-0" style="background:linear-gradient(135deg,#6d28d9 0%,#7c3aed 50%,#8b5cf6 100%);">
@@ -433,6 +442,38 @@
 </script>
 
 <style>
+/* Panel base — desktop (>1024px): 420px sidebar */
+.ap-panel {
+    position: fixed; top: 0; right: 0; height: 100vh;
+    display: flex; flex-direction: column;
+    background: #fff; border-left: 1px solid #e5e7eb;
+    width: 420px; max-width: 100vw; z-index: 10000;
+}
+
+/* Backdrop — hidden on desktop */
+.ap-backdrop { display: none; }
+
+/* Tablet & mobile: full-screen overlay above navbar */
+@media (max-width: 1024px) {
+    .ap-panel {
+        width: 100vw;
+        border-left: none;
+        z-index: 10002;
+    }
+
+    .ap-backdrop {
+        display: block;
+        position: fixed; inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 10001;
+    }
+}
+
+/* Backdrop fade */
+.ap-fade-enter-active, .ap-fade-leave-active { transition: opacity 0.2s ease; }
+.ap-fade-enter-from, .ap-fade-leave-to { opacity: 0; }
+
+/* Panel slide */
 .ap-slide-enter-active, .ap-slide-leave-active { transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
 .ap-slide-enter-from, .ap-slide-leave-to { transform: translateX(100%); }
 

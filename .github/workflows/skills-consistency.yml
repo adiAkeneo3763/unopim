@@ -1,5 +1,8 @@
 name: Skills Consistency
 
+permissions:
+  contents: read
+
 on:
   pull_request:
     paths:

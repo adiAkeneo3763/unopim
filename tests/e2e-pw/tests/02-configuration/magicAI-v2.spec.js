@@ -18,7 +18,7 @@ test('0.1 - Setup: Create OpenAI platform for config tests', async ({ adminPage 
 
   // Check if platform already exists
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
-  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Add AI Platform')).toBeVisible();
 
   const existingOpenAI = adminPage.locator('div').filter({ hasText: /OpenAI/i });
   if (await existingOpenAI.first().isVisible().catch(() => false)) {
@@ -32,7 +32,7 @@ test('0.1 - Setup: Create OpenAI platform for config tests', async ({ adminPage 
 
   // Create the platform
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
-  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Add AI Platform')).toBeVisible();
 
   await adminPage.locator('select[name="provider"]').selectOption({ label: 'OpenAI' });
   await expect(adminPage.locator('input[name="label"]')).toBeVisible();
@@ -54,7 +54,7 @@ test('0.1 - Setup: Create OpenAI platform for config tests', async ({ adminPage 
   }
 
   await adminPage.getByRole('button', { name: 'Save' }).click();
-  await expect(adminPage.getByText(/saved successfully|created successfully|updated successfully/i)).toBeVisible({ timeout: 15000 });
+  await expect(adminPage.locator('#app').getByText(/saved successfully|created successfully|updated successfully/i)).toBeVisible({ timeout: 15000 });
 });
 
 // ═════════════════════════════════════════════════
@@ -63,7 +63,7 @@ test('0.1 - Setup: Create OpenAI platform for config tests', async ({ adminPage 
 
 test('1.1 - Magic AI config page loads with correct title', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Magic AI').first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Magic AI').first()).toBeVisible();
 });
 
 test('1.2 - Magic AI config page has Save Configuration button', async ({ adminPage }) => {
@@ -76,19 +76,19 @@ test('1.2 - Magic AI config page has Save Configuration button', async ({ adminP
 test('1.3 - Config page shows all four v2.0.0-beta.1 sections', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
-  await expect(adminPage.getByText('Agentic PIM', { exact: true })).toBeVisible();
-  await expect(adminPage.getByText('Text Generation', { exact: true })).toBeVisible();
-  await expect(adminPage.getByText('Image Generation', { exact: true })).toBeVisible();
-  await expect(adminPage.getByText('Translation', { exact: true })).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Agentic PIM', { exact: true })).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Text Generation', { exact: true })).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Image Generation', { exact: true })).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Translation', { exact: true })).toBeVisible();
 });
 
 test('1.4 - Each section has a description paragraph', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
 
-  await expect(adminPage.getByText(/Configure the AI Agent Chat/)).toBeVisible();
-  await expect(adminPage.getByText(/Configure the default AI platform and model for generating product descriptions/)).toBeVisible();
-  await expect(adminPage.getByText(/Configure the default AI platform and model for generating product images/)).toBeVisible();
-  await expect(adminPage.getByText(/Configure the AI platform and model for translating product content/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Configure the AI Agent Chat/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Configure the default AI platform and model for generating product descriptions/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Configure the default AI platform and model for generating product images/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Configure the AI platform and model for translating product content/)).toBeVisible();
 });
 
 // ═════════════════════════════════════════════════
@@ -97,53 +97,53 @@ test('1.4 - Each section has a description paragraph', async ({ adminPage }) => 
 
 test('2.1 - Agentic PIM section description mentions autonomous enrichment', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText(/autonomous enrichment workflows/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/autonomous enrichment workflows/)).toBeVisible();
 });
 
 test('2.2 - Agentic PIM has Enable AI Agent Chat checkbox', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Enable AI Agent Chat')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Enable AI Agent Chat')).toBeVisible();
   const checkbox = adminPage.getByRole('checkbox', { name: 'Enable AI Agent Chat' });
   await expect(checkbox).toBeVisible();
 });
 
 test('2.3 - Agentic PIM has Max Agent Steps Per Turn dropdown with default "5 (Default)"', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Max Agent Steps Per Turn')).toBeVisible();
-  await expect(adminPage.getByText('5 (Default)')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Max Agent Steps Per Turn')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('5 (Default)')).toBeVisible();
 });
 
 test('2.4 - Agentic PIM has Daily Token Budget numeric input', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Daily Token Budget')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Daily Token Budget')).toBeVisible();
   const budgetInput = adminPage.getByRole('spinbutton', { name: 'Daily Token Budget' });
   await expect(budgetInput).toBeVisible();
 });
 
 test('2.5 - Agentic PIM has Auto-Enrichment on Product Create checkbox', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Auto-Enrichment on Product Create')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Auto-Enrichment on Product Create')).toBeVisible();
   const checkbox = adminPage.getByRole('checkbox', { name: 'Auto-Enrichment on Product Create' });
   await expect(checkbox).toBeVisible();
 });
 
 test('2.6 - Agentic PIM has Catalog Quality Monitor checkbox', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Catalog Quality Monitor')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Catalog Quality Monitor')).toBeVisible();
   const checkbox = adminPage.getByRole('checkbox', { name: 'Catalog Quality Monitor' });
   await expect(checkbox).toBeVisible();
 });
 
 test('2.7 - Agentic PIM has Confidence Threshold dropdown with default "0.7 (Balanced)"', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Confidence Threshold')).toBeVisible();
-  await expect(adminPage.getByText(/0\.7.*Balanced/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Confidence Threshold')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/0\.7.*Balanced/)).toBeVisible();
 });
 
 test('2.8 - Agentic PIM has Change Approval Mode dropdown with default "Confirm & apply"', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Change Approval Mode')).toBeVisible();
-  await expect(adminPage.getByText(/Confirm & apply/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Change Approval Mode')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Confirm & apply/)).toBeVisible();
 });
 
 // ═════════════════════════════════════════════════
@@ -182,13 +182,13 @@ test('3.3 - Text Generation Default Platform lists configured platforms with pro
 test('3.4 - Text Generation shows help text about default platform with asterisk', async ({ adminPage }) => {
   test.skip(!OPENAI_API_KEY, 'OPENAI_API_KEY not set — no platforms available');
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText(/Leave empty to use the platform marked as default/).first()).toBeVisible();
-  await expect(adminPage.getByText(/Platforms marked with \* are default/).first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Leave empty to use the platform marked as default/).first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Platforms marked with \* are default/).first()).toBeVisible();
 });
 
 test('3.5 - Text Generation has Default Model dropdown with model options', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Default Model').first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Default Model').first()).toBeVisible();
 
   const selects = adminPage.locator('select');
   let found = false;
@@ -209,7 +209,7 @@ test('3.5 - Text Generation has Default Model dropdown with model options', asyn
 
 test('4.1 - Image Generation section notes about supported providers', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText(/Only platforms that support image generation.*OpenAI.*Gemini.*xAI/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Only platforms that support image generation.*OpenAI.*Gemini.*xAI/)).toBeVisible();
 });
 
 test('4.2 - Image Generation has Enabled checkbox', async ({ adminPage }) => {
@@ -258,7 +258,7 @@ test('4.4 - Image Generation Default Model only shows image-capable models', asy
 
 test('5.1 - Translation section mentions cheaper platform usage', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText(/potentially faster\/cheaper/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/potentially faster\/cheaper/)).toBeVisible();
 });
 
 test('5.2 - Translation has Enabled checkbox', async ({ adminPage }) => {
@@ -278,12 +278,12 @@ test('5.3 - Translation has Default Platform dropdown', async ({ adminPage }) =>
 
 test('5.4 - Translation has Translation Model dropdown', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Translation Model')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Translation Model')).toBeVisible();
 });
 
 test('5.5 - Translation has Replace Existing Value checkbox with tooltip', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Replace Existing Value')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Replace Existing Value')).toBeVisible();
   // Tooltip text is in the title attribute
   const tooltipElement = adminPage.locator('[title*="Replace the existing value"]');
   await expect(tooltipElement).toBeVisible();
@@ -291,22 +291,22 @@ test('5.5 - Translation has Replace Existing Value checkbox with tooltip', async
 
 test('5.6 - Translation has Source Channel dropdown', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Source Channel')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Source Channel')).toBeVisible();
 });
 
 test('5.7 - Translation has Target Channel dropdown', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Target Channel')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Target Channel')).toBeVisible();
 });
 
 test('5.8 - Translation has Source Locale dropdown', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Source Locale')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Source Locale')).toBeVisible();
 });
 
 test('5.9 - Translation has Target Locales dropdown', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_CONFIG_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Target Locales')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Target Locales')).toBeVisible();
 });
 
 test('5.10 - Translation channel and locale dropdowns have "Select option" placeholder', async ({ adminPage }) => {
@@ -329,7 +329,7 @@ test('6.1 - AI Platforms page accessible from Configuration > Magic AI menu', as
 
 test('6.2 - AI Platforms page shows title and Add Platform button', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('AI Platforms', { exact: true })).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('AI Platforms', { exact: true })).toBeVisible();
   await expect(adminPage.getByRole('button', { name: 'Add Platform' })).toBeVisible();
 });
 
@@ -341,18 +341,18 @@ test('6.3 - AI Platforms datagrid has Search input', async ({ adminPage }) => {
 
 test('6.4 - AI Platforms datagrid shows results count', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText(/\d+ Results?/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/\d+ Results?/)).toBeVisible();
 });
 
 test('6.5 - AI Platforms datagrid has Filter button', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Filter')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Filter')).toBeVisible();
 });
 
 test('6.6 - AI Platforms datagrid has Per Page selector and pagination', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
-  await expect(adminPage.getByText('Per Page')).toBeVisible();
-  await expect(adminPage.getByText(/of \d+/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Per Page')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/of \d+/)).toBeVisible();
 });
 
 test('6.7 - AI Platforms datagrid has pagination arrows', async ({ adminPage }) => {
@@ -367,23 +367,23 @@ test('6.8 - AI Platforms datagrid shows all column headers', async ({ adminPage 
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   // Need to trigger datagrid load by clicking Add Platform then closing
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click().catch(() => {});
   await expect(adminPage.locator('.icon-cancel')).not.toBeVisible().catch(() => {});
 
-  await expect(adminPage.getByText('Label').first()).toBeVisible();
-  await expect(adminPage.getByText('Provider').first()).toBeVisible();
-  await expect(adminPage.getByText('Models').first()).toBeVisible();
-  await expect(adminPage.getByText('Default').first()).toBeVisible();
-  await expect(adminPage.getByText('Status').first()).toBeVisible();
-  await expect(adminPage.getByText('Created At').first()).toBeVisible();
-  await expect(adminPage.getByText('Actions').first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Label').first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Provider').first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Models').first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Default').first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Status').first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Created At').first()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Actions').first()).toBeVisible();
 });
 
 test('6.9 - Platform rows show edit and delete action icons', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click().catch(() => {});
   await expect(adminPage.locator('.icon-cancel')).not.toBeVisible().catch(() => {});
 
@@ -400,7 +400,7 @@ test('6.9 - Platform rows show edit and delete action icons', async ({ adminPage
 test('6.10 - Non-default platform rows show "Set as Default" star icon', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click().catch(() => {});
   await expect(adminPage.locator('.icon-cancel')).not.toBeVisible().catch(() => {});
 
@@ -419,7 +419,7 @@ test('6.10 - Non-default platform rows show "Set as Default" star icon', async (
 test('7.1 - Add Platform button opens modal with "Add AI Platform" title', async ({ adminPage }) => {
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
-  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Add AI Platform')).toBeVisible();
 });
 
 test('7.2 - Add Platform modal has Provider dropdown with all provider options', async ({ adminPage }) => {
@@ -455,14 +455,14 @@ test('7.3 - Selecting OpenAI provider shows Label, API Key, API URL, Models, tog
 
   // API URL field with help text
   await expect(adminPage.locator('input[name="api_url"]')).toBeVisible();
-  await expect(adminPage.getByText(/Pre-filled with the default endpoint/)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Pre-filled with the default endpoint/)).toBeVisible();
 
   // Models section with custom model input
   await expect(adminPage.getByPlaceholder('Type custom model ID...')).toBeVisible();
   await expect(adminPage.getByRole('button', { name: '+ Add' })).toBeVisible();
 
   // Toggles — use exact match to avoid conflicting with datagrid "Status" column
-  await expect(adminPage.getByText('Set as Default', { exact: true }).last()).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Set as Default', { exact: true }).last()).toBeVisible();
   // Status toggle checkbox is inside the modal
   const statusCheckboxes = adminPage.locator('input[type="checkbox"]');
   expect(await statusCheckboxes.count()).toBeGreaterThanOrEqual(2);
@@ -496,7 +496,7 @@ test('7.7 - Save platform without required fields shows validation errors', asyn
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).first().click();
   await adminPage.getByRole('button', { name: 'Save' }).click();
-  await expect(adminPage.getByText(/provider.*required|required/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/provider.*required|required/i)).toBeVisible();
 });
 
 test('7.8 - Label field auto-fills when provider is selected', async ({ adminPage }) => {
@@ -541,7 +541,7 @@ test('8.1 - Save Configuration without changes succeeds', async ({ adminPage }) 
   await adminPage.waitForLoadState('networkidle', { timeout: 20000 }).catch(() => {});
 
   // After save, page should still show config sections
-  await expect(adminPage.getByText('Agentic PIM', { exact: true })).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Agentic PIM', { exact: true })).toBeVisible();
 });
 
 test('8.2 - Open Agenting PIM button is visible on Magic AI config page', async ({ adminPage }) => {
@@ -601,8 +601,8 @@ test('9.2 - Fetched model list includes known OpenAI models', async ({ adminPage
   ).catch(() => {});
 
   // Check that well-known models appear in the list
-  await expect(adminPage.getByText('gpt-4o', { exact: true })).toBeVisible();
-  await expect(adminPage.getByText('gpt-image-1', { exact: true })).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('gpt-4o', { exact: true })).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('gpt-image-1', { exact: true })).toBeVisible();
 
   await adminPage.locator('.icon-cancel').click();
 });
@@ -629,7 +629,7 @@ test('9.3 - Model search filters the model checkbox list', async ({ adminPage })
   await searchInput.fill('gpt-image');
 
   // Only image models should be visible
-  await expect(adminPage.getByText('gpt-image-1', { exact: true })).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('gpt-image-1', { exact: true })).toBeVisible();
 
   // Non-matching models should be hidden
   const gpt4oVisible = await adminPage.getByRole('checkbox', { name: 'gpt-4o', exact: true }).isVisible().catch(() => false);
@@ -736,7 +736,7 @@ test('9.7 - Edit existing platform shows pre-populated fields with fetched model
 
   // Trigger datagrid load
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click();
   await expect(adminPage.locator('.icon-cancel')).not.toBeVisible();
 
@@ -745,7 +745,7 @@ test('9.7 - Edit existing platform shows pre-populated fields with fetched model
   await editBtn.click();
 
   // Modal should show "Edit AI Platform"
-  await expect(adminPage.getByText('Edit AI Platform')).toBeVisible({ timeout: 5000 });
+  await expect(adminPage.locator('#app').getByText('Edit AI Platform')).toBeVisible({ timeout: 5000 });
 
   // Provider should be pre-selected
   const providerSelect = adminPage.locator('select[name="provider"]');
@@ -812,7 +812,7 @@ test('9.8 - Save platform with valid API key and selected models succeeds', asyn
   // Clean up: delete the platform we just created
   await adminPage.goto(MAGIC_AI_PLATFORM_URL, { waitUntil: 'networkidle' });
   await adminPage.getByRole('button', { name: 'Add Platform' }).click();
-  await expect(adminPage.getByText('Add AI Platform')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Add AI Platform')).toBeVisible();
   await adminPage.locator('.icon-cancel').click();
   await expect(adminPage.locator('.icon-cancel')).not.toBeVisible();
 
