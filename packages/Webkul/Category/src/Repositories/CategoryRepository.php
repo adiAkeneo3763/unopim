@@ -169,7 +169,8 @@ class CategoryRepository extends Repository
         return $this->model
             ->whereIn('id', $allIds)
             ->get()
-            ->toTree();
+            ->toTree()
+            ->values();
     }
 
     /**

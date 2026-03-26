@@ -34,7 +34,7 @@ done <<'LINKS'
 .claude/skills|../.github/skills
 .codex/skills|../.github/skills
 .cursor/skills|../.github/skills
-.kilocode/skills-code|../.github/skills
+.kilocode/skills|../.github/skills
 LINKS
 
 echo "[skills] checking for SKILL.md outside canonical source"

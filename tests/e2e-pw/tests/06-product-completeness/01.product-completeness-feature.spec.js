@@ -21,7 +21,7 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await expect(adminPage.getByRole('heading', { name: 'Default' })).toBeVisible();
     await expect(adminPage.locator('circle').first()).toBeVisible();
     await expect(adminPage.locator('header').filter({ hasText: 'Default Low completeness' })).toBeVisible();
-    await expect(adminPage.getByText('English (United States)0%')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('English (United States)0%')).toBeVisible();
 });
     
   test('Verify Product Completeness Status Displays N/A When No Attributes Are Configured as Required for a Channel', async ({ adminPage }) => {
@@ -29,9 +29,9 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await adminPage.getByRole('link', { name: 'Products' }).click();
     await adminPage.getByRole('button', { name: 'Create Product' }).click();
     await adminPage.locator('div').filter({ hasText: /^Select option$/ }).first().click();
-    await adminPage.getByRole('option', { name: 'Simple' }).locator('span').first().click();
+    await adminPage.getByRole('option', { name: 'Simple' }).first().click();
     await adminPage.getByText('Select option').click();
-    await adminPage.getByRole('option', { name: 'Default' }).locator('span').first().click();
+    await adminPage.getByRole('option', { name: 'Default' }).first().click();
     await adminPage.locator('input[name="sku"]').click();
     await adminPage.locator('input[name="sku"]').fill('check-complete-status-onproduct');
     await adminPage.getByRole('button', { name: 'Save Product' }).click();
@@ -63,7 +63,7 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await itemRow.locator('span[title="Edit"]').first().click();
     await adminPage.getByText('Assign Attribute Group').click();
     await adminPage.getByRole('combobox').locator('div').filter({ hasText: 'Select option' }).click();
-    await adminPage.getByRole('option', { name: 'General' }).locator('span').first().click();
+    await adminPage.getByRole('option', { name: 'General' }).first().click();
     await adminPage.getByRole('button', { name: 'Assign Attribute Group' }).click();
     await adminPage.waitForLoadState('networkidle');
     const attributes = ['sku', 'Name', 'price', 'Description'];
@@ -90,7 +90,7 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await expect(adminPage.locator('div').filter({ hasText: /^SKU$/ })).toBeVisible();
     await adminPage.getByRole('link', { name: 'Completeness' }).click();
     await expect(adminPage.locator('div').filter({ hasText: /^sku$/ })).toBeVisible();
-    await expect(adminPage.getByText('SKU', { exact: true })).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('SKU', { exact: true })).toBeVisible();
 
 });
     
@@ -103,7 +103,7 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await adminPage.getByRole('textbox', { name: 'Search', exact: true }).click();
     await adminPage.getByRole('textbox', { name: 'Search', exact: true }).fill('sku');
     await adminPage.getByRole('textbox', { name: 'Search', exact: true }).press('Enter');
-    await expect(adminPage.getByText('1 Results')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('1 Results')).toBeVisible();
     await expect(adminPage.locator('div').filter({ hasText: /^sku$/ })).toBeVisible();
 });
 
@@ -114,7 +114,7 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await itemRow.locator('span[title="Edit"]').first().click();
     await adminPage.getByRole('link', { name: 'Completeness' }).click();
     await adminPage.locator('div').filter({ hasText: /^Select option$/ }).nth(1).click();
-    await expect(adminPage.getByRole('option', { name: 'Default' }).locator('span').first()).toBeVisible();
+    await expect(adminPage.getByRole('option', { name: 'Default' }).first()).toBeVisible();
 });
 
   test('Verify attribute filter using code in Completeness section of Family settings', async ({ adminPage }) => {
@@ -128,9 +128,9 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await adminPage.getByRole('textbox', { name: 'Code' }).fill('sku');
     await adminPage.getByText('Save').click();
     await adminPage.getByText('Save').click();
-    await expect(adminPage.getByText('1 Results')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('1 Results')).toBeVisible();
 });
-    
+
   test('Verify attribute filter using name in Completeness section of Family settings', async ({ adminPage }) => {
     await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attribute Families' }).click();
@@ -142,9 +142,9 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await adminPage.getByRole('textbox', { name: 'Name' }).fill('xyz');
     await adminPage.getByText('Save').click();
     await adminPage.getByText('Save').click();
-    await expect(adminPage.getByText('0 Results')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('0 Results')).toBeVisible();
 });
-    
+
   test('Verify attribute filter using Required in Channel in Completeness section of Family settings', async ({ adminPage }) => {
     await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attribute Families' }).click();
@@ -156,12 +156,12 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await adminPage.getByRole('textbox', { name: 'Required in Channels' }).fill('xyz');
     await adminPage.getByText('Save').click();
     await adminPage.getByText('Save').click();
-    await expect(adminPage.getByText('0 Results')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('0 Results')).toBeVisible();
     await adminPage.locator('.relative.inline-flex').click();
     await adminPage.getByRole('textbox', { name: 'Required in Channels' }).click();
     await adminPage.getByRole('textbox', { name: 'Required in Channels' }).fill('default');
     await adminPage.getByText('Save').click();
-    await expect(adminPage.getByText('0 Result')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('0 Result')).toBeVisible();
 });
     
   test('Verify correct selection of SKU in default channel using “Required for Channel” dropdown', async ({ adminPage }) => {
@@ -171,8 +171,8 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await itemRow.locator('span[title="Edit"]').first().click();
     await adminPage.getByRole('link', { name: 'Completeness' }).click();
     await adminPage.locator(`input[name="channel_requirements"]`).locator('..').locator('.multiselect__tags').nth(1).click();
-    await adminPage.getByRole('option', { name: 'Default' }).locator('span').first().click();
-    await expect(adminPage.getByText('Completeness updated successfully Close')).toBeVisible();
+    await adminPage.getByRole('option', { name: 'Default' }).first().click();
+    await expect(adminPage.locator('#app').getByText('Completeness updated successfully Close')).toBeVisible();
 
 });
 
@@ -187,7 +187,7 @@ test.describe('Verify that Product Completeness feature correctly Exists', () =>
     await adminPage.getByRole('textbox', { name: 'Required in Channels' }).fill('default');
     await adminPage.getByText('Save').click();
     await adminPage.getByText('Save').click();
-    await expect(adminPage.getByText('1 Results')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('1 Results')).toBeVisible();
 });
 
   test('Verify selectable attribute count in Completeness tab equals assigned family attributes', async ({ adminPage }) => {
@@ -220,7 +220,7 @@ test('Create a new channel and assigned multiple locale and currency', async ({ 
         await adminPage.locator('label[for="status"]').click();
     }
     await adminPage.getByRole('button', { name: 'Save Locale' }).click();
-    await expect(adminPage.getByText(/Locale Updated successfully/i)).toBeVisible();
+    await expect(adminPage.locator('#app').getByText(/Locale Updated successfully/i)).toBeVisible();
 
     //Enable the Andorran Peseta currency
     await adminPage.getByRole('link', { name: 'Currencies' }).click();
@@ -236,7 +236,7 @@ test('Create a new channel and assigned multiple locale and currency', async ({ 
         await adminPage.locator('label[for="status"]').click();
     }
     await adminPage.getByRole('button', { name: 'Save Currency' }).click();
-    await expect(adminPage.getByText(/Currency updated successfully/i)).toBeVisible();
+    await expect(adminPage.locator('#app').getByText(/Currency updated successfully/i)).toBeVisible();
 
     //Create a new channel and assign the above enabled locale and currency
     await adminPage.getByRole('link', { name: 'Channels' }).click();
@@ -249,18 +249,19 @@ test('Create a new channel and assigned multiple locale and currency', async ({ 
     await adminPage.locator('input[name="en_US[name]"]').fill('channel3');
     await adminPage.locator('#locales').getByRole('combobox').locator('div').filter({ hasText: 'Select Locales' }).click();
     await adminPage.locator('#locales').getByText('Afrikaans (South Africa)').click();
-    await adminPage.getByRole('option', { name: 'English (United States)' }).locator('span').first().click();
+    await adminPage.getByRole('option', { name: 'English (United States)' }).first().click();
+    await adminPage.locator('body').click();
     await adminPage.locator('#currencies').getByRole('combobox').locator('div').filter({ hasText: 'Select currencies' }).click();
     await adminPage.getByText('Andorran Peseta').click();
-    await adminPage.getByRole('option', { name: 'US Dollar' }).locator('span').first().click();
+    await adminPage.getByRole('option', { name: 'US Dollar' }).first().click();
     await adminPage.getByRole('button', { name: 'Save Channel' }).click();
-    await expect(adminPage.getByText(/Channel created successfully/i)).toBeVisible();
+    await expect(adminPage.locator('#app').getByText(/Channel created successfully/i)).toBeVisible();
 });
 
   test('Verify all available channels are displayed in Configure Completeness for newly created family', async ({ adminPage }) => {
     await adminPage.getByRole('link', { name: ' Catalog' }).click();
     await adminPage.getByRole('link', { name: 'Attribute Families' }).click();
-    await expect(adminPage.getByText('displaycompletensstab')).toBeVisible();
+    await expect(adminPage.locator('#app').getByText('displaycompletensstab')).toBeVisible();
     const itemRow = adminPage.locator('div', { hasText: 'displaycompletensstab' });
     await itemRow.locator('span[title="Edit"]').first().click();
     await adminPage.getByRole('link', { name: 'Completeness' }).click();
@@ -268,8 +269,8 @@ test('Create a new channel and assigned multiple locale and currency', async ({ 
     await adminPage.getByRole('button', { name: 'Select Action ' }).click();
     await adminPage.getByRole('link', { name: 'Change Completeness' }).click();
     await adminPage.locator('.px-4 > .mb-4 > div > .multiselect > .multiselect__tags').click();
-    await expect(adminPage.getByRole('option', { name: 'Default' }).locator('span').first()).toBeVisible();
-    await expect(adminPage.getByRole('option', { name: 'channel3' }).locator('span').first()).toBeVisible();
+    await expect(adminPage.getByRole('option', { name: 'Default' }).first()).toBeVisible();
+    await expect(adminPage.getByRole('option', { name: 'channel3' }).first()).toBeVisible();
 });
 
 test('Delete the created family after tests', async ({ adminPage }) => {
@@ -278,6 +279,6 @@ test('Delete the created family after tests', async ({ adminPage }) => {
     const itemRow = adminPage.locator('div', { hasText: 'displaycompletensstab' });
     await itemRow.locator('span[title="Delete"]').first().click();
     await adminPage.getByRole('button', { name: 'Delete' }).click();
-    await expect(adminPage.getByText(/Family deleted successfully/i)).toBeVisible();
+    await expect(adminPage.locator('#app').getByText(/Family deleted successfully/i)).toBeVisible();
 });
 });

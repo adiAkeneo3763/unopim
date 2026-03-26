@@ -9,7 +9,7 @@ test('Create Attribute family with empty code field', async ({ adminPage }) => {
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Header');
   await adminPage.getByRole('button', { name: 'Save Attribute Family' }).click();
-  await expect(adminPage.getByText('The Code field is required')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('The Code field is required')).toBeVisible();
 });
 
 test('Create Attribute family', async ({ adminPage }) => {
@@ -21,7 +21,7 @@ test('Create Attribute family', async ({ adminPage }) => {
   await adminPage.locator('input[name="en_US\\[name\\]"]').click();
   await adminPage.locator('input[name="en_US\\[name\\]"]').fill('Header');
   await adminPage.getByRole('button', { name: 'Save Attribute Family' }).click();
-  await expect(adminPage.getByText(/Family created successfully/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Family created successfully/i)).toBeVisible();
 });
 
 test('should allow attribute family search', async ({ adminPage }) => {
@@ -37,7 +37,7 @@ test('should open the filter menu when clicked', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: ' Catalog' }).click();
   await adminPage.getByRole('link', { name: 'Attribute Families' }).click();
   await adminPage.getByText('Filter', { exact: true }).click();
-  await expect(adminPage.getByText('Apply Filters')).toBeVisible();
+  await expect(adminPage.locator('#app').getByText('Apply Filters')).toBeVisible();
 });
 
 test('should allow setting items per adminPage', async ({ adminPage }) => {
@@ -74,7 +74,7 @@ test('Edit Attribute Family', async ({ adminPage }) => {
   await adminPage.locator('.secondary-button', { hasText: 'Assign Attribute Group' }).click();
   await adminPage.locator('input[name="group"]').locator('..').locator('.multiselect__placeholder').click();
   await adminPage.getByRole('textbox', { name: 'group-searchbox' }).fill('General');
-  await adminPage.getByRole('option', { name: 'General' }).locator('span').first().click();
+  await adminPage.getByRole('option', { name: 'General' }).first().click();
   await adminPage.getByRole('button', { name: 'Assign Attribute Group' }).click();
   const dragHandle = await adminPage.locator('#unassigned-attributes i.icon-drag:near(:text("SKU"))').first();
   const dropTarget = await adminPage.locator('#assigned-attribute-groups .group_node').first();
@@ -87,7 +87,7 @@ test('Edit Attribute Family', async ({ adminPage }) => {
   await adminPage.mouse.up();
   }
   await adminPage.getByRole('button', { name: 'Save Attribute Family' }).click();
-  await expect(adminPage.getByText(/Family updated successfully/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Family updated successfully/i)).toBeVisible();
 });
 
 test('Delete Attribute Family', async ({ adminPage }) => {
@@ -95,6 +95,6 @@ test('Delete Attribute Family', async ({ adminPage }) => {
   await adminPage.getByRole('link', { name: 'Attribute Families' }).click();
   await adminPage.getByText('headerFooter').getByTitle('Delete').click();
   await adminPage.getByRole('button', { name: 'Delete' }).click();
-  await expect(adminPage.getByText(/Family deleted successfully/i)).toBeVisible();
+  await expect(adminPage.locator('#app').getByText(/Family deleted successfully/i)).toBeVisible();
 });
 });

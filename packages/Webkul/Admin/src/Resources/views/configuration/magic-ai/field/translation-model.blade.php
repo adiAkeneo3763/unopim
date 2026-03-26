@@ -42,21 +42,24 @@
                 @{{ label }}
             </x-admin::form.control-group.label>
 
-            <select
-                :id="name"
-                :name="name"
-                v-model="selectedValue"
-                class="w-full py-2.5 px-3 border rounded-md text-sm text-gray-600 dark:text-gray-300 transition-all hover:border-gray-400 dark:bg-cherry-800 dark:border-cherry-800 dark:hover:border-gray-400"
-            >
-                <option value="0">-- Select Model --</option>
-                <option v-for="option in currentOptions" :key="option.id" :value="option.id">
-                    @{{ option.label }}
-                </option>
-            </select>
+            <x-admin::form.control-group.control
+                type="select"
+                ::id="name"
+                ::name="name"
+                ::options="JSON.stringify(currentOptions)"
+                ::value="selectedValue"
+                ::label="label"
+                :placeholder="trans('admin::app.configuration.prompt.create.select-model')"
+                track-by="id"
+                label-by="label"
+                @input="handleModelChange"
+            />
 
-            <p v-if="loading" class="mt-1 text-xs text-violet-600">Loading models...</p>
+            <p v-if="loading" class="mt-1 text-xs text-violet-600">
+                @lang('admin::app.configuration.prompt.create.loading-models')
+            </p>
             <p v-if="!currentOptions.length && !loading" class="mt-1 text-xs text-gray-400">
-                No models available. Select a platform or configure one in Platforms tab.
+                @lang('admin::app.configuration.prompt.create.no-models-available')
             </p>
         </x-admin::form.control-group>
     </script>
@@ -74,15 +77,33 @@
             },
 
             mounted() {
-                const platformSelect = document.getElementById(this.platformSelectId);
-                if (platformSelect) {
-                    platformSelect.addEventListener('change', (e) => {
-                        this.loadModelsForPlatform(e.target.value);
-                    });
+                this.translationPlatformHandler = (event) => {
+                    try {
+                        const selected = event.detail ? JSON.parse(event.detail) : null;
+                        this.loadModelsForPlatform(selected?.id || '');
+                    } catch (error) {
+                        this.loadModelsForPlatform('');
+                    }
+                };
+
+                document.addEventListener('magic-ai-translation-platform-changed', this.translationPlatformHandler);
+            },
+
+            beforeUnmount() {
+                if (this.translationPlatformHandler) {
+                    document.removeEventListener('magic-ai-translation-platform-changed', this.translationPlatformHandler);
                 }
             },
 
             methods: {
+                handleModelChange(value) {
+                    try {
+                        this.selectedValue = value ? JSON.parse(value).id : '';
+                    } catch (error) {
+                        this.selectedValue = '';
+                    }
+                },
+
                 loadModelsForPlatform(platformId) {
                     this.loading = true;
 

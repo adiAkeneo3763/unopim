@@ -200,6 +200,9 @@ class ProductTableSeeder extends Seeder
         return $products;
     }
 
+    /**
+     * Store the product image from package seeder data to the public storage disk.
+     */
     protected function storeProductImage(?string $imagePath): ?string
     {
         if (empty($imagePath)) {
@@ -207,13 +210,10 @@ class ProductTableSeeder extends Seeder
         }
 
         $baseDataPath = __DIR__.'/../../Resources/assets/images/seeders/';
-
         $sourcePath = $baseDataPath.ltrim($imagePath, '/');
-
         $defaultPath = $baseDataPath.'products/default.jpg';
 
         if (! File::exists($sourcePath)) {
-
             if (! File::exists($defaultPath)) {
                 return null;
             }
