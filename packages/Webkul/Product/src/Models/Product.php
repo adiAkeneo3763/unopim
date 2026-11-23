@@ -24,6 +24,7 @@ use Webkul\HistoryControl\Interfaces\PresentableHistoryInterface;
 use Webkul\HistoryControl\Presenters\BooleanPresenter;
 use Webkul\HistoryControl\Traits\HistoryTrait;
 use Webkul\Product\Contracts\Product as ProductContract;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 use Webkul\Product\Contracts\VariantStructurePlanner;
 use Webkul\Product\Contracts\VariantValueResolver;
 use Webkul\Product\Database\Eloquent\Builder;
@@ -221,6 +222,18 @@ class Product extends Model implements HistoryAuditable, PresentableHistoryInter
     public function resolvedValues(): array
     {
         return resolve(VariantValueResolver::class)->resolve($this);
+    }
+
+    /**
+     * Get the resolved values with their template sources rendered, in every scope when no channel or locale is given.
+     */
+    public function renderedValues(?string $channel = null, ?string $locale = null): array
+    {
+        $renderer = resolve(ProductValuesRenderer::class);
+
+        return $channel === null && $locale === null
+            ? $renderer->renderAllScopes($this->resolvedValues())
+            : $renderer->renderScope($this->resolvedValues(), $channel, $locale);
     }
 
     /**
