@@ -191,8 +191,6 @@ return [
             'header-row-info'        => 'Write attribute codes as the first line',
             'use-labels'             => 'Use Labels',
             'use-labels-info'        => 'Export readable labels instead of codes',
-            'render-templates'       => 'Sjablonen weergeven',
-            'render-templates-info'  => 'Weergegeven sjabloonwaarden exporteren in plaats van de ruwe sjabloonbron. Een weergegeven bestand opnieuw importeren vervangt de opgeslagen sjabloonbron door platte tekst.',
             'date-format'            => 'Date Format',
             'date-format-options'    => [
                 'yyyy-mm-dd'       => 'YYYY-MM-DD',

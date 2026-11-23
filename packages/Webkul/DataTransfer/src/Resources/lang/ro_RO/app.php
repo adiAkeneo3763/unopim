@@ -191,8 +191,6 @@ return [
             'header-row-info'        => 'Write attribute codes as the first line',
             'use-labels'             => 'Use Labels',
             'use-labels-info'        => 'Export readable labels instead of codes',
-            'render-templates'       => 'Randează șabloanele',
-            'render-templates-info'  => 'Exportă valorile randate ale șabloanelor în locul sursei brute a șablonului. Reimportarea unui fișier randat înlocuiește sursa salvată a șablonului cu text simplu.',
             'date-format'            => 'Date Format',
             'date-format-options'    => [
                 'yyyy-mm-dd'       => 'YYYY-MM-DD',

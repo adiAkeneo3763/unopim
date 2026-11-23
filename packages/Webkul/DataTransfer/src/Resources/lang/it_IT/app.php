@@ -191,8 +191,6 @@ return [
             'header-row-info'        => 'Write attribute codes as the first line',
             'use-labels'             => 'Use Labels',
             'use-labels-info'        => 'Export readable labels instead of codes',
-            'render-templates'       => 'Elabora modelli',
-            'render-templates-info'  => 'Esporta i valori elaborati dei modelli invece del sorgente grezzo del modello. Reimportare un file elaborato sostituisce il sorgente salvato del modello con testo semplice.',
             'date-format'            => 'Date Format',
             'date-format-options'    => [
                 'yyyy-mm-dd'       => 'YYYY-MM-DD',

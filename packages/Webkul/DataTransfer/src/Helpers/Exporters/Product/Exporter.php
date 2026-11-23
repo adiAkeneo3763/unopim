@@ -196,14 +196,6 @@ class Exporter extends AbstractExporter
     }
 
     /**
-     * Determine if the export job renders templates instead of exporting their source.
-     */
-    protected function shouldRenderTemplates(): bool
-    {
-        return (string) ($this->getFilters()['render_templates'] ?? '0') === '1';
-    }
-
-    /**
      * Replace the exported template sources with their rendered output and collect their render problems for the batch log.
      */
     protected function renderTemplateValues(array $fields, array $values, string $sku, string $channel, string $locale): array
@@ -615,7 +607,6 @@ class Exporter extends AbstractExporter
         );
 
         $withAssociations = (bool) ($this->getFilters()['with_associations'] ?? false);
-        $renderTemplates = $this->shouldRenderTemplates();
 
         foreach ($productsByIds as $product) {
             $productValues = $mergedValuesById[$product->id] ?? ($product->values ?? []);
@@ -660,9 +651,7 @@ class Exporter extends AbstractExporter
                         $channelLocaleSpecificFields
                     );
 
-                    if ($renderTemplates) {
-                        $mergedFields = $this->renderTemplateValues($mergedFields, $productValues, $product->sku, $channel, $locale);
-                    }
+                    $mergedFields = $this->renderTemplateValues($mergedFields, $productValues, $product->sku, $channel, $locale);
 
                     $values = $this->setAttributesValues($mergedFields, $filePath, $locale);
 

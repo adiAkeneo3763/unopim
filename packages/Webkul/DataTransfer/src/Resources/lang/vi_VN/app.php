@@ -191,8 +191,6 @@ return [
             'header-row-info'        => 'Write attribute codes as the first line',
             'use-labels'             => 'Use Labels',
             'use-labels-info'        => 'Export readable labels instead of codes',
-            'render-templates'       => 'Kết xuất mẫu',
-            'render-templates-info'  => 'Xuất giá trị mẫu đã kết xuất thay vì mã nguồn mẫu gốc. Nhập lại tệp đã kết xuất sẽ thay thế mã nguồn mẫu đã lưu bằng văn bản thuần.',
             'date-format'            => 'Date Format',
             'date-format-options'    => [
                 'yyyy-mm-dd'       => 'YYYY-MM-DD',

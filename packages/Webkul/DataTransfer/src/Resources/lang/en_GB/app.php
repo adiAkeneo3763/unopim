@@ -191,8 +191,6 @@ return [
             'header-row-info'        => 'Write attribute codes as the first line',
             'use-labels'             => 'Use Labels',
             'use-labels-info'        => 'Export readable labels instead of codes',
-            'render-templates'       => 'Render Templates',
-            'render-templates-info'  => 'Export rendered template values instead of the raw template source. Re-importing a rendered file replaces the stored template source with plain text.',
             'date-format'            => 'Date Format',
             'date-format-options'    => [
                 'yyyy-mm-dd'       => 'YYYY-MM-DD',

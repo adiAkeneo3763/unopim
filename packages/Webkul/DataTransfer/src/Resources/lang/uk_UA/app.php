@@ -191,8 +191,6 @@ return [
             'header-row-info'        => 'Write attribute codes as the first line',
             'use-labels'             => 'Use Labels',
             'use-labels-info'        => 'Export readable labels instead of codes',
-            'render-templates'       => 'Обробляти шаблони',
-            'render-templates-info'  => 'Експортувати готові значення шаблонів замість вихідного тексту шаблону. Повторний імпорт готового файлу замінює збережений вихідний текст шаблону звичайним текстом.',
             'date-format'            => 'Date Format',
             'date-format-options'    => [
                 'yyyy-mm-dd'       => 'YYYY-MM-DD',

@@ -191,8 +191,6 @@ return [
             'header-row-info'        => 'Write attribute codes as the first line',
             'use-labels'             => 'Use Labels',
             'use-labels-info'        => 'Export readable labels instead of codes',
-            'render-templates'       => 'Renderuj szablony',
-            'render-templates-info'  => 'Eksportuj wyrenderowane wartości szablonów zamiast surowego źródła szablonu. Ponowny import wyrenderowanego pliku zastępuje zapisane źródło szablonu zwykłym tekstem.',
             'date-format'            => 'Date Format',
             'date-format-options'    => [
                 'yyyy-mm-dd'       => 'YYYY-MM-DD',

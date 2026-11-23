@@ -191,8 +191,6 @@ return [
             'header-row-info'        => 'Write attribute codes as the first line',
             'use-labels'             => 'Use Labels',
             'use-labels-info'        => 'Export readable labels instead of codes',
-            'render-templates'       => 'Prikaži predloške',
-            'render-templates-info'  => 'Izvezi prikazane vrijednosti predložaka umjesto izvornog teksta predloška. Ponovni uvoz prikazane datoteke zamjenjuje spremljeni izvorni tekst predloška običnim tekstom.',
             'date-format'            => 'Date Format',
             'date-format-options'    => [
                 'yyyy-mm-dd'       => 'YYYY-MM-DD',
