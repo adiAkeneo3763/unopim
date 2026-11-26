@@ -22,6 +22,7 @@ use Webkul\DataGrid\Contracts\ExportableInterface;
 use Webkul\DataGrid\DataGrid;
 use Webkul\ElasticSearch\Cursor\MatchingIdCursor;
 use Webkul\ElasticSearch\Enums\FilterOperators;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 use Webkul\Product\Contracts\TemplateRenderer;
 use Webkul\Product\Contracts\VariantValueResolver;
 use Webkul\Product\Factories\ElasticSearch\Cursor\ResultCursorFactory;
@@ -78,6 +79,8 @@ class ProductDataGrid extends DataGrid implements ExportableInterface
     protected ?array $variantStructureCodes = null;
 
     protected ?TemplateRenderer $templateRenderer = null;
+
+    protected ?ProductValuesRenderer $productValuesRenderer = null;
 
     protected $productQueryBuilder;
 
@@ -1237,6 +1240,11 @@ class ProductDataGrid extends DataGrid implements ExportableInterface
         return $this->templateRenderer ??= app(TemplateRenderer::class);
     }
 
+    protected function productValuesRenderer(): ProductValuesRenderer
+    {
+        return $this->productValuesRenderer ??= app(ProductValuesRenderer::class);
+    }
+
     /**
      * Format product values for quick export
      */
@@ -1491,10 +1499,18 @@ class ProductDataGrid extends DataGrid implements ExportableInterface
             return;
         }
 
+        $locale = core()->getRequestedLocaleCode();
+        $channel = core()->getRequestedChannelCode();
+
         $rawValues = $mergedValues ?? json_decode($record->raw_values, true);
+
+        if (is_array($rawValues)) {
+            $rawValues = $this->productValuesRenderer()->renderScope($rawValues, $channel, $locale);
+        }
+
         $values = $this->attributeValueNormalizer->normalize($rawValues, [
-            'locale'                 => core()->getRequestedLocaleCode(),
-            'channel'                => core()->getRequestedChannelCode(),
+            'locale'                 => $locale,
+            'channel'                => $channel,
             'format'                 => 'datagrid',
             'processed_on_attribute' => ! empty($this->attributeColumns) ?? false,
             'attribute_codes'        => array_keys($this->attributeColumns),
