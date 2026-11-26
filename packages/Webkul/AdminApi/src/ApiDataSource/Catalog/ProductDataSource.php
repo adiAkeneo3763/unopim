@@ -3,10 +3,13 @@
 namespace Webkul\AdminApi\ApiDataSource\Catalog;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 use Webkul\AdminApi\ApiDataSource;
 use Webkul\Attribute\Repositories\AttributeFamilyRepository;
 use Webkul\Completeness\Repositories\ProductCompletenessScoreRepository;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 use Webkul\Product\Contracts\VariantValueResolver;
 use Webkul\Product\Database\Eloquent\Builder;
 use Webkul\Product\Enums\ProductType;
@@ -24,6 +27,13 @@ class ProductDataSource extends ApiDataSource
 
     protected ?VariantValueResolver $variantValueResolver = null;
 
+    protected ?ProductValuesRenderer $productValuesRenderer = null;
+
+    /**
+     * @var array{render: bool, channel: ?string, locale: ?string}|null
+     */
+    protected ?array $templateRenderScope = null;
+
     /**
      * Create a new DataSource instance.
      *
@@ -39,6 +49,46 @@ class ProductDataSource extends ApiDataSource
     protected function variantValueResolver(): VariantValueResolver
     {
         return $this->variantValueResolver ??= app(VariantValueResolver::class);
+    }
+
+    protected function productValuesRenderer(): ProductValuesRenderer
+    {
+        return $this->productValuesRenderer ??= app(ProductValuesRenderer::class);
+    }
+
+    /**
+     * Resolve the requested template rendering, rejecting an unknown channel or inactive locale.
+     *
+     * @return array{render: bool, channel: ?string, locale: ?string}
+     */
+    protected function templateRenderScope(): array
+    {
+        if ($this->templateRenderScope !== null) {
+            return $this->templateRenderScope;
+        }
+
+        $scope = Validator::make(request()->only(['channel', 'locale']), [
+            'channel' => ['nullable', 'string', Rule::exists('channels', 'code')],
+            'locale'  => ['nullable', 'string', Rule::exists('locales', 'code')->where('status', 1)],
+        ])->validate();
+
+        return $this->templateRenderScope = [
+            'render'  => filter_var(request()->input('render_templates', true), FILTER_VALIDATE_BOOLEAN),
+            'channel' => $scope['channel'] ?? null,
+            'locale'  => $scope['locale'] ?? null,
+        ];
+    }
+
+    /**
+     * Render the template sources of the values unless the request asks for the stored sources.
+     */
+    protected function responseValues(?array $values): ?array
+    {
+        $scope = $this->templateRenderScope();
+
+        return $values !== null && $scope['render']
+            ? $this->productValuesRenderer()->renderAllScopes($values, $scope['channel'], $scope['locale'])
+            : $values;
     }
 
     /**
@@ -81,6 +131,8 @@ class ProductDataSource extends ApiDataSource
      */
     public function formatData(): array
     {
+        $this->templateRenderScope();
+
         $paginator = $this->paginator->toArray();
 
         $withCompleteness = filter_var(request()->input('with_completeness', false), FILTER_VALIDATE_BOOLEAN);
@@ -112,6 +164,8 @@ class ProductDataSource extends ApiDataSource
      */
     public function getByCode(string $code)
     {
+        $this->templateRenderScope();
+
         $this->prepareForSingleData();
 
         $requestedFilters = [
@@ -308,7 +362,7 @@ class ProductDataSource extends ApiDataSource
             'additional' => $product['additional'],
             'created_at' => $product['created_at'],
             'updated_at' => $product['updated_at'],
-            'values'     => $mergedValues ?? $product['values'],
+            'values'     => $this->responseValues($mergedValues ?? $product['values']),
         ];
 
         if (in_array($product['type'], ProductType::VARIANT_PARENT_VALUES, true)) {

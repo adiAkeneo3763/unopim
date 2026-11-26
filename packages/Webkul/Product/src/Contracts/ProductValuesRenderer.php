@@ -10,7 +10,7 @@ interface ProductValuesRenderer
     public function renderScope(array $values, ?string $channel = null, ?string $locale = null): array;
 
     /**
-     * Render the template sources of every scope in the channel and locale that scope resolves to.
+     * Render the template sources of every scope, filling the channel or locale a scope does not carry from the given ones.
      */
-    public function renderAllScopes(array $values): array;
+    public function renderAllScopes(array $values, ?string $channel = null, ?string $locale = null): array;
 }

@@ -41,25 +41,25 @@ class ProductValuesRenderer implements ProductValuesRendererContract
     }
 
     /**
-     * Render the template sources of every scope in the channel and locale that scope resolves to.
+     * Render the template sources of every scope, filling the channel or locale a scope does not carry from the given ones.
      */
-    public function renderAllScopes(array $values): array
+    public function renderAllScopes(array $values, ?string $channel = null, ?string $locale = null): array
     {
-        $defaultChannel = $this->defaultChannel();
+        $baseChannel = $channel ?? $this->defaultChannel();
 
-        $slices = [[[AbstractType::COMMON_VALUES_KEY], $defaultChannel, $this->channelLocale($defaultChannel)]];
+        $slices = [[[AbstractType::COMMON_VALUES_KEY], $baseChannel, $locale ?? $this->channelLocale($baseChannel)]];
 
-        foreach (array_keys($this->slice($values, [AbstractType::LOCALE_VALUES_KEY])) as $locale) {
-            $slices[] = [[AbstractType::LOCALE_VALUES_KEY, (string) $locale], $defaultChannel, (string) $locale];
+        foreach (array_keys($this->slice($values, [AbstractType::LOCALE_VALUES_KEY])) as $scopeLocale) {
+            $slices[] = [[AbstractType::LOCALE_VALUES_KEY, (string) $scopeLocale], $baseChannel, (string) $scopeLocale];
         }
 
-        foreach (array_keys($this->slice($values, [AbstractType::CHANNEL_VALUES_KEY])) as $channel) {
-            $slices[] = [[AbstractType::CHANNEL_VALUES_KEY, (string) $channel], (string) $channel, $this->channelLocale((string) $channel)];
+        foreach (array_keys($this->slice($values, [AbstractType::CHANNEL_VALUES_KEY])) as $scopeChannel) {
+            $slices[] = [[AbstractType::CHANNEL_VALUES_KEY, (string) $scopeChannel], (string) $scopeChannel, $locale ?? $this->channelLocale((string) $scopeChannel)];
         }
 
-        foreach ($this->slice($values, [AbstractType::CHANNEL_LOCALE_VALUES_KEY]) as $channel => $locales) {
-            foreach (array_keys(is_array($locales) ? $locales : []) as $locale) {
-                $slices[] = [[AbstractType::CHANNEL_LOCALE_VALUES_KEY, (string) $channel, (string) $locale], (string) $channel, (string) $locale];
+        foreach ($this->slice($values, [AbstractType::CHANNEL_LOCALE_VALUES_KEY]) as $scopeChannel => $scopeLocales) {
+            foreach (array_keys(is_array($scopeLocales) ? $scopeLocales : []) as $scopeLocale) {
+                $slices[] = [[AbstractType::CHANNEL_LOCALE_VALUES_KEY, (string) $scopeChannel, (string) $scopeLocale], (string) $scopeChannel, (string) $scopeLocale];
             }
         }
 

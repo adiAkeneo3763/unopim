@@ -86,6 +86,20 @@ it('renders every scope in the channel and locale that scope resolves to', funct
         ->and($rendered['channel_locale_specific'][$this->onlineChannel->code]['de_DE']['rv_caption'])->toBe('Sonnenbrillen @ Online');
 });
 
+it('fills the channel and locale a scope does not carry from the given ones', function () {
+    $rendered = $this->valuesRenderer->renderAllScopes($this->values, $this->onlineChannel->code, 'de_DE');
+
+    $storeOnly = $this->valuesRenderer->renderAllScopes($this->values, $this->storeChannel->code);
+
+    expect($rendered['common']['rv_description'])->toBe('Sonnenbrillen / Online')
+        ->and($rendered['locale_specific'][$this->defaultLocale]['rv_headline'])->toBe('SUNGLASSES')
+        ->and($rendered['channel_specific'][$this->onlineChannel->code]['rv_banner'])->toBe('Online (Sonnenbrillen)')
+        ->and($rendered['channel_specific'][$this->storeChannel->code]['rv_banner'])->toBe('In store (Sonnenbrillen)')
+        ->and($rendered['channel_locale_specific'][$this->onlineChannel->code]['de_DE']['rv_caption'])->toBe('Sonnenbrillen @ Online')
+        ->and($storeOnly['common']['rv_description'])->toBe('Sonnenbrillen / In store')
+        ->and($storeOnly['channel_specific'][$this->onlineChannel->code]['rv_banner'])->toBe('Online (Sunglasses)');
+});
+
 it('returns the values unchanged when nothing holds a template', function () {
     $values = [
         'common'          => ['rv_color' => 'Red', 'rv_unknown' => '{{ rv_color }}'],
