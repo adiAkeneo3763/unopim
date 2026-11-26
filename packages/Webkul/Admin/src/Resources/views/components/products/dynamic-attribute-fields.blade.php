@@ -148,9 +148,11 @@
 
         $isDisabled = $isLocked && ! $isReadOnlyMedia;
 
-        $hasTemplateAssist = $templateProductId
-            && ! $isDisabled
+        $hasTemplatePreview = $templateProductId
             && $field->canHoldTemplate();
+
+        $hasTemplateAssist = $hasTemplatePreview
+            && ! $isDisabled;
     @endphp
 
     {!! view_render_event('unopim.admin.products.dynamic-attribute-fields.field.before', ['field' => $field]) !!}
@@ -187,7 +189,9 @@
                         :filters="$templateFilters"
                         :rich="$field->isRichText()"
                     />
+                @endif
 
+                @if ($hasTemplatePreview)
                     <x-admin::products.template-preview
                         :product-id="$templateProductId"
                         :field="$field"

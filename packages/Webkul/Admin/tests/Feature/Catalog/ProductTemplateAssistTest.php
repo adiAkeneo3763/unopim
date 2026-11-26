@@ -91,13 +91,13 @@ it('does not add the template assist without a product', function () {
     expect(templateAssistCodes(renderTemplateAssistFields($this, ['templateProductId' => null])))->toBe([]);
 });
 
-it('does not add the template assist to locked variant fields', function () {
+it('adds only the template preview to locked variant fields', function () {
     $html = renderTemplateAssistFields($this, [
-        'lockedFields' => ['tpl_plain' => ['level' => 'common', 'value' => 'Inherited']],
+        'lockedFields' => ['tpl_plain' => ['level' => 'common', 'value' => 'Inherited {{ tpl_text }}']],
     ]);
 
     expect(templateAssistCodes($html))->toBe(['tpl_rich'])
-        ->and(templatePreviewCodes($html))->toBe(['tpl_rich']);
+        ->and(templatePreviewCodes($html))->toBe(['tpl_plain', 'tpl_rich']);
 });
 
 it('adds the template assist to the product edit page and its lazy attribute groups', function () {
