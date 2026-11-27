@@ -6,6 +6,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use Webkul\Attribute\Contracts\Attribute as AttributeContract;
 use Webkul\Core\Traits\HtmlPurifier;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 use Webkul\Product\Models\Product;
 use Webkul\ProductPassport\Contracts\PassportTemplateField as PassportTemplateFieldContract;
 use Webkul\ProductPassport\Enums\PassportFieldRole;
@@ -31,6 +32,8 @@ class PassportPayloadBuilder implements PayloadBuilder
      */
     private const SPOOL_MEMORY_BYTES = 2 * 1024 * 1024;
 
+    private ?ProductValuesRenderer $productValuesRenderer = null;
+
     public function __construct(
         private readonly PassportTemplateResolver $templates,
     ) {}
@@ -51,6 +54,8 @@ class PassportPayloadBuilder implements PayloadBuilder
 
         // resolvedValues() rebuilds a non-memoizing resolver each call; skip the ancestor walk for non-variants.
         $values = empty($product->parent_id) ? ($product->values ?? []) : $product->resolvedValues();
+
+        $values = $this->productValuesRenderer()->renderScope($values, $channelCode, $localeCode);
 
         // Tiers live under `publication.*`: this package's config is merged into the `publication` namespace.
         $order = config('publication.tiers.order', ['consumer']);
@@ -132,6 +137,11 @@ class PassportPayloadBuilder implements PayloadBuilder
                 'template' => $template?->code,
             ],
         ];
+    }
+
+    private function productValuesRenderer(): ProductValuesRenderer
+    {
+        return $this->productValuesRenderer ??= app(ProductValuesRenderer::class);
     }
 
     /**
