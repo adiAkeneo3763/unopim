@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Webkul\Product\Contracts\Product;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 use Webkul\Product\Enums\ProductType;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Webhook\Helpers\ProductComparer;
@@ -25,6 +26,8 @@ class WebhookService
     public const EVENT_PRODUCT_CREATED = 'product.created';
 
     public const EVENT_PRODUCT_UPDATED = 'product.updated';
+
+    protected ?ProductValuesRenderer $productValuesRenderer = null;
 
     public function __construct(
         protected WebhookRepository $webhookRepository,
@@ -432,8 +435,8 @@ class WebhookService
             return [];
         }
 
-        $oldRaw = $latestChanges->old_values ?? [];
-        $newRaw = $latestChanges->new_values ?? [];
+        $oldRaw = $this->renderAuditValues($product, $latestChanges->old_values ?? []);
+        $newRaw = $this->renderAuditValues($product, $latestChanges->new_values ?? []);
 
         $diff = ProductComparer::compare($oldRaw, $newRaw);
 
@@ -452,5 +455,50 @@ class WebhookService
         }
 
         return [];
+    }
+
+    protected function productValuesRenderer(): ProductValuesRenderer
+    {
+        return $this->productValuesRenderer ??= app(ProductValuesRenderer::class);
+    }
+
+    protected function renderAuditValues(Product $product, array $auditValues): array
+    {
+        $values = $auditValues['values'] ?? null;
+
+        if (! is_string($values) || ! str_contains($values, '{{')) {
+            return $auditValues;
+        }
+
+        $ownValues = json_decode($values, true);
+
+        if (! is_array($ownValues)) {
+            return $auditValues;
+        }
+
+        $rendered = $this->productValuesRenderer()->renderRows([[
+            'id'        => $product->getKey(),
+            'parent_id' => $product->parent_id,
+            'values'    => $ownValues,
+        ]])[$product->getKey()] ?? [];
+
+        $auditValues['values'] = json_encode($this->replaceTemplateSources($ownValues, $rendered));
+
+        return $auditValues;
+    }
+
+    protected function replaceTemplateSources(array $ownValues, array $renderedValues): array
+    {
+        foreach ($ownValues as $key => $value) {
+            $renderedValue = $renderedValues[$key] ?? null;
+
+            if (is_array($value) && is_array($renderedValue)) {
+                $ownValues[$key] = $this->replaceTemplateSources($value, $renderedValue);
+            } elseif (is_string($value) && str_contains($value, '{{') && is_string($renderedValue)) {
+                $ownValues[$key] = $renderedValue;
+            }
+        }
+
+        return $ownValues;
     }
 }
