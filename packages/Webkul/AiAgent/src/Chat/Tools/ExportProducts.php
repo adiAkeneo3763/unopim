@@ -21,6 +21,7 @@ use Webkul\DataTransfer\Repositories\JobTrackBatchRepository;
 use Webkul\DataTransfer\Repositories\JobTrackRepository;
 use Webkul\DataTransfer\Services\JobLogger;
 use Webkul\DataTransfer\Support\FormulaGuard;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 
 class ExportProducts implements PimTool
 {
@@ -214,7 +215,7 @@ class ExportProducts implements PimTool
     public function collectProducts(array $filters): Collection
     {
         $query = DB::table('products as p')
-            ->select('p.id', 'p.sku', 'p.type', 'p.status', 'p.values');
+            ->select('p.id', 'p.sku', 'p.type', 'p.status', 'p.parent_id', 'p.values');
 
         if (! empty($filters['skus'])) {
             $query->whereIn('p.sku', $filters['skus']);
@@ -249,8 +250,10 @@ class ExportProducts implements PimTool
             ['sku', 'name', 'type', 'status', 'description', 'price', 'categories'],
         ];
 
+        $renderedValues = resolve(ProductValuesRenderer::class)->renderOwnRows($products);
+
         foreach ($products as $product) {
-            $values = json_decode((string) $product->values, true) ?? [];
+            $values = $renderedValues[$product->id] ?? [];
             $channelLocaleValues = $values['channel_locale_specific'][$context->channel][$context->locale] ?? [];
             $commonValues = $values['common'] ?? [];
 

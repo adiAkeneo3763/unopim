@@ -3,12 +3,15 @@
 namespace Webkul\AiAgent\Chat\Tools;
 
 use Illuminate\Contracts\JsonSchema\JsonSchema;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Laravel\Ai\Contracts\Tool;
 use Laravel\Ai\Tools\Request;
 use Webkul\AiAgent\Chat\ChatContext;
 use Webkul\AiAgent\Chat\Concerns\ChecksPermission;
 use Webkul\AiAgent\Chat\Contracts\PimTool;
+use Webkul\Product\Contracts\ProductValuesRenderer;
+use Webkul\Product\Templates\TemplateParser;
 
 class GetProductDetails implements PimTool
 {
@@ -25,7 +28,7 @@ class GetProductDetails implements PimTool
 
             public function description(): string
             {
-                return 'Get full product details by SKU or ID.';
+                return 'Get full product details by SKU or ID. Values show rendered template output; template_sources lists the fields that hold a template with their source, so edit that source instead of the rendered text.';
             }
 
             public function schema(JsonSchema $schema): array
@@ -62,14 +65,24 @@ class GetProductDetails implements PimTool
                     ->where('id', $product->attribute_family_id)
                     ->value('code');
 
-                return json_encode([
+                $details = [
                     'id'     => $product->id,
                     'sku'    => $product->sku,
                     'type'   => $product->type,
                     'status' => $product->status ? 'active' : 'inactive',
                     'family' => $family,
-                    'values' => $values,
-                ]);
+                    'values' => resolve(ProductValuesRenderer::class)->renderOwnRows([$product])[$product->id] ?? $values,
+                ];
+
+                $templateParser = resolve(TemplateParser::class);
+
+                $templateSources = array_filter(Arr::dot($values), fn (mixed $value): bool => $templateParser->containsTemplate($value));
+
+                if ($templateSources !== []) {
+                    $details['template_sources'] = $templateSources;
+                }
+
+                return json_encode($details);
             }
         };
     }

@@ -18,4 +18,9 @@ interface ProductValuesRenderer
      * Render every scope of each row (id, parent_id, values) with its inherited values, keyed by row id.
      */
     public function renderRows(iterable $rows): array;
+
+    /**
+     * Render the template sources of each row (id, parent_id, values) with its inherited values, keeping only the row's own keys, keyed by row id.
+     */
+    public function renderOwnRows(iterable $rows): array;
 }

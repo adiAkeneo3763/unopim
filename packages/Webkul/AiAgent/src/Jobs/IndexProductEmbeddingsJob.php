@@ -10,6 +10,7 @@ use Webkul\AiAgent\Services\EmbeddingSimilarityService;
 use Webkul\AiAgent\Services\VectorStore\ProductEmbeddingDocumentBuilder;
 use Webkul\AiAgent\Services\VectorStore\ProductEmbeddingIndex;
 use Webkul\MagicAI\Models\MagicAIPlatform;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 
 /**
  * Embeds a batch of products' textual values and upserts them into the
@@ -145,13 +146,15 @@ class IndexProductEmbeddingsJob implements ShouldQueue
     {
         $rows = DB::table('products')
             ->whereIn('id', array_map(intval(...), $this->productIds))
-            ->select('id', 'sku', 'values', 'attribute_family_id')
+            ->select('id', 'sku', 'parent_id', 'values', 'attribute_family_id')
             ->get();
+
+        $renderedValues = resolve(ProductValuesRenderer::class)->renderOwnRows($rows);
 
         $documents = [];
 
         foreach ($rows as $row) {
-            $document = $documentBuilder->build((int) $row->id, $row->sku, $row->values);
+            $document = $documentBuilder->build((int) $row->id, $row->sku, $renderedValues[$row->id] ?? $row->values);
 
             if ($document['text'] === '') {
                 continue;

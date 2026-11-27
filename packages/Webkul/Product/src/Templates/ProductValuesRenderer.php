@@ -96,6 +96,53 @@ class ProductValuesRenderer implements ProductValuesRendererContract
         return $renderedRows;
     }
 
+    /**
+     * Render the template sources of each row (id, parent_id, values) with its inherited values, keeping only the row's own keys, keyed by row id.
+     */
+    public function renderOwnRows(iterable $rows): array
+    {
+        $ownValues = [];
+
+        $templateRows = [];
+
+        foreach ($rows as $row) {
+            $id = (int) data_get($row, 'id');
+
+            $values = data_get($row, 'values');
+
+            $ownValues[$id] = is_string($values) ? (json_decode($values, true) ?? []) : (array) $values;
+
+            if (str_contains((string) json_encode($ownValues[$id]), '{{')) {
+                $templateRows[$id] = ['id' => $id, 'parent_id' => data_get($row, 'parent_id'), 'values' => $ownValues[$id]];
+            }
+        }
+
+        if ($templateRows === []) {
+            return $ownValues;
+        }
+
+        foreach ($this->renderRows($templateRows) as $id => $renderedValues) {
+            $ownValues[$id] = $this->replaceTemplateSources($ownValues[$id], $renderedValues);
+        }
+
+        return $ownValues;
+    }
+
+    private function replaceTemplateSources(array $ownValues, array $renderedValues): array
+    {
+        foreach ($ownValues as $key => $value) {
+            $renderedValue = $renderedValues[$key] ?? null;
+
+            if (is_array($value) && is_array($renderedValue)) {
+                $ownValues[$key] = $this->replaceTemplateSources($value, $renderedValue);
+            } elseif ($this->parser->containsTemplate($value) && is_string($renderedValue)) {
+                $ownValues[$key] = $renderedValue;
+            }
+        }
+
+        return $ownValues;
+    }
+
     private function renderSlices(array $values, array $slices): array
     {
         $templates = [];

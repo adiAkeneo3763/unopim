@@ -125,3 +125,29 @@ it('renders a template inherited from the parent with the variant values', funct
         ->and($variant->fresh()->values['common'])->not->toHaveKey('rv_description')
         ->and($parent->fresh()->values['common']['rv_description'])->toBe('{{ rv_color }} edition');
 });
+
+it('renders the own template sources of a row with inherited values and keeps only its own keys', function () {
+    $parent = Product::factory()->configurable()->create([
+        'values' => ['common' => ['rv_color' => 'Red']],
+    ]);
+
+    $variant = Product::factory()->create([
+        'parent_id' => $parent->id,
+        'values'    => ['common' => ['sku' => $parent->sku.'-red', 'rv_description' => '{{ rv_color }} edition']],
+    ]);
+
+    expect($this->valuesRenderer->renderOwnRows([$variant])[$variant->id]['common'])->toBe([
+        'sku'            => $parent->sku.'-red',
+        'rv_description' => 'Red edition',
+    ]);
+});
+
+it('returns the decoded own values of a row that holds no template', function () {
+    $parent = Product::factory()->configurable()->create([
+        'values' => ['common' => ['rv_color' => 'Red']],
+    ]);
+
+    $row = ['id' => 999999, 'parent_id' => $parent->id, 'values' => json_encode(['common' => ['rv_plain' => 'Plain text']])];
+
+    expect($this->valuesRenderer->renderOwnRows([$row]))->toBe([999999 => ['common' => ['rv_plain' => 'Plain text']]]);
+});

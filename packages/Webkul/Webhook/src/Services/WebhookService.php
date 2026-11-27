@@ -476,29 +476,14 @@ class WebhookService
             return $auditValues;
         }
 
-        $rendered = $this->productValuesRenderer()->renderRows([[
+        $rendered = $this->productValuesRenderer()->renderOwnRows([[
             'id'        => $product->getKey(),
             'parent_id' => $product->parent_id,
             'values'    => $ownValues,
-        ]])[$product->getKey()] ?? [];
+        ]])[$product->getKey()] ?? $ownValues;
 
-        $auditValues['values'] = json_encode($this->replaceTemplateSources($ownValues, $rendered));
+        $auditValues['values'] = json_encode($rendered);
 
         return $auditValues;
-    }
-
-    protected function replaceTemplateSources(array $ownValues, array $renderedValues): array
-    {
-        foreach ($ownValues as $key => $value) {
-            $renderedValue = $renderedValues[$key] ?? null;
-
-            if (is_array($value) && is_array($renderedValue)) {
-                $ownValues[$key] = $this->replaceTemplateSources($value, $renderedValue);
-            } elseif (is_string($value) && str_contains($value, '{{') && is_string($renderedValue)) {
-                $ownValues[$key] = $renderedValue;
-            }
-        }
-
-        return $ownValues;
     }
 }
