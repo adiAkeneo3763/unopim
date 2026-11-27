@@ -431,7 +431,8 @@ class MagicAIController extends Controller
             $prompt = $this->promptService->getPrompt(
                 $p,
                 $request->validated('resource_id'),
-                $request->validated('resource_type')
+                $request->validated('resource_type'),
+                renderTemplates: false,
             );
 
             $response = $magicAi
@@ -532,7 +533,8 @@ class MagicAIController extends Controller
                 $prompt = $this->promptService->getPrompt(
                     $p,
                     $request->validated('resource_id'),
-                    $request->validated('resource_type')
+                    $request->validated('resource_type'),
+                    renderTemplates: false,
                 );
 
                 $response = $magicAi

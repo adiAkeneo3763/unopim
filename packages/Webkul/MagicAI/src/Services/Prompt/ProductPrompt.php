@@ -36,7 +36,7 @@ class ProductPrompt extends AbstractPrompt
     /**
      * Replaces placeholders in the prompt with product attribute values.
      */
-    public function updatePrompt(string $prompt, int $productId): string
+    public function updatePrompt(string $prompt, int $productId, bool $renderTemplates = true): string
     {
         $product = $this->getProductById($productId);
 
@@ -48,6 +48,10 @@ class ProductPrompt extends AbstractPrompt
         $productData = $product->toArray();
         $locale = core()->getRequestedLocaleCode();
         $channel = core()->getRequestedChannelCode();
+
+        if ($renderTemplates) {
+            $productData['values'] = $product->renderedValues($channel, $locale);
+        }
 
         $values = array_merge(
             ProductValueMapperFacade::getChannelLocaleSpecificFields($productData, $channel, $locale),

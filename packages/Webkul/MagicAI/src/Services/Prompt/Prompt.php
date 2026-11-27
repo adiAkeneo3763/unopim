@@ -6,11 +6,11 @@ class Prompt
 {
     protected $typeInstance;
 
-    public function getPrompt(string $prompt, int $resourceId, string $resourceType)
+    public function getPrompt(string $prompt, int $resourceId, string $resourceType, bool $renderTemplates = true)
     {
         $typeInstance = $this->getTypeInstance($resourceType);
 
-        return $typeInstance ? $this->getTypeInstance($resourceType)->updatePrompt($prompt, $resourceId) : $prompt;
+        return $typeInstance ? $this->getTypeInstance($resourceType)->updatePrompt($prompt, $resourceId, $renderTemplates) : $prompt;
     }
 
     public function getTypeInstance($resourceType)
