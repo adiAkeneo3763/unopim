@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Log;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Webkul\Core\Facades\ElasticSearch;
 use Webkul\ElasticSearch\Indexing\Normalizer\ProductNormalizer;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 use Webkul\Product\Models\Product;
 
 #[Description('Index all products into Elasticsearch')]
@@ -28,8 +29,10 @@ class ProductIndexer extends Command
      */
     const BULK_DOCUMENTS = 500;
 
-    public function __construct(protected ProductNormalizer $productIndexingNormalizer)
-    {
+    public function __construct(
+        protected ProductNormalizer $productIndexingNormalizer,
+        protected ProductValuesRenderer $productValuesRenderer,
+    ) {
         parent::__construct();
     }
 
@@ -175,6 +178,7 @@ class ProductIndexer extends Command
 
             $productsToUpdate = [];
             $payloadByProductId = [];
+            $staleProducts = [];
 
             foreach ($products as $productDB) {
                 $product = new Product;
@@ -195,32 +199,38 @@ class ProductIndexer extends Command
                     )
                     || ! isset($elasticProduct[$productId])
                 ) {
-                    if (! empty($product->values)) {
-                        $product->values = $this->productIndexingNormalizer->normalize($product->values);
-                    }
-
-                    $product = $product->toArray();
-
-                    $product['status'] = (bool) ($product['status'] ?? true);
-                    if (isset($product['attribute_family']['status'])) {
-                        $product['attribute_family']['status'] = (bool) $product['attribute_family']['status'];
-                    }
-
-                    $product = $this->sanitizeDocumentKeys($product);
-
-                    $productsToUpdate['body'][] = [
-                        'index' => [
-                            '_index' => $productIndex,
-                            '_id'    => $productId,
-                        ],
-                    ];
-
-                    $productsToUpdate['body'][] = $product;
-
-                    $payloadByProductId[$productId] = $product;
+                    $staleProducts[$productId] = $product;
                 }
 
                 $progressBar?->advance();
+            }
+
+            $renderedValues = $this->productValuesRenderer->renderRows($staleProducts);
+
+            foreach ($staleProducts as $productId => $product) {
+                if (! empty($product->values)) {
+                    $product->values = $this->productIndexingNormalizer->normalize($renderedValues[$productId]);
+                }
+
+                $product = $product->toArray();
+
+                $product['status'] = (bool) ($product['status'] ?? true);
+                if (isset($product['attribute_family']['status'])) {
+                    $product['attribute_family']['status'] = (bool) $product['attribute_family']['status'];
+                }
+
+                $product = $this->sanitizeDocumentKeys($product);
+
+                $productsToUpdate['body'][] = [
+                    'index' => [
+                        '_index' => $productIndex,
+                        '_id'    => $productId,
+                    ],
+                ];
+
+                $productsToUpdate['body'][] = $product;
+
+                $payloadByProductId[$productId] = $product;
             }
 
             if ($productsToUpdate !== []) {

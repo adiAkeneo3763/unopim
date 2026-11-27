@@ -37,6 +37,7 @@ use Webkul\DataTransfer\Repositories\JobTrackBatchRepository;
 use Webkul\ElasticSearch\Indexing\Normalizer\ProductNormalizer;
 use Webkul\ElasticSearch\Observers\Product as ElasticProductObserver;
 use Webkul\Measurement\Helpers\MeasurementHelper;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 use Webkul\Product\Contracts\VariantStructurePlanner as VariantStructurePlannerContract;
 use Webkul\Product\Enums\ProductType;
 use Webkul\Product\Enums\VariantLevel;
@@ -3537,6 +3538,8 @@ class Importer extends AbstractImporter
             ->select('id', 'sku', 'type', 'parent_id', 'attribute_family_id', 'values', 'status', 'created_at', 'updated_at')
             ->get();
 
+        $renderedValues = resolve(ProductValuesRenderer::class)->renderRows($products);
+
         $productsToUpdate = [];
 
         foreach ($products as $productDB) {
@@ -3546,8 +3549,7 @@ class Importer extends AbstractImporter
              * Use raw string json_decode only once, and use substr for date
              * year extraction where applicable — avoid DateTime object creation.
              */
-            $productDB['values'] = is_string($productDB['values']) ? json_decode($productDB['values'], true) : $productDB['values'];
-            $productDB['values'] = $productIndexingNormalizer->normalize($productDB['values']);
+            $productDB['values'] = $productIndexingNormalizer->normalize($renderedValues[$productDB['id']]);
 
             /**
              * Use substr for ISO date format instead of Carbon::parse()

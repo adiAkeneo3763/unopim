@@ -8,6 +8,7 @@ use Webkul\Attribute\Services\AttributeService;
 use Webkul\Core\Models\Channel;
 use Webkul\Product\Contracts\ProductValuesRenderer as ProductValuesRendererContract;
 use Webkul\Product\Contracts\TemplateRenderer;
+use Webkul\Product\Contracts\VariantValueResolver;
 use Webkul\Product\Type\AbstractType;
 
 class ProductValuesRenderer implements ProductValuesRendererContract
@@ -21,6 +22,7 @@ class ProductValuesRenderer implements ProductValuesRendererContract
         protected TemplateRenderer $renderer,
         protected TemplateParser $parser,
         protected AttributeService $attributeService,
+        protected VariantValueResolver $variantValueResolver,
     ) {}
 
     /**
@@ -64,6 +66,34 @@ class ProductValuesRenderer implements ProductValuesRendererContract
         }
 
         return $this->renderSlices($values, $slices);
+    }
+
+    /**
+     * Render every scope of each row (id, parent_id, values) with its inherited values, keyed by row id.
+     */
+    public function renderRows(iterable $rows): array
+    {
+        $decodedRows = [];
+
+        foreach ($rows as $row) {
+            $values = data_get($row, 'values');
+
+            $decodedRows[(int) data_get($row, 'id')] = [
+                'id'        => (int) data_get($row, 'id'),
+                'parent_id' => data_get($row, 'parent_id'),
+                'values'    => is_string($values) ? (json_decode($values, true) ?? []) : (array) $values,
+            ];
+        }
+
+        $resolvedValues = $this->variantValueResolver->resolveBatch($decodedRows);
+
+        $renderedRows = [];
+
+        foreach ($decodedRows as $id => $row) {
+            $renderedRows[$id] = $this->renderAllScopes($resolvedValues[$id] ?? $row['values']);
+        }
+
+        return $renderedRows;
     }
 
     private function renderSlices(array $values, array $slices): array

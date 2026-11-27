@@ -7,6 +7,7 @@ use Illuminate\Contracts\Events\ShouldHandleEventsAfterCommit;
 use Illuminate\Support\Facades\Log;
 use Webkul\Core\Facades\ElasticSearch;
 use Webkul\ElasticSearch\Indexing\Normalizer\ProductNormalizer;
+use Webkul\Product\Contracts\ProductValuesRenderer;
 use Webkul\Product\Models\Product as Products;
 
 class Product implements ShouldHandleEventsAfterCommit
@@ -47,8 +48,10 @@ class Product implements ShouldHandleEventsAfterCommit
      */
     private $indexPrefix;
 
-    public function __construct(protected ProductNormalizer $productIndexingNormalizer)
-    {
+    public function __construct(
+        protected ProductNormalizer $productIndexingNormalizer,
+        protected ProductValuesRenderer $productValuesRenderer,
+    ) {
         $this->indexPrefix = config('elasticsearch.prefix');
     }
 
@@ -59,14 +62,8 @@ class Product implements ShouldHandleEventsAfterCommit
 
             $productArray = $this->sanitizeProductArray($productArray);
 
-            // Index the variant's resolved (inherited) values so search and
-            // filters see attributes owned by an ancestor. Read-time inheritance.
-            if (! empty($product->parent_id)) {
-                $productArray['values'] = $product->resolvedValues();
-            }
-
             if (isset($productArray['values'])) {
-                $productArray['values'] = $this->productIndexingNormalizer->normalize($productArray['values']);
+                $productArray['values'] = $this->productIndexingNormalizer->normalize($this->productValuesRenderer->renderRows([$product])[$product->id]);
             }
 
             try {
@@ -92,14 +89,8 @@ class Product implements ShouldHandleEventsAfterCommit
 
                 $productArray = $this->sanitizeProductArray($productArray);
 
-                // Index the variant's resolved (inherited) values so search and
-                // filters see attributes owned by an ancestor. Read-time inheritance.
-                if (! empty($product->parent_id)) {
-                    $productArray['values'] = $product->resolvedValues();
-                }
-
                 if (isset($productArray['values'])) {
-                    $productArray['values'] = $this->productIndexingNormalizer->normalize($productArray['values']);
+                    $productArray['values'] = $this->productIndexingNormalizer->normalize($this->productValuesRenderer->renderRows([$product])[$product->id]);
                 }
 
                 ElasticSearch::index([
